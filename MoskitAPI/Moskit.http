@@ -1,0 +1,6 @@
+@MoskitAPI_HostAddress = http://localhost:5262
+
+GET {{MoskitAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

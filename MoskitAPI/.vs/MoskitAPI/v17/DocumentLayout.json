@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|c:\\users\\thabo mosia\\source\\repos\\moskitapi\\areas\\inventory\\services\\itemstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|solutionrelative:areas\\inventory\\services\\itemstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|c:\\users\\thabo mosia\\source\\repos\\moskitapi\\core\\operations\\transactionresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|solutionrelative:core\\operations\\transactionresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|c:\\users\\thabo mosia\\source\\repos\\moskitapi\\core\\operations\\transactionerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|solutionrelative:core\\operations\\transactionerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|c:\\users\\thabo mosia\\source\\repos\\moskitapi\\extensions\\identity\\identityerrordescriberext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|solutionrelative:extensions\\identity\\identityerrordescriberext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|c:\\users\\thabo mosia\\source\\repos\\moskitapi\\models\\entity\\salesspace\\salesdocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|solutionrelative:models\\entity\\salesspace\\salesdocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|c:\\users\\thabo mosia\\source\\repos\\moskitapi\\models\\entity\\inventoryspace\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|solutionrelative:models\\entity\\inventoryspace\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|c:\\users\\thabo mosia\\source\\repos\\moskitapi\\models\\entity\\salesspace\\salesorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Moskit.csproj|solutionrelative:models\\entity\\salesspace\\salesorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 171,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IdentityErrorDescriberExt.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Extensions\\Identity\\IdentityErrorDescriberExt.cs",
+              "RelativeDocumentMoniker": "Extensions\\Identity\\IdentityErrorDescriberExt.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Extensions\\Identity\\IdentityErrorDescriberExt.cs",
+              "RelativeToolTip": "Extensions\\Identity\\IdentityErrorDescriberExt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T22:13:51.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TransactionResult.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Core\\Operations\\TransactionResult.cs",
+              "RelativeDocumentMoniker": "Core\\Operations\\TransactionResult.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Core\\Operations\\TransactionResult.cs",
+              "RelativeToolTip": "Core\\Operations\\TransactionResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T22:13:36.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TransactionError.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Core\\Operations\\TransactionError.cs",
+              "RelativeDocumentMoniker": "Core\\Operations\\TransactionError.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Core\\Operations\\TransactionError.cs",
+              "RelativeToolTip": "Core\\Operations\\TransactionError.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T22:13:35.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SalesDocument.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Models\\Entity\\SalesSpace\\SalesDocument.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\SalesSpace\\SalesDocument.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Models\\Entity\\SalesSpace\\SalesDocument.cs",
+              "RelativeToolTip": "Models\\Entity\\SalesSpace\\SalesDocument.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAAB8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T22:07:40.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SalesOrder.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Models\\Entity\\SalesSpace\\SalesOrder.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\SalesSpace\\SalesOrder.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Models\\Entity\\SalesSpace\\SalesOrder.cs",
+              "RelativeToolTip": "Models\\Entity\\SalesSpace\\SalesOrder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T22:07:30.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Models\\Entity\\InventorySpace\\Item.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\InventorySpace\\Item.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Models\\Entity\\InventorySpace\\Item.cs",
+              "RelativeToolTip": "Models\\Entity\\InventorySpace\\Item.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T22:06:24.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ItemStore.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Areas\\Inventory\\Services\\ItemStore.cs",
+              "RelativeDocumentMoniker": "Areas\\Inventory\\Services\\ItemStore.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Areas\\Inventory\\Services\\ItemStore.cs",
+              "RelativeToolTip": "Areas\\Inventory\\Services\\ItemStore.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABoAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T21:40:22.135Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
