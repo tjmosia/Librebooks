@@ -10,7 +10,6 @@ using Moskit.Models.Entity.InventorySpace;
 using Moskit.Models.Entity.PurchasesSpace;
 using Moskit.Models.Entity.SalesSpace;
 using Moskit.Models.Entity.SupplierSpace;
-using Moskit.Models.Entity.SystemSpace;
 
 namespace Moskit.Models.Entity.CompanySpace
 {
@@ -34,8 +33,8 @@ namespace Moskit.Models.Entity.CompanySpace
 
         public virtual ICollection<CompanyUser>? Users { get; set; }
         public virtual ICollection<DocumentSetup>? DocumentSetups { get; set; }
-        public virtual RegionalSettings? RegionalSettings { get; set; }
-        public virtual MailSettings? MailSettings { get; set; }
+        public virtual CompanyRegionalSettings? RegionalSettings { get; set; }
+        public virtual CompanyMailSettings? MailSettings { get; set; }
         public virtual ICollection<CompanyValueAddedTax>? ValueAddedTaxes { get; set; }
         public virtual CompanyDefaultValueAddedTax? DefaultVAT { get; set; }
         public virtual ICollection<SalesPerson>? SalesReps { get; set; }
@@ -76,13 +75,13 @@ namespace Moskit.Models.Entity.CompanySpace
 
                 options.HasOne(p => p.RegionalSettings)
                     .WithOne(p => p.Company)
-                    .HasForeignKey<RegionalSettings>(p => p.CompanyId)
+                    .HasForeignKey<CompanyRegionalSettings>(p => p.CompanyId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Cascade);
 
                 options.HasOne(p => p.MailSettings)
                     .WithOne(p => p.Company)
-                    .HasForeignKey<MailSettings>(p => p.CompanyId)
+                    .HasForeignKey<CompanyMailSettings>(p => p.CompanyId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Cascade);
 

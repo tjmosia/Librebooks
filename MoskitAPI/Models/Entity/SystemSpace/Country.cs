@@ -7,8 +7,6 @@ namespace Moskit.Models.Entity.SystemSpace
     public class Country
     {
         public virtual string? Code { get; set; }
-        public virtual string? Code3 { get; set; }
-        public virtual short Numeric { get; set; }
         public virtual string? Name { get; set; }
         public virtual string? DialingCode { get; set; }
 
@@ -26,12 +24,6 @@ namespace Moskit.Models.Entity.SystemSpace
                     .IsUnique();
 
                 options.Property(p => p.Code)
-                    .HasMaxLength(3);
-
-                options.Property(p => p.Code3)
-                    .HasMaxLength(3);
-
-                options.Property(p => p.Numeric)
                     .HasMaxLength(3);
             });
     }

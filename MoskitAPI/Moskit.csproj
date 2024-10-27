@@ -7,8 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.10" />
@@ -20,15 +22,16 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore" Version="8.0.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Areas\Companies\Data\" />
-    <Folder Include="Areas\Inventory\Controllers\" />
     <Folder Include="Areas\Inventory\Data\" />
-    <Folder Include="Areas\Inventory\Models\" />
     <Folder Include="Areas\Purchases\Controllers\" />
     <Folder Include="Areas\Purchases\Data\" />
     <Folder Include="Areas\Purchases\Models\" />
@@ -37,6 +40,8 @@
     <Folder Include="Areas\Sales\Data\" />
     <Folder Include="Areas\Sales\Models\" />
     <Folder Include="Areas\Sales\Services\" />
+    <Folder Include="Areas\SystemSetups\Data\" />
+    <Folder Include="Areas\SystemSetups\Models\" />
     <Folder Include="Providers\Managers\" />
   </ItemGroup>
 

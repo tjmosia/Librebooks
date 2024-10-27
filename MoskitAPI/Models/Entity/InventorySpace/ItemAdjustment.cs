@@ -1,7 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 using Microsoft.EntityFrameworkCore;
+
+using Moskit.Core.Types;
+using Moskit.Models.Entity.CompanySpace;
 
 namespace Moskit.Models.Entity.InventorySpace
 {

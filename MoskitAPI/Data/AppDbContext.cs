@@ -22,6 +22,8 @@ namespace Moskit.Data
         public AppDbContext (DbContextOptions<AppDbContext> options)
             : base(options) { }
 
+        public AppDbContext () { }
+
         /************************************************************************************************
          * Cmmpany Space
          ************************************************************************************************/
@@ -30,6 +32,7 @@ namespace Moskit.Data
         public DbSet<CompanyDefaultValueAddedTax> CompanyDefaultVAT { get; set; }
         public DbSet<CompanyDefaultBankAccount> CompanyDefaultBankAccount { get; set; }
         public DbSet<CompanyValueAddedTax> CompanyValueAddedTax { get; set; }
+        public DbSet<CompanyMailSettings> CompanyMailSettings { get; set; }
 
         /************************************************************************************************
          * Customer Space
@@ -40,6 +43,7 @@ namespace Moskit.Data
         public DbSet<CustomerCategory> CustomerCategory { get; set; }
         public DbSet<CustomerContact> CustomerContact { get; set; }
         public DbSet<CustomerNote> CustomerNote { get; set; }
+        public DbSet<CompanyRegionalSettings> CompanyRegionalSettings { get; set; }
 
         /************************************************************************************************
          * Sales Space
@@ -93,15 +97,13 @@ namespace Moskit.Data
          ************************************************************************************************/
         public DbSet<ShippingTerm> ShippingTerm { get; set; }
         public DbSet<ShippingMethod> ShippingMethod { get; set; }
-        public DbSet<RegionalSettings> RegionalSettings { get; set; }
         public DbSet<Country> Country { get; set; }
         public DbSet<Currency> Currency { get; set; }
         public DbSet<DateFormat> DateFormat { get; set; }
-        public DbSet<MailSettings> MailSettings { get; set; }
         public DbSet<ValueAddedTax> ValueAddedTax { get; set; }
         public DbSet<PaymentMethod> PaymentMethod { get; set; }
         public DbSet<PaymentTerm> PaymentTerm { get; set; }
-        public DbSet<SystemCompanySetup> SystemCompanySetup { get; set; }
+        public DbSet<SystemCompanyNumber> SystemCompanyNumber { get; set; }
 
         /************************************************************************************************
          * Supplier Space

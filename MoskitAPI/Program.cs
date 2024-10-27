@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
+using Moskit.Areas.SystemSetups.Services;
 using Moskit.Data;
 using Moskit.Extensions.Identity;
 using Moskit.Models.Entity.IdentitySpace;
@@ -17,6 +18,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlite(Configuration.GetConnectionString("MoskitContext"));
 });
+
+builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddIdentity<User, Role>
     (options =>
@@ -84,6 +87,9 @@ builder.Services.AddAuthentication(options =>
 }).AddBearerToken();
 
 builder.Services.AddSingleton<IdentityErrorDescriberExt>();
+//builder.Services.AddSingleton<DbErrorDescriber>();
+
+builder.Services.AddScoped<SystemStore>();
 
 builder.Services.AddCors(options =>
 {

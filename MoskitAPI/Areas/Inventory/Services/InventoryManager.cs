@@ -1,6 +1,6 @@
 ﻿namespace Moskit.Areas.Inventory.Services
 {
-    public class InventoryManager : IInventoryManager
+    public class InventoryManager : IInventotyManager
     {
     }
 }

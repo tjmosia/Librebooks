@@ -1,11 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-
-using Moskit.CoreLib.Operations;
+﻿using Moskit.CoreLib.Operations;
 using Moskit.Data;
 using Moskit.Extensions.Identity;
 using Moskit.Models.Entity.InventorySpace;
@@ -18,7 +11,7 @@ namespace Moskit.Areas.Inventory.Services
         private readonly ILogger<ItemStore> logger = logger;
         private readonly IdentityErrorDescriberExt errorDescriber = errorDescriber;
 
-        public async Task<Item> CreateAsync (Item item)
+        public async Task<TransactionResult<Item>> CreateAsync (Item item)
         {
             ArgumentNullException.ThrowIfNull(nameof(item));
 
@@ -26,21 +19,9 @@ namespace Moskit.Areas.Inventory.Services
                 if (FindByCode(item.Code!) != null)
                     return TransactionResult<Item>.Failure(TransactionError.FromIE(errorDescriber.Duplicate("Item Code already exist.")));
 
-            try
-            {
-                var result = await context.Item.AddAsync(item);
-                await context.SaveChangesAsync();
-                return result.Entity;
-            }
-            catch (OperationCanceledException ex)
-            {
-                logger.LogError("Item CreateAsync Operation Cancelled.");
-
-            }
-            catch (DbUpdateException ex)
-            {
-
-            }
+            var result = await context.Item.AddAsync(item);
+            await context.SaveChangesAsync();
+            return TransactionResult<Item>.Success(result.Entity);
         }
 
         public Item? FindById (string id)

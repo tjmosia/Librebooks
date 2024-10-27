@@ -8,6 +8,7 @@ namespace Moskit.Models.Entity.SystemSpace
     {
         public virtual string? Id { get; set; }
         public virtual string? Name { get; set; }
+        public virtual string? ShortName { get; set; }
         public virtual string? Description { get; set; }
 
         [Timestamp, ConcurrencyCheck]
@@ -24,6 +25,9 @@ namespace Moskit.Models.Entity.SystemSpace
                     .IsClustered();
 
                 options.HasIndex(p => p.Name)
+                    .IsUnique();
+
+                options.HasIndex(p => p.ShortName)
                     .IsUnique();
             });
     }

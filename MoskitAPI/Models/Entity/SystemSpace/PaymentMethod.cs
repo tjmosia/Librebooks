@@ -27,6 +27,9 @@ namespace Moskit.Models.Entity.SystemSpace
                 options.ToTable(nameof(PaymentMethod))
                     .HasKey(x => x.Id);
 
+                options.HasIndex(p => p.Name)
+                    .IsUnique();
+
                 options.HasMany<BankAccount>()
                     .WithOne(p => p.PaymentMethod)
                     .HasForeignKey(p => p.PaymentMethodId)

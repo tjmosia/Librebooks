@@ -8,6 +8,7 @@ namespace Moskit.Models.Entity.SystemSpace
     {
         public virtual string? Id { get; set; }
         public virtual string? Name { get; set; }
+        public virtual string? ShortName { get; set; }
         public virtual string? Type { get; set; }
         public virtual string? Description { get; set; }
 

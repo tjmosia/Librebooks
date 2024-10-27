@@ -76,8 +76,8 @@ namespace Moskit.Models.Entity
             /************************************************************************************************
              * System Space
              ************************************************************************************************/
-            MailSettings.BuildModel(builder);
-            RegionalSettings.BuildModel(builder);
+            CompanyMailSettings.BuildModel(builder);
+            CompanyRegionalSettings.BuildModel(builder);
             Country.BuildModel(builder);
             Currency.BuildModel(builder);
             DateFormat.BuildModel(builder);
@@ -85,7 +85,7 @@ namespace Moskit.Models.Entity
             ShippingMethod.BuildModel(builder);
             ShippingTerm.BuildModel(builder);
             PaymentMethod.BuildModel(builder);
-            SystemCompanySetup.BuildModel(builder);
+            SystemCompanyNumber.BuildModel(builder);
 
             /************************************************************************************************
              * Customer Space

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Moskit.csproj": {}
+    "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\MoskitAPI\\Moskit.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Moskit.csproj": {
+    "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\MoskitAPI\\Moskit.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Moskit.csproj",
+        "projectUniqueName": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\MoskitAPI\\Moskit.csproj",
         "projectName": "Moskit",
-        "projectPath": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\Moskit.csproj",
+        "projectPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\MoskitAPI\\Moskit.csproj",
         "packagesPath": "C:\\Users\\Thabo Mosia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Thabo Mosia\\source\\repos\\MoskitAPI\\obj\\",
+        "outputPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\MoskitAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thabo Mosia\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,11 +46,19 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.10, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[8.0.10, )"
             },
@@ -88,13 +96,25 @@
               "target": "Package",
               "version": "[8.1.2, )"
             },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.6, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[8.0.5, )"
             }
           },
           "imports": [
