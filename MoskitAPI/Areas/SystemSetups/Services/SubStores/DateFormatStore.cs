@@ -1,13 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+using Moskit.Core.EFCore;
 using Moskit.Data;
 using Moskit.Models.Entity.SystemSpace;
 
 namespace Moskit.Areas.SystemSetups.Services.SubStores
 {
-    public class DateFormatStore (AppDbContext? context)
+    public class DateFormatStore : DbStoreBase
     {
-        private readonly AppDbContext? context = context;
+        public DateFormatStore (AppDbContext? context, ILogger? logger)
+            : base(context, logger) { }
 
         public async Task<DateFormat> CreateAsync (DateFormat dateFormat)
         {

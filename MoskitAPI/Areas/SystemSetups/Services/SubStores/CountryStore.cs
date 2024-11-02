@@ -9,10 +9,10 @@ using Moskit.Models.Entity.SystemSpace;
 
 namespace Moskit.Areas.SystemSetups.Services.SubStores
 {
-    public class CountryStore (AppDbContext? context, ILogger? logger)
+    public class CountryStore : DbStoreBase
     {
-        private readonly AppDbContext? context = context;
-        private readonly ILogger? logger = logger;
+        public CountryStore (AppDbContext? context, ILogger? logger)
+            : base(context, logger) { }
 
         /// <exception cref="DbUpdateException"/>
         public async Task<TransactionResult<Country>> CreateAsync (Country country)
@@ -47,6 +47,15 @@ namespace Moskit.Areas.SystemSetups.Services.SubStores
             }
         }
 
+        /// <exception cref="DbUpdateException"/>
+        public async Task<Country> UpdateAync (Country country)
+        {
+            var result = context!.Country.Update(country);
+            await context.SaveChangesAsync();
+
+            return result.Entity;
+        }
+
         public async Task<Country?> FindByCodeAsync (string code)
             => await context!.Country.FindAsync(code);
 
@@ -63,5 +72,6 @@ namespace Moskit.Areas.SystemSetups.Services.SubStores
 
         public async Task<IList<Country>> FindAllAsync ()
             => await context!.Country.ToListAsync();
+
     }
 }

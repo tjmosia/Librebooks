@@ -1,17 +1,28 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+using Moskit.Core.EFCore;
 using Moskit.Data;
 using Moskit.Models.Entity.SystemSpace;
 
 namespace Moskit.Areas.SystemSetups.Services.SubStores
 {
-    public class PaymentMethodStore (AppDbContext? context)
+    public class PaymentMethodStore : DbStoreBase
     {
-        private readonly AppDbContext? context = context;
+        public PaymentMethodStore (AppDbContext? context, ILogger? logger)
+            : base(context, logger) { }
 
+        /// <exception cref="DbUpdateException"/>
         public async Task<PaymentMethod> CreateAsync (PaymentMethod method)
         {
             var result = await context!.PaymentMethod.AddAsync(method);
+            await context.SaveChangesAsync();
+            return result.Entity;
+        }
+
+        /// <exception cref="DbUpdateException"/>
+        public async Task<PaymentMethod> UpdateAsync (PaymentMethod method)
+        {
+            var result = context!.PaymentMethod.Update(method);
             await context.SaveChangesAsync();
             return result.Entity;
         }

@@ -1,13 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+using Moskit.Core.EFCore;
 using Moskit.Data;
 using Moskit.Models.Entity.SystemSpace;
 
 namespace Moskit.Areas.SystemSetups.Services.SubStores
 {
-    public class ShippingMethodStore (AppDbContext? context)
+    public class ShippingMethodStore : DbStoreBase
     {
-        private readonly AppDbContext? context = context;
+        public ShippingMethodStore (AppDbContext? context, ILogger? logger)
+            : base(context, logger) { }
 
         public async Task<ShippingMethod> CreateAsync (ShippingMethod method)
         {

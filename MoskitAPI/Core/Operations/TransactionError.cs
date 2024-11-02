@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace Moskit.CoreLib.Operations
 {
@@ -8,7 +6,7 @@ namespace Moskit.CoreLib.Operations
     {
         public TransactionError () { }
 
-        public TransactionError (string code, string description)
+        public TransactionError (string code, string description = "")
         {
             Code = code;
             Description = description;

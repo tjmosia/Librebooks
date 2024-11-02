@@ -5,7 +5,8 @@ using Moskit.Models.Entity.SystemSpace;
 
 namespace Moskit.Areas.SystemSetups.Services
 {
-    public class SystemManager (SystemStore systemStore, IDistributedCache cache) : ISystemManager
+    public class SystemManager (SystemStore systemStore, IDistributedCache cache)
+        : ISystemManager
     {
         private readonly SystemStore systemStore = systemStore;
         private readonly IDistributedCache cache = cache;

@@ -9,10 +9,10 @@ using Moskit.Models.Entity.SystemSpace;
 
 namespace Moskit.Areas.SystemSetups.Services.SubStores
 {
-    public class ValueAddedTaxStore (AppDbContext context, ILogger? logger)
+    public class ValueAddedTaxStore : DbStoreBase
     {
-        private readonly AppDbContext? context = context;
-        private readonly ILogger? logger = logger;
+        public ValueAddedTaxStore (AppDbContext? context, ILogger? logger)
+            : base(context, logger) { }
 
         /// <exception cref="DbUpdateException"/>
         public async Task<TransactionResult<ValueAddedTax>> CreateAsync (ValueAddedTax vat)

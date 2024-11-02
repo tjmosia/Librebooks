@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 using Moskit.Areas.SystemSetups.Services;
+using Moskit.Core.EFCore;
 using Moskit.Data;
 using Moskit.Extensions.Identity;
 using Moskit.Models.Entity.IdentitySpace;
@@ -88,7 +89,7 @@ builder.Services.AddAuthentication(options =>
 }).AddBearerToken();
 
 builder.Services.AddSingleton<IdentityErrorDescriberExt>();
-
+builder.Services.AddSingleton<DBErrorDescriber>();
 builder.Services.AddScoped<SystemStore>();
 builder.Services.AddScoped<ISystemManager, SystemManager>();
 

@@ -1,17 +1,29 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+using Moskit.Core.EFCore;
 using Moskit.Data;
 using Moskit.Models.Entity.SystemSpace;
 
 namespace Moskit.Areas.SystemSetups.Services.SubStores
 {
-    public class CurrencyStore (AppDbContext? context)
+    public class CurrencyStore : DbStoreBase
     {
-        private readonly AppDbContext? context = context;
+        public CurrencyStore (AppDbContext? context, ILogger? logger)
+            : base(context, logger) { }
 
+        /// <exception cref="DbUpdateException"/>
         public async Task<Currency> CreateAsync (Currency currency)
         {
             var result = await context!.Currency.AddAsync(currency);
+            await context.SaveChangesAsync();
+
+            return result.Entity;
+        }
+
+        /// <exception cref="DbUpdateException"/>
+        public async Task<Currency> UpdateAync (Currency currency)
+        {
+            var result = context!.Currency.Update(currency);
             await context.SaveChangesAsync();
 
             return result.Entity;
