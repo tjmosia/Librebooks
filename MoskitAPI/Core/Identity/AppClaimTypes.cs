@@ -1,4 +1,4 @@
-﻿namespace Moskit.Core.Identity
+﻿namespace OskitAPI.Core.Identity
 {
     public class AppClaimTypes
     {

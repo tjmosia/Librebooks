@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.GeneralSpace;
+using OskitAPI.Models.Entity.GeneralSpace;
 
-namespace Moskit.Models.Entity.PurchasesSpace
+namespace OskitAPI.Models.Entity.PurchasesSpace
 {
     public class PurchaseDocumentNote
     {

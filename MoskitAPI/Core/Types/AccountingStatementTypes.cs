@@ -1,4 +1,4 @@
-﻿namespace Moskit.CoreLib.Types
+﻿namespace OskitAPI.CoreLib.Types
 {
     public class AccountingStatementTypes
     {

@@ -1,4 +1,4 @@
-namespace Moskit
+namespace OskitAPI
 {
     public class WeatherForecast
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Moskit.Areas.Inventory.Models
+namespace OskitAPI.Areas.Inventory.Models
 {
     public class ItemInputModel
     {

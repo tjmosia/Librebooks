@@ -1,4 +1,4 @@
-﻿namespace Moskit.Core.Types
+﻿namespace OskitAPI.Core.Types
 {
     public class EmailVerificationTypes
     {

@@ -2,7 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Moskit.Models.Entity.DocumentSpace
+namespace OskitAPI.Models.Entity.DocumentSpace
 {
     public class DocumentPrintTemplate
     {

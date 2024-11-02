@@ -2,10 +2,10 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.PurchasesSpace;
-using Moskit.Models.Entity.SalesSpace;
+using OskitAPI.Models.Entity.PurchasesSpace;
+using OskitAPI.Models.Entity.SalesSpace;
 
-namespace Moskit.Models.Entity.DocumentSpace
+namespace OskitAPI.Models.Entity.DocumentSpace
 {
     public class DocumentStatus
     {

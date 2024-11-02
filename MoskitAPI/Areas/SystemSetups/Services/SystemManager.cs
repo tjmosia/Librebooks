@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
 
-using Moskit.CoreLib.Operations;
-using Moskit.Models.Entity.SystemSpace;
+using OskitAPI.CoreLib.Operations;
+using OskitAPI.Models.Entity.SystemSpace;
 
-namespace Moskit.Areas.SystemSetups.Services
+namespace OskitAPI.Areas.SystemSetups.Services
 {
     public class SystemManager (SystemStore systemStore, IDistributedCache cache)
         : ISystemManager

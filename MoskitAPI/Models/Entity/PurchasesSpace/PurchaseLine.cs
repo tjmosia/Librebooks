@@ -2,10 +2,10 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
-using Moskit.Models.Entity.CompanySpace;
+using OskitAPI.Core.Types;
+using OskitAPI.Models.Entity.CompanySpace;
 
-namespace Moskit.Models.Entity.PurchasesSpace
+namespace OskitAPI.Models.Entity.PurchasesSpace
 {
     public class PurchaseLine
     {

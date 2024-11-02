@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using Microsoft.EntityFrameworkCore;
-namespace Moskit.Models.Entity.BankingSpace
+namespace OskitAPI.Models.Entity.BankingSpace
 {
     public class BankAccountCategory
     {

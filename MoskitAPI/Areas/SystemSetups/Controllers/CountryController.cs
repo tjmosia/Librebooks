@@ -2,10 +2,10 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-using Moskit.Areas.SystemSetups.Services;
-using Moskit.Models.Entity.SystemSpace;
+using OskitAPI.Areas.SystemSetups.Services;
+using OskitAPI.Models.Entity.SystemSpace;
 
-namespace Moskit.Areas.SystemSetups.Controllers
+namespace OskitAPI.Areas.SystemSetups.Controllers
 {
     [Route("api/countries")]
     [ApiController]

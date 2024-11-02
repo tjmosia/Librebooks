@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
+using OskitAPI.Core.Types;
 
-namespace Moskit.Models.Entity.SalesSpace
+namespace OskitAPI.Models.Entity.SalesSpace
 {
     public class SalesInvoiceReceipt
     {

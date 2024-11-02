@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.GeneralSpace;
+using OskitAPI.Models.Entity.GeneralSpace;
 
-namespace Moskit.Models.Entity.SupplierSpace
+namespace OskitAPI.Models.Entity.SupplierSpace
 {
     public class SupplierNote
     {

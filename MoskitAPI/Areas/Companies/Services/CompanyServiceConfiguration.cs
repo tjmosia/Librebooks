@@ -1,4 +1,4 @@
-﻿namespace Moskit.Areas.Companies.Services
+﻿namespace OskitAPI.Areas.Companies.Services
 {
     public class CompanyServiceConfiguration
     {

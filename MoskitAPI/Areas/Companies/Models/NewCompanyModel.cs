@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Moskit.Areas.Companies.Models
+namespace OskitAPI.Areas.Companies.Models
 {
     public class NewCompanyModel
     {

@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.EFCore;
-using Moskit.CoreLib.Operations;
-using Moskit.Data;
-using Moskit.Models.Entity.InventorySpace;
+using OskitAPI.Core.EFCore;
+using OskitAPI.CoreLib.Operations;
+using OskitAPI.Data;
+using OskitAPI.Models.Entity.InventorySpace;
 
-namespace Moskit.Areas.Inventory.Services
+namespace OskitAPI.Areas.Inventory.Services
 {
     public sealed class ItemStore : DbStoreBase
     {

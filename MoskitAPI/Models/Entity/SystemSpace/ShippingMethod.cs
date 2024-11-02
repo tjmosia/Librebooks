@@ -2,7 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Moskit.Models.Entity.SystemSpace
+namespace OskitAPI.Models.Entity.SystemSpace
 {
     public class ShippingMethod
     {

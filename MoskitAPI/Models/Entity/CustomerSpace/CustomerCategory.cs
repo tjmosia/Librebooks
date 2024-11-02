@@ -2,7 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Moskit.Models.Entity.CustomerSpace
+namespace OskitAPI.Models.Entity.CustomerSpace
 {
     public class CustomerCategory
     {

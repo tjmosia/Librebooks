@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.IdentitySpace;
-using Moskit.Models.Entity.SalesSpace;
+using OskitAPI.Models.Entity.IdentitySpace;
+using OskitAPI.Models.Entity.SalesSpace;
 
-namespace Moskit.Models.Entity.CompanySpace
+namespace OskitAPI.Models.Entity.CompanySpace
 {
     public class CompanyUser
     {

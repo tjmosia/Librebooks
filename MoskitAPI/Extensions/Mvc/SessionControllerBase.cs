@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-using Moskit.Extensions.Identity;
+using OskitAPI.Extensions.Identity;
 
-namespace Moskit.Extensions.Mvc
+namespace OskitAPI.Extensions.Mvc
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.BankingSpace;
+using OskitAPI.Models.Entity.BankingSpace;
 
-namespace Moskit.Models.Entity.CompanySpace
+namespace OskitAPI.Models.Entity.CompanySpace
 {
     public class CompanyDefaultBankAccount
     {

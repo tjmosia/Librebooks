@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.CompanySpace;
-using Moskit.Models.Entity.CustomerSpace;
+using OskitAPI.Models.Entity.CompanySpace;
+using OskitAPI.Models.Entity.CustomerSpace;
 
-namespace Moskit.Models.Entity.SalesSpace
+namespace OskitAPI.Models.Entity.SalesSpace
 {
     public class SalesOrder
     {

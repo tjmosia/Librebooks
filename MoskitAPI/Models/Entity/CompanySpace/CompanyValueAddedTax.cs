@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.AccountingSpace;
-using Moskit.Models.Entity.InventorySpace;
-using Moskit.Models.Entity.PurchasesSpace;
-using Moskit.Models.Entity.SalesSpace;
-using Moskit.Models.Entity.SystemSpace;
+using OskitAPI.Models.Entity.AccountingSpace;
+using OskitAPI.Models.Entity.InventorySpace;
+using OskitAPI.Models.Entity.PurchasesSpace;
+using OskitAPI.Models.Entity.SalesSpace;
+using OskitAPI.Models.Entity.SystemSpace;
 
-namespace Moskit.Models.Entity.CompanySpace
+namespace OskitAPI.Models.Entity.CompanySpace
 {
     public class CompanyValueAddedTax
     {

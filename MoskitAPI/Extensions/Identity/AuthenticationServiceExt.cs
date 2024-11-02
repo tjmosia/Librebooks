@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Authentication;
 
-namespace Moskit.Extensions.Identity
+namespace OskitAPI.Extensions.Identity
 {
     public class AuthenticationServiceExt : IAuthenticationService
     {

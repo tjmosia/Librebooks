@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Moskit.Models.Entity.IdentitySpace
+namespace OskitAPI.Models.Entity.IdentitySpace
 {
     public class UserToken : IdentityUserToken<string>
     {

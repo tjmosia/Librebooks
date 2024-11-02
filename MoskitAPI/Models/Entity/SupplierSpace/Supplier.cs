@@ -2,11 +2,11 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
-using Moskit.Models.Entity.CompanySpace;
-using Moskit.Models.Entity.PurchasesSpace;
+using OskitAPI.Core.Types;
+using OskitAPI.Models.Entity.CompanySpace;
+using OskitAPI.Models.Entity.PurchasesSpace;
 
-namespace Moskit.Models.Entity.SupplierSpace
+namespace OskitAPI.Models.Entity.SupplierSpace
 {
     public class Supplier
     {

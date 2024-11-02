@@ -1,4 +1,4 @@
-﻿namespace Moskit.Extensions.Identity
+﻿namespace OskitAPI.Extensions.Identity
 {
     public class JwtTokenValidationParameters
     {

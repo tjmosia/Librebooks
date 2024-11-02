@@ -1,4 +1,4 @@
-﻿namespace Moskit.Areas.Identity.Models
+﻿namespace OskitAPI.Areas.Identity.Models
 {
     public struct EmailVerificationTypes
     {

@@ -1,4 +1,4 @@
-﻿namespace Moskit.Areas.Inventory.Services
+﻿namespace OskitAPI.Areas.Inventory.Services
 {
     public interface IInventotyManager
     {

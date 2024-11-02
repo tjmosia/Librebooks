@@ -2,15 +2,15 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
-using Moskit.Models.Entity.AccountingSpace;
-using Moskit.Models.Entity.CustomerSpace;
-using Moskit.Models.Entity.IdentitySpace;
-using Moskit.Models.Entity.PurchasesSpace;
-using Moskit.Models.Entity.SalesSpace;
-using Moskit.Models.Entity.SupplierSpace;
+using OskitAPI.Core.Types;
+using OskitAPI.Models.Entity.AccountingSpace;
+using OskitAPI.Models.Entity.CustomerSpace;
+using OskitAPI.Models.Entity.IdentitySpace;
+using OskitAPI.Models.Entity.PurchasesSpace;
+using OskitAPI.Models.Entity.SalesSpace;
+using OskitAPI.Models.Entity.SupplierSpace;
 
-namespace Moskit.Models.Entity.GeneralSpace
+namespace OskitAPI.Models.Entity.GeneralSpace
 {
     public class Note
     {

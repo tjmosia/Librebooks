@@ -2,7 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Moskit.Models.Entity.AccountingSpace
+namespace OskitAPI.Models.Entity.AccountingSpace
 {
     public class AccountCategory
     {

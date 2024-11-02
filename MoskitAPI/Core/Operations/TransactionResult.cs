@@ -1,4 +1,4 @@
-﻿namespace Moskit.CoreLib.Operations
+﻿namespace OskitAPI.CoreLib.Operations
 {
     /// <summary>
     /// Returns a summary result of a transaction associated with <typeparamref name="TModel"/>.

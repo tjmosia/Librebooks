@@ -3,9 +3,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 
-using Moskit.Models.Entity.IdentitySpace;
+using OskitAPI.Models.Entity.IdentitySpace;
 
-namespace Moskit.Extensions.Identity
+namespace OskitAPI.Extensions.Identity
 {
     public class UserManagerExt : UserManager<User>
     {

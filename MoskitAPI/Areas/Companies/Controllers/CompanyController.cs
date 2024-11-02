@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-using Moskit.Areas.Companies.Models;
+using OskitAPI.Areas.Companies.Models;
 
-namespace Moskit.Areas.Companies.Controllers
+namespace OskitAPI.Areas.Companies.Controllers
 {
     [Authorize]
     [ApiController]

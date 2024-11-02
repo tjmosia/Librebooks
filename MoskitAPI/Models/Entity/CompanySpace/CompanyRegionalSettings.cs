@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.SystemSpace;
+using OskitAPI.Models.Entity.SystemSpace;
 
-namespace Moskit.Models.Entity.CompanySpace
+namespace OskitAPI.Models.Entity.CompanySpace
 {
     public class CompanyRegionalSettings
     {

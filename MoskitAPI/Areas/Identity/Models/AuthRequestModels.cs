@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Moskit.Areas.Identity.Models
+namespace OskitAPI.Areas.Identity.Models
 {
     public class AuthRequestModels
     {

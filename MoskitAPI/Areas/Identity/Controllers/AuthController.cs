@@ -4,16 +4,16 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
-using Moskit.Areas.Identity.Models;
-using Moskit.CoreLib.Operations;
-using Moskit.Extensions.Identity;
-using Moskit.Extensions.Mvc;
-using Moskit.Models.Entity.IdentitySpace;
+using OskitAPI.Areas.Identity.Models;
+using OskitAPI.CoreLib.Operations;
+using OskitAPI.Extensions.Identity;
+using OskitAPI.Extensions.Mvc;
+using OskitAPI.Models.Entity.IdentitySpace;
 
-using static Moskit.Areas.Identity.Data.AuthDTOs;
-using static Moskit.Areas.Identity.Models.AuthRequestModels;
+using static OskitAPI.Areas.Identity.Data.AuthDTOs;
+using static OskitAPI.Areas.Identity.Models.AuthRequestModels;
 
-namespace Moskit.Areas.Identity.Controllers
+namespace OskitAPI.Areas.Identity.Controllers
 {
     [Route("api/auth")]
     [ApiController]

@@ -1,6 +1,6 @@
-﻿using Moskit.Data;
+﻿using OskitAPI.Data;
 
-namespace Moskit.Providers.Stores
+namespace OskitAPI.Providers.Stores
 {
     public abstract class StoreBase (AppDbContext context)
     {

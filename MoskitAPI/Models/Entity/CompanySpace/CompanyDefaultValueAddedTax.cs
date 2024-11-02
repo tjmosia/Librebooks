@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Moskit.Models.Entity.CompanySpace
+namespace OskitAPI.Models.Entity.CompanySpace
 {
     public class CompanyDefaultValueAddedTax
     {

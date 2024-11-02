@@ -2,14 +2,14 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
-using Moskit.Models.Entity.CompanySpace;
-using Moskit.Models.Entity.PurchasesSpace;
-using Moskit.Models.Entity.SalesSpace;
-using Moskit.Models.Entity.SystemSpace;
+using OskitAPI.Core.Types;
+using OskitAPI.Models.Entity.CompanySpace;
+using OskitAPI.Models.Entity.PurchasesSpace;
+using OskitAPI.Models.Entity.SalesSpace;
+using OskitAPI.Models.Entity.SystemSpace;
 
 
-namespace Moskit.Models.Entity.BankingSpace
+namespace OskitAPI.Models.Entity.BankingSpace
 {
     public class BankAccount
     {

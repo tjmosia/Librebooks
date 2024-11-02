@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Moskit.Migrations
+namespace OskitAPI.Migrations
 {
     /// <inheritdoc />
     public partial class M10 : Migration

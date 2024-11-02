@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Moskit.Models.Entity.SupplierSpace
+namespace OskitAPI.Models.Entity.SupplierSpace
 {
     public class SupplierAccountsContact
     {

@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.CompanySpace;
+using OskitAPI.Models.Entity.CompanySpace;
 
-namespace Moskit.Models.Entity.DocumentSpace
+namespace OskitAPI.Models.Entity.DocumentSpace
 {
     public class DocumentSetup
     {

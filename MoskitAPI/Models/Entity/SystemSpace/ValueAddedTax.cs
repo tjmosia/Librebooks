@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
+using OskitAPI.Core.Types;
 
-namespace Moskit.Models.Entity.SystemSpace
+namespace OskitAPI.Models.Entity.SystemSpace
 {
     public class ValueAddedTax
     {

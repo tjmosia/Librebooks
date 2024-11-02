@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Moskit.CoreLib.Operations
+namespace OskitAPI.CoreLib.Operations
 {
     public class TransactionError : IdentityError
     {

@@ -1,6 +1,6 @@
-﻿using Moskit.CoreLib.Operations;
+﻿using OskitAPI.CoreLib.Operations;
 
-namespace Moskit.Core.EFCore
+namespace OskitAPI.Core.EFCore
 {
     public class DbError
     {

@@ -2,11 +2,11 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.CustomerSpace;
-using Moskit.Models.Entity.SalesSpace;
-using Moskit.Models.Entity.SupplierSpace;
+using OskitAPI.Models.Entity.CustomerSpace;
+using OskitAPI.Models.Entity.SalesSpace;
+using OskitAPI.Models.Entity.SupplierSpace;
 
-namespace Moskit.Models.Entity.GeneralSpace
+namespace OskitAPI.Models.Entity.GeneralSpace
 {
     public class Contact
     {

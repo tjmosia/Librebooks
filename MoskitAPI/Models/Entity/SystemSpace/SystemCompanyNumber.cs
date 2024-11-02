@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.CustomerSpace;
+using OskitAPI.Models.Entity.CustomerSpace;
 
-namespace Moskit.Models.Entity.SystemSpace
+namespace OskitAPI.Models.Entity.SystemSpace
 {
     public class SystemCompanyNumber
     {

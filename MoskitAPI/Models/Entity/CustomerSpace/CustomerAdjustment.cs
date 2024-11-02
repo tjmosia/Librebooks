@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.AccountingSpace;
-using Moskit.Models.Entity.CompanySpace;
+using OskitAPI.Models.Entity.AccountingSpace;
+using OskitAPI.Models.Entity.CompanySpace;
 
-namespace Moskit.Models.Entity.CustomerSpace
+namespace OskitAPI.Models.Entity.CustomerSpace
 {
     public class CustomerAdjustment
     {

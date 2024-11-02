@@ -2,10 +2,10 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
-using Moskit.Models.Entity.CompanySpace;
+using OskitAPI.Core.Types;
+using OskitAPI.Models.Entity.CompanySpace;
 
-namespace Moskit.Models.Entity.InventorySpace
+namespace OskitAPI.Models.Entity.InventorySpace
 {
     public class ItemAdjustment
     {

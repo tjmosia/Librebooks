@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Moskit.Data;
+using OskitAPI.Data;
 
 #nullable disable
 
-namespace Moskit.Migrations
+namespace OskitAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20241027231716_M1.0")]

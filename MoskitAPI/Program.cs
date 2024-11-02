@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
-using Moskit.Areas.SystemSetups.Services;
-using Moskit.Core.EFCore;
-using Moskit.Data;
-using Moskit.Extensions.Identity;
-using Moskit.Models.Entity.IdentitySpace;
+using OskitAPI.Areas.SystemSetups.Services;
+using OskitAPI.Core.EFCore;
+using OskitAPI.Data;
+using OskitAPI.Extensions.Identity;
+using OskitAPI.Models.Entity.IdentitySpace;
 
 var builder = WebApplication.CreateBuilder(args);
 var Configuration = builder.Configuration;

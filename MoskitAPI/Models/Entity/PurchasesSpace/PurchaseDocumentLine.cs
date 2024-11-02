@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
+using OskitAPI.Core.Types;
 
-namespace Moskit.Models.Entity.PurchasesSpace
+namespace OskitAPI.Models.Entity.PurchasesSpace
 {
     public class PurchaseDocumentLine
     {

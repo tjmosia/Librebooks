@@ -3,9 +3,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.CompanySpace;
+using OskitAPI.Models.Entity.CompanySpace;
 
-namespace Moskit.Models.Entity.IdentitySpace
+namespace OskitAPI.Models.Entity.IdentitySpace
 {
     public class User : IdentityUser<string>
     {

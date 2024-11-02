@@ -1,4 +1,4 @@
-﻿namespace Moskit.Areas.Identity.Data
+﻿namespace OskitAPI.Areas.Identity.Data
 {
     public class AuthDTOs
     {

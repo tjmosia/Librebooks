@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Moskit.Areas.Inventory.Controllers
+namespace OskitAPI.Areas.Inventory.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

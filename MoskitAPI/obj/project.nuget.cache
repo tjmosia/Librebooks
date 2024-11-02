@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b9Ps5r9BARk=",
+  "dgSpecHash": "4Lur8lVWCIc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\MoskitAPI\\Moskit.csproj",
+  "projectFilePath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\MoskitAPI\\OskitAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Thabo Mosia\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Thabo Mosia\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

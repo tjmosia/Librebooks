@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Moskit.Models.Entity.SalesSpace
+namespace OskitAPI.Models.Entity.SalesSpace
 {
     public class SalesInvoiceCredit
     {

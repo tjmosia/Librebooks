@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.EFCore;
-using Moskit.Data;
-using Moskit.Models.Entity.SystemSpace;
+using OskitAPI.Core.EFCore;
+using OskitAPI.Data;
+using OskitAPI.Models.Entity.SystemSpace;
 
-namespace Moskit.Areas.SystemSetups.Services.SubStores
+namespace OskitAPI.Areas.SystemSetups.Services.SubStores
 {
     public class PaymentTermStore : DbStoreBase
     {

@@ -2,16 +2,16 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.AccountingSpace;
-using Moskit.Models.Entity.BankingSpace;
-using Moskit.Models.Entity.CustomerSpace;
-using Moskit.Models.Entity.DocumentSpace;
-using Moskit.Models.Entity.InventorySpace;
-using Moskit.Models.Entity.PurchasesSpace;
-using Moskit.Models.Entity.SalesSpace;
-using Moskit.Models.Entity.SupplierSpace;
+using OskitAPI.Models.Entity.AccountingSpace;
+using OskitAPI.Models.Entity.BankingSpace;
+using OskitAPI.Models.Entity.CustomerSpace;
+using OskitAPI.Models.Entity.DocumentSpace;
+using OskitAPI.Models.Entity.InventorySpace;
+using OskitAPI.Models.Entity.PurchasesSpace;
+using OskitAPI.Models.Entity.SalesSpace;
+using OskitAPI.Models.Entity.SupplierSpace;
 
-namespace Moskit.Models.Entity.CompanySpace
+namespace OskitAPI.Models.Entity.CompanySpace
 {
     public class Company
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.GeneralSpace;
+using OskitAPI.Models.Entity.GeneralSpace;
 
-namespace Moskit.Models.Entity.CustomerSpace
+namespace OskitAPI.Models.Entity.CustomerSpace
 {
     public class CustomerNote
     {

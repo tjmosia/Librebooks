@@ -1,8 +1,8 @@
-﻿using Moskit.Areas.SystemSetups.Services.SubStores;
-using Moskit.Core.EFCore;
-using Moskit.Data;
+﻿using OskitAPI.Areas.SystemSetups.Services.SubStores;
+using OskitAPI.Core.EFCore;
+using OskitAPI.Data;
 
-namespace Moskit.Areas.SystemSetups.Services
+namespace OskitAPI.Areas.SystemSetups.Services
 {
     public class SystemStore (AppDbContext? context, ILogger? logger)
         : DbStoreBase(context, logger)

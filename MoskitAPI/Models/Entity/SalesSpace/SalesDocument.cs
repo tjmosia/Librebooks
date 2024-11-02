@@ -2,12 +2,12 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
-using Moskit.Models.Entity.DocumentSpace;
-using Moskit.Models.Entity.IdentitySpace;
-using Moskit.Models.Entity.SystemSpace;
+using OskitAPI.Core.Types;
+using OskitAPI.Models.Entity.DocumentSpace;
+using OskitAPI.Models.Entity.IdentitySpace;
+using OskitAPI.Models.Entity.SystemSpace;
 
-namespace Moskit.Models.Entity.SalesSpace
+namespace OskitAPI.Models.Entity.SalesSpace
 {
     public class SalesDocument
     {

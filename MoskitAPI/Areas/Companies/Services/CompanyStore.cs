@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.CoreLib.Operations;
-using Moskit.Data;
-using Moskit.Models.Entity.CompanySpace;
-using Moskit.Models.Entity.IdentitySpace;
+using OskitAPI.CoreLib.Operations;
+using OskitAPI.Data;
+using OskitAPI.Models.Entity.CompanySpace;
+using OskitAPI.Models.Entity.IdentitySpace;
 
-namespace Moskit.Areas.Companies.Services
+namespace OskitAPI.Areas.Companies.Services
 {
     public class CompanyStore : IDisposable
     {

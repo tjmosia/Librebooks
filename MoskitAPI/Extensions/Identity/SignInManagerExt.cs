@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-using Moskit.Models.Entity.IdentitySpace;
+using OskitAPI.Models.Entity.IdentitySpace;
 
-namespace Moskit.Extensions.Identity
+namespace OskitAPI.Extensions.Identity
 {
     public class SignInManagerExt : SignInManager<User>
     {

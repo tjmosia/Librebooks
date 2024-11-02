@@ -2,10 +2,10 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
-using Moskit.Models.Entity.SalesSpace;
+using OskitAPI.Core.Types;
+using OskitAPI.Models.Entity.SalesSpace;
 
-namespace Moskit.Models.Entity.CustomerSpace
+namespace OskitAPI.Models.Entity.CustomerSpace
 {
     public class CustomerWriteOff
     {

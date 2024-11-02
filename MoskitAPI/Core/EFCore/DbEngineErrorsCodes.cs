@@ -1,4 +1,4 @@
-﻿namespace Moskit.Core.EFCore
+﻿namespace OskitAPI.Core.EFCore
 {
     public struct DbEngineErrorsCodes
     {

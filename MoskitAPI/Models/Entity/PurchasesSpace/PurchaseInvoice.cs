@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.CompanySpace;
-using Moskit.Models.Entity.SupplierSpace;
+using OskitAPI.Models.Entity.CompanySpace;
+using OskitAPI.Models.Entity.SupplierSpace;
 
-namespace Moskit.Models.Entity.PurchasesSpace
+namespace OskitAPI.Models.Entity.PurchasesSpace
 {
     public class PurchaseInvoice
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Moskit.Extensions.Identity
+namespace OskitAPI.Extensions.Identity
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
     public class AuthorizeApiAttribute : AuthorizeAttribute, IAuthorizationFilter

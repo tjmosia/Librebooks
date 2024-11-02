@@ -1,4 +1,4 @@
-﻿namespace Moskit.Providers.Configurations
+﻿namespace OskitAPI.Providers.Configurations
 {
     public class CorsConfiguration
     {

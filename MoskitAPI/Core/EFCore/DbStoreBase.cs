@@ -1,6 +1,6 @@
-using Moskit.Data;
+using OskitAPI.Data;
 
-namespace Moskit.Core.EFCore
+namespace OskitAPI.Core.EFCore
 {
     public abstract class DbStoreBase
         (AppDbContext? context = null, ILogger? logger = null, DBErrorDescriber? dbErrorDescriber = null)

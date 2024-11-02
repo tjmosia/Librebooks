@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
+using OskitAPI.Core.Types;
 
-namespace Moskit.Models.Entity.InventorySpace
+namespace OskitAPI.Models.Entity.InventorySpace
 {
     public class ItemInventory
     {

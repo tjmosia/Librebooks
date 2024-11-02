@@ -1,6 +1,6 @@
-﻿using Moskit.CoreLib.Operations;
+﻿using OskitAPI.CoreLib.Operations;
 
-namespace Moskit.Extensions.Data
+namespace OskitAPI.Extensions.Data
 {
     public struct DbErrorDescriber
     {

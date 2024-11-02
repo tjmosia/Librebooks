@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-using Moskit.Extensions.Identity;
-using Moskit.Extensions.Mvc;
+using OskitAPI.Extensions.Identity;
+using OskitAPI.Extensions.Mvc;
 
-namespace Moskit.Areas.Identity.Controllers
+namespace OskitAPI.Areas.Identity.Controllers
 {
     [Route("api/account")]
     [ApiController]

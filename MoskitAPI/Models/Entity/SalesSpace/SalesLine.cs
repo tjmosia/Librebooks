@@ -2,11 +2,11 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
-using Moskit.Models.Entity.CompanySpace;
-using Moskit.Models.Entity.InventorySpace;
+using OskitAPI.Core.Types;
+using OskitAPI.Models.Entity.CompanySpace;
+using OskitAPI.Models.Entity.InventorySpace;
 
-namespace Moskit.Models.Entity.SalesSpace
+namespace OskitAPI.Models.Entity.SalesSpace
 {
     public class SalesLine
     {

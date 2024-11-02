@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Moskit.Models.Entity.CompanySpace;
-using Moskit.Models.Entity.CustomerSpace;
-using Moskit.Models.Entity.GeneralSpace;
+using OskitAPI.Models.Entity.CompanySpace;
+using OskitAPI.Models.Entity.CustomerSpace;
+using OskitAPI.Models.Entity.GeneralSpace;
 
-namespace Moskit.Models.Entity.SalesSpace
+namespace OskitAPI.Models.Entity.SalesSpace
 {
     public class SalesPerson
     {

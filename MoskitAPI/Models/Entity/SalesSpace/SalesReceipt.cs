@@ -2,13 +2,13 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using Moskit.Core.Types;
-using Moskit.Models.Entity.BankingSpace;
-using Moskit.Models.Entity.CompanySpace;
-using Moskit.Models.Entity.CustomerSpace;
-using Moskit.Models.Entity.SystemSpace;
+using OskitAPI.Core.Types;
+using OskitAPI.Models.Entity.BankingSpace;
+using OskitAPI.Models.Entity.CompanySpace;
+using OskitAPI.Models.Entity.CustomerSpace;
+using OskitAPI.Models.Entity.SystemSpace;
 
-namespace Moskit.Models.Entity.SalesSpace
+namespace OskitAPI.Models.Entity.SalesSpace
 {
     public class SalesReceipt
     {

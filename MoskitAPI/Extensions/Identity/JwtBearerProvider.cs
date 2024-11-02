@@ -4,9 +4,9 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-using Moskit.Models.Entity.IdentitySpace;
+using OskitAPI.Models.Entity.IdentitySpace;
 
-namespace Moskit.Extensions.Identity
+namespace OskitAPI.Extensions.Identity
 {
     public class JwtBearerProvider
     {
