@@ -16,6 +16,7 @@ namespace Moskit.Models.Entity.SalesSpace
         public virtual Customer? Customer { get; set; }
         public virtual ICollection<SalesOrderInvoice>? Orders { get; set; }
         public virtual ICollection<SalesInvoiceCredit>? Credits { get; set; }
+        public virtual ICollection<SalesInvoiceReceipt>? Receipts { get; set; }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<SalesInvoice>(options =>
@@ -38,13 +39,19 @@ namespace Moskit.Models.Entity.SalesSpace
                     .WithOne(p => p.Invoice)
                     .HasForeignKey(p => p.InvoiceId)
                         .IsRequired(true)
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Credits)
                     .WithOne(p => p.Invoice)
                     .HasForeignKey(p => p.InvoiceId)
                         .IsRequired(true)
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasMany(p => p.Receipts)
+                    .WithOne(p => p.Invoice)
+                    .HasForeignKey(p => p.InvoiceId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
             });
     }
 }

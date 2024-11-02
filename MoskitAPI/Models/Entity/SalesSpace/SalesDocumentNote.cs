@@ -16,12 +16,6 @@ namespace Moskit.Models.Entity.SalesSpace
             {
                 options.ToTable(nameof(SalesDocumentNote))
                     .HasKey(p => new { p.DocumentId, p.NoteId });
-
-                options.HasOne(p => p.Note)
-                    .WithOne()
-                    .HasForeignKey<SalesDocumentNote>(p => p.NoteId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
             });
     }
 }

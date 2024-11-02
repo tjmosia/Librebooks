@@ -21,7 +21,7 @@ namespace Moskit.Models.Entity.SupplierSpace
                     .WithOne()
                     .HasForeignKey<SupplierAccountsContact>(p => p.SupplierContactId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
     }

@@ -105,11 +105,13 @@ namespace Moskit.Models.Entity
             AccountCategory.BuildModel(builder);
             AccountCashFlowType.BuildModel(builder);
             Journal.BuildModel(builder);
+            JournalNote.BuildModel(builder);
 
             /************************************************************************************************
              * Supplier Space
              ************************************************************************************************/
             Supplier.BuildModel(builder);
+            SupplierNote.BuildModel(builder);
             SupplierAdjustment.BuildModel(builder);
             SupplierContact.BuildModel(builder);
             SupplierAccountsContact.BuildModel(builder);

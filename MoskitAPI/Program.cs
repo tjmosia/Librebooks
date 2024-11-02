@@ -16,9 +16,10 @@ var Configuration = builder.Configuration;
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlite(Configuration.GetConnectionString("MoskitContext"));
+    options.UseSqlServer(Configuration.GetConnectionString("MoskitContext"));
 });
 
+builder.Services.AddLogging();
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddIdentity<User, Role>
@@ -87,9 +88,9 @@ builder.Services.AddAuthentication(options =>
 }).AddBearerToken();
 
 builder.Services.AddSingleton<IdentityErrorDescriberExt>();
-//builder.Services.AddSingleton<DbErrorDescriber>();
 
 builder.Services.AddScoped<SystemStore>();
+builder.Services.AddScoped<ISystemManager, SystemManager>();
 
 builder.Services.AddCors(options =>
 {
@@ -115,7 +116,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

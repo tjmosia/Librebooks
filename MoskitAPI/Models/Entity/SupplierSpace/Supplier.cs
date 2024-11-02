@@ -40,6 +40,7 @@ namespace Moskit.Models.Entity.SupplierSpace
         public virtual ICollection<PurchaseReceipt>? Receipts { get; set; }
         public virtual ICollection<SupplierAdjustment>? Adjustments { get; set; }
         public virtual ICollection<SupplierContact>? Contacts { get; set; }
+        public virtual ICollection<SupplierNote>? Notes { get; set; }
         public virtual ICollection<SupplierAccountsContact>? AccountsContacts { get; set; }
 
         public Supplier ()
@@ -66,6 +67,12 @@ namespace Moskit.Models.Entity.SupplierSpace
                 options.HasOne(p => p.VAT)
                     .WithOne()
                     .HasForeignKey<Supplier>(p => p.VATId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasMany(p => p.Notes)
+                    .WithOne()
+                    .HasForeignKey(p => p.SupplierId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 using Moskit.Models.Entity.CompanySpace;
 using Moskit.Models.Entity.CustomerSpace;

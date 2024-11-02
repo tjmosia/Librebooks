@@ -25,12 +25,6 @@ namespace Moskit.Models.Entity.SupplierSpace
 
                 options.HasIndex(p => p.SupplierId)
                     .IsClustered();
-
-                options.HasOne(p => p.Contact)
-                    .WithOne()
-                    .HasForeignKey<SupplierContact>(p => p.ContactId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
             });
     }
 }

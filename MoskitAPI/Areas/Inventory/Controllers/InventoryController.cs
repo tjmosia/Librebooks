@@ -6,6 +6,8 @@ namespace Moskit.Areas.Inventory.Controllers
     [ApiController]
     public class InventoryController : ControllerBase
     {
+        [HttpPost]
+        [Route("create")]
         public IActionResult CreateItemAsync ()
         {
 

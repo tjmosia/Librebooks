@@ -66,7 +66,7 @@ namespace Moskit.Models.Entity.CustomerSpace
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Notes)
-                    .WithOne(p => p.Customer)
+                    .WithOne()
                     .HasForeignKey(p => p.CustomerId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
@@ -96,12 +96,6 @@ namespace Moskit.Models.Entity.CustomerSpace
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.ContactPeople)
-                    .WithOne(p => p.Customer)
-                    .HasForeignKey(p => p.CustomerId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-
-                options.HasMany(p => p.Notes)
                     .WithOne(p => p.Customer)
                     .HasForeignKey(p => p.CustomerId)
                         .IsRequired()

@@ -3,7 +3,7 @@ using Moskit.Data;
 
 namespace Moskit.Areas.SystemSetups.Services
 {
-    public class SystemStore (AppDbContext context, ILogger logger)
+    public class SystemStore (AppDbContext context, ILogger<SystemStore> logger)
     {
         public readonly ShippingTermStore ShippingTerms = new(context);
         public readonly ShippingMethodStore ShippingMethods = new(context);

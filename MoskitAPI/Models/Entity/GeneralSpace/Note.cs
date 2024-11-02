@@ -3,7 +3,12 @@
 using Microsoft.EntityFrameworkCore;
 
 using Moskit.Core.Types;
+using Moskit.Models.Entity.AccountingSpace;
+using Moskit.Models.Entity.CustomerSpace;
 using Moskit.Models.Entity.IdentitySpace;
+using Moskit.Models.Entity.PurchasesSpace;
+using Moskit.Models.Entity.SalesSpace;
+using Moskit.Models.Entity.SupplierSpace;
 
 namespace Moskit.Models.Entity.GeneralSpace
 {
@@ -17,9 +22,8 @@ namespace Moskit.Models.Entity.GeneralSpace
         public virtual DateTime? DueDate { get; set; }
         public virtual string? CreatorId { get; set; }
 
-        [ConcurrencyCheck]
+        [ConcurrencyCheck, Timestamp]
         public virtual byte[]? RowVersion { get; set; }
-
         public virtual User? Creator { get; set; }
 
         public Note ()
@@ -41,8 +45,38 @@ namespace Moskit.Models.Entity.GeneralSpace
                 options.HasOne(p => p.Creator)
                     .WithOne()
                     .HasForeignKey<Note>(options => options.CreatorId)
-                        .IsRequired()
+                        .IsRequired(false)
                     .OnDelete(DeleteBehavior.SetNull);
+
+                options.HasOne<CustomerNote>()
+                    .WithOne(p => p.Note)
+                    .HasForeignKey<CustomerNote>(options => options.NoteId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                options.HasOne<SupplierNote>()
+                    .WithOne(p => p.Note)
+                    .HasForeignKey<SupplierNote>(options => options.NoteId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                options.HasOne<SalesDocumentNote>()
+                    .WithOne(p => p.Note)
+                    .HasForeignKey<SalesDocumentNote>(p => p.NoteId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                options.HasOne<PurchaseDocumentNote>()
+                    .WithOne(p => p.Note)
+                    .HasForeignKey<PurchaseDocumentNote>(p => p.NoteId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                options.HasOne<JournalNote>()
+                    .WithOne(p => p.Note)
+                    .HasForeignKey<JournalNote>(p => p.NoteId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
             });
     }
 }

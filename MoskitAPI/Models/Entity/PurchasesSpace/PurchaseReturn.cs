@@ -31,7 +31,7 @@ namespace Moskit.Models.Entity.PurchasesSpace
                     .WithOne()
                     .HasForeignKey<PurchaseReturn>(p => p.DocumentId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 options.HasMany(p => p.Invoices)
                     .WithOne(p => p.Return)

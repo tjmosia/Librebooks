@@ -9,7 +9,7 @@ using Moskit.Models.Entity.SystemSpace;
 
 namespace Moskit.Areas.SystemSetups.Services.SubStores
 {
-    public class ValueAddedTaxStore (AppDbContext context, ILogger logger)
+    public class ValueAddedTaxStore (AppDbContext context, ILogger? logger)
     {
         private readonly AppDbContext? context = context;
         private readonly ILogger? logger = logger;
@@ -33,8 +33,8 @@ namespace Moskit.Areas.SystemSetups.Services.SubStores
                     var sqlEx = ex.InnerException as SqlException;
                     logger!.LogError("{ex}", sqlEx!.StackTrace);
 
-                    if (sqlEx.Number == DbEngineErrorsCodes.DuplicateKey)
-                        return TransactionResult<ValueAddedTax>.Failure(DbErrorDescriber.DuplicateIndex("Code or Name"));
+                    if (sqlEx.Number == DbEngineErrorsCodes.PrimaryKeyConstraint)
+                        return TransactionResult<ValueAddedTax>.Failure(DbErrorDescriber.PrimaryKeyConstraint("Code or Name"));
                 }
 
                 throw;

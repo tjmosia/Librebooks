@@ -28,27 +28,14 @@ namespace Moskit.Models.Entity.SalesSpace
                     .HasKey(p => p.Id)
                     .IsClustered(false);
 
-                options.HasIndex(p => new { p.CompanyId })
+                options.HasIndex(p => p.CompanyId)
                     .IsClustered();
-
-                options.HasOne(p => p.Contact)
-                    .WithOne()
-                    .HasForeignKey<SalesPerson>(p => p.ContactId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
 
                 options.HasMany(p => p.Customers)
                     .WithOne(p => p.SalesPerson)
                     .HasForeignKey(p => p.SalesPersonId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.SetNull);
-
-                options.HasOne(p => p.CompanyUser)
-                    .WithOne()
-                    .HasForeignKey<SalesPerson>(p => p.CompanyUserId)
                         .IsRequired(false)
-                    .OnDelete(DeleteBehavior.SetNull);
-
+                    .OnDelete(DeleteBehavior.Restrict);
             });
     }
 }

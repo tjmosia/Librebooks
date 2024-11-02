@@ -2,20 +2,20 @@
 
 using Moskit.Models.Entity.GeneralSpace;
 
-namespace Moskit.Models.Entity.CustomerSpace
+namespace Moskit.Models.Entity.SupplierSpace
 {
-    public class CustomerNote
+    public class SupplierNote
     {
-        public virtual string? CustomerId { get; set; }
+        public virtual string? SupplierId { get; set; }
         public virtual string? NoteId { get; set; }
 
         public virtual Note? Note { get; set; }
 
         public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<CustomerNote>(options =>
+            => builder.Entity<SupplierNote>(options =>
             {
-                options.ToTable(nameof(CustomerNote))
-                    .HasKey(p => new { p.CustomerId, p.NoteId })
+                options.ToTable(nameof(SupplierNote))
+                    .HasKey(p => new { p.SupplierId, p.NoteId })
                     .IsClustered();
             });
     }

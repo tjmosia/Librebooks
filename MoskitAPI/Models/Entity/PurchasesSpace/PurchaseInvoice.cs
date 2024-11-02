@@ -16,6 +16,7 @@ namespace Moskit.Models.Entity.PurchasesSpace
         public virtual Supplier? Supplier { get; set; }
         public virtual ICollection<PurchaseOrderInvoice>? Orders { get; set; }
         public virtual ICollection<PurchaseInvoiceReturn>? Returns { get; set; }
+        public virtual ICollection<PurchaseInvoiceReceipt>? Receipts { get; set; }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<PurchaseInvoice>(options =>
@@ -41,6 +42,12 @@ namespace Moskit.Models.Entity.PurchasesSpace
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Returns)
+                    .WithOne(p => p.Invoice)
+                    .HasForeignKey(p => p.InvoiceId)
+                        .IsRequired(true)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasMany(p => p.Receipts)
                     .WithOne(p => p.Invoice)
                     .HasForeignKey(p => p.InvoiceId)
                         .IsRequired(true)

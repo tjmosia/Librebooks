@@ -23,8 +23,6 @@ namespace Moskit.Areas.Companies.Controllers
         [Route("/create")]
         public IActionResult CreateAsync ([FromBody] CompanyInputModel input)
         {
-
-
             return Ok();
         }
     }

@@ -36,36 +36,36 @@ namespace Moskit.Models.Entity.CompanySpace
                     .WithOne()
                     .HasForeignKey<CompanyValueAddedTax>(p => p.VATId)
                     .IsRequired(true)
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany<Journal>()
                     .WithOne(p => p.VAT)
                     .HasForeignKey(p => p.VATId)
-                        .IsRequired()
+                        .IsRequired(false)
                     .OnDelete(DeleteBehavior.SetNull);
 
                 options.HasMany<Account>()
                     .WithOne(p => p.VAT)
                     .HasForeignKey(p => p.VATId)
-                        .IsRequired()
+                        .IsRequired(false)
                     .OnDelete(DeleteBehavior.SetNull);
 
                 options.HasMany<SalesLine>()
                     .WithOne(p => p.VAT)
                     .HasForeignKey(p => p.VATId)
-                        .IsRequired()
+                        .IsRequired(false)
                     .OnDelete(DeleteBehavior.SetNull);
 
                 options.HasMany<PurchaseLine>()
                     .WithOne(p => p.VAT)
                     .HasForeignKey(p => p.VATId)
-                        .IsRequired()
+                        .IsRequired(false)
                     .OnDelete(DeleteBehavior.SetNull);
 
                 options.HasMany<Item>()
                     .WithOne(p => p.VAT)
                     .HasForeignKey(p => p.VATId)
-                        .IsRequired()
+                        .IsRequired(false)
                     .OnDelete(DeleteBehavior.SetNull);
             });
     }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Moskit")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb2f9e5ab24a89fbfb6d90c4f98da6e37587ac9d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7590310d95b3b8432ae97d7f7886311e3a7d247")]
 [assembly: System.Reflection.AssemblyProductAttribute("Moskit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Moskit")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

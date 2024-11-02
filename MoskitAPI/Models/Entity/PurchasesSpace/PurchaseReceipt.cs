@@ -60,13 +60,13 @@ namespace Moskit.Models.Entity.PurchasesSpace
                     .WithMany()
                     .HasForeignKey(p => p.PaymentMethodId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.AllocatedInvoices)
                     .WithOne(p => p.Receipt)
                     .HasForeignKey(p => p.ReceiptId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
             });
     }
 }

@@ -9,10 +9,10 @@ namespace Moskit.Areas.SystemSetups.Controllers
 {
     [Route("api/countries")]
     [ApiController]
-    public class CountryController (SystemManager systemManager)
+    public class CountryController (ISystemManager systemManager)
         : ControllerBase
     {
-        private readonly SystemManager systemManager = systemManager;
+        private readonly ISystemManager systemManager = systemManager;
 
         [HttpPost]
         [Route("add")]
@@ -29,7 +29,7 @@ namespace Moskit.Areas.SystemSetups.Controllers
             });
 
             if (result.Succeeded)
-                return Created();
+                return Created("", value: result.Model!);
             else
             {
                 ModelState.AddModelError("", "Country Code or Name provided already exists.");

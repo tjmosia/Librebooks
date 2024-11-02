@@ -51,7 +51,7 @@ namespace Moskit.Models.Entity.PurchasesSpace
                     .WithOne(p => p.Line)
                     .HasForeignKey(p => p.LineId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
             });
     }
 }

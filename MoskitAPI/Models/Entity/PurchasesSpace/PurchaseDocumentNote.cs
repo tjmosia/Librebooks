@@ -17,12 +17,6 @@ namespace Moskit.Models.Entity.PurchasesSpace
                 options.ToTable(nameof(PurchaseDocumentNote))
                     .HasKey(e => new { e.DocumentId, e.NoteId })
                     .IsClustered();
-
-                options.HasOne(p => p.Note)
-                    .WithOne()
-                    .HasForeignKey<PurchaseDocumentNote>(p => p.NoteId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
             });
     }
 }

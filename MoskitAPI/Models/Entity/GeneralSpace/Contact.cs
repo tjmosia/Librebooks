@@ -2,6 +2,10 @@
 
 using Microsoft.EntityFrameworkCore;
 
+using Moskit.Models.Entity.CustomerSpace;
+using Moskit.Models.Entity.SalesSpace;
+using Moskit.Models.Entity.SupplierSpace;
+
 namespace Moskit.Models.Entity.GeneralSpace
 {
     public class Contact
@@ -26,6 +30,24 @@ namespace Moskit.Models.Entity.GeneralSpace
                 options.ToTable(nameof(Contact))
                     .HasKey(p => p.Id)
                     .IsClustered();
+
+                options.HasOne<SalesPerson>()
+                    .WithOne(p => p.Contact)
+                    .HasForeignKey<SalesPerson>(p => p.ContactId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasOne<CustomerContact>()
+                    .WithOne(p => p.Contact)
+                    .HasForeignKey<CustomerContact>(p => p.ContactId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasOne<SupplierContact>()
+                    .WithOne(p => p.Contact)
+                    .HasForeignKey<SupplierContact>(p => p.ContactId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
             });
         }
     }

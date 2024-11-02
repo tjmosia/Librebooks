@@ -59,7 +59,7 @@ namespace Moskit.Models.Entity.SalesSpace
                     .WithOne(p => p.Receipt)
                     .HasForeignKey(p => p.ReceiptId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
             });
     }
 }

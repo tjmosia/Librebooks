@@ -34,7 +34,7 @@ namespace Moskit.Models.Entity.PurchasesSpace
                     .WithOne()
                     .HasForeignKey<PurchaseBuyer>(p => p.ContactId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasOne(p => p.CompanyUser)
                     .WithOne()

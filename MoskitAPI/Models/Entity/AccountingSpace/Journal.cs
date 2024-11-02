@@ -28,6 +28,7 @@ namespace Moskit.Models.Entity.AccountingSpace
         public virtual CompanyValueAddedTax? VAT { get; set; }
         public virtual Account? DebitAccount { get; set; }
         public virtual Account? CreditAccount { get; set; }
+        public virtual ICollection<JournalNote>? Notes { get; set; }
 
         public Journal ()
             => Id = Guid.NewGuid().ToString();
@@ -46,8 +47,17 @@ namespace Moskit.Models.Entity.AccountingSpace
                 options.Property(p => p.Amount)
                     .HasColumnType(ColumnTypes.Monetary);
 
+                options.Property(p => p.TaxRate)
+                    .HasColumnType(ColumnTypes.Percentage);
+
                 options.Property(p => p.Date)
                     .HasColumnType(ColumnTypes.Date);
+
+                options.HasMany(p => p.Notes)
+                    .WithOne()
+                    .HasForeignKey(p => p.JournalId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
             });
         }
     }

@@ -77,6 +77,7 @@ namespace Moskit.Data
         public DbSet<Account> Account { get; set; }
         public DbSet<AccountCategory> AccountCategory { get; set; }
         public DbSet<Journal> Journal { get; set; }
+        public DbSet<JournalNote> JournalNote { get; set; }
         public DbSet<AccountCashFlowType> AccountCashFlowType { get; set; }
 
         /************************************************************************************************
@@ -109,6 +110,7 @@ namespace Moskit.Data
          * Supplier Space
          ************************************************************************************************/
         public DbSet<Supplier> Supplier { get; set; }
+        public DbSet<SupplierNote> SupplierNote { get; set; }
         public DbSet<SupplierAccountsContact> SupplierAccountsContact { get; set; }
         public DbSet<SupplierAdjustment> SupplierAdjustment { get; set; }
         public DbSet<SupplierCategory> SupplierCategory { get; set; }

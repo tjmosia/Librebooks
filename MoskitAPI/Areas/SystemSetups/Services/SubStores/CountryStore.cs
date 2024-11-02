@@ -26,18 +26,24 @@ namespace Moskit.Areas.SystemSetups.Services.SubStores
             catch (Exception ex)
             {
                 logger!.LogError("Error occured with exception {ex} while attempting to add a country record.", ex.GetType().Name);
-                logger!.LogError("{ex}", ex.StackTrace);
+                logger!.LogError("{ex}", ex.Message);
+
+                if (ex.Message.Contains("Country.Name"))
+                    logger!.LogInformation("Country name");
 
                 if (ex.InnerException != null && ex.InnerException is SqlException)
                 {
                     var sqlEx = ex.InnerException as SqlException;
-                    logger!.LogError("{ex}", sqlEx!.StackTrace);
+                    logger!.LogError("{ex}", sqlEx!.Errors[0]);
 
-                    if (sqlEx.Number == DbEngineErrorsCodes.DuplicateKey)
-                        return TransactionResult<Country>.Failure(DbErrorDescriber.DuplicateIndex("Code or Name"));
+                    if (sqlEx!.ErrorCode == DbEngineErrorsCodes.IndexConstraint)
+                        return TransactionResult<Country>.Failure(DbErrorDescriber.IndexConstraint("Code"));
+
+                    if (sqlEx.ErrorCode == DbEngineErrorsCodes.PrimaryKeyConstraint)
+                        return TransactionResult<Country>.Failure(DbErrorDescriber.PrimaryKeyConstraint("Code or Name"));
                 }
 
-                throw;
+                return TransactionResult<Country>.Failure();
             }
         }
 

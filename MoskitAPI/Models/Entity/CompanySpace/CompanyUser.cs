@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 using Moskit.Models.Entity.IdentitySpace;
+using Moskit.Models.Entity.SalesSpace;
 
 namespace Moskit.Models.Entity.CompanySpace
 {
@@ -26,6 +27,12 @@ namespace Moskit.Models.Entity.CompanySpace
                 options.HasIndex(p => new { p.UserId, p.CompanyId })
                     .IsUnique()
                     .IsClustered();
+
+                options.HasOne<SalesPerson>()
+                    .WithOne(p => p.CompanyUser)
+                    .HasForeignKey<SalesPerson>(p => p.CompanyUserId)
+                        .IsRequired(false)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
     }
 }

@@ -37,7 +37,7 @@ namespace Moskit.Models.Entity.CompanySpace
         public virtual CompanyMailSettings? MailSettings { get; set; }
         public virtual ICollection<CompanyValueAddedTax>? ValueAddedTaxes { get; set; }
         public virtual CompanyDefaultValueAddedTax? DefaultVAT { get; set; }
-        public virtual ICollection<SalesPerson>? SalesReps { get; set; }
+        public virtual ICollection<SalesPerson>? SalesPeople { get; set; }
         public virtual ICollection<PurchaseBuyer>? Buyers { get; set; }
 
         public virtual ICollection<Supplier>? Suppliers { get; set; }
@@ -77,85 +77,85 @@ namespace Moskit.Models.Entity.CompanySpace
                     .WithOne(p => p.Company)
                     .HasForeignKey<CompanyRegionalSettings>(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasOne(p => p.MailSettings)
                     .WithOne(p => p.Company)
                     .HasForeignKey<CompanyMailSettings>(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasOne(p => p.DefaultBankAccount)
                     .WithOne(p => p.Company)
                     .HasForeignKey<CompanyDefaultBankAccount>(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.ValueAddedTaxes)
                     .WithOne(p => p.Company)
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.DocumentSetups)
                     .WithOne(p => p.Company)
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Users)
                     .WithOne(p => p.Company)
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Customers)
                     .WithOne(p => p.Company)
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Suppliers)
                     .WithOne(p => p.Company)
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
-                options.HasMany(p => p.SalesReps)
+                options.HasMany(p => p.SalesPeople)
                     .WithOne(p => p.Company)
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Buyers)
                     .WithOne(p => p.Company)
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.SalesQuotes)
                     .WithOne(p => p.Company)
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.SalesOrders)
                     .WithOne(p => p.Company)
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.SalesInvoices)
                     .WithOne(p => p.Company)
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.SalesReceipts)
                     .WithOne(p => p.Company)
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.ItemCategories)
                     .WithOne(p => p.Company)

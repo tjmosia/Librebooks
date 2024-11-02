@@ -23,7 +23,7 @@ namespace Moskit.Models.Entity.CompanySpace
                     .WithOne()
                     .HasForeignKey<CompanyDefaultBankAccount>(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.Restrict);
             });
     }
 }

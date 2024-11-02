@@ -37,8 +37,8 @@ namespace Moskit.Models.Entity.SalesSpace
                 options.HasOne<Customer>()
                     .WithOne()
                     .HasForeignKey<SalesDocumentCustomerDetails>(p => p.CustomerId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                        .IsRequired(false)
+                    .OnDelete(DeleteBehavior.SetNull);
 
                 options.HasMany<SalesDocument>()
                     .WithOne(p => p.CustomerDetails)

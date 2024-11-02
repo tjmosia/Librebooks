@@ -27,12 +27,6 @@ namespace Moskit.Models.Entity.CustomerSpace
                 options.HasIndex(p => new { p.CustomerId })
                     .IsUnique()
                     .IsClustered();
-
-                options.HasOne(p => p.Contact)
-                    .WithOne()
-                    .HasForeignKey<CustomerContact>(p => p.ContactId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
             });
         }
     }

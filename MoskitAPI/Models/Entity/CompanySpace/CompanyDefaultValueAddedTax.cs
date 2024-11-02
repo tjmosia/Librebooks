@@ -21,14 +21,13 @@ namespace Moskit.Models.Entity.CompanySpace
                 .WithOne(p => p.DefaultVAT)
                 .HasForeignKey<CompanyDefaultValueAddedTax>(p => p.CompanyId)
                     .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasOne(p => p.CompanyVAT)
                 .WithOne(p => p.CompanyDefaultVAT)
                 .HasForeignKey<CompanyDefaultValueAddedTax>(p => p.CompanyVATId)
                     .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
-
+                .OnDelete(DeleteBehavior.Restrict);
             });
     }
 }
