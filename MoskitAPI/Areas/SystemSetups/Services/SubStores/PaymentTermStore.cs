@@ -20,7 +20,7 @@ namespace OskitAPI.Areas.SystemSetups.Services.SubStores
         }
 
         /// <exception cref="DbUpdateException"/>
-        public async Task<PaymentTerm> UpdateAsync (PaymentTerm term)
+        public async Task<PaymentTerm?> UpdateAsync (PaymentTerm term)
         {
             var result = context!.PaymentTerm.Update(term);
             await context.SaveChangesAsync();

@@ -18,6 +18,13 @@ namespace OskitAPI.Areas.SystemSetups.Services.SubStores
             return result.Entity;
         }
 
+        public async Task<ShippingMethod> UpdateAsync (ShippingMethod method)
+        {
+            var result = context!.ShippingMethod.Update(method);
+            await context.SaveChangesAsync();
+            return result.Entity;
+        }
+
         public async Task<ShippingMethod?> FindByIdAsync (string id)
             => await context!.ShippingMethod.FindAsync(id);
 

@@ -21,7 +21,7 @@ namespace OskitAPI.Areas.SystemSetups.Services.SubStores
         }
 
         /// <exception cref="DbUpdateException"/>
-        public async Task<Currency> UpdateAync (Currency currency)
+        public async Task<Currency> UpdateAsync (Currency currency)
         {
             var result = context!.Currency.Update(currency);
             await context.SaveChangesAsync();

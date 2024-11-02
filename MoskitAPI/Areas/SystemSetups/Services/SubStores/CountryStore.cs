@@ -1,10 +1,7 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 using OskitAPI.Core.EFCore;
-using OskitAPI.CoreLib.Operations;
 using OskitAPI.Data;
-using OskitAPI.Extensions.Data;
 using OskitAPI.Models.Entity.SystemSpace;
 
 namespace OskitAPI.Areas.SystemSetups.Services.SubStores
@@ -15,40 +12,15 @@ namespace OskitAPI.Areas.SystemSetups.Services.SubStores
             : base(context, logger) { }
 
         /// <exception cref="DbUpdateException"/>
-        public async Task<TransactionResult<Country>> CreateAsync (Country country)
+        public async Task<Country> CreateAsync (Country country)
         {
-            try
-            {
-                var result = await context!.Country.AddAsync(country);
-                await context.SaveChangesAsync();
-                return TransactionResult<Country>.Success(result.Entity);
-            }
-            catch (Exception ex)
-            {
-                logger!.LogError("Error occured with exception {ex} while attempting to add a country record.", ex.GetType().Name);
-                logger!.LogError("{ex}", ex.Message);
-
-                if (ex.Message.Contains("Country.Name"))
-                    logger!.LogInformation("Country name");
-
-                if (ex.InnerException != null && ex.InnerException is SqlException)
-                {
-                    var sqlEx = ex.InnerException as SqlException;
-                    logger!.LogError("{ex}", sqlEx!.Errors[0]);
-
-                    if (sqlEx!.ErrorCode == DbEngineErrorsCodes.IndexConstraint)
-                        return TransactionResult<Country>.Failure(DbErrorDescriber.IndexConstraint("Code"));
-
-                    if (sqlEx.ErrorCode == DbEngineErrorsCodes.PrimaryKeyConstraint)
-                        return TransactionResult<Country>.Failure(DbErrorDescriber.PrimaryKeyConstraint("Code or Name"));
-                }
-
-                return TransactionResult<Country>.Failure();
-            }
+            var result = await context!.Country.AddAsync(country);
+            await context.SaveChangesAsync();
+            return result.Entity;
         }
 
         /// <exception cref="DbUpdateException"/>
-        public async Task<Country> UpdateAync (Country country)
+        public async Task<Country> UpdateAsync (Country country)
         {
             var result = context!.Country.Update(country);
             await context.SaveChangesAsync();

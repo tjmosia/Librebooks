@@ -18,6 +18,7 @@ namespace OskitAPI.Models.Entity.InventorySpace
         public virtual decimal OldPrice { get; set; }
         public virtual decimal Price { get; set; }
         public virtual string? CompanyId { get; set; }
+        public virtual bool FromSales { get; set; }
 
         [Timestamp, ConcurrencyCheck]
         public virtual byte[]? RowVersion { get; set; }

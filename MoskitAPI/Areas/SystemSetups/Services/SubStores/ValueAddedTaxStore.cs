@@ -1,10 +1,7 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 using OskitAPI.Core.EFCore;
-using OskitAPI.CoreLib.Operations;
 using OskitAPI.Data;
-using OskitAPI.Extensions.Data;
 using OskitAPI.Models.Entity.SystemSpace;
 
 namespace OskitAPI.Areas.SystemSetups.Services.SubStores
@@ -15,38 +12,19 @@ namespace OskitAPI.Areas.SystemSetups.Services.SubStores
             : base(context, logger) { }
 
         /// <exception cref="DbUpdateException"/>
-        public async Task<TransactionResult<ValueAddedTax>> CreateAsync (ValueAddedTax vat)
+        public async Task<ValueAddedTax> CreateAsync (ValueAddedTax vat)
         {
-            try
-            {
-                var result = await context!.ValueAddedTax.AddAsync(vat);
-                await context.SaveChangesAsync();
-                return TransactionResult<ValueAddedTax>.Success(result.Entity);
-            }
-            catch (Exception ex)
-            {
-                logger!.LogError("Error occured with exception {ex} while attempting to add a VAT record.", ex.GetType().Name);
-                logger!.LogError("{ex}", ex.StackTrace);
-
-                if (ex.InnerException != null && ex.InnerException is SqlException)
-                {
-                    var sqlEx = ex.InnerException as SqlException;
-                    logger!.LogError("{ex}", sqlEx!.StackTrace);
-
-                    if (sqlEx.Number == DbEngineErrorsCodes.PrimaryKeyConstraint)
-                        return TransactionResult<ValueAddedTax>.Failure(DbErrorDescriber.PrimaryKeyConstraint("Code or Name"));
-                }
-
-                throw;
-            }
+            var result = await context!.ValueAddedTax.AddAsync(vat);
+            await context.SaveChangesAsync();
+            return result.Entity;
         }
 
         /// <exception cref="DbUpdateException"/>
-        public async Task<TransactionResult<ValueAddedTax>> UpdateAsync (ValueAddedTax vat)
+        public async Task<ValueAddedTax> UpdateAsync (ValueAddedTax vat)
         {
             var result = context!.ValueAddedTax.Update(vat);
             await context.SaveChangesAsync();
-            return TransactionResult<ValueAddedTax>.Success(result.Entity);
+            return result.Entity;
         }
 
         public async Task<ValueAddedTax?> FindByIdAsync (string id)

@@ -9,7 +9,7 @@ namespace OskitAPI.Areas.SystemSetups.Services
          * COUNTRY Store Manager Actions
          ******************************************************************/
         Task<TransactionResult<Country>> AddCountryAsync (Country country);
-        Task<TransactionResult> RemoveCountryAsync (params Country[] paymentMethods);
+        Task<TransactionResult> DeleteCountryAsync (params Country[] paymentMethods);
         Task<Country?> GetCountryByCodeAsync (string code);
         Task<TransactionResult<Country>> UpdateCountryAsync (Country country);
 
@@ -17,15 +17,15 @@ namespace OskitAPI.Areas.SystemSetups.Services
          * CURRENCY Store Manager Actions
          ******************************************************************/
         Task<TransactionResult<Currency>> AddCurrencyAsync (Currency currency);
-        Task<TransactionResult> RemoveCurrencyAsync (params Currency[] paymentMethods);
-        Task<Country?> GetCurrencyByCodeAsync (string code);
+        Task<TransactionResult> DeleteCurrencyAsync (params Currency[] paymentMethods);
+        Task<Currency?> GetCurrencyByCodeAsync (string code);
         Task<TransactionResult<Currency>> UpdateCurrencyAsync (Currency currency);
 
         /******************************************************************
          * DATE_FORMAT Store Manager Actions
          ******************************************************************/
         Task<TransactionResult<DateFormat>> AddDateFormatAsync (DateFormat dateFormat);
-        Task<TransactionResult> RemoveDateFormatAsync (params DateFormat[] paymentMethods);
+        Task<TransactionResult> DeleteDateFormatAsync (params DateFormat[] paymentMethods);
         Task<DateFormat?> GetDateFormatByIdAsync (string id);
         Task<TransactionResult<DateFormat>> UpdateDateFormatAsync (DateFormat dateFormat);
 
@@ -33,39 +33,39 @@ namespace OskitAPI.Areas.SystemSetups.Services
          * PAYMENT_METHOD Store Manager Actions
          ******************************************************************/
         Task<TransactionResult<PaymentMethod>> AddPaymentMethodAsync (PaymentMethod paymentMethod);
-        Task<TransactionResult> RemovePaymentMethodAsync (params PaymentMethod[] paymentMethods);
-        Task<Country?> GetPaymentMethodByIdAsync (string id);
+        Task<TransactionResult> DeletePaymentMethodAsync (params PaymentMethod[] paymentMethods);
+        Task<PaymentMethod?> GetPaymentMethodByIdAsync (string id);
         Task<TransactionResult<PaymentMethod>> UpdatePaymentMethodAsync (PaymentMethod paymentMethod);
 
         /******************************************************************
          * PAYMENT_TERM Store Manager Actions
          ******************************************************************/
         Task<TransactionResult<PaymentTerm>> AddPaymentTermAsync (PaymentTerm paymentTerm);
-        Task<TransactionResult> RemovePaymentTermAsync (params PaymentTerm[] paymentTerms);
-        Task<Country?> GetPaymentTermByIdAsync (string id);
+        Task<TransactionResult> DeletePaymentTermAsync (params PaymentTerm[] paymentTerms);
+        Task<PaymentTerm?> GetPaymentTermByIdAsync (string id);
         Task<TransactionResult<PaymentTerm>> UpdatePaymentTermAsync (PaymentTerm paymentTerm);
 
         /******************************************************************
          * SHIPPING_METHOD Store Manager Actions
          ******************************************************************/
         Task<TransactionResult<ShippingMethod>> AddShippingMethodAsync (ShippingMethod shippingMethod);
-        Task<TransactionResult> RemoveShippingMethodAsync (params ShippingMethod[] shippingMethods);
-        Task<Country?> GetShippingMethodByIdAsync (string id);
+        Task<TransactionResult> DeleteShippingMethodAsync (params ShippingMethod[] shippingMethods);
+        Task<ShippingMethod?> GetShippingMethodByIdAsync (string id);
         Task<TransactionResult<ShippingMethod>> UpdateShippingMethodAsync (ShippingMethod shippingMethod);
 
         /******************************************************************
          * SHIPPING_TERM Store Manager Actions
          ******************************************************************/
         Task<TransactionResult<ShippingTerm>> AddShippingTermAsync (ShippingTerm shippingTerm);
-        Task<TransactionResult> RemoveShippingTermAsync (params ShippingTerm[] shippingTerms);
-        Task<Country?> GetShippingTermByIdAsync (string id);
+        Task<TransactionResult> DeleteShippingTermAsync (params ShippingTerm[] shippingTerms);
+        Task<ShippingTerm?> GetShippingTermByIdAsync (string id);
         Task<TransactionResult<ShippingTerm>> UpdateShippingTermAsync (ShippingTerm shippingTerm);
 
         /******************************************************************
          * VAT Store Manager Actions
          ******************************************************************/
         Task<TransactionResult<ValueAddedTax>> AddVATAsync (ValueAddedTax vat);
-        Task<TransactionResult> RemoveVATAsync (params ValueAddedTax[] vat);
+        Task<TransactionResult> DeleteVATAsync (params ValueAddedTax[] vat);
         Task<ValueAddedTax?> GetVATByIdAsync (string id);
         Task<TransactionResult<ValueAddedTax>> UpdateVATAsync (ValueAddedTax vat);
 
@@ -82,6 +82,6 @@ namespace OskitAPI.Areas.SystemSetups.Services
         Task<TransactionResult> UpdateCompanyNumberParamsAsync (string prefix, string numberFormat);
 
         //Task SyncCompanyNumberParamsToCacheAsync (string? numPrefix, string? numFormat);
-        //Task RemoveCompanyNumberParamsFromCacheAsync ();
+        //Task DeleteCompanyNumberParamsFromCacheAsync ();
     }
 }

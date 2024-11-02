@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
+using OskitAPI.Areas.Inventory.Services;
 using OskitAPI.Areas.SystemSetups.Services;
 using OskitAPI.Core.EFCore;
 using OskitAPI.Data;
@@ -89,9 +90,11 @@ builder.Services.AddAuthentication(options =>
 }).AddBearerToken();
 
 builder.Services.AddSingleton<IdentityErrorDescriberExt>();
-builder.Services.AddSingleton<DBErrorDescriber>();
+builder.Services.AddSingleton<DbErrorDescriber>();
 builder.Services.AddScoped<SystemStore>();
 builder.Services.AddScoped<ISystemManager, SystemManager>();
+builder.Services.AddScoped<ItemStore>();
+builder.Services.AddScoped<IItemManager, ItemManager>();
 
 builder.Services.AddCors(options =>
 {

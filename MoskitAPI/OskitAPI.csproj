@@ -42,6 +42,7 @@
     <Folder Include="Areas\Sales\Services\" />
     <Folder Include="Areas\SystemSetups\Data\" />
     <Folder Include="Areas\SystemSetups\Models\" />
+    <Folder Include="Extensions\Data\" />
     <Folder Include="Providers\Managers\" />
   </ItemGroup>
 

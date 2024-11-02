@@ -1,14 +1,16 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
 
+using OskitAPI.Core.EFCore;
 using OskitAPI.CoreLib.Operations;
 using OskitAPI.Models.Entity.SystemSpace;
 
 namespace OskitAPI.Areas.SystemSetups.Services
 {
-    public class SystemManager (SystemStore systemStore, IDistributedCache cache)
+    public class SystemManager (SystemStore systemStore, IDistributedCache cache, DbErrorDescriber dbErrorDescriber)
         : ISystemManager
     {
         private readonly SystemStore systemStore = systemStore;
+        private readonly DbErrorDescriber dbErrorDescriber = dbErrorDescriber;
         private readonly IDistributedCache cache = cache;
 
         private readonly string COMP_NUM_PREFIX = nameof(COMP_NUM_PREFIX);
@@ -65,21 +67,28 @@ namespace OskitAPI.Areas.SystemSetups.Services
             await cache.SetStringAsync(COMP_NUM_PREFIX, numPrefix!);
         }
 
-        private async Task RemoveCompanyNumberParamsFromCacheAsync ()
+        private async Task DeleteCompanyNumberParamsFromCacheAsync ()
         {
             await cache.RemoveAsync(COMP_NUM_FORMAT);
             await cache.RemoveAsync(COMP_NUM_PREFIX);
         }
 
+        /******************************************************************
+         * COUNTRY Store Manager Actions
+         ******************************************************************/
         public async Task<TransactionResult<Country>> AddCountryAsync (Country country)
         {
-            ArgumentNullException.ThrowIfNull(country, nameof(country));
-            return await systemStore.Countries.CreateAsync(country);
+            var result = await systemStore.Countries.CreateAsync(country);
+
+            if (result != null)
+                return TransactionResult<Country>.Success(result);
+            return TransactionResult<Country>.Failure();
         }
 
-        public Task<TransactionResult> RemoveCountryAsync (params Country[] paymentMethods)
+        public async Task<TransactionResult> DeleteCountryAsync (params Country[] countries)
         {
-            throw new NotImplementedException();
+            await systemStore.Countries.DeleteAsync(countries);
+            return TransactionResult.Success;
         }
 
         public async Task<Country?> GetCountryByCodeAsync (string code)
@@ -88,149 +97,231 @@ namespace OskitAPI.Areas.SystemSetups.Services
             return await systemStore.Countries.FindByCodeAsync(code);
         }
 
-        public Task<TransactionResult<Country>> UpdateCountryAsync (Country country)
+        public async Task<TransactionResult<Country>> UpdateCountryAsync (Country country)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.Countries.UpdateAsync(country);
+
+            if (result != null)
+                return TransactionResult<Country>.Success(result);
+            else
+                return TransactionResult<Country>.Failure();
         }
 
-        public Task<TransactionResult<Currency>> AddCurrencyAsync (Currency currency)
+        /******************************************************************
+         * CURRENCY Store Manager Actions
+         ******************************************************************/
+        public async Task<TransactionResult<Currency>> AddCurrencyAsync (Currency currency)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.Currencies.CreateAsync(currency);
+
+            if (result != null)
+                return TransactionResult<Currency>.Success(result!);
+            return TransactionResult<Currency>.Failure();
         }
 
-        public Task<TransactionResult> RemoveCurrencyAsync (params Currency[] paymentMethods)
+        public async Task<TransactionResult> DeleteCurrencyAsync (params Currency[] currencies)
         {
-            throw new NotImplementedException();
+            await systemStore.Currencies.DeleteAsync(currencies);
+            return TransactionResult.Success;
         }
 
-        public Task<Country?> GetCurrencyByCodeAsync (string code)
+        public async Task<Currency?> GetCurrencyByCodeAsync (string code)
+            => await systemStore.Currencies.FindByCodeAsync(code);
+
+        public async Task<TransactionResult<Currency>> UpdateCurrencyAsync (Currency currency)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.Currencies.UpdateAsync(currency);
+
+            if (result != null)
+                return TransactionResult<Currency>.Success(result);
+            else
+                return TransactionResult<Currency>.Failure();
         }
 
-        public Task<TransactionResult<Currency>> UpdateCurrencyAsync (Currency currency)
+        /******************************************************************
+         * DATE_FORMAT Store Manager Actions
+         ******************************************************************/
+        public async Task<TransactionResult<DateFormat>> AddDateFormatAsync (DateFormat dateFormat)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.DateFormats.CreateAsync(dateFormat);
+
+            if (result != null)
+                return TransactionResult<DateFormat>.Success(result);
+            return TransactionResult<DateFormat>.Failure();
         }
 
-        public Task<TransactionResult<DateFormat>> AddDateFormatAsync (DateFormat dateFormat)
+        public async Task<TransactionResult> DeleteDateFormatAsync (params DateFormat[] dateFormats)
         {
-            throw new NotImplementedException();
+            await systemStore.DateFormats.DeleteAsync(dateFormats);
+            return TransactionResult.Success;
         }
 
-        public Task<TransactionResult> RemoveDateFormatAsync (params DateFormat[] paymentMethods)
+        public async Task<DateFormat?> GetDateFormatByIdAsync (string id)
+            => await systemStore.DateFormats.FindByIdAsync(id);
+
+        public async Task<TransactionResult<DateFormat>> UpdateDateFormatAsync (DateFormat dateFormat)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.DateFormats.UpdateAsync(dateFormat);
+
+            if (result != null)
+                return TransactionResult<DateFormat>.Success(result);
+            else
+                return TransactionResult<DateFormat>.Failure(TransactionError.FromDbError(dbErrorDescriber.IndexConstraint()));
         }
 
-        public Task<DateFormat?> GetDateFormatByIdAsync (string id)
+        /******************************************************************
+         * PAYMENT_METHOD Store Manager Actions
+         ******************************************************************/
+        public async Task<TransactionResult<PaymentMethod>> AddPaymentMethodAsync (PaymentMethod paymentMethod)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.PaymentMethods.CreateAsync(paymentMethod);
+
+            if (result != null)
+                return TransactionResult<PaymentMethod>.Success(result);
+            return TransactionResult<PaymentMethod>.Failure();
         }
 
-        public Task<TransactionResult<DateFormat>> UpdateDateFormatAsync (DateFormat dateFormat)
+        public async Task<TransactionResult> DeletePaymentMethodAsync (params PaymentMethod[] paymentMethods)
         {
-            throw new NotImplementedException();
+            await systemStore.PaymentMethods.DeleteAsync(paymentMethods);
+            return TransactionResult.Success;
         }
 
-        public Task<TransactionResult<PaymentMethod>> AddPaymentMethodAsync (PaymentMethod paymentMethod)
+        public Task<PaymentMethod?> GetPaymentMethodByIdAsync (string id)
+            => systemStore.PaymentMethods.FindByIdAsync(id);
+
+        public async Task<TransactionResult<PaymentMethod>> UpdatePaymentMethodAsync (PaymentMethod paymentMethod)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.PaymentMethods.UpdateAsync(paymentMethod);
+
+            if (result != null)
+                return TransactionResult<PaymentMethod>.Success(result);
+            else
+                return TransactionResult<PaymentMethod>.Failure(TransactionError.FromDbError(dbErrorDescriber.IndexConstraint()));
         }
 
-        public Task<TransactionResult> RemovePaymentMethodAsync (params PaymentMethod[] paymentMethods)
+        /******************************************************************
+         * PAYMENT_TERM Store Manager Actions
+         ******************************************************************/
+
+        public async Task<TransactionResult<PaymentTerm>> AddPaymentTermAsync (PaymentTerm paymentTerm)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.PaymentTerms.CreateAsync(paymentTerm);
+
+            if (result != null)
+                return TransactionResult<PaymentTerm>.Success(result);
+            return TransactionResult<PaymentTerm>.Failure();
         }
 
-        public Task<Country?> GetPaymentMethodByIdAsync (string id)
+        public async Task<TransactionResult> DeletePaymentTermAsync (params PaymentTerm[] paymentTerms)
         {
-            throw new NotImplementedException();
+            await systemStore.PaymentTerms.DeleteAsync(paymentTerms);
+            return TransactionResult.Success;
         }
 
-        public Task<TransactionResult<PaymentMethod>> UpdatePaymentMethodAsync (PaymentMethod paymentMethod)
+        public async Task<PaymentTerm?> GetPaymentTermByIdAsync (string id)
+            => await systemStore.PaymentTerms.FindByIdAsync(id);
+
+        public async Task<TransactionResult<PaymentTerm>> UpdatePaymentTermAsync (PaymentTerm paymentTerm)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.PaymentTerms.UpdateAsync(paymentTerm);
+
+            if (result != null)
+                return TransactionResult<PaymentTerm>.Success(result);
+            else
+                return TransactionResult<PaymentTerm>.Failure(TransactionError.FromDbError(dbErrorDescriber.IndexConstraint()));
         }
 
-        public Task<TransactionResult<PaymentTerm>> AddPaymentTermAsync (PaymentTerm paymentTerm)
+        /******************************************************************
+         * SHIPPING_METHOD Store Manager Actions
+         ******************************************************************/
+
+        public async Task<TransactionResult<ShippingMethod>> AddShippingMethodAsync (ShippingMethod shippingMethod)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.ShippingMethods.CreateAsync(shippingMethod);
+
+            if (result != null)
+                return TransactionResult<ShippingMethod>.Success(result);
+            return TransactionResult<ShippingMethod>.Failure();
         }
 
-        public Task<TransactionResult> RemovePaymentTermAsync (params PaymentTerm[] paymentTerms)
+        public async Task<TransactionResult> DeleteShippingMethodAsync (params ShippingMethod[] shippingMethods)
         {
-            throw new NotImplementedException();
+            await systemStore.ShippingMethods.DeleteAsync(shippingMethods);
+            return TransactionResult.Success;
         }
 
-        public Task<Country?> GetPaymentTermByIdAsync (string id)
+        public async Task<ShippingMethod?> GetShippingMethodByIdAsync (string id)
+            => await systemStore.ShippingMethods.FindByIdAsync(id);
+
+        public async Task<TransactionResult<ShippingMethod>> UpdateShippingMethodAsync (ShippingMethod shippingMethod)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.ShippingMethods.UpdateAsync(shippingMethod);
+
+            if (result != null)
+                return TransactionResult<ShippingMethod>.Success(result);
+            else
+                return TransactionResult<ShippingMethod>.Failure();
         }
 
-        public Task<TransactionResult<PaymentTerm>> UpdatePaymentTermAsync (PaymentTerm paymentTerm)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<TransactionResult<ShippingMethod>> AddShippingMethodAsync (ShippingMethod shippingMethod)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<TransactionResult> RemoveShippingMethodAsync (params ShippingMethod[] shippingMethods)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Country?> GetShippingMethodByIdAsync (string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<TransactionResult<ShippingMethod>> UpdateShippingMethodAsync (ShippingMethod shippingMethod)
-        {
-            throw new NotImplementedException();
-        }
-
+        /******************************************************************
+         * SHIPPING_TERM Store Manager Actions
+         ******************************************************************/
         public Task<TransactionResult<ShippingTerm>> AddShippingTermAsync (ShippingTerm shippingTerm)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TransactionResult> RemoveShippingTermAsync (params ShippingTerm[] shippingTerms)
+        public async Task<TransactionResult> DeleteShippingTermAsync (params ShippingTerm[] shippingTerms)
         {
-            throw new NotImplementedException();
+            await systemStore.ShippingTerms.DeleteAsync(shippingTerms);
+            return TransactionResult.Success;
         }
 
-        public Task<Country?> GetShippingTermByIdAsync (string id)
+        public async Task<ShippingTerm?> GetShippingTermByIdAsync (string id)
+            => await systemStore.ShippingTerms.FindByIdAsync(id);
+
+
+        public async Task<TransactionResult<ShippingTerm>> UpdateShippingTermAsync (ShippingTerm shippingTerm)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.ShippingTerms.UpdateAsync(shippingTerm);
+
+            if (result != null)
+                return TransactionResult<ShippingTerm>.Success(result);
+
+            return TransactionResult<ShippingTerm>.Failure();
         }
 
-        public Task<TransactionResult<ShippingTerm>> UpdateShippingTermAsync (ShippingTerm shippingTerm)
+        /******************************************************************
+         * VAT Store Manager Actions
+         ******************************************************************/
+        public async Task<TransactionResult<ValueAddedTax>> AddVATAsync (ValueAddedTax vat)
         {
-            throw new NotImplementedException();
+            var result = await systemStore.ValueAddedTax.CreateAsync(vat);
+
+            if (result != null)
+                return TransactionResult<ValueAddedTax>.Success(result);
+
+            return TransactionResult<ValueAddedTax>.Failure();
         }
 
-        public Task<TransactionResult<ValueAddedTax>> AddVATAsync (ValueAddedTax vat)
+        public async Task<TransactionResult> DeleteVATAsync (params ValueAddedTax[] vats)
         {
-            throw new NotImplementedException();
+            await systemStore.ValueAddedTax.DeleteAsync(vats);
+            return TransactionResult.Success;
         }
 
-        public Task<TransactionResult> RemoveVATAsync (params ValueAddedTax[] vat)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<ValueAddedTax?> GetVATByIdAsync (string id)
+            => await systemStore.ValueAddedTax.FindByIdAsync(id);
 
-        public Task<ValueAddedTax?> GetVATByIdAsync (string id)
+        public async Task<TransactionResult<ValueAddedTax>> UpdateVATAsync (ValueAddedTax vat)
         {
-            throw new NotImplementedException();
-        }
+            var result = await systemStore.ValueAddedTax.UpdateAsync(vat);
 
-        public Task<TransactionResult<ValueAddedTax>> UpdateVATAsync (ValueAddedTax vat)
-        {
-            throw new NotImplementedException();
+            if (result != null)
+                return TransactionResult<ValueAddedTax>.Success(result);
+
+            return TransactionResult<ValueAddedTax>.Failure();
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 using OskitAPI.Core.EFCore;
-using OskitAPI.CoreLib.Operations;
 using OskitAPI.Data;
 using OskitAPI.Models.Entity.InventorySpace;
 
@@ -9,57 +8,84 @@ namespace OskitAPI.Areas.Inventory.Services
 {
     public sealed class ItemStore : DbStoreBase
     {
-        public ItemStore (AppDbContext context, ILogger logger, DBErrorDescriber errorDescriber)
+        public ItemStore (AppDbContext context, ILogger logger, DbErrorDescriber errorDescriber)
         : base(context, logger, errorDescriber) { }
 
-        public async Task<TransactionResult<Item>> CreateAsync (Item item)
+        public async Task<Item?> CreateAsync (string companyId, Item item)
         {
-            ArgumentNullException.ThrowIfNull(nameof(item));
-
-            if (string.IsNullOrEmpty(item.Code))
-                if (await FindByCodeAsync(item.Code!) != null)
-                    return TransactionResult<Item>
-                        .Failure();
-
-            if (item.Active == null)
-                item.Active = true;
-
+            item.CompanyId = companyId;
             var result = await context!.Item.AddAsync(item);
             await context.SaveChangesAsync();
-            return TransactionResult<Item>.Success(result.Entity);
+            return result.Entity;
         }
 
-        public Item? FindByIdAsync (string id)
+        public async Task<Item> UpdateAsync (Item item)
         {
-            ArgumentNullException.ThrowIfNull(nameof(id));
-            return context!.Item.Find(id);
+            var result = context!.Item.Update(item);
+            await context.SaveChangesAsync();
+            return result.Entity;
         }
 
-        public async Task<ItemInventory?> FindInventoryByIdASync (string itemId)
+        public async Task<Item?> FindByIdAsync (string companyId, string itemId)
         {
-            return await context!.ItemInventory.Where(p => p.ItemId == itemId)
-                .Include(p => p.Item)
+            return await context!.Item.Where(p => p.Id == itemId)
+                .Include(p => p.Inventory)
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<IList<ItemAdjustment>?> FindAdjustmentsByItemIdAsync (string itemId)
+        public async Task<IList<ItemAdjustment>> FindAdjustmentsByItemIdAsync (string companyId, string itemId)
         {
-            return await context!.ItemAdjustment.Where(p => p.ItemId == itemId)
+            return await context!.ItemAdjustment
+                .Where(p => p.ItemId == itemId && p.CompanyId == companyId)
                 .Include(p => p.Item)
                 .ToListAsync();
         }
 
-        public async Task<Item?> FindByCodeAsync (string code)
+        public async Task<IList<ItemAdjustment>> FindAdjustmentsAsync (string companyId)
         {
-            ArgumentNullException.ThrowIfNull(nameof(code));
+            return await context!.ItemAdjustment
+                .Where(p => p.CompanyId == companyId)
+                .Include(p => p.Item)
+                .ToListAsync();
+        }
 
+        public async Task<ItemAdjustment?> FindAdjustmentByIdAsync (string companyId, string adjustmentId)
+        {
+            return await context!.ItemAdjustment
+                .Where(p => p.Id == adjustmentId && p.CompanyId == companyId)
+                .Include(p => p.Item)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<Item?> FindByCodeAsync (string companyId, string itemCode)
+        {
             return await context!.Item
-                .Where(p => p.Code == code)
+                .Where(p => p.Code == itemCode && p.CompanyId == companyId)
                 .FirstOrDefaultAsync();
         }
 
         public async Task<IList<Item>> FindAllAsync (string companyId)
-            => await context!.Item.Where(p => p.CompanyId == companyId)
+        {
+            return await context!.Item
+                .Where(p => p.CompanyId == companyId)
                 .ToListAsync();
+        }
+
+        public async Task<ItemAdjustment?> CreateAdjustmentAsync (string companyId, ItemAdjustment adjustment)
+        {
+            adjustment.CompanyId = companyId;
+            var result = await context!.ItemAdjustment.AddAsync(adjustment);
+            await context!.SaveChangesAsync();
+            return result.Entity;
+        }
+
+        public async Task DeleteItemAsync (string companyId, Item item)
+        {
+            var adjustments = await FindAdjustmentsByItemIdAsync(companyId, item.Id!);
+            if (adjustments.Count > 0)
+                context!.RemoveRange(adjustments);
+            context!.RemoveRange(item.Inventory!, item);
+            await context!.SaveChangesAsync();
+        }
     }
 }

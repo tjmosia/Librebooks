@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OskitAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40b486ea0810a7c57e9fdb70620a4326eb948dff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb4f9d2508d83952d0bb6a9964666487e31bc1f2")]
 [assembly: System.Reflection.AssemblyProductAttribute("OskitAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OskitAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

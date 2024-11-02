@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
+using OskitAPI.Core.EFCore;
+
 namespace OskitAPI.CoreLib.Operations
 {
     public class TransactionError : IdentityError
@@ -15,6 +17,9 @@ namespace OskitAPI.CoreLib.Operations
         public static TransactionError FromIdentityError (IdentityError error)
             => new TransactionError(error.Code, error.Description);
 
+        public static TransactionError FromDbError (DbError error)
+            => error.Error!;
+
         public static IEnumerable<TransactionError> FromIdentityErrors (params IdentityError[] errors)
         {
             foreach (var error in errors)
@@ -23,6 +28,7 @@ namespace OskitAPI.CoreLib.Operations
 
         public static TransactionError FromIE (IdentityError error)
             => FromIdentityError(error);
+
 
         public static IEnumerable<TransactionError> FromIEs (params IdentityError[] errors)
             => FromIdentityErrors(errors);

@@ -2,18 +2,20 @@
 
 namespace OskitAPI.Core.EFCore
 {
-    public class DBErrorDescriber
+    public class DbErrorDescriber
     {
-        public static DbError IndexConstraint = new DbError
-        {
-            ErrorNumber = DbEngineErrorsCodes.IndexConstraint,
-            Error = new TransactionError(nameof(IndexConstraint))
-        };
+        public DbError IndexConstraint (string? description = null)
+            => new DbError
+            {
+                ErrorNumber = DbEngineErrorsCodes.IndexConstraint,
+                Error = new TransactionError(nameof(IndexConstraint), description ?? "")
+            };
 
-        public static DbError PrimaryKeyConstraint = new DbError
-        {
-            ErrorNumber = DbEngineErrorsCodes.PrimaryKeyConstraint,
-            Error = new TransactionError(nameof(PrimaryKeyConstraint), "Record with with the same key exists.")
-        };
+        public DbError PrimaryKeyConstraint (string? description = null)
+            => new DbError
+            {
+                ErrorNumber = DbEngineErrorsCodes.PrimaryKeyConstraint,
+                Error = new TransactionError(nameof(PrimaryKeyConstraint), description ?? "")
+            };
     }
 }
