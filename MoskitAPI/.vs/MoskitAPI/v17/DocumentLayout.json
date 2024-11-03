@@ -38,8 +38,7 @@
               "RelativeToolTip": "Areas\\Inventory\\Services\\ItemStore.cs",
               "ViewState": "AgIAADUAAAAAAAAAAAAYwFMAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T20:14:29.736Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-02T20:14:29.736Z"
             },
             {
               "$type": "Document",
@@ -64,8 +63,7 @@
               "RelativeToolTip": "Areas\\Inventory\\Services\\IItemManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T19:34:59.502Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-02T19:34:59.502Z"
             },
             {
               "$type": "Document",
@@ -77,8 +75,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAAAAAF0AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T19:33:05.368Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-02T19:33:05.368Z"
             }
           ]
         }
