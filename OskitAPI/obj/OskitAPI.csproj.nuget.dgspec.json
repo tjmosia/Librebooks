@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\MoskitAPI\\OskitAPI.csproj": {}
+    "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\OskitAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\MoskitAPI\\OskitAPI.csproj": {
+    "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\OskitAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\MoskitAPI\\OskitAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\OskitAPI.csproj",
         "projectName": "OskitAPI",
-        "projectPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\MoskitAPI\\OskitAPI.csproj",
+        "projectPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\OskitAPI.csproj",
         "packagesPath": "C:\\Users\\Thabo Mosia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\MoskitAPI\\obj\\",
+        "outputPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thabo Mosia\\AppData\\Roaming\\NuGet\\NuGet.Config",
