@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Thabo Mosia\\source\\repos\\OskitBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\OskitBlazor.bundle.scp.css",
+      "PackagePath": "staticwebassets\\OskitBlazor.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Thabo Mosia\\source\\repos\\OskitBlazor\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\Thabo Mosia\\source\\repos\\OskitBlazor\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Thabo Mosia\\source\\repos\\OskitBlazor\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Thabo Mosia\\source\\repos\\OskitBlazor\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.OskitBlazor.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.OskitBlazor.props",
+      "PackagePath": "build\\OskitBlazor.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.OskitBlazor.props",
+      "PackagePath": "buildMultiTargeting\\OskitBlazor.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.OskitBlazor.props",
+      "PackagePath": "buildTransitive\\OskitBlazor.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
