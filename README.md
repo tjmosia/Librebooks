@@ -12,7 +12,9 @@ Oskit-ERP is an ASP.NET Core Blazor powered Open-Source ERP System Kit suitable 
 - Purchases Manager
 - CRM
 
-
+## Stack
+- ASP.NET Core Blazor
+- ASP.NET Core Web API
 
 ## Development
 Want to contribute? Great!
