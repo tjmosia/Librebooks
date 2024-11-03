@@ -9,7 +9,12 @@ namespace OskitBlazor.Core.EFCore
         protected readonly ILogger? logger = logger;
         protected readonly DbErrorDescriber? dbErrorDescriber = dbErrorDescriber;
 
-        // protected bool disposed { get; set; }
-        // protected abstract void ThrowIfDisposed();
+        protected bool disposed = false;
+
+        protected virtual void ThrowIfDisposed ()
+        {
+            if (context == null)
+                throw new ObjectDisposedException(nameof(context));
+        }
     }
 }

@@ -1,63 +1,131 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-using OskitBlazor.CoreLib.Operations;
+﻿using OskitBlazor.Core.EFCore;
 using OskitBlazor.Data;
 using OskitBlazor.Models.Entity.CompanySpace;
+using OskitBlazor.Models.Entity.GeneralSpace;
 using OskitBlazor.Models.Entity.IdentitySpace;
+using OskitBlazor.Models.Entity.SalesSpace;
 
 namespace OskitBlazor.Areas.Companies.Services
 {
-    public class CompanyStore : IDisposable
+    public class CompanyStore
+        (AppDbContext? context, ILogger<CompanyStore>? logger)
+        : DbStoreBase(context, logger), ICompanyStore
     {
-        private readonly AppDbContext context;
-        private readonly ILogger<CompanyStore> logger;
-        private bool disposed = false;
 
-        public CompanyStore (AppDbContext context, ILogger<CompanyStore> logger)
+        private void ThrowIfDisposed ()
         {
-            this.context = context;
-            this.logger = logger;
+            if (context != null)
+                throw new ObjectDisposedException(nameof(context));
         }
 
-        public async Task<Company?> FindByIdAsync (string? id)
-            => await context.Company.FindAsync(id);
-
-        public async Task<Company?> FindByNumberAsync (string number)
-            => await context.Company
-                .Where(p => p.Number == number)
-                .FirstOrDefaultAsync();
-
-        public TransactionResult Add (Company company, User user)
+        public Task<Company?> FindByIdAsync (string companyId, User user)
         {
-            try
-            {
-                var result = context.Company.Add(company);
-                context.CompanyUser.Add(new CompanyUser
-                {
-                    CompanyId = company.Id,
-                    UserId = user.Id
-                });
-
-                context.SaveChanges();
-                return TransactionResult.Success;
-            }
-            catch (Exception ex)
-            {
-                logger.LogError("Exception Occurred at {method} with stack trade: \n {trace}", "CompanyService.Add", ex.StackTrace);
-                return TransactionResult.Failure([]);
-            }
+            throw new NotImplementedException();
         }
 
-        protected virtual void Dispose (bool disposing)
+        public Task<Company?> FindByNumberAsync (string companyNumber, User user)
         {
-            if (!disposed && disposing)
-                disposed = true;
+            throw new NotImplementedException();
         }
 
-        public void Dispose ()
+        public Task<IList<Company>> FindAllAsync (User user)
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
+            throw new NotImplementedException();
+        }
+
+        public Task<Company?> CreateAsync (Company company, User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Company?> UpdateAsync (Company company)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveAsync (Company company, User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CompanyUser?> CreateUserAsync (Company company, User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveUserAsync (Company company, User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IList<CompanyUser>> FindUsersByCompanyIdAsync (string companyId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<SalesPerson?> CreateSalesPersonAsync (Company company, Contact contact, CompanyUser? companyUser = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<SalesPerson?> FindSalesPersonByIdAsync (string salesPersonId, Company company)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<SalesPerson?> UpdateSalesPersonAsync (Company company, Contact contact, CompanyUser? companyUser = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveSalesPersonAsync (SalesPerson salesPerson)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CompanyRegionalSettings?> CreateRegionalSettingsAsync (Company company, CompanyRegionalSettings regionalSettings)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CompanyRegionalSettings?> FindRegionalSettingsByCompanyIdAsync (string companyId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CompanyRegionalSettings?> UpdateRegionalSettingsAsync (CompanyRegionalSettings regionalSettings)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveRegionalSettingsAsync (CompanyRegionalSettings regionalSettings)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CompanyMailSettings?> CreateMailSettingsAsync (Company company, CompanyMailSettings mailSettings)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CompanyMailSettings?> UpdateMailSettingsAsync (CompanyMailSettings mailSettings)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CompanyMailSettings?> FindMailSettingsByIdAsync (string mailSettingsId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IList<CompanyMailSettings>> FindAllMailSettingsByCompanyIdAsync (string companyId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveMailSettingsAsync (CompanyMailSettings mailSettings)
+        {
+            throw new NotImplementedException();
         }
     }
 }

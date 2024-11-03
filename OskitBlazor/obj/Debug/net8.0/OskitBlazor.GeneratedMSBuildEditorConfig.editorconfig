@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OskitBlazor
 build_property.RootNamespace = OskitBlazor
@@ -180,6 +188,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Pages/Auth.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Pages/CompaniesChoice.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb21wYW5pZXNDaG9pY2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Pages/Counter.razor]
