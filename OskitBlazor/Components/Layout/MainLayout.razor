@@ -1,15 +1,22 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="Dashboard">
-    <Microsoft.FluentUI.AspNetCore.Components.FluentHeader>
 
-    </Microsoft.FluentUI.AspNetCore.Components.FluentHeader>
-    <div class="AppContentContainer">
-        <div class="SideBar">
-            <NavMenu />
+<FluentLayout>
+    <FluentHeader></FluentHeader>
+    <FluentNavMenu>
+
+    </FluentNavMenu>
+    <FluentBodyContent>
+        @Body
+    </FluentBodyContent>
+</FluentLayout>
+@*<div id="app-root">
+    <AppHeader />
+    <div class="app-content">
+        <div class="app-sidebar">
+            <AppNavSideBar />
         </div>
-        <main class="MainRouteContent">
-            @Body
+        <main class="app-route-outlet">
         </main>
     </div>
 </div>
@@ -18,4 +25,10 @@
     An unhandled error has occurred.
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
-</div>
+</div>*@
+
+<FluentToastProvider />
+<FluentDialogProvider />
+<FluentTooltipProvider />
+<FluentMessageBarProvider />
+<FluentMenuProvider />

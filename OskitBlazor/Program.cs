@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.FluentUI.AspNetCore.Components;
 
 using OskitBlazor.Areas.SystemSetups.Services;
 using OskitBlazor.Components;
-using OskitBlazor.Components.Account;
+using OskitBlazor.Components.Identity;
 using OskitBlazor.Core.EFCore;
 using OskitBlazor.Data;
 using OskitBlazor.Extensions.Identity;
@@ -21,6 +22,7 @@ builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
 builder.Services.AddDistributedMemoryCache();
+builder.Services.AddHttpClient();
 
 /****************************************************************************************************************
  ** DB_PROVIDERS
@@ -54,6 +56,10 @@ builder.Services.AddIdentityCore<User>(options => options.SignIn.RequireConfirme
 
 builder.Services.AddSingleton<IEmailSender<User>, IdentityNoOpEmailSender>();
 
+builder.Services.AddFluentUIComponents(options =>
+{
+    options.ValidateClassNames = false;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

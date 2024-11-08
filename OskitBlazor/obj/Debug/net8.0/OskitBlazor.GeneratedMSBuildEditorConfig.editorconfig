@@ -26,188 +26,176 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitBlazor
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/AccessDenied.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEFjY2Vzc0RlbmllZC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/ConfirmEmail.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXENvbmZpcm1FbWFpbC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/ConfirmEmailChange.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXENvbmZpcm1FbWFpbENoYW5nZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/ExternalLogin.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEV4dGVybmFsTG9naW4ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/ForgotPassword.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEZvcmdvdFBhc3N3b3JkLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/ForgotPasswordConfirmation.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEZvcmdvdFBhc3N3b3JkQ29uZmlybWF0aW9uLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/InvalidPasswordReset.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEludmFsaWRQYXNzd29yZFJlc2V0LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/InvalidUser.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEludmFsaWRVc2VyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Lockout.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXExvY2tvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXExvZ2luLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/LoginWith2fa.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXExvZ2luV2l0aDJmYS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/LoginWithRecoveryCode.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXExvZ2luV2l0aFJlY292ZXJ5Q29kZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/ChangePassword.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxDaGFuZ2VQYXNzd29yZC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/DeletePersonalData.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxEZWxldGVQZXJzb25hbERhdGEucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/Disable2fa.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxEaXNhYmxlMmZhLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/Email.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxFbWFpbC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/EnableAuthenticator.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxFbmFibGVBdXRoZW50aWNhdG9yLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/ExternalLogins.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxFeHRlcm5hbExvZ2lucy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/GenerateRecoveryCodes.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxHZW5lcmF0ZVJlY292ZXJ5Q29kZXMucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxJbmRleC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/PersonalData.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxQZXJzb25hbERhdGEucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/ResetAuthenticator.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxSZXNldEF1dGhlbnRpY2F0b3IucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/SetPassword.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxTZXRQYXNzd29yZC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/TwoFactorAuthentication.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxUd29GYWN0b3JBdXRoZW50aWNhdGlvbi5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Manage/_Imports.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxfSW1wb3J0cy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/Register.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlZ2lzdGVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/RegisterConfirmation.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlZ2lzdGVyQ29uZmlybWF0aW9uLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/ResendEmailConfirmation.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlc2VuZEVtYWlsQ29uZmlybWF0aW9uLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/ResetPassword.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlc2V0UGFzc3dvcmQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/ResetPasswordConfirmation.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlc2V0UGFzc3dvcmRDb25maXJtYXRpb24ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Pages/_Imports.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXF9JbXBvcnRzLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Shared/AccountLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxBY2NvdW50TGF5b3V0LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Shared/ExternalLoginPicker.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxFeHRlcm5hbExvZ2luUGlja2VyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Shared/ManageLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxNYW5hZ2VMYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Shared/ManageNavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxNYW5hZ2VOYXZNZW51LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Shared/RedirectToLogin.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxSZWRpcmVjdFRvTG9naW4ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Shared/ShowRecoveryCodes.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxTaG93UmVjb3ZlcnlDb2Rlcy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Account/Shared/StatusMessage.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxTdGF0dXNNZXNzYWdlLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Layout/Header.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcSGVhZGVyLnJhem9y
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Home/Auth.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXEF1dGgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Pages/Auth.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoLnJhem9y
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Home/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXENvdW50ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Pages/CompaniesChoice.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb21wYW5pZXNDaG9pY2UucmF6b3I=
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Home/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXEVycm9yLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Home/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXEhvbWUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Pages/Error.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Home/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXFdlYXRoZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/ChangePassword.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XENoYW5nZVBhc3N3b3JkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/DeletePersonalData.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XERlbGV0ZVBlcnNvbmFsRGF0YS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/Disable2fa.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XERpc2FibGUyZmEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/Email.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XEVtYWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/EnableAuthenticator.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XEVuYWJsZUF1dGhlbnRpY2F0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/ExternalLogins.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XEV4dGVybmFsTG9naW5zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/GenerateRecoveryCodes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XEdlbmVyYXRlUmVjb3ZlcnlDb2Rlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XEluZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/PersonalData.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XFBlcnNvbmFsRGF0YS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/ResetAuthenticator.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XFJlc2V0QXV0aGVudGljYXRvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/SetPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XFNldFBhc3N3b3JkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/TwoFactorAuthentication.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XFR3b0ZhY3RvckF1dGhlbnRpY2F0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Account/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBY2NvdW50XF9JbXBvcnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/AccessDenied.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXEFjY2Vzc0RlbmllZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/AuthLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXEF1dGhMYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/ConfirmEmail.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXENvbmZpcm1FbWFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/ConfirmEmailChange.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXENvbmZpcm1FbWFpbENoYW5nZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/ExternalLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXEV4dGVybmFsTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/ForgotPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXEZvcmdvdFBhc3N3b3JkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/ForgotPasswordConfirmation.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXEZvcmdvdFBhc3N3b3JkQ29uZmlybWF0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/InvalidPasswordReset.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXEludmFsaWRQYXNzd29yZFJlc2V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/LoginWith2fa.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXExvZ2luV2l0aDJmYS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/LoginWithRecoveryCode.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXExvZ2luV2l0aFJlY292ZXJ5Q29kZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXFJlZ2lzdGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/RegisterConfirmation.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXFJlZ2lzdGVyQ29uZmlybWF0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/ResendEmailConfirmation.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXFJlc2VuZEVtYWlsQ29uZmlybWF0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/ResetPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXFJlc2V0UGFzc3dvcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/ResetPasswordConfirmation.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXFJlc2V0UGFzc3dvcmRDb25maXJtYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXF9JbXBvcnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Shared/AccountLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxTaGFyZWRcQWNjb3VudExheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Shared/ExternalLoginPicker.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxTaGFyZWRcRXh0ZXJuYWxMb2dpblBpY2tlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Shared/ManageLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxTaGFyZWRcTWFuYWdlTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Shared/ManageNavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxTaGFyZWRcTWFuYWdlTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Shared/RedirectToLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxTaGFyZWRcUmVkaXJlY3RUb0xvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Shared/ShowRecoveryCodes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxTaGFyZWRcU2hvd1JlY292ZXJ5Q29kZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Shared/StatusMessage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxTaGFyZWRcU3RhdHVzTWVzc2FnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Layout/AppHeader.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcQXBwSGVhZGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Routes.razor]
@@ -218,10 +206,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXExvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-qulv8ax0ke
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Layout/AppNavSideBar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcQXBwTmF2U2lkZUJhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-fhudokrt39
+
 [C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-goate2s4oh
-
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-q0gx2sqjo0

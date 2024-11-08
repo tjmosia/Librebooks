@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "animate.css@4.1.1",
+      "destination": "wwwroot/assets/libs/animate.css/"
+    },
+    {
+      "library": "bootstrap@5.3.3",
+      "destination": "wwwroot/assets/libs/bootstrap/"
+    }
+  ]
+}

@@ -1,89 +1,37 @@
-.page[b-goate2s4oh] {
-    position: relative;
-}
-
-.HeaderWrapper[b-goate2s4oh]{
-    width: 100%;
-    height: 80px;
-}
-.pageContent[b-goate2s4oh]{
-    width: 100%;
-}
-
-main[b-goate2s4oh]
+#app-root[b-goate2s4oh]
 {
-    flex: 1;
-}
-
-.sidebar[b-goate2s4oh] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
-}
-
-.top-row[b-goate2s4oh] {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
-    height: 3.5rem;
+    width: 100%;
     display: flex;
-    align-items: center;
+    height: 100%;
+    flex-direction: column;
 }
 
-    .top-row[b-goate2s4oh]  a, .top-row[b-goate2s4oh]  .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
-    }
-
-    .top-row[b-goate2s4oh]  a:hover, .top-row[b-goate2s4oh]  .btn-link:hover {
-        text-decoration: underline;
-    }
-
-    .top-row[b-goate2s4oh]  a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-@media (max-width: 640.98px) {
-    .top-row[b-goate2s4oh] {
-        justify-content: space-between;
-    }
-
-    .top-row[b-goate2s4oh]  a, .top-row[b-goate2s4oh]  .btn-link {
-        margin-left: 0;
-    }
+.app-content[b-goate2s4oh]
+{
+    display: flex;
+    width: 100%;
+    height: inherit;
 }
 
-@media (min-width: 641px) {
-    .page[b-goate2s4oh] {
-        flex-direction: row;
-    }
-
-    .sidebar[b-goate2s4oh] {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-    }
-
-    .top-row[b-goate2s4oh] {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
-
-    .top-row.auth[b-goate2s4oh]  a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
-
-    .top-row[b-goate2s4oh], article[b-goate2s4oh] {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
-    }
+.app-sidebar[b-goate2s4oh]
+{
+    width: 300px;
+    height: 100%;
+    background-color: rgb(128, 128, 128);
+    box-shadow: var(--box-shadow-2);
 }
 
-#blazor-error-ui[b-goate2s4oh] {
+.app-route-outlet[b-goate2s4oh]
+{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    overflow: auto;
+    display: block;
+}
+
+#blazor-error-ui[b-goate2s4oh]
+{
     background: lightyellow;
     bottom: 0;
     box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
@@ -95,7 +43,8 @@ main[b-goate2s4oh]
     z-index: 1000;
 }
 
-    #blazor-error-ui .dismiss[b-goate2s4oh] {
+    #blazor-error-ui .dismiss[b-goate2s4oh]
+    {
         cursor: pointer;
         position: absolute;
         right: 0.75rem;

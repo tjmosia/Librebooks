@@ -32,15 +32,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Companies\Data\" />
-    <Folder Include="Areas\Customers\Data\" />
-    <Folder Include="Areas\Customers\Models\" />
-    <Folder Include="Areas\Customers\Views\" />
-    <Folder Include="Areas\Inventory\Data\" />
-    <Folder Include="Areas\SystemSetups\Data\" />
-    <Folder Include="Areas\SystemSetups\Models\" />
+    <Folder Include="Components\Inventory\" />
+    <Folder Include="Components\Purchases\" />
+    <Folder Include="Components\Sales\" />
     <Folder Include="Extensions\Data\" />
-    <Folder Include="Providers\Managers\" />
+    <Folder Include="Providers\Purchases\" />
+    <Folder Include="Providers\Sales\" />
+    <Folder Include="wwwroot\assets\libs\" />
   </ItemGroup>
 
 </Project>
