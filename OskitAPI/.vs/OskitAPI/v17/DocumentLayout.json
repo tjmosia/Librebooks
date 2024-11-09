@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\models\\entity\\customerspace\\customeraccountscontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:models\\entity\\customerspace\\customeraccountscontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\identity\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:areas\\identity\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomerAccountsContact.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Models\\Entity\\CustomerSpace\\CustomerAccountsContact.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\CustomerSpace\\CustomerAccountsContact.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Models\\Entity\\CustomerSpace\\CustomerAccountsContact.cs",
+              "RelativeToolTip": "Models\\Entity\\CustomerSpace\\CustomerAccountsContact.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T20:31:33.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T20:31:12.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Areas\\Identity\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAN4AAAAAAAAAAAAAAPkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T20:22:34.774Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -42,7 +42,7 @@ namespace Microsoft.AspNetCore.Routing
                 return TypedResults.Challenge(properties, [provider]);
             });
 
-            accountGroup.MapPost("/Logout", async (
+            accountGroup.MapPost("/logout", async (
                 ClaimsPrincipal user,
                 SignInManager<User> signInManager,
                 [FromForm] string returnUrl) =>
@@ -51,7 +51,7 @@ namespace Microsoft.AspNetCore.Routing
                 return TypedResults.LocalRedirect($"~/{returnUrl}");
             });
 
-            var manageGroup = accountGroup.MapGroup("/Manage").RequireAuthorization();
+            var manageGroup = accountGroup.MapGroup("/account").RequireAuthorization();
 
             manageGroup.MapPost("/LinkExternalLogin", async (
                 HttpContext context,
@@ -63,7 +63,7 @@ namespace Microsoft.AspNetCore.Routing
 
                 var redirectUrl = UriHelper.BuildRelative(
                     context.Request.PathBase,
-                    "/Account/Manage/ExternalLogins",
+                    "/account/external-logins",
                     QueryString.Create("Action", ExternalLogins.LinkLoginCallbackAction));
 
                 var properties = signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl, signInManager.UserManager.GetUserId(context.User));
@@ -73,7 +73,7 @@ namespace Microsoft.AspNetCore.Routing
             var loggerFactory = endpoints.ServiceProvider.GetRequiredService<ILoggerFactory>();
             var downloadLogger = loggerFactory.CreateLogger("DownloadPersonalData");
 
-            manageGroup.MapPost("/DownloadPersonalData", async (
+            manageGroup.MapPost("/download-personal-data", async (
                 HttpContext context,
                 [FromServices] UserManager<User> userManager,
                 [FromServices] AuthenticationStateProvider authenticationStateProvider) =>

@@ -1,30 +1,8 @@
 [
   {
-    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityComponentsEndpointRouteBuilderExtensions\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAdditionalIdentityEndpoints\u003Eb__0_1",
-    "RelativePath": "Account/Logout",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "returnUrl",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
     "ContainingType": "Microsoft.AspNetCore.Routing.IdentityComponentsEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__DisplayClass0_0",
     "Method": "\u003CMapAdditionalIdentityEndpoints\u003Eb__3",
-    "RelativePath": "Account/Manage/DownloadPersonalData",
+    "RelativePath": "Account/account/download-personal-data",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -40,13 +18,35 @@
   {
     "ContainingType": "Microsoft.AspNetCore.Routing.IdentityComponentsEndpointRouteBuilderExtensions\u002B\u003C\u003Ec",
     "Method": "\u003CMapAdditionalIdentityEndpoints\u003Eb__0_2",
-    "RelativePath": "Account/Manage/LinkExternalLogin",
+    "RelativePath": "Account/account/LinkExternalLogin",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
     "Parameters": [
       {
         "Name": "provider",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityComponentsEndpointRouteBuilderExtensions\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAdditionalIdentityEndpoints\u003Eb__0_1",
+    "RelativePath": "Account/logout",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "returnUrl",
         "Type": "System.String",
         "IsRequired": true
       }

@@ -10,6 +10,7 @@ using OskitAPI.Models.Entity.InventorySpace;
 using OskitAPI.Models.Entity.PurchasesSpace;
 using OskitAPI.Models.Entity.SalesSpace;
 using OskitAPI.Models.Entity.SupplierSpace;
+using OskitAPI.Models.Entity.SystemSpace;
 
 namespace OskitAPI.Models.Entity.CompanySpace
 {
@@ -27,10 +28,13 @@ namespace OskitAPI.Models.Entity.CompanySpace
         public virtual string? EmailAddress { get; set; }
         public virtual string? FaxNumber { get; set; }
         public virtual string? Logo { get; set; }
+        public virtual int YearsInBusienss { get; set; }
+        public virtual string? BusinessSectorId { get; set; }
 
         [Timestamp, ConcurrencyCheck]
         public virtual byte[]? RowVersion { get; set; }
 
+        public virtual BusinessSector? BusinessSector { get; set; }
         public virtual ICollection<CompanyUser>? Users { get; set; }
         public virtual ICollection<DocumentSetup>? DocumentSetups { get; set; }
         public virtual CompanyRegionalSettings? RegionalSettings { get; set; }

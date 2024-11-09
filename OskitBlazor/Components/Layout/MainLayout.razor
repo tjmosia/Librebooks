@@ -2,30 +2,20 @@
 
 
 <FluentLayout>
-    <FluentHeader></FluentHeader>
-    <FluentNavMenu>
-
-    </FluentNavMenu>
-    <FluentBodyContent>
-        @Body
-    </FluentBodyContent>
-</FluentLayout>
-@*<div id="app-root">
-    <AppHeader />
-    <div class="app-content">
-        <div class="app-sidebar">
+    <FluentHeader>Top Header</FluentHeader>
+    <FluentStack Orientation="Orientation.Horizontal">
+        <FluentNavMenu Width="300">
+            <h1>Side Bar</h1>
             <AppNavSideBar />
-        </div>
-        <main class="app-route-outlet">
-        </main>
-    </div>
-</div>
+        </FluentNavMenu>
+        <FluentBodyContent>
 
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>*@
+            <h1>This is the body</h1>
+            @Body
+        </FluentBodyContent>
+    </FluentStack>
+</FluentLayout>
+
 
 <FluentToastProvider />
 <FluentDialogProvider />

@@ -12,9 +12,9 @@
     <link href="_content/Microsoft.FluentUI.AspNetCore.Components/css/reboot.css" rel="stylesheet" />
     <HeadOutlet @rendermode="RenderModeForPage" />
 </head>
-<body>
-    <Routes @rendermode="RenderModeForPage" />
+<body id="body">
     <FluentDesignTheme Mode="DesignThemeModes.Light" OfficeColor="OfficeColor.Skype" StorageName="AppTheme" />
+    <Routes @rendermode="RenderModeForPage" />
     <script src="_framework/blazor.web.js"></script>
     <script src="_content/Microsoft.FluentUI.AspNetCore.Components/Microsoft.FluentUI.AspNetCore.Components.lib.module.js" type="module" async></script>
 </body>
@@ -23,7 +23,7 @@
 @code {
     [CascadingParameter]
     private HttpContext HttpContext { get; set; } = default!;
-    
+
 
     private IComponentRenderMode? RenderModeForPage => HttpContext.Request.Path.StartsWithSegments("/auth")
         || HttpContext.Request.Path.StartsWithSegments("/account")

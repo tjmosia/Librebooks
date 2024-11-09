@@ -86,6 +86,7 @@ namespace OskitAPI.Models.Entity
             ShippingTerm.BuildModel(builder);
             PaymentMethod.BuildModel(builder);
             SystemCompanyNumber.BuildModel(builder);
+            BusinessSector.BuildModel(builder);
 
             /************************************************************************************************
              * Customer Space

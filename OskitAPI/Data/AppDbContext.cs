@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity;
+using OskitAPI
+    .Models.Entity;
 using OskitAPI.Models.Entity.AccountingSpace;
 using OskitAPI.Models.Entity.BankingSpace;
 using OskitAPI.Models.Entity.CompanySpace;
 using OskitAPI.Models.Entity.CustomerSpace;
 using OskitAPI.Models.Entity.DocumentSpace;
+using OskitAPI.Models.Entity.GeneralSpace;
 using OskitAPI.Models.Entity.IdentitySpace;
 using OskitAPI.Models.Entity.InventorySpace;
 using OskitAPI.Models.Entity.PurchasesSpace;
@@ -25,7 +27,7 @@ namespace OskitAPI.Data
         public AppDbContext () { }
 
         /************************************************************************************************
-         * Cmmpany Space
+         * Company Space
          ************************************************************************************************/
         public DbSet<Company> Company { get; set; }
         public DbSet<CompanyUser> CompanyUser { get; set; }
@@ -132,6 +134,13 @@ namespace OskitAPI.Data
         public DbSet<PurchaseOrderInvoice> PurchaseOrderInvoice { get; set; }
         public DbSet<PurchaseInvoiceReceipt> PurchaseInvoiceReceipt { get; set; }
         public DbSet<PurchaseDocumentSupplierDetails> PurchaseDocumentSupplierDetails { get; set; }
+
+        /************************************************************************************************
+         * GENERAL SPACE
+         ************************************************************************************************/
+        public DbSet<Contact> Contact { get; set; }
+        public DbSet<Note> Note { get; set; }
+        public DbSet<BusinessSector> BusinessSector { get; set; }
 
         protected override void OnModelCreating (ModelBuilder builder)
         {

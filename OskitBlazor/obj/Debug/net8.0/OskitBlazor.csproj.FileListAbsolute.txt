@@ -448,3 +448,4 @@ C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitBlazor\obj\Debug\net8.0\refint
 C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitBlazor\obj\Debug\net8.0\OskitBlazor.pdb
 C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitBlazor\obj\Debug\net8.0\OskitBlazor.genruntimeconfig.cache
 C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitBlazor\obj\Debug\net8.0\ref\OskitBlazor.dll
+C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitBlazor\bin\Debug\net8.0\Microsoft.FluentUI.AspNetCore.Components.Icons.dll

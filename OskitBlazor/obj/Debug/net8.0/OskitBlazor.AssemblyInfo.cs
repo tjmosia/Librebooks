@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OskitBlazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c918d621c4fd2997a86a2cf741d339ecfa3a41a2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f58b3e75858b94323835eb48387b8f2e6aec38fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("OskitBlazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OskitBlazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

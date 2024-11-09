@@ -1,8 +1,11 @@
-﻿@inject NavigationManager NavigationManager
+﻿@inject NavigationManager Navigation
+@attribute [AllowAnonymous]
+
+<h1>Not logged in.</h1>
 
 @code {
-    protected override void OnInitialized()
+    protected override void OnInitialized ()
     {
-        NavigationManager.NavigateTo($"auth/login?returnUrl={Uri.EscapeDataString(NavigationManager.Uri)}", forceLoad: true);
+        Navigation.NavigateTo($"/auth/login?returnUrl={Uri.EscapeDataString(Navigation.Uri)}", forceLoad: true);
     }
 }

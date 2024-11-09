@@ -13,7 +13,7 @@ namespace OskitBlazor.Components.Identity
             SameSite = SameSiteMode.Strict,
             HttpOnly = true,
             IsEssential = true,
-            MaxAge = TimeSpan.FromSeconds(5),
+            MaxAge = TimeSpan.FromSeconds(5)
         };
 
         [DoesNotReturn]

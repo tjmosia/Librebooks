@@ -1,4 +1,5 @@
 ﻿@page "/auth/login"
+@attribute [AllowAnonymous]
 
 @using System.ComponentModel.DataAnnotations
 @using Microsoft.AspNetCore.Authentication
@@ -12,44 +13,40 @@
 
 <PageTitle>Sign in</PageTitle>
 <FluentBodyContent>
-    <div class="LoginFormWrapper">
-        <h1>Sign In</h1>
-        <StatusMessage Message="@errorMessage" />
-        <EditForm Model="Input" method="post" OnValidSubmit="LoginUser" FormName="login">
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert" />
-            <div class="mb-3">
-                <FluentTextField @bind-Value="Input.Email" Style="width: 100%" Name="Email" Label="Email" Required="true" />
-                <ValidationMessage For="() => Input.Email" class="text-danger" />
-            </div>
-            <div class="mb-3">
-                <FluentTextField @bind-Value="Input.Password" Style="width: 100%" Name="Password" Label="Password" Required="true" />
-                <ValidationMessage For="() => Input.Password" class="text-danger" />
-            </div>
-            <div class="checkbox mb-3">
-                <label class="form-label">
-                    <InputCheckbox @bind-Value="Input.RememberMe" class="darker-border-checkbox form-check-input" />
-                    Remember me
-                </label>
-            </div>
-            @Input.Email
-            @Input.Password
-            <div>
-                <button type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-            </div>
-            @*<div>
-                    <p>
-                        <a href="Account/ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a href="@(NavigationManager.GetUriWithQueryParameters("Account/Register", new Dictionary<string, object?> { ["ReturnUrl"] = ReturnUrl }))">Register as a new user</a>
-                    </p>
-                    <p>
-                        <a href="Account/ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
-                </div>*@
-        </EditForm>
-    </div>
+    <FluentCard MinimalStyle="true" Style="background-color: white;">
+        <div class="LoginFormWrapper">
+            <h1>Sign In</h1>
+            <StatusMessage Message="@errorMessage" />
+            <EditForm Model="Input" method="post" OnValidSubmit="LoginUser" FormName="login">
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger" role="alert" />
+                <div class="mb-3">
+                    <FluentTextField @bind-Value="Input.Email" Style="width: 100%" Name="Email" Label="Email" Required="true">
+                        <FluentIcon Slot="end" Value="@(new Icons.Regular.Size16.LockClosed())" />
+                        </FluentTextField>
+                    <ValidationMessage For="() => Input.Email" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <FluentTextField @bind-Value="Input.Password" Size="50" Style="width: 100%" Name="Password" Label="Password" Required="true" />
+                    <ValidationMessage For="() => Input.Password" class="text-danger" />
+                </div>
+                <div class="checkbox mb-3">
+                    <label class="form-label">
+                        <InputCheckbox @bind-Value="Input.RememberMe" class="darker-border-checkbox form-check-input" />
+                        Remember me
+                    </label>
+                </div>
+                <div>
+                    <FluentButton Type="ButtonType.Submit" Style="width: 100%" Appearance="Appearance.Accent">Login</FluentButton>
+                </div>
+                <FluentStack Orientation="Orientation.Horizontal">
+                    <NavLink href="@IdentityURIs.ForgottenPassword">Reset Password</NavLink>
+                    <FluentDivider Role="DividerRole.Separator" Orientation="Orientation.Vertical" />
+                    <NavLink href="@IdentityURIs.Register">Create Account</NavLink>
+                </FluentStack>
+            </EditForm>
+        </div>
+    </FluentCard>
 </FluentBodyContent>
 
 @code {

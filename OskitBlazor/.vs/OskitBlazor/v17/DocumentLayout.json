@@ -3,28 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\identitycomponentsendpointroutebuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\identitycomponentsendpointroutebuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\identitynoopemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\identitynoopemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\pages\\auth\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\pages\\auth\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\pages\\auth\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\pages\\auth\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\pages\\auth\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\pages\\auth\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\layout\\appnavsidebar.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\layout\\appnavsidebar.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\pages\\identityuris.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\pages\\identityuris.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\shared\\statusmessage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\shared\\statusmessage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\identityuseraccessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\identityuseraccessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\shared\\authlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\shared\\authlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\layout\\appheader.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\layout\\appheader.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\layout\\appnavsidebar.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\layout\\appnavsidebar.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\shared\\accountlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\shared\\accountlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -35,80 +51,28 @@
       "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\identityredirectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\identityredirectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\identityrevalidatingauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\identityrevalidatingauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\shared\\redirecttologin.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\shared\\redirecttologin.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\shared\\accountlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\shared\\accountlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\identitycomponentsendpointroutebuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\identitycomponentsendpointroutebuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\shared\\externalloginpicker.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\shared\\externalloginpicker.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\identitynoopemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\identitynoopemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\shared\\managelayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\shared\\managelayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\identityuseraccessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\identityuseraccessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\shared\\managenavmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\shared\\managenavmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\shared\\showrecoverycodes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\shared\\showrecoverycodes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\pages\\auth\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\pages\\auth\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\home\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\home\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\pages\\account\\disable2fa.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\pages\\account\\disable2fa.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\pages\\auth\\authlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\pages\\auth\\authlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\pages\\account\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\pages\\account\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\pages\\auth\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\pages\\auth\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\pages\\auth\\externallogin.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\pages\\auth\\externallogin.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\pages\\account\\email.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\pages\\account\\email.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitblazor\\components\\identity\\identityrevalidatingauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0534C5BB-F77C-4C72-9CC0-6DDC02C9BC56}|OskitBlazor.csproj|solutionrelative:components\\identity\\identityrevalidatingauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -118,20 +82,104 @@
       "DocumentGroups": [
         {
           "DockedWidth": 265,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AppHeader.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Layout\\AppHeader.razor",
-              "RelativeDocumentMoniker": "Components\\Layout\\AppHeader.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Layout\\AppHeader.razor",
-              "RelativeToolTip": "Components\\Layout\\AppHeader.razor",
+              "DocumentIndex": 2,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\_Imports.razor",
+              "RelativeDocumentMoniker": "Components\\Identity\\Pages\\Auth\\_Imports.razor",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\_Imports.razor",
+              "RelativeToolTip": "Components\\Identity\\Pages\\Auth\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T21:34:29.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\App.razor",
+              "RelativeDocumentMoniker": "Components\\App.razor",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\App.razor",
+              "RelativeToolTip": "Components\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T21:31:40.866Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\Login.razor",
+              "RelativeDocumentMoniker": "Components\\Identity\\Pages\\Auth\\Login.razor",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\Login.razor",
+              "RelativeToolTip": "Components\\Identity\\Pages\\Auth\\Login.razor",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T21:34:28.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "Components\\_Imports.razor",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\_Imports.razor",
+              "RelativeToolTip": "Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T21:45:27.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "Components\\Routes.razor",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Routes.razor",
+              "RelativeToolTip": "Components\\Routes.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:19:04.482Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T21:57:16.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\AuthLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Identity\\Shared\\AuthLayout.razor",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\AuthLayout.razor",
+              "RelativeToolTip": "Components\\Identity\\Shared\\AuthLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T21:51:04.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AccountLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\AccountLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Identity\\Shared\\AccountLayout.razor",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\AccountLayout.razor",
+              "RelativeToolTip": "Components\\Identity\\Shared\\AccountLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T21:50:47.066Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IdentityNoOpEmailSender.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityNoOpEmailSender.cs",
+              "RelativeDocumentMoniker": "Components\\Identity\\IdentityNoOpEmailSender.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityNoOpEmailSender.cs",
+              "RelativeToolTip": "Components\\Identity\\IdentityNoOpEmailSender.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T21:35:50.478Z"
             },
             {
               "$type": "Document",
@@ -141,153 +189,106 @@
               "RelativeDocumentMoniker": "Components\\Layout\\AppNavSideBar.razor",
               "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Layout\\AppNavSideBar.razor",
               "RelativeToolTip": "Components\\Layout\\AppNavSideBar.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAEUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:19:03.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T21:38:53.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Register.razor",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\Register.razor",
+              "RelativeDocumentMoniker": "Components\\Identity\\Pages\\Auth\\Register.razor",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\Register.razor",
+              "RelativeToolTip": "Components\\Identity\\Pages\\Auth\\Register.razor",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAC8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T22:30:57.546Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IdentityComponentsEndpointRouteBuilderExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityComponentsEndpointRouteBuilderExtensions.cs",
-              "RelativeDocumentMoniker": "Components\\Identity\\IdentityComponentsEndpointRouteBuilderExtensions.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityComponentsEndpointRouteBuilderExtensions.cs",
-              "RelativeToolTip": "Components\\Identity\\IdentityComponentsEndpointRouteBuilderExtensions.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABkAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T22:05:54.892Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Routes.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Routes.razor",
-              "RelativeDocumentMoniker": "Components\\Routes.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Routes.razor",
-              "RelativeToolTip": "Components\\Routes.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T21:56:14.58Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "App.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\App.razor",
-              "RelativeDocumentMoniker": "Components\\App.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\App.razor",
-              "RelativeToolTip": "Components\\App.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T21:56:05.974Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IdentityUserAccessor.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityUserAccessor.cs",
-              "RelativeDocumentMoniker": "Components\\Identity\\IdentityUserAccessor.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityUserAccessor.cs",
-              "RelativeToolTip": "Components\\Identity\\IdentityUserAccessor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T22:05:36.283Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StatusMessage.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\StatusMessage.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Shared\\StatusMessage.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\StatusMessage.razor",
-              "RelativeToolTip": "Components\\Identity\\Shared\\StatusMessage.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:13:02.404Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IdentityNoOpEmailSender.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityNoOpEmailSender.cs",
-              "RelativeDocumentMoniker": "Components\\Identity\\IdentityNoOpEmailSender.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityNoOpEmailSender.cs",
-              "RelativeToolTip": "Components\\Identity\\IdentityNoOpEmailSender.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T22:05:52.483Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IdentityRedirectManager.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityRedirectManager.cs",
-              "RelativeDocumentMoniker": "Components\\Identity\\IdentityRedirectManager.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityRedirectManager.cs",
-              "RelativeToolTip": "Components\\Identity\\IdentityRedirectManager.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T22:05:48.571Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IdentityRevalidatingAuthenticationStateProvider.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityRevalidatingAuthenticationStateProvider.cs",
-              "RelativeDocumentMoniker": "Components\\Identity\\IdentityRevalidatingAuthenticationStateProvider.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityRevalidatingAuthenticationStateProvider.cs",
-              "RelativeToolTip": "Components\\Identity\\IdentityRevalidatingAuthenticationStateProvider.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T22:05:46.265Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "_Imports.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\_Imports.razor",
-              "RelativeDocumentMoniker": "Components\\_Imports.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\_Imports.razor",
-              "RelativeToolTip": "Components\\_Imports.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T21:58:03.39Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MainLayout.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Layout\\MainLayout.razor",
-              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Layout\\MainLayout.razor",
-              "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:02:07.676Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAADYAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T22:08:08.554Z",
+              "WhenOpened": "2024-11-08T22:07:41.36Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IdentityURIs.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\IdentityURIs.cs",
+              "RelativeDocumentMoniker": "Components\\Identity\\Pages\\IdentityURIs.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\IdentityURIs.cs",
+              "RelativeToolTip": "Components\\Identity\\Pages\\IdentityURIs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T22:09:10.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T21:31:57.296Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StatusMessage.razor",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\StatusMessage.razor",
+              "RelativeDocumentMoniker": "Components\\Identity\\Shared\\StatusMessage.razor",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\StatusMessage.razor",
+              "RelativeToolTip": "Components\\Identity\\Shared\\StatusMessage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T21:37:45.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IdentityRevalidatingAuthenticationStateProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityRevalidatingAuthenticationStateProvider.cs",
+              "RelativeDocumentMoniker": "Components\\Identity\\IdentityRevalidatingAuthenticationStateProvider.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityRevalidatingAuthenticationStateProvider.cs",
+              "RelativeToolTip": "Components\\Identity\\IdentityRevalidatingAuthenticationStateProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T21:35:48.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IdentityUserAccessor.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityUserAccessor.cs",
+              "RelativeDocumentMoniker": "Components\\Identity\\IdentityUserAccessor.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityUserAccessor.cs",
+              "RelativeToolTip": "Components\\Identity\\IdentityUserAccessor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T21:35:49.598Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IdentityComponentsEndpointRouteBuilderExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityComponentsEndpointRouteBuilderExtensions.cs",
+              "RelativeDocumentMoniker": "Components\\Identity\\IdentityComponentsEndpointRouteBuilderExtensions.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\IdentityComponentsEndpointRouteBuilderExtensions.cs",
+              "RelativeToolTip": "Components\\Identity\\IdentityComponentsEndpointRouteBuilderExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T21:35:51.218Z"
             },
             {
               "$type": "Document",
@@ -297,179 +298,9 @@
               "RelativeDocumentMoniker": "Components\\Identity\\Shared\\RedirectToLogin.razor",
               "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\RedirectToLogin.razor",
               "RelativeToolTip": "Components\\Identity\\Shared\\RedirectToLogin.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T21:56:26.924Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "AccountLayout.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\AccountLayout.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Shared\\AccountLayout.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\AccountLayout.razor",
-              "RelativeToolTip": "Components\\Identity\\Shared\\AccountLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:13:42.37Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ExternalLoginPicker.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\ExternalLoginPicker.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Shared\\ExternalLoginPicker.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\ExternalLoginPicker.razor",
-              "RelativeToolTip": "Components\\Identity\\Shared\\ExternalLoginPicker.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:13:40.499Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ManageLayout.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\ManageLayout.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Shared\\ManageLayout.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\ManageLayout.razor",
-              "RelativeToolTip": "Components\\Identity\\Shared\\ManageLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:13:38.358Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ManageNavMenu.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\ManageNavMenu.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Shared\\ManageNavMenu.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\ManageNavMenu.razor",
-              "RelativeToolTip": "Components\\Identity\\Shared\\ManageNavMenu.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:13:34.827Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ShowRecoveryCodes.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\ShowRecoveryCodes.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Shared\\ShowRecoveryCodes.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Shared\\ShowRecoveryCodes.razor",
-              "RelativeToolTip": "Components\\Identity\\Shared\\ShowRecoveryCodes.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:13:01.398Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Login.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\Login.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Pages\\Auth\\Login.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\Login.razor",
-              "RelativeToolTip": "Components\\Identity\\Pages\\Auth\\Login.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAABYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:10:17.515Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "ExternalLogin.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\ExternalLogin.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Pages\\Auth\\ExternalLogin.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\ExternalLogin.razor",
-              "RelativeToolTip": "Components\\Identity\\Pages\\Auth\\ExternalLogin.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:06:31.829Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "_Imports.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\_Imports.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Pages\\Auth\\_Imports.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\_Imports.razor",
-              "RelativeToolTip": "Components\\Identity\\Pages\\Auth\\_Imports.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:06:52.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "AuthLayout.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\AuthLayout.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Pages\\Auth\\AuthLayout.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Auth\\AuthLayout.razor",
-              "RelativeToolTip": "Components\\Identity\\Pages\\Auth\\AuthLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:07:40.397Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Home.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Home\\Home.razor",
-              "RelativeDocumentMoniker": "Components\\Home\\Home.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Home\\Home.razor",
-              "RelativeToolTip": "Components\\Home\\Home.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:08:57.526Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Disable2fa.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Account\\Disable2fa.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Pages\\Account\\Disable2fa.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Account\\Disable2fa.razor",
-              "RelativeToolTip": "Components\\Identity\\Pages\\Account\\Disable2fa.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:07:59.008Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "_Imports.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Account\\_Imports.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Pages\\Account\\_Imports.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Account\\_Imports.razor",
-              "RelativeToolTip": "Components\\Identity\\Pages\\Account\\_Imports.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:04:38.603Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Email.razor",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Account\\Email.razor",
-              "RelativeDocumentMoniker": "Components\\Identity\\Pages\\Account\\Email.razor",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitBlazor\\Components\\Identity\\Pages\\Account\\Email.razor",
-              "RelativeToolTip": "Components\\Identity\\Pages\\Account\\Email.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:04:05.328Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T21:33:31.548Z"
             }
           ]
         }

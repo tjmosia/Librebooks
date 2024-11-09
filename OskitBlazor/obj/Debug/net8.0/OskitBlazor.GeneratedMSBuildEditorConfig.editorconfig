@@ -30,10 +30,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Home/Auth.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXEF1dGgucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Home/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXENvdW50ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -106,10 +102,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXEFjY2Vzc0RlbmllZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/AuthLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXEF1dGhMYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Pages/Auth/ConfirmEmail.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxQYWdlc1xBdXRoXENvbmZpcm1FbWFpbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -168,6 +160,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Shared/AccountLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxTaGFyZWRcQWNjb3VudExheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Shared/AuthLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJZGVudGl0eVxTaGFyZWRcQXV0aExheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Thabo Mosia/source/repos/moskit-crm/OskitBlazor/Components/Identity/Shared/ExternalLoginPicker.razor]
