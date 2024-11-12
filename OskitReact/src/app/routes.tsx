@@ -5,41 +5,43 @@ import LoginPage from './pages/auth/login.page'
 import AuthLayout from './pages/auth/auth.layout'
 import UsernamePage from './pages/auth/username.page'
 import RegisterPage from './pages/auth/register.page'
+import VerifyEmailPage from './pages/auth/verify.page'
+import ResetPasswordPage from './pages/auth/resetPasswod'
 
 const routes: RouteObject[] = [
 	{
 		path: "/",
-		Component: EntryLayout,
+		element: <EntryLayout />,
 		children: [
 			{
 				path: '/',
-				Component: HomePage
+				element: <HomePage />
 			}
 		]
 	},
 	{
 		path: "/auth",
-		Component: AuthLayout,
+		element: <AuthLayout />,
 		children: [
 			{
 				path: "",
-				Component: UsernamePage
+				element: <UsernamePage />
 			},
 			{
 				path: "verify",
-				Component: UsernamePage
+				element: <VerifyEmailPage />
 			},
 			{
 				path: "reset-password",
-				Component: UsernamePage
+				element: <ResetPasswordPage />
 			},
 			{
 				path: "login",
-				Component: LoginPage
+				element: <LoginPage />
 			},
 			{
 				path: "register",
-				Component: RegisterPage
+				element: <RegisterPage />
 			}
 		]
 	}

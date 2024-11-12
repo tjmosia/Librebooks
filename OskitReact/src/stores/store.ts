@@ -1,11 +1,11 @@
-import {configureStore} from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import IdentityReducer from '../slices/identity.slice'
-import CompaniesReducer from '../slices/companies.slice'
+import companyReducer from '../slices/company.slice'
 
 const store = configureStore({
 	reducer: {
 		identity: IdentityReducer,
-		companies: CompaniesReducer
+		company: companyReducer
 	}
 })
 

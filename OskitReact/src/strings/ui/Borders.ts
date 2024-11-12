@@ -4,4 +4,5 @@ export default {
     thinNeutral: `1px solid ${tokens.colorNeutralStroke1}`,
     RegularNeutral: `2px solid ${tokens.colorNeutralStroke1}`,
     thickNeutral: `3px solid ${tokens.colorNeutralStroke1}`,
+    thinSuccess: `1px solid ${tokens.colorStatusSuccessBorder1}`,
 }

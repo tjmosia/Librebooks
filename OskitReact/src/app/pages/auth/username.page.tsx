@@ -1,9 +1,12 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
-import { Input, Label, useId, Button, Tooltip, Divider, Subtitle1, Spinner, makeStyles, tokens } from '@fluentui/react-components'
+import { ChangeEvent, FormEvent, useContext, useEffect, useState } from 'react'
+import { Input, useId, Button, Spinner, makeStyles, tokens, Field } from '@fluentui/react-components'
 import { usePageTitle } from '../../../hooks/page.hook'
-import { TbLock, TbLockOpen } from 'react-icons/tb'
+import { AuthContext } from './auth.context'
+import { BsEnvelope } from 'react-icons/bs'
+import { useNavigate } from 'react-router'
 import AppRoutes from '../../../strings/AppRoutes'
-import { useNavigate } from 'react-router-dom'
+import useSessionData from '../../../extensions/SessionData'
+import { useValidators } from '../../../hooks/validators.hook'
 
 const LoginStyles = makeStyles({
     wrapper: {
@@ -20,78 +23,101 @@ const LoginStyles = makeStyles({
         flexDirection: "row",
         justifyContent: "center",
         margin: `${tokens.spacingVerticalL} 0`
-    },
-    title: {
-        marginBottom: tokens.spacingVerticalM
     }
 })
 
-export default function UsernamePage() {
-    usePageTitle("Login")
-    const usernameId = useId("username")
-    const navigate = useNavigate()
-    const [loading, setLoading] = useState(false)
-    const [showPassword, setShowPassword] = useState(false)
-    const styles = LoginStyles()
+interface IModel {
+    email: string
+    error?: string
+}
 
-    function TogglePasswordHandler() {
-        setShowPassword(!showPassword)
+export default function UsernamePage() {
+    usePageTitle!("Sign in or Sign up")
+    const usernameId = useId("username")
+    const styles = LoginStyles()
+    const navigate = useNavigate()
+    const { setFormTitle, loading, setLoading, returnUrl, setUsername, username, setFormMessage } = useContext(AuthContext)
+    const session = useSessionData()
+    const [model, setModel] = useState<IModel>({
+        email: username ?? ""
+    })
+    const { emailvalidator } = useValidators()
+
+
+    function modelValid() {
+        if (!model.email)
+            return false
+        if (!emailvalidator.validate(model.email)) {
+            setModel(model => ({
+                email: model.email,
+                error: "Please check your email."
+            }))
+            return false
+        }
+        return true
     }
 
     function InputChangeHandler(event: ChangeEvent<HTMLInputElement>) {
-        const { value, name } = event.target
+        const { value } = event.target
 
-        setModel(state => ({
-            ...state,
-            [name]: {
-                value
-            }
-        }))
+        setModel({
+            email: value,
+
+        })
     }
 
     function FormSubmitHandler(event: FormEvent) {
         event.preventDefault()
-        setLoading(true)
+        setLoading!(true)
+        console.log(emailvalidator.validate(model.email))
+
+        if (!modelValid()) {
+            setLoading!(false)
+            return
+        }
+
+        setTimeout(() => {
+            setLoading!(false)
+            setUsername!(model.email)
+
+            navigate({
+                pathname: AppRoutes.Auth.Login,
+                search: `returnUrl=${returnUrl}`
+            })
+        }, 1000)
     }
 
-    const [model, setModel] = useState({
-        username: {
-            value: "",
-            error: ""
-        },
-        password: {
-            value: "",
-            error: ""
-        }
-    })
+    useEffect(() => {
+        setFormTitle!("Sign in or Sign up")
+        session.remove("USERNAME")
+        setFormMessage!("Continue with your email address.")
+    }, [setFormTitle, session, setFormMessage])
 
     return (<>
-        <div className={styles.wrapper}>
-            <Subtitle1
-                className={styles.title}
-                align='center'>
-                Sign in
-            </Subtitle1>
-            <form onSubmit={FormSubmitHandler}
-                method="post"
-                className="form">
-                <div className={styles.field}>
-                    <Label htmlFor={usernameId}>Username</Label>
-                    <Input id={usernameId}
-                        onChange={InputChangeHandler}
-                        name="username"
-                        disabled={loading}
-                        value={model.username.value}
-                        appearance="outline"
-                        aria-label="Username input" />
-                </div>
-                <div className={styles.field}>
-                    <Button appearance='primary' disabled={loading}>
-                        {loading ? <Spinner size="tiny" /> : "Login"}
-                    </Button>
-                </div>
-            </form>
-        </div>
+        <form onSubmit={FormSubmitHandler}
+            method="post"
+            className="form">
+            <Field label="Username"
+                validationMessage={model.error}
+                validationState={model.error ? "error" : "none"}>
+                <Input id={usernameId}
+                    onChange={InputChangeHandler}
+                    contentBefore={<BsEnvelope size={16} />}
+                    disabled={loading}
+                    size='large'
+                    value={model.email}
+                    appearance="outline"
+                    aria-label="Username input" />
+            </Field>
+            <div className={styles.field}>
+                <Button type='submit'
+                    appearance='primary'
+                    size='large'
+                    disabled={loading}>
+                    {loading ? <Spinner size="tiny" /> : "Continue"}
+                </Button>
+            </div>
+        </form>
     </>)
 }
 

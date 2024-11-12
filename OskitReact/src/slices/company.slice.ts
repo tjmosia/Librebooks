@@ -1,8 +1,8 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import IReducerPayloadAction from '../types/IReducerPayloadAction'
 import ICompany from '../types/ICompany'
 
-const CompaniesSlice = createSlice({
+const CompanySlice = createSlice({
 	name: "companies",
 	initialState: {
 		current: {
@@ -11,12 +11,10 @@ const CompaniesSlice = createSlice({
 		companies: [] as ICompany[]
 	},
 	reducers: {
-		AddCompany: (state, action: IReducerPayloadAction<ICompany>) =>
-		{
+		AddCompany: (state, action: IReducerPayloadAction<ICompany>) => {
 			state.companies.push(action.payload)
 		},
-		SelectCompany: (state, action: IReducerPayloadAction<ICompany>) =>
-		{
+		SelectCompany: (state, action: IReducerPayloadAction<ICompany>) => {
 			state.current = action.payload
 		}
 	},
@@ -26,6 +24,6 @@ const CompaniesSlice = createSlice({
 	}
 })
 
-export const {SelectCompany, AddCompany} = CompaniesSlice.actions
-export const {GetCompanies, GetCurrentCompany} = CompaniesSlice.selectors
-export default CompaniesSlice.reducer
+export const { SelectCompany, AddCompany } = CompanySlice.actions
+export const { GetCompanies, GetCurrentCompany } = CompanySlice.selectors
+export default CompanySlice.reducer
