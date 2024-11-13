@@ -27,8 +27,11 @@ namespace OskitAPI.Models.Entity.SupplierSpace
         public virtual string? CategoryId { get; set; }
         public virtual string? VATId { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual SupplierCategory? Category { get; set; }
         public virtual CompanyValueAddedTax? VAT { get; set; }

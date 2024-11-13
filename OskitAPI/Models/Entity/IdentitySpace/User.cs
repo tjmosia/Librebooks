@@ -11,6 +11,10 @@ namespace OskitAPI.Models.Entity.IdentitySpace
     {
         public virtual string? FirstName { get; set; }
         public virtual string? LastName { get; set; }
+        public virtual DateOnly? BirthDay { get; set; }
+        public virtual string? Gender { get; set; }
+        public virtual string? Photo { get; set; }
+
         public virtual DateTime DateRegistered { get; set; }
         public virtual DateTime DateLastLoggedIn { get; set; }
         public virtual string? LoginHash { get; set; }
@@ -27,9 +31,7 @@ namespace OskitAPI.Models.Entity.IdentitySpace
         public virtual string? FullName { get => $"{FirstName} + {LastName}"; }
 
         public User ()
-        {
-            Id = Guid.NewGuid().ToString("N");
-        }
+            => Id = Guid.NewGuid().ToString("N");
 
         public static void BuildModel (ModelBuilder builder)
         {

@@ -23,8 +23,11 @@ namespace OskitAPI.Models.Entity.PurchasesSpace
         public virtual bool Printed { get; set; }
         public virtual string? StatusId { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
+        [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual DocumentStatus? Status { get; set; }
         public virtual ICollection<PurchaseDocumentLine>? Lines { get; set; }

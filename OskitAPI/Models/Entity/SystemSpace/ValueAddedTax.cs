@@ -13,8 +13,11 @@ namespace OskitAPI.Models.Entity.SystemSpace
         public virtual decimal Rate { get; set; }
         public virtual bool System { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public ValueAddedTax ()
             => Id = Guid.NewGuid().ToString("N");

@@ -14,8 +14,11 @@ namespace OskitAPI.Models.Entity.InventorySpace
         public virtual string? CompanyId { get; set; }
         public virtual string? ParentId { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual ItemCategory? Parent { get; set; }
         public virtual Company? Company { get; set; }

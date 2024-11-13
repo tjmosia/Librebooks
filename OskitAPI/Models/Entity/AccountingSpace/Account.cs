@@ -20,9 +20,6 @@ namespace OskitAPI.Models.Entity.AccountingSpace
         public virtual string? CompanyId { get; set; }
         public virtual string? CategoryId { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
-
         public virtual Account? ParentAccount { get; set; }
         public virtual Company? Company { get; set; }
         public virtual AccountCategory? Category { get; set; }
@@ -32,8 +29,14 @@ namespace OskitAPI.Models.Entity.AccountingSpace
         public virtual ICollection<Journal>? CreditHistory { get; set; }
         public virtual ICollection<Account>? SubAccounts { get; set; }
 
+
         public Account ()
             => Id = Guid.NewGuid().ToString("N");
+
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<Account>(options =>

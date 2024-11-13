@@ -10,9 +10,11 @@ namespace OskitAPI.Models.Entity.AccountingSpace
         public virtual string? Name { get; set; }
         public virtual string? Description { get; set; }
 
-        [Timestamp]
         [ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public AccountCashFlowType ()
             => Guid.NewGuid().ToString("N");

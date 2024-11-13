@@ -17,8 +17,11 @@ namespace OskitAPI.Models.Entity.PurchasesSpace
         public virtual DateTime DateCreated { get; set; }
         public virtual bool Active { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public PurchaseDocumentSupplierDetails ()
             => Id = Guid.NewGuid().ToString("N");

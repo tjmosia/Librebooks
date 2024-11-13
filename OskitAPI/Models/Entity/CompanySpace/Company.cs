@@ -31,8 +31,11 @@ namespace OskitAPI.Models.Entity.CompanySpace
         public virtual int YearsInBusienss { get; set; }
         public virtual string? BusinessSectorId { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual BusinessSector? BusinessSector { get; set; }
         public virtual ICollection<CompanyUser>? Users { get; set; }

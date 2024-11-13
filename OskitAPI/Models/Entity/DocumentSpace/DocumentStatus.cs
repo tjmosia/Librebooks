@@ -14,8 +14,11 @@ namespace OskitAPI.Models.Entity.DocumentSpace
         public virtual string? Type { get; set; }
         public virtual string? Color { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public DocumentStatus ()
             => Id = Guid.NewGuid().ToString("N");

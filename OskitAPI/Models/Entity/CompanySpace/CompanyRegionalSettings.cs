@@ -16,8 +16,11 @@ namespace OskitAPI.Models.Entity.CompanySpace
         public virtual string? DateFormatId { get; set; }
         public virtual int RoundToNearest { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual DateFormat? DateFormat { get; set; }
         public virtual Country? Country { get; set; }

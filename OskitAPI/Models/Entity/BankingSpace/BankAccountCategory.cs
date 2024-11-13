@@ -10,8 +10,11 @@ namespace OskitAPI.Models.Entity.BankingSpace
         public virtual string? Type { get; set; }
         public virtual string? Description { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public BankAccountCategory ()
             => Id = Guid.NewGuid().ToString("N");

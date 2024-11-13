@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace OskitAPI.Models.Entity.SystemSpace
 {
@@ -6,7 +8,12 @@ namespace OskitAPI.Models.Entity.SystemSpace
     {
         public virtual string? Id { get; set; } = Guid.NewGuid().ToString("N");
         public virtual string? Format { get; set; }
-        public virtual byte[]? RowVersion { get; set; }
+
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public DateFormat ()
             => Id = Guid.NewGuid().ToString("N");
@@ -17,8 +24,9 @@ namespace OskitAPI.Models.Entity.SystemSpace
                 options.ToTable(nameof(DateFormat))
                     .HasKey(x => x.Id);
 
-                options.Property(p => p.RowVersion)
-                    .IsRowVersion();
+                options.HasIndex(p => p.Format)
+                    .IsUnique();
+
             });
     }
 }

@@ -22,8 +22,12 @@ namespace OskitAPI.Models.Entity.GeneralSpace
         public virtual DateTime? DueDate { get; set; }
         public virtual string? CreatorId { get; set; }
 
-        [ConcurrencyCheck, Timestamp]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
+
         public virtual User? Creator { get; set; }
 
         public Note ()

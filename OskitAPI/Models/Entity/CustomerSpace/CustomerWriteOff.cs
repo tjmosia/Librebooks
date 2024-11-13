@@ -19,8 +19,11 @@ namespace OskitAPI.Models.Entity.CustomerSpace
         public virtual string? CompanyId { get; set; }
         public virtual string? CustomerId { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual ICollection<SalesInvoice>? Invoices { get; set; }
 

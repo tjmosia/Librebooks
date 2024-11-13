@@ -22,8 +22,11 @@ namespace OskitAPI.Models.Entity.PurchasesSpace
         public virtual string? DocumentId { get; set; }
         public virtual string? Comment { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual ICollection<PurchaseDocumentLine>? DocumentLines { get; set; }
         public virtual CompanyValueAddedTax? VAT { get; set; }

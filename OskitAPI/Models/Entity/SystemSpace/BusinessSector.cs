@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -7,16 +6,16 @@ using OskitAPI.Models.Entity.CompanySpace;
 
 namespace OskitAPI.Models.Entity.SystemSpace
 {
-    [Table(nameof(BusinessSector))]
-    [Index(nameof(Name), IsUnique = true)]
     public class BusinessSector
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public virtual string? Id { get; set; }
-        [Required]
         public virtual string? Name { get; set; }
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual ICollection<Company>? Companies { get; set; }
 
@@ -33,6 +32,9 @@ namespace OskitAPI.Models.Entity.SystemSpace
 
                 options.Property(p => p.RowVersion)
                     .IsRowVersion();
+
+                options.HasIndex(p => p.Name)
+                    .IsUnique();
 
                 options.HasMany(p => p.Companies)
                     .WithOne(p => p.BusinessSector)

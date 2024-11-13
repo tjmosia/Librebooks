@@ -21,8 +21,11 @@ namespace OskitAPI.Models.Entity.AccountingSpace
         public virtual string? VATId { get; set; }
         public virtual string? CompanyId { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual Company? Company { get; set; }
         public virtual CompanyValueAddedTax? VAT { get; set; }

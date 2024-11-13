@@ -12,12 +12,15 @@ namespace OskitAPI.Models.Entity.CompanySpace
         public virtual string? SmtpServerName { get; set; }
         public virtual string? SmtpPort { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual Company? Company { get; set; }
 
-        public static void BuildModel(ModelBuilder builder)
+        public static void BuildModel (ModelBuilder builder)
             => builder.Entity<CompanyMailSettings>(options =>
             {
                 options.ToTable(nameof(CompanyMailSettings))

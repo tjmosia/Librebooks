@@ -30,8 +30,11 @@ namespace OskitAPI.Models.Entity.CustomerSpace
         public virtual string? ShippingTermId { get; set; }
         public virtual string? ShippingMethodId { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual Company? Company { get; set; }
         public virtual CustomerCategory? Category { get; set; }

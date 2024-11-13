@@ -10,8 +10,8 @@ using OskitAPI.Extensions.Identity;
 using OskitAPI.Extensions.Mvc;
 using OskitAPI.Models.Entity.IdentitySpace;
 
-using static OskitAPI.Areas.Identity.Data.AuthDTOs;
-using static OskitAPI.Areas.Identity.Models.AuthRequestModels;
+using static OskitAPI.Areas.Identity.Models.AuthReqModels;
+using static OskitAPI.Areas.Identity.Models.AuthRespDTOs;
 
 namespace OskitAPI.Areas.Identity.Controllers
 {
@@ -24,7 +24,6 @@ namespace OskitAPI.Areas.Identity.Controllers
         IOptions<JwtTokenValidationParameters> jwtParameters)
         : SessionControllerBase(userManager, signInManager, logger)
     {
-
         private readonly JwtTokenValidationParameters jwtParameters = jwtParameters.Value;
 
         [HttpPost]
@@ -40,12 +39,11 @@ namespace OskitAPI.Areas.Identity.Controllers
                 return NoContent();
             else
             {
-                var claims = await userManager.GetClaimsAsync(user);
-
                 return Ok(new FindUserDto
                 {
                     Username = user.Email,
-                    GivenName = claims.Where(p => p.Type == ClaimTypes.GivenName).FirstOrDefault()?.Value
+                    GivenName = user.FirstName,
+                    Photo = user.Photo
                 });
             }
         }
@@ -63,35 +61,35 @@ namespace OskitAPI.Areas.Identity.Controllers
 
         [HttpPost]
         [Route("send-verification-code")]
-        public async Task<IActionResult> SendVerificationCodeAsync ([FromBody] VendVerificationModel input)
+        public async Task<IActionResult> SendVerificationCodeAsync ([FromBody] SendVerificationModel input)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var reason = input.Reason ?? EmailVerificationTypes.Registration;
-
-            if (reason == EmailVerificationTypes.PasswordReset)
+            if (ModelState.IsValid)
             {
-                var user = await userManager!.FindByEmailAsync(input.Email!);
+                if (input.Reason == EmailVerificationTypes.PasswordReset)
+                {
+                    var user = await userManager!.FindByEmailAsync(input.Email!);
 
-                if (user == null)
-                    return Ok(TransactionResult.Failure(TransactionError
-                        .FromIdentityError(userManager
-                            .ErrorDescriber.InvalidEmail())));
+                    if (user == null)
+                        return Ok(TransactionResult.Failure(TransactionError
+                            .FromIdentityError(userManager
+                                .ErrorDescriber.InvalidEmail())));
+                }
+
+                if (input.Reason == EmailVerificationTypes.Registration)
+                {
+                    var (Code, CodeHashString) = userManager!.GenerateVerificationCode(input.Email!);
+
+                    logger!.LogInformation("Verification Code {code} created for email {email}", Code, input.Email);
+
+                    /*******************************************************************************************************************
+                     * SEND USER THE VERIFICATION CODE ON EMAIL HERE!!!
+                     *******************************************************************************************************************/
+
+                    return Ok(TransactionResult<SendVerificationDto>.Success(new SendVerificationDto(CodeHashString)));
+                }
             }
 
-            var (Code, CodeHashString) = userManager!.GenerateVerificationCode(input.Email!);
-
-            logger!.LogInformation("Verification Code {code} created for email {email}", Code, input.Email);
-
-            /*******************************************************************************************************************
-             * SEND USER THE VERIFICATION CODE ON EMAIL HERE!!!
-             * 
-             * 
-             * 
-             *******************************************************************************************************************/
-
-            return Ok(TransactionResult<object>.Success(new SendVerificationDto(CodeHashString)));
+            return BadRequest(ModelState);
         }
 
         [HttpPost]
@@ -112,9 +110,8 @@ namespace OskitAPI.Areas.Identity.Controllers
             if (result.Succeeded)
             {
                 var (Token, ExpiryDate) = await signInManager.GenerateJsonWebTokenAsync(user, jwtParameters);
-                var claims = await userManager.GetClaimsAsync(user);
 
-                return Ok(TransactionResult<LoginDto>.Success(GenerateNewUserLoginDto(user, claims, Token)));
+                return Ok(TransactionResult<LoginDto>.Success(GenerateNewUserLoginDto(user, Token)));
             }
             else
             {
@@ -123,14 +120,14 @@ namespace OskitAPI.Areas.Identity.Controllers
             }
         }
 
-        private LoginDto GenerateNewUserLoginDto (User user, IList<Claim>? userClaims, string token, string? refreshToken = null)
+        private LoginDto GenerateNewUserLoginDto (User user, string token, string? refreshToken = null)
         => new LoginDto
         {
-            FirstName = userClaims!.Where(p => p.Type == ClaimTypes.GivenName).FirstOrDefault()?.Value,
-            LastName = userClaims!.Where(p => p.Type == ClaimTypes.Surname).FirstOrDefault()?.Value,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
             AccessToken = token,
             Username = user.UserName,
-            Photo = ""
+            Photo = user.Photo
         };
 
         [HttpPost]

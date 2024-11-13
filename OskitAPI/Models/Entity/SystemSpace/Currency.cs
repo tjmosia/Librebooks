@@ -10,8 +10,11 @@ namespace OskitAPI.Models.Entity.SystemSpace
         public virtual string? Name { get; set; }
         public virtual string? Symbol { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<Currency>(options =>

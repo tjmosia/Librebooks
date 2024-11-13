@@ -20,8 +20,11 @@ namespace OskitAPI.Models.Entity.DocumentSpace
         public virtual string? TypeName { get; set; }
         public virtual string? PrintTemplateId { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual Company? Company { get; set; }
         public virtual DocumentPrintTemplate? PrintTemplate { get; set; }

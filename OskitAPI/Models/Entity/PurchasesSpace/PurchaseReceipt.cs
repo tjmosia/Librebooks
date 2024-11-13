@@ -27,8 +27,11 @@ namespace OskitAPI.Models.Entity.PurchasesSpace
         public virtual string? BankAccountId { get; set; }
         public virtual string? PaymentMethodId { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
+
+        public void UpdateConcurrencyToken ()
+            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual PaymentMethod? PaymentMethod { get; set; }
         public virtual Supplier? Supplier { get; set; }
