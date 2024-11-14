@@ -8,7 +8,7 @@ namespace OskitAPI.Areas.SystemSetups.Services.SubStores
 {
     public class ValueAddedTaxStore : DbStoreBase
     {
-        public ValueAddedTaxStore (AppDbContext? context, ILogger? logger)
+        public ValueAddedTaxStore (AppDbContext? context, ILogger<ValueAddedTaxStore>? logger)
             : base(context, logger) { }
 
         /// <exception cref="DbUpdateException"/>

@@ -182,7 +182,7 @@ namespace OskitAPI.Areas.Identity.Controllers
                 await userManager.GenerateRefreshTokenAsync(user);
 
                 return Ok(TransactionResult<LoginDto>
-                    .Success(GenerateNewUserLoginDto(user!, claims, Token)));
+                    .Success(GenerateNewUserLoginDto(user!, Token)));
             }
             else
             {
@@ -236,7 +236,7 @@ namespace OskitAPI.Areas.Identity.Controllers
 
                     if (token != null)
                         return Ok(TransactionResult<LoginDto>.Success(
-                            GenerateNewUserLoginDto(user, await userManager.GetClaimsAsync(user), token.Split(" ").LastOrDefault()!)
+                            GenerateNewUserLoginDto(user, token.Split(" ").LastOrDefault()!)
                         ));
                 }
             }

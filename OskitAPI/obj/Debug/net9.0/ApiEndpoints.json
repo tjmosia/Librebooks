@@ -1,0 +1,249 @@
+[
+  {
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AccountController",
+    "Method": "GetUserAsync",
+    "RelativePath": "api/account",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AccountController",
+    "Method": "GetClaimsAsync",
+    "RelativePath": "api/account/claims",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AccountController",
+    "Method": "GetRolesAsync",
+    "RelativePath": "api/account/roles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
+    "Method": "FindUserAsync",
+    "RelativePath": "api/auth",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "OskitAPI.Areas.Identity.Models.AuthReqModels\u002BUsernameModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
+    "Method": "ConfirmSignInAsync",
+    "RelativePath": "api/auth/confirm-login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
+    "Method": "LoginAsync",
+    "RelativePath": "api/auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "OskitAPI.Areas.Identity.Models.AuthReqModels\u002BLoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
+    "Method": "RegisterAsync",
+    "RelativePath": "api/auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "OskitAPI.Areas.Identity.Models.AuthReqModels\u002BRegisterModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
+    "Method": "ResetPasswordAsync",
+    "RelativePath": "api/auth/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "OskitAPI.Areas.Identity.Models.AuthReqModels\u002BResetPasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
+    "Method": "SendVerificationCodeAsync",
+    "RelativePath": "api/auth/send-verification-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "OskitAPI.Areas.Identity.Models.AuthReqModels\u002BSendVerificationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
+    "Method": "VerifyEmail",
+    "RelativePath": "api/auth/verify-email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "OskitAPI.Areas.Identity.Models.AuthReqModels\u002BVerifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Companies.Controllers.CompanyController",
+    "Method": "Get",
+    "RelativePath": "api/Company",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.SystemSetups.Controllers.CountryController",
+    "Method": "GetCountryAsync",
+    "RelativePath": "api/countries/{code}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "code",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.SystemSetups.Controllers.CountryController",
+    "Method": "AddCountryAsync",
+    "RelativePath": "api/countries/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "OskitAPI.Areas.SystemSetups.Controllers.CountryController\u002BCountryModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.SystemSetups.Controllers.CountryController",
+    "Method": "DeleteCountryAsync",
+    "RelativePath": "api/countries/delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "codes",
+        "Type": "System.String[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.SystemSetups.Controllers.CountryController",
+    "Method": "UpdateCountryAsync",
+    "RelativePath": "api/countries/update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "OskitAPI.Areas.SystemSetups.Controllers.CountryController\u002BCountryModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Inventory.Controllers.InventoryController",
+    "Method": "CreateItemAsync",
+    "RelativePath": "api/Inventory/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Companies.Controllers.CompanyController",
+    "Method": "CreateAsync",
+    "RelativePath": "create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "OskitAPI.Areas.Companies.Models.CompanyInputModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

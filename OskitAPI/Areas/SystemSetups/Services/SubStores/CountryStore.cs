@@ -8,7 +8,7 @@ namespace OskitAPI.Areas.SystemSetups.Services.SubStores
 {
     public class CountryStore : DbStoreBase
     {
-        public CountryStore (AppDbContext? context, ILogger? logger)
+        public CountryStore (AppDbContext? context, ILogger<CountryStore>? logger)
             : base(context, logger) { }
 
         /// <exception cref="DbUpdateException"/>

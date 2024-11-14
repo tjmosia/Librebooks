@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 
 using OskitAPI.Areas.Inventory.Services;
 using OskitAPI.Areas.SystemSetups.Services;
+using OskitAPI.Areas.SystemSetups.Services.SubStores;
 using OskitAPI.Core.EFCore;
 using OskitAPI.Data;
 using OskitAPI.Extensions.Identity;
@@ -18,10 +19,10 @@ var Configuration = builder.Configuration;
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(Configuration.GetConnectionString("MoskitContext"));
+    options.UseSqlite(Configuration.GetConnectionString("MoskitContext"));
 });
 
-builder.Services.AddLogging();
+//builder.Services.AddLogging(options => options.AddConsole());
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddIdentity<User, Role>
@@ -95,6 +96,16 @@ builder.Services.AddScoped<SystemStore>();
 builder.Services.AddScoped<ISystemManager, SystemManager>();
 builder.Services.AddScoped<ItemStore>();
 builder.Services.AddScoped<IItemManager, ItemManager>();
+
+builder.Services.AddScoped<CountryStore>();
+builder.Services.AddScoped<CurrencyStore>();
+builder.Services.AddScoped<DateFormatStore>();
+builder.Services.AddScoped<PaymentMethodStore>();
+builder.Services.AddScoped<PaymentTermStore>();
+builder.Services.AddScoped<ShippingTermStore>();
+builder.Services.AddScoped<ShippingMethodStore>();
+builder.Services.AddScoped<ValueAddedTaxStore>();
+builder.Services.AddScoped<SystemCompanyNumberStore>();
 
 builder.Services.AddCors(options =>
 {

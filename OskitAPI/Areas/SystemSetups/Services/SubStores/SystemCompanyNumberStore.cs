@@ -8,7 +8,7 @@ namespace OskitAPI.Areas.SystemSetups.Services.SubStores
 {
     public class SystemCompanyNumberStore : DbStoreBase
     {
-        public SystemCompanyNumberStore (AppDbContext? context, ILogger? logger)
+        public SystemCompanyNumberStore (AppDbContext? context, ILogger<SystemCompanyNumberStore>? logger)
             : base(context, logger) { }
 
         public async Task<SystemCompanyNumber?> CurrentAsync ()

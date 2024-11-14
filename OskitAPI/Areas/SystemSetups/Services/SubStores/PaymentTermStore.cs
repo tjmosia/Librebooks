@@ -8,7 +8,7 @@ namespace OskitAPI.Areas.SystemSetups.Services.SubStores
 {
     public class PaymentTermStore : DbStoreBase
     {
-        public PaymentTermStore (AppDbContext? context, ILogger? logger)
+        public PaymentTermStore (AppDbContext? context, ILogger<PaymentTermStore>? logger)
             : base(context, logger) { }
 
         /// <exception cref="DbUpdateException"/>

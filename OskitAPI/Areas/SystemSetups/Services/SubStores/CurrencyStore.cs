@@ -8,7 +8,7 @@ namespace OskitAPI.Areas.SystemSetups.Services.SubStores
 {
     public class CurrencyStore : DbStoreBase
     {
-        public CurrencyStore (AppDbContext? context, ILogger? logger)
+        public CurrencyStore (AppDbContext? context, ILogger<CurrencyStore>? logger)
             : base(context, logger) { }
 
         /// <exception cref="DbUpdateException"/>
