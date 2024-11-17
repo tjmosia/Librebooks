@@ -1,10 +1,8 @@
-import IClaim from './IClaim'
 
-export interface IAppUser
-{
+export interface IAppUser {
 	username?: string
-	givenName?: string
-	isAuthenticated: boolean
+	firstName?: string
+	lastName?: string
 	accessToken?: string
-	claims?: IClaim[]
+	photo?: string
 }

@@ -1,13 +1,38 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { Button, Divider, Field, Input, Select, SelectOnChangeData, Spinner, makeStyles, tokens } from '@fluentui/react-components'
+import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from 'react'
+import { Button, Caption1Strong, Divider, Field, Input, Link, Select, SelectOnChangeData, Spinner, makeStyles, tokens } from '@fluentui/react-components'
 import { usePageTitle } from '../../../hooks/page.hook'
 import CreatePasswordComponent from './components/password.components'
-import { useAuthContext } from './auth.context'
+import { useAuthContext } from '../../../contexts/auth.context'
 import { DatePicker } from '@fluentui/react-datepicker-compat'
 import { BsCalendarPlus } from 'react-icons/bs'
 import { useValidators } from '../../../hooks/validators.hook'
 import { IFormField } from '../../../core/forms'
 import { useFormUtils } from '../../../core/forms/forms.hook'
+//import { useMutation } from '@tanstack/react-query'
+import { useAppSettings } from '../../../strings/AppSettings'
+import useSessionData from '../../../extensions/SessionData'
+import { AuthSessionVars } from './auth.strings'
+import { useNavigate } from 'react-router'
+import AppRoutes from '../../../strings/AppRoutes'
+import { useHttp } from '../../../hooks/http.hook'
+import { IAppUser } from '../../../types/identity'
+import { ITransactionResult } from '../../../core/transactions.core'
+import { StatusCodes } from 'http-status-codes'
+import { ajax, AjaxError, AjaxResponse } from 'rxjs/ajax'
+import { from } from 'rxjs'
+import { useIdentityManager } from '../../../hooks/userManager.hook'
+
+interface IMutationErrors {
+	[key: string]: string[] | undefined
+	Birthday?: string[]
+	Code?: string[]
+	CodeHashString?: string[]
+	Email?: string[]
+	FirstName?: string[]
+	Gender?: string[]
+	LastName?: string[]
+	Password?: string[]
+}
 
 interface IRegisterPageModel {
 	[key: string]: IFormField<string | undefined> | IFormField<Date | undefined | null>
@@ -19,21 +44,100 @@ interface IRegisterPageModel {
 	birthday: IFormField<Date | undefined | null>
 }
 
-
 export default function RegisterPage() {
 	usePageTitle("Register")
 	const styles = LoginStyles()
-	const { loading, setLoading, setFormTitle } = useAuthContext()
-	const [model, setModel] = useState<IRegisterPageModel>(emptyModel)
+	const navigate = useNavigate()
+	const { loading, setLoading, setFormTitle, setFormMessage, username } = useAuthContext()
 	const { passwordValidator } = useValidators()
 	const { fieldErrors } = useFormUtils()
+	const { createApiPath } = useAppSettings()
+	const session = useSessionData()
+	const { headers } = useHttp()
+	const identityManager = useIdentityManager()
 
-	function InputChangeHandler(event: ChangeEvent<HTMLInputElement>) {
+	const verification = useMemo(() => ({
+		code: session.get<string>(AuthSessionVars.VerificationCode),
+		codeHashString: session.get<string>(AuthSessionVars.VerificationHashString),
+		loaded() {
+			return this.code && this.codeHashString
+		}
+	}), [session])
+
+	const [model, setModel] = useState<IRegisterPageModel>(emptyModel)
+
+	async function handleFormSubmitEventAsync(event: FormEvent) {
+		event.preventDefault()
+		setLoading!(true)
+
+		if (!validateModel()) {
+			setLoading!(false)
+			return;
+		}
+
+		ajax<ITransactionResult<IAppUser>>({
+			url: createApiPath("/auth/register"),
+			method: "POST",
+			body: JSON.stringify({
+				email: username,
+				code: verification.code,
+				codeHashString: verification.codeHashString,
+				firstName: model.firstName.value,
+				lastName: model.lastName.value,
+				birthday: model.birthday?.value,
+				gender: model.gender.value,
+				password: model.password.value
+			}),
+			headers: {
+				[headers.contentType.name]: headers.contentType.values.Json
+			}
+		}).subscribe({
+			next: (response: AjaxResponse<ITransactionResult<IAppUser>>) => {
+				if (response.status === StatusCodes.OK) {
+					const data = response.response
+
+					if (data.succeeded) {
+						setLoading!(false)
+						identityManager.signIn(data.model!)
+						navigate(session.get<string>(AuthSessionVars.ReturnUrl) ?? '/')
+					}
+				}
+			},
+			error: (error: AjaxError) => {
+				if (error.status === StatusCodes.BAD_REQUEST) {
+					const data = error.response()
+					const errors = data.errors as IMutationErrors
+					const updatedModel = { ...model }
+					const errorKeys = Object.keys(errors)
+
+					if (errorKeys.includes("Code") || errorKeys.includes("CodeHashString")) {
+						setLoading!(false)
+						navigate(AppRoutes.Auth.Username)
+					}
+
+					from(errorKeys)
+						.subscribe(key => {
+							if (!Object.keys(updatedModel).includes(key))
+								console.log("incorrect key")
+							const _key = key[0].toLocaleLowerCase() + key.slice(1)
+							try {
+								updatedModel[_key].error = errors[key]![0]
+							} catch {
+								console.log(`Exception Occured. Failed to retrieve object with key ${_key}`)
+							}
+						})
+					setModel(updatedModel)
+				}
+			}
+		})
+	}
+
+	function inputChangeHandler(event: ChangeEvent<HTMLInputElement>) {
 		const { value, name } = event.target
 
-		if (name.endsWith("word")) {
-			const newVal = value.replace(/[\s]/, "")
+		const newVal = value.replace(/[\s]/, "")
 
+		if (name.endsWith("word")) {
 			if (newVal != model[name].value) {
 				setModel(state => {
 					const newModel = {
@@ -42,7 +146,6 @@ export default function RegisterPage() {
 							value: newVal
 						} as IFormField<string>
 					}
-
 					if (name == "password" && model.confirmPassword.value)
 						newModel.confirmPassword = { value: "" } as IFormField<string>
 
@@ -63,12 +166,13 @@ export default function RegisterPage() {
 				})
 			}
 		} else {
-			setModel(state => ({
-				...state,
-				[name]: {
-					value
-				} as IFormField<string>
-			}))
+			if (model[name].value != newVal)
+				setModel(state => ({
+					...state,
+					[name]: {
+						value: newVal
+					} as IFormField<string>
+				}))
 		}
 	}
 
@@ -111,19 +215,6 @@ export default function RegisterPage() {
 		return valid
 	}
 
-	function FormSubmitHandler(event: FormEvent) {
-		event.preventDefault()
-		setLoading!(true)
-		alert("yes")
-		setTimeout(() => {
-			if (!validateModel()) {
-				setLoading!(false)
-				return;
-			}
-			setLoading!(false)
-		}, 1000)
-	}
-
 	function SelectChangeEventHandler(event: ChangeEvent<HTMLSelectElement>, data: SelectOnChangeData) {
 		setModel(state => ({
 			...state,
@@ -150,12 +241,15 @@ export default function RegisterPage() {
 
 	useEffect(() => {
 		setFormTitle!("Create your account")
-	}, [setFormTitle])
+		setFormMessage!("")
+		if (!verification.loaded.call(verification) || !username)
+			navigate(AppRoutes.Auth.Username)
+	}, [setFormTitle, setFormMessage, username, verification, navigate])
 
 	return (<>
-		<form onSubmit={FormSubmitHandler}
+		<form onSubmit={handleFormSubmitEventAsync}
 			method="post">
-			<Divider appearance='strong' className={styles.divider}>Personal Information</Divider>
+			<Divider appearance='subtle' className={styles.divider}>Personal Information</Divider>
 			<div className='row'>
 				<div className='col-6 pe-1'>
 					<Field label="First name"
@@ -166,12 +260,12 @@ export default function RegisterPage() {
 							value={model.firstName.value}
 							name="firstName"
 							disabled={loading}
-							onChange={InputChangeHandler}
+							onChange={inputChangeHandler}
 						/>
 					</Field>
 				</div>
 				<div className='col-6 ps-1'>
-					<Field label="First name"
+					<Field label="Last name"
 						className={styles.field}
 						validationState={model.lastName.error ? "error" : "none"}
 						validationMessage={model.lastName.error}>
@@ -179,7 +273,7 @@ export default function RegisterPage() {
 							value={model.lastName.value}
 							name="lastName"
 							disabled={loading}
-							onChange={InputChangeHandler}
+							onChange={inputChangeHandler}
 						/>
 					</Field>
 				</div>
@@ -219,11 +313,14 @@ export default function RegisterPage() {
 					</Field>
 				</div>
 			</div>
-			<Divider appearance='strong' className={styles.divider}>Create your Password</Divider>
+			<Divider appearance='subtle' className={styles.divider}>Create your Password</Divider>
 			<CreatePasswordComponent
-				inputChangeHandler={InputChangeHandler}
+				inputChangeHandler={inputChangeHandler}
 				password={model.password}
 				confirmPassword={model.confirmPassword} />
+			<div className={styles.terms}>
+				<Caption1Strong>By clicking join below, you accept our <Link href='asdasd' target='_blank'>terms of use, privary, and cookie policy.</Link></Caption1Strong>
+			</div>
 
 			<Button appearance='primary'
 				type='submit'
@@ -268,5 +365,8 @@ const LoginStyles = makeStyles({
 	},
 	divider: {
 		margin: `${tokens.spacingHorizontalL} 0`
+	},
+	terms: {
+		margin: `${tokens.spacingVerticalL} 0`
 	}
 })

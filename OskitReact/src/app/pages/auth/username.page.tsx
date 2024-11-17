@@ -1,12 +1,22 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from 'react'
-import { Input, useId, Button, Spinner, makeStyles, tokens, Field } from '@fluentui/react-components'
+import { Input, useId, Button, Spinner, makeStyles, tokens, Field, MessageBar, MessageBarBody } from '@fluentui/react-components'
 import { usePageTitle } from '../../../hooks/page.hook'
-import { AuthContext } from './auth.context'
+import { AuthContext } from '../../../contexts/auth.context'
 import { BsEnvelope } from 'react-icons/bs'
 import { useNavigate } from 'react-router'
 import AppRoutes from '../../../strings/AppRoutes'
 import useSessionData from '../../../extensions/SessionData'
 import { useValidators } from '../../../hooks/validators.hook'
+import { useAppSettings } from '../../../strings/AppSettings'
+import { useHttp } from '../../../hooks/http.hook'
+import StatusCodes from 'http-status-codes'
+import { AuthSessionVars, AuthVerificationReasons } from './auth.strings'
+import { ITransactionResult } from '../../../core/transactions.core'
+import { ISendVerificationCodeResponse } from './auth.types'
+import { useSearchParams } from 'react-router-dom'
+import { ajax, AjaxError } from 'rxjs/ajax'
+import { IUserLoginDto } from '../account/LoginDto.type'
+import { ApiRoutes } from '../../../strings/ApiRoutes'
 
 const LoginStyles = makeStyles({
     wrapper: {
@@ -31,18 +41,105 @@ interface IModel {
     error?: string
 }
 
+
 export default function UsernamePage() {
     usePageTitle!("Sign in or Sign up")
     const usernameId = useId("username")
     const styles = LoginStyles()
+    const search = useSearchParams()
     const navigate = useNavigate()
-    const { setFormTitle, loading, setLoading, returnUrl, setUsername, username, setFormMessage } = useContext(AuthContext)
+    const { setFormTitle, loading, setLoading, username, setFormMessage, setUsername, setUser } = useContext(AuthContext)
     const session = useSessionData()
+    const { createApiPath } = useAppSettings()
+    const [error, setError] = useState<string | undefined>()
     const [model, setModel] = useState<IModel>({
         email: username ?? ""
     })
+    const { headers } = useHttp()
     const { emailvalidator } = useValidators()
 
+    function sendRegistrationVerificationCode() {
+        ajax<ITransactionResult<ISendVerificationCodeResponse>>({
+            url: createApiPath(ApiRoutes.Auth.SendVerificationCode),
+            method: "POST",
+            body: JSON.stringify({
+                email: username,
+                reason: AuthVerificationReasons.Registration
+            }),
+            headers: {
+                [headers.contentType.name]: headers.contentType.values.Json
+            }
+        }).subscribe({
+            next: (response) => {
+                console.log(response)
+                const data = response.response
+                if (data && data.succeeded) {
+                    console.log(data.model!.codeHashString)
+                    session.add(AuthSessionVars.VerificationHashString, data.model!.codeHashString)
+                    session.add(AuthSessionVars.VerificationReason, AuthVerificationReasons.Registration)
+                    session.add(AuthSessionVars.FromPath, AppRoutes.Auth.Username)
+                    setUsername!(model.email)
+                    setLoading!(false)
+                    navigate(AppRoutes.Auth.VerifyEmail)
+                }
+            },
+            error: (error: AjaxError) => {
+                console.log(error)
+                if (error.status !== StatusCodes.BAD_REQUEST)
+                    setError("Unable to send verification code.")
+                setModelError("Pleace check your email.")
+                setLoading!(false)
+            }
+        })
+    }
+
+    function setModelError(errorMessage: string) {
+        setModel(model => ({
+            ...model,
+            error: errorMessage
+        }))
+    }
+
+    function FormSubmitHandler(event: FormEvent) {
+        event.preventDefault()
+        setLoading!(true)
+
+        if (!modelValid()) {
+            setLoading!(false)
+            return
+        }
+
+        ajax<IUserLoginDto>({
+            url: createApiPath(ApiRoutes.Auth.Username),
+            method: "POST",
+            body: JSON.stringify({ email: model.email }),
+            headers: {
+                [headers.contentType.name]: headers.contentType.values.Json
+            }
+        }).subscribe({
+            next: (response) => {
+                if (response.status === StatusCodes.OK) {
+                    const data = response.response
+                    setUsername!(model.email)
+                    setUser!(data)
+                    setLoading!(false)
+                    navigate(AppRoutes.Auth.Login)
+                    return
+                }
+
+                if (response.status === StatusCodes.NO_CONTENT)
+                    sendRegistrationVerificationCode()
+
+                setLoading!(false)
+            },
+            error: (error: AjaxError) => {
+                console.log(error)
+                if (error.status === StatusCodes.BAD_REQUEST)
+                    setModelError("Pleace check your email.")
+                setLoading!(false)
+            }
+        })
+    }
 
     function modelValid() {
         if (!model.email)
@@ -62,41 +159,33 @@ export default function UsernamePage() {
 
         setModel({
             email: value,
-
         })
-    }
-
-    function FormSubmitHandler(event: FormEvent) {
-        event.preventDefault()
-        setLoading!(true)
-        console.log(emailvalidator.validate(model.email))
-
-        if (!modelValid()) {
-            setLoading!(false)
-            return
-        }
-
-        setTimeout(() => {
-            setLoading!(false)
-            setUsername!(model.email)
-
-            navigate({
-                pathname: AppRoutes.Auth.Login,
-                search: `returnUrl=${returnUrl}`
-            })
-        }, 1000)
     }
 
     useEffect(() => {
         setFormTitle!("Sign in or Sign up")
-        session.remove("USERNAME")
+        session.remove(AuthSessionVars.Username)
         setFormMessage!("Continue with your email address.")
-    }, [setFormTitle, session, setFormMessage])
+
+        const returnUrl = search[0].get("returnUrl");
+        if (returnUrl)
+            session.add(AuthSessionVars.ReturnUrl, returnUrl)
+
+    }, [setFormTitle, session, setFormMessage, search])
+
+    useEffect(() => {
+        if (error) setTimeout(() => setError(undefined), 5000)
+    }, [error])
 
     return (<>
         <form onSubmit={FormSubmitHandler}
             method="post"
             className="form">
+            {error ?
+                <MessageBar intent='error'>
+                    <MessageBarBody>{error}</MessageBarBody>
+                </MessageBar>
+                : ""}
             <Field label="Username"
                 validationMessage={model.error}
                 validationState={model.error ? "error" : "none"}>
@@ -104,7 +193,6 @@ export default function UsernamePage() {
                     onChange={InputChangeHandler}
                     contentBefore={<BsEnvelope size={16} />}
                     disabled={loading}
-                    size='large'
                     value={model.email}
                     appearance="outline"
                     aria-label="Username input" />

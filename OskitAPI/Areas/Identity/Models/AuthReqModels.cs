@@ -24,12 +24,21 @@ namespace OskitAPI.Areas.Identity.Models
 
             [Required(ErrorMessage = "CodeHashString is required.")]
             public string? CodeHashString { get; set; }
+
+            [Required(ErrorMessage = "Reason is required.")]
+            public string? Reason { get; set; }
         }
 
-        public class ResetPasswordModel : VerifyModel
+        public class ResetPasswordModel : UsernameModel
         {
             [Required(ErrorMessage = "Password is required.")]
             public string? Password { get; set; }
+
+            [Required(ErrorMessage = "Code is require.d")]
+            public string? Code { get; set; }
+
+            [Required(ErrorMessage = "CodeHashString is required.")]
+            public string? CodeHashString { get; set; }
         }
 
         public class SendVerificationModel : UsernameModel
@@ -38,8 +47,14 @@ namespace OskitAPI.Areas.Identity.Models
             public string? Reason { get; set; }
         }
 
-        public class RegisterModel : VerifyModel
+        public class RegisterModel : UsernameModel
         {
+            [Required(ErrorMessage = "Code is require.d")]
+            public string? Code { get; set; }
+
+            [Required(ErrorMessage = "CodeHashString is required.")]
+            public string? CodeHashString { get; set; }
+
             [Required(ErrorMessage = "FirstName is required.")]
             public string? FirstName { get; set; }
 

@@ -49,11 +49,12 @@ builder.Services.AddIdentity<User, Role>
 builder.Services.ConfigureApplicationCookie(
     options =>
     {
-        //options.Cookie.Name = "moskit.session.cookie";
-        //options.ExpireTimeSpan = TimeSpan.FromMinutes(24);
-        //options.Cookie.IsEssential = true;
-        //options.Cookie.HttpOnly = true;
-        //options.Cookie.SameSite = SameSiteMode.None;
+        options.Cookie.Name = "moskit.session.cookie";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(24);
+        options.Cookie.IsEssential = true;
+        options.Cookie.HttpOnly = true;
+        options.Cookie.SameSite = SameSiteMode.None;
+
         options.Events = new CookieAuthenticationEvents
         {
             OnRedirectToLogin = (context) =>
@@ -113,14 +114,15 @@ builder.Services.AddCors(options =>
     {
         options.AllowAnyOrigin()
         .AllowAnyHeader()
+        .AllowAnyOrigin()
         .AllowAnyMethod();
     });
 
     options.AddPolicy("DevOrigin",
         options =>
         {
-            options.AllowAnyOrigin()
-                .AllowAnyHeader()
+            options
+                .WithOrigins("http://localhost:5173")
                 .AllowAnyMethod();
         });
 });
@@ -137,9 +139,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseCors("DevOrigin");
+    //app.UseCors("DevOrigin");
 }
 
+app.UseCors();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 app.UseHttpsRedirection();

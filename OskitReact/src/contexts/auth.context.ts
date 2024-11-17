@@ -1,19 +1,20 @@
 import { createContext, Dispatch, SetStateAction, useContext } from "react"
+import { IUserLoginDto } from "../app/pages/account/LoginDto.type"
+import { IAuthModelAlert } from "../app/pages/auth/auth.layout"
 
 export const AuthContext = createContext<IAuthContext>({})
 
 export interface IAuthContext {
     loading?: boolean
     username?: string
-    givenName?: string
-    setGivenName?: Dispatch<SetStateAction<string>>
-    returnUrl?: string | null
     setLoading?: Dispatch<SetStateAction<boolean>>
     setFormTitle?: Dispatch<SetStateAction<string>>
     setFormMessage?: Dispatch<SetStateAction<string>>
     setUsername?: (email: string) => void
-    sendEmailVerificationCode?: () => void,
     setWiderFormWrapper?: Dispatch<SetStateAction<boolean>>
+    user?: IUserLoginDto
+    setUser?: (user: IUserLoginDto | undefined) => void
+    setAlert?: (alert: IAuthModelAlert | undefined) => void
 }
 
 export const useAuthContext = () => useContext(AuthContext)

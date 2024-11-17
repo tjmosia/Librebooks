@@ -37,7 +37,7 @@ namespace OskitAPI.Extensions.Identity
         /// <returns>A tuple with token generated and it's hash string</returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="SaltParseException"></exception>
-        public (string Code, string CodeHashString) GenerateVerificationCode (string userEmail)
+        public (string Code, string CodeHashString) GenerateVerificationCode (string userEmail, string reason)
         {
             ArgumentNullException.ThrowIfNull(userEmail, nameof(userEmail));
 
@@ -49,13 +49,13 @@ namespace OskitAPI.Extensions.Identity
 
             try
             {
-                var hash = $"{BCrypt.Net.BCrypt.HashPassword(Code + userEmail + salt + GenerateVerificationCodeTimeStamp())}$sl{userEmail.Substring(0, 2)}ts${salt}";
+                var hash = $"{BCrypt.Net.BCrypt.HashPassword(userEmail + reason + Code + salt + GenerateVerificationCodeTimeStamp())}[slot]{salt}";
                 Logger.LogInformation("Verification Code {hash} created for {email}", hash, userEmail);
                 return (Code, hash);
             }
-            catch (Exception e)
+            catch (SaltParseException ex)
             {
-                Logger.LogInformation("Error with Exception {exception} at {method}", e.GetType().Name, nameof(GenerateVerificationCode));
+                Logger.LogInformation("Error with Exception {exception} at {method}", ex.GetType().Name, nameof(GenerateVerificationCode));
                 throw;
             }
         }
@@ -64,26 +64,27 @@ namespace OskitAPI.Extensions.Identity
         /// Verifies the token provided for the user email.
         /// </summary>
         /// <param name="userEmail">User's email to be verified.</param>
-        /// <param name="token">Token to be verified.</param>
-        /// <param name="tokenHashString">HashString for the token to be verified against.</param>
+        /// <param name="code">Code to be verified.</param>
+        /// <param name="codeHashString">HashString for the code to be verified against.</param>
         /// <returns>true if verified. Otherwise, false.</returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public bool VerifyCode (string userEmail, string token, string tokenHashString)
+        public bool VerifyCode (string userEmail, string reason, string code, string codeHashString)
         {
             ArgumentNullException.ThrowIfNull(userEmail, nameof(userEmail));
-            ArgumentNullException.ThrowIfNull(token, nameof(userEmail));
-            ArgumentNullException.ThrowIfNull(tokenHashString, nameof(tokenHashString));
+            ArgumentNullException.ThrowIfNull(code, nameof(code));
+            ArgumentNullException.ThrowIfNull(codeHashString, nameof(codeHashString));
+            ArgumentNullException.ThrowIfNull(code, nameof(code));
 
             try
             {
-                var split = tokenHashString.Split($"$sl{userEmail.Substring(0, 2)}ts$");
-                var isVerified = BCrypt.Net.BCrypt.Verify(token + userEmail + split.LastOrDefault() + GenerateVerificationCodeTimeStamp(), split.FirstOrDefault());
-                return isVerified;
+                var split = codeHashString.Split("[slot]");
+                return BCrypt.Net.BCrypt.Verify(userEmail + reason + code + split.LastOrDefault() + GenerateVerificationCodeTimeStamp(), split.FirstOrDefault());
             }
-            catch (Exception e)
+            catch (SaltParseException ex)
             {
-                Logger.LogInformation("Error with Exception {exception} at {method}", e.GetType().Name, nameof(GenerateVerificationCode));
+                Logger.LogInformation("Error with Exception {exception} at {method}", ex.GetType().Name, nameof(VerifyCode));
+                Logger.LogError(ex.Message);
                 throw;
             }
         }

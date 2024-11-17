@@ -3,7 +3,7 @@ import { useValidators } from "../../../../hooks/validators.hook"
 import { Button, Caption1, Caption1Stronger, Field, Input, makeStyles, tokens, Tooltip } from "@fluentui/react-components"
 import Borders from "../../../../strings/ui/Borders"
 import { BsCheckCircle, BsLock, BsUnlock, BsXCircle } from "react-icons/bs"
-import { useAuthContext } from "../auth.context"
+import { useAuthContext } from "../../../../contexts/auth.context"
 
 
 export interface ICreatePasswordComponentProps {
@@ -32,12 +32,15 @@ const CreatePasswordComponentStyles = makeStyles({
         border: Borders.thinNeutral,
         padding: tokens.spacingHorizontalM,
         borderRadius: tokens.borderRadiusMedium,
-        backgroundColor: tokens.colorNeutralBackground1Hover
+        backgroundColor: tokens.colorNeutralCardBackground
     },
     passwordStateIcon: {
         position: "relative",
-        top: "3px",
+        top: "-1px",
         marginRight: tokens.spacingHorizontalXS
+    },
+    requirementsTitle: {
+        marginBottom: tokens.spacingHorizontalXS
     }
 })
 
@@ -45,7 +48,6 @@ const CreatePasswordComponent: FC<ICreatePasswordComponentProps> = ({ password, 
     const { passwordValidator } = useValidators()
     const styles = CreatePasswordComponentStyles()
     const { loading } = useAuthContext()
-
     const [showPassword, setShowPassword] = useState(false)
 
     function TogglePasswordHandler() {
@@ -117,14 +119,13 @@ const CreatePasswordComponent: FC<ICreatePasswordComponentProps> = ({ password, 
                     value={password.value}
                     onChange={(event) => inputChangeHandler(event)}
                     name="password"
-                    size="large"
                     disabled={loading}
                     contentAfter={RenderPasswordSpyElement()}
                     type={showPassword ? "text" : "password"}
                     aria-label="Passwordd input" />
             </Field>
             <div className={styles.passwordStateDiv}>
-                <Caption1Stronger>Requirements:</Caption1Stronger>
+                <Caption1Stronger className={styles.requirementsTitle}>Requirements:</Caption1Stronger>
                 {renderRequirementsList(password.value ?? "")}
             </div>
             <Field label={"Confirm Password"}
@@ -138,11 +139,11 @@ const CreatePasswordComponent: FC<ICreatePasswordComponentProps> = ({ password, 
                     onChange={inputChangeHandler}
                     name="confirmPassword"
                     disabled={loading}
-                    size="large"
                     contentAfter={RenderPasswordSpyElement()}
                     type={showPassword ? "text" : "password"}
                     aria-label="Passwordd input" />
-            </Field></>
+            </Field>
+        </>
     )
 }
 

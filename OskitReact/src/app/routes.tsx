@@ -6,7 +6,7 @@ import AuthLayout from './pages/auth/auth.layout'
 import UsernamePage from './pages/auth/username.page'
 import RegisterPage from './pages/auth/register.page'
 import VerifyEmailPage from './pages/auth/verify.page'
-import ResetPasswordPage from './pages/auth/resetPasswod'
+import ResetPasswordPage from './pages/auth/resetPasswod.page'
 
 const routes: RouteObject[] = [
 	{

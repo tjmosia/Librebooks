@@ -1,9 +1,9 @@
-function useTempData<T>() {
+function useTempData() {
 	const createKey = (inputKey: string) => "TEMP_DATA__" + inputKey
 	const remove = (inputKey: string) => sessionStorage.removeItem(createKey(inputKey))
 
 	return {
-		get(key: string, persist = false): T | undefined {
+		get<T>(key: string, persist = false): T | undefined {
 			try {
 				const value = sessionStorage.getItem(createKey(key))
 				if (value) {
@@ -14,7 +14,7 @@ function useTempData<T>() {
 				return undefined
 			}
 		},
-		add: (key: string, value: T) => sessionStorage.setItem(createKey(key), JSON.stringify(value))
+		add: (key: string, value: unknown) => sessionStorage.setItem(createKey(key), JSON.stringify(value))
 	}
 }
 

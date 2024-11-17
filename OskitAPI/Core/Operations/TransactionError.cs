@@ -32,5 +32,8 @@ namespace OskitAPI.CoreLib.Operations
 
         public static IEnumerable<TransactionError> FromIEs (params IdentityError[] errors)
             => FromIdentityErrors(errors);
+
+        public static TransactionError Create (string code, string description = "")
+            => new TransactionError(code, description);
     }
 }

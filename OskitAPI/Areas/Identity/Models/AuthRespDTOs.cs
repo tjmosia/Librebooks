@@ -5,7 +5,8 @@
         public class FindUserDto
         {
             public string? Username { get; set; }
-            public string? GivenName { get; set; }
+            public string? FirstName { get; set; }
+            public string? LastName { get; set; }
             public string? Photo { get; set; }
         }
 
