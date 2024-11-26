@@ -1,10 +1,6 @@
-using System.Text;
-
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 using OskitAPI.Areas.Inventory.Services;
 using OskitAPI.Areas.SystemSetups.Services;
@@ -15,17 +11,16 @@ using OskitAPI.Extensions.Identity;
 using OskitAPI.Models.Entity.IdentitySpace;
 
 var builder = WebApplication.CreateBuilder(args);
-var Configuration = builder.Configuration;
+var Config = builder.Configuration;
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlite(Configuration.GetConnectionString("MoskitContext"));
+    options.UseSqlite(Config.GetConnectionString("MoskitContext"));
 });
-
 //builder.Services.AddLogging(options => options.AddConsole());
 builder.Services.AddDistributedMemoryCache();
 
-builder.Services.AddIdentity<User, Role>
+builder.Services.AddIdentityCore<User>
     (options =>
     {
         options.Password.RequireDigit = true;
@@ -40,56 +35,14 @@ builder.Services.AddIdentity<User, Role>
         options.Lockout.AllowedForNewUsers = false;
         options.User.RequireUniqueEmail = true;
     })
+    .AddRoles<Role>()
     .AddUserManager<UserManagerExt>()
     .AddSignInManager<SignInManagerExt>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddErrorDescriber<IdentityErrorDescriberExt>()
     .AddDefaultTokenProviders();
 
-builder.Services.ConfigureApplicationCookie(
-    options =>
-    {
-        options.Cookie.Name = "moskit.session.cookie";
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(24);
-        options.Cookie.IsEssential = true;
-        options.Cookie.HttpOnly = true;
-        options.Cookie.SameSite = SameSiteMode.None;
-
-        options.Events = new CookieAuthenticationEvents
-        {
-            OnRedirectToLogin = (context) =>
-            {
-                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                return Task.CompletedTask;
-            },
-            OnRedirectToAccessDenied = (context) =>
-            {
-                context.Response.StatusCode = StatusCodes.Status403Forbidden;
-                return Task.CompletedTask;
-            }
-        };
-    }
-);
-
-builder.Services.Configure<JwtTokenValidationParameters>(Configuration.GetSection("JwtTokenValidationParameters"));
-
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidIssuer = Configuration[JwtTokenValidationParameters.GetConfigurationKeyNames().Issuer],
-        ValidAudience = Configuration[JwtTokenValidationParameters.GetConfigurationKeyNames().Issuer],
-        ValidateLifetime = true,
-        IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(Configuration[JwtTokenValidationParameters.GetConfigurationKeyNames().SecretKey]!)
-        )
-    };
-}).AddBearerToken();
+JwtBearerProvider.Configure(builder);
 
 builder.Services.AddSingleton<IdentityErrorDescriberExt>();
 builder.Services.AddSingleton<DbErrorDescriber>();
@@ -97,7 +50,6 @@ builder.Services.AddScoped<SystemStore>();
 builder.Services.AddScoped<ISystemManager, SystemManager>();
 builder.Services.AddScoped<ItemStore>();
 builder.Services.AddScoped<IItemManager, ItemManager>();
-
 builder.Services.AddScoped<CountryStore>();
 builder.Services.AddScoped<CurrencyStore>();
 builder.Services.AddScoped<DateFormatStore>();
@@ -110,44 +62,44 @@ builder.Services.AddScoped<SystemCompanyNumberStore>();
 
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(options =>
+    options.AddPolicy("DevOrigin", options =>
     {
-        options.AllowAnyOrigin()
-        .AllowAnyHeader()
-        .AllowAnyOrigin()
-        .AllowAnyMethod();
+        options.WithOrigins("http://localhost:5173", "https://localhost:5262")
+            .AllowCredentials()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
     });
-
-    options.AddPolicy("DevOrigin",
-        options =>
-        {
-            options
-                .WithOrigins("http://localhost:5173")
-                .AllowAnyMethod();
-        });
 });
 
 builder.Services.AddControllers()
     .AddNewtonsoftJson();
+
+builder.Services.Configure<JsonOptions>(opts =>
+    opts.SerializerOptions.IncludeFields = true);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    //app.UseCors("DevOrigin");
 }
 
-app.UseCors();
+app.UseCors("DevOrigin");
 app.UseDefaultFiles();
 app.UseStaticFiles();
 app.UseHttpsRedirection();
+//app.Use(async (context, next) =>
+//{
+//    context.Request.Cookies.TryGetValue(JwtTokenKeys.AccessToken, out var token);
+//    if (token != null)
+//        context.Request.Headers.Authorization = $"Bearer {token}";
+//    await next.Invoke();
+//});
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-//app.MapFallbackToFile("/index.html");
 app.Run();

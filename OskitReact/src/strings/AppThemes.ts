@@ -27,3 +27,5 @@ export const AppThemes: IAppThemes = {
         "dark"
     ]
 }
+
+export default AppThemes

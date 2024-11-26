@@ -1,0 +1,24 @@
+﻿@inherits LayoutComponentBase
+
+
+<FluentLayout>
+    <FluentHeader>Top Header</FluentHeader>
+    <FluentStack Orientation="Orientation.Horizontal">
+        <FluentNavMenu Width="300">
+            <h1>Side Bar</h1>
+            <AppNavSideBar />
+        </FluentNavMenu>
+        <FluentBodyContent>
+
+            <h1>This is the body</h1>
+            @Body
+        </FluentBodyContent>
+    </FluentStack>
+</FluentLayout>
+
+
+<FluentToastProvider />
+<FluentDialogProvider />
+<FluentTooltipProvider />
+<FluentMessageBarProvider />
+<FluentMenuProvider />

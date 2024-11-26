@@ -1,0 +1,7 @@
+﻿
+Current Tasks:
+- Competing Service Managers for each area
+	- System 
+	- Inventory
+	- Customers
+	- Suppliers

@@ -2,17 +2,12 @@ import { RouterProvider } from 'react-router-dom'
 import router from './router'
 import { FluentProvider, tokens } from '@fluentui/react-components'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { createContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AppThemes, IAppTheme } from './strings/AppThemes'
+import { AppSettingsContext, IAppSettingsContext } from './contexts'
 
 const queryClient = new QueryClient()
 
-const AppSettingsContext = createContext<IAppSettingsContext>({})
-
-interface IAppSettingsContext {
-	theme?: string,
-	setTheme?: (theme: string) => void
-}
 
 const AppSessionVars = {
 	Theme: "OSKIT_APP_THEME"
@@ -41,7 +36,7 @@ function App() {
 			<FluentProvider theme={(AppThemes[theme] as IAppTheme).theme}
 				style={{
 					height: "100vh",
-					backgroundColor: tokens.colorNeutralBackground1Hover
+					backgroundColor: tokens.colorNeutralBackground3Hover
 				}}>
 				<QueryClientProvider client={queryClient}>
 					<RouterProvider router={router} />

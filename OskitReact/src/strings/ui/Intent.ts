@@ -1,3 +1,4 @@
+
 export enum Intent {
     success = 'success',
     error = 'error',

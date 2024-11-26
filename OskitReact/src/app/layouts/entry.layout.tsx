@@ -1,42 +1,70 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { createSearchParams, Outlet, useLocation, useNavigate } from 'react-router-dom'
-import useSessionData from '../../extensions/SessionData'
-import { IAppUser } from '../../types/identity'
-import { SessionVariables } from '../../strings/SessionVars'
-import { Button } from '@fluentui/react-components'
-import { useIdentityManager } from '../../hooks/userManager.hook'
+import { Outlet } from 'react-router-dom'
+import { makeStyles, Spinner, tokens } from '@fluentui/react-components'
+import useIdentityManager from '../../hooks/IdentityManager'
+import TopbarAccountComponent from './shared/TopbarAccountComponent'
 
 export default function EntryLayout() {
 	const identityManager = useIdentityManager()
-	const navigate = useNavigate()
-	const location = useLocation()
-	const session = useSessionData()
-	const user = session.get<IAppUser>(SessionVariables.IdentityUser)
-	const dispatch = useDispatch()
+	const user = identityManager.getUser()
+	const styles = MakeEntryLayoutStyles()
 
-	useEffect(() => {
-		if (!identityManager.isSignedIn()) {
-			if (user)
-				identityManager.signIn(user)
-			else
-				navigate({
-					pathname: "/auth",
-					search: createSearchParams({ returnUrl: location.pathname }).toString()
-				})
-		}
-	}, [identityManager, navigate, location, dispatch, user])
-
-	function handleButtonClick() {
-		identityManager.confirmSignIn()
+	function renderLoading() {
+		return (
+			<div className={styles.SessionSpinner}>
+				<div><Spinner appearance='primary' labelPosition='below' label={"Establishing session..."} /></div>
+			</div>
+		)
 	}
 
+	useEffect(() => {
+		if (!user)
+			identityManager.confirmSignIn()
+
+	}, [identityManager, user])
+
 	return <>
-		<div>
-			<h1>Welcome back, {identityManager.getUser()?.firstName}</h1>
-			<Outlet />
-			<p>You have been isAuthenticated</p>
-			<Button onClick={handleButtonClick} appearance='primary'>Confirm Sign In</Button>
-		</div>
+		{
+			!user ? renderLoading() :
+				<div className={styles.EntryLayoutRoot}>
+					<div className={styles.AppNavBar}>
+						<TopbarAccountComponent />
+					</div>
+					<div className={styles.RouteOutlet}>
+						<Outlet />
+					</div>
+				</div>
+		}
 	</>
 }
+
+const MakeEntryLayoutStyles = makeStyles({
+	SessionSpinner: {
+		width: "100%",
+		height: "100%",
+		display: "flex",
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "center"
+	},
+	EntryLayoutRoot: {
+		width: "100%",
+		minHeight: "100%",
+		height: "auto",
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center"
+	},
+	AppNavBar: {
+		padding: tokens.spacingHorizontalS,
+		width: "100%",
+		height: "auto",
+		//boxShadow: Depths.depth4,
+		display: "flex",
+		backgroundColor: tokens.colorNeutralBackground1
+	},
+	RouteOutlet: {
+		width: "100%",
+		minHeight: "100%"
+	}
+})

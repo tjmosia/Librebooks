@@ -1,21 +1,38 @@
 import { RouteObject } from 'react-router-dom'
-import EntryLayout from './layouts/entry.layout'
-import { HomePage } from './pages/home.page'
-import LoginPage from './pages/auth/login.page'
-import AuthLayout from './pages/auth/auth.layout'
-import UsernamePage from './pages/auth/username.page'
-import RegisterPage from './pages/auth/register.page'
-import VerifyEmailPage from './pages/auth/verify.page'
-import ResetPasswordPage from './pages/auth/resetPasswod.page'
+import { HomePage } from './pages/HomePage'
+import LoginPage from './pages/auth/LoginPage'
+import AuthLayout from './pages/auth/AuthLayout'
+import UsernamePage from './pages/auth/UsernamePage'
+import RegisterPage from './pages/auth/RegisterPage'
+import VerifyEmailPage from './pages/auth/VerifyEmailPage'
+import ResetPasswordPage from './pages/auth/ResetPasswordPage'
+import { CreateCompanyPage } from './pages/companies/wizard/CreateCompanyPage'
+import MainLayout from './layouts/MainLayout'
+import ProfilePage from './pages/account/ProfilePage'
+import AccountLayout from './pages/account/AccountLayout'
 
 const routes: RouteObject[] = [
 	{
 		path: "/",
-		element: <EntryLayout />,
+		element: <MainLayout />,
 		children: [
 			{
 				path: '/',
 				element: <HomePage />
+			},
+			{
+				path: '/companies/create',
+				element: <CreateCompanyPage />
+			},
+			{
+				path: "/account",
+				element: <AccountLayout />,
+				children: [
+					{
+						path: '',
+						element: <ProfilePage />
+					}
+				]
 			}
 		]
 	},

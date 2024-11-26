@@ -7,7 +7,7 @@ namespace OskitAPI.Areas.Identity.Models
         public class UsernameModel
         {
             [Required(ErrorMessage = "Email is required.")]
-            [EmailAddress(ErrorMessage = "Please check your email.")]
+            [EmailAddress(ErrorMessage = "Enter a valid email address.")]
             public string? Email { get; set; }
         }
 

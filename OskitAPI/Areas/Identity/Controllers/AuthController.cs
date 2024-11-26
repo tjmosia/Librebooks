@@ -1,6 +1,4 @@
-﻿using System.Security.Claims;
-
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
@@ -16,16 +14,17 @@ using static OskitAPI.Areas.Identity.Models.AuthRespDTOs;
 
 namespace OskitAPI.Areas.Identity.Controllers
 {
-    [Route("api/auth")]
+    [Route("auth")]
     [ApiController]
-    [AllowAnonymous]
     public class AuthController (UserManagerExt userManager,
         SignInManagerExt signInManager,
         ILogger<SessionControllerBase> logger,
-        IOptions<JwtTokenValidationParameters> jwtParameters)
+        IOptions<JwtParams> jwtParameters,
+        IConfiguration config)
         : SessionControllerBase(userManager, signInManager, logger)
     {
-        private readonly JwtTokenValidationParameters jwtParameters = jwtParameters.Value;
+        private readonly JwtParams jwtParameters = jwtParameters.Value;
+        private readonly IConfiguration config = config;
 
         [HttpPost]
         [Route("")]
@@ -39,7 +38,6 @@ namespace OskitAPI.Areas.Identity.Controllers
             if (user == null)
                 return NoContent();
             else
-            {
                 return Ok(new FindUserDto
                 {
                     Username = user.Email,
@@ -47,7 +45,6 @@ namespace OskitAPI.Areas.Identity.Controllers
                     LastName = user.LastName,
                     Photo = user.Photo
                 });
-            }
         }
 
         [HttpPost]
@@ -67,29 +64,19 @@ namespace OskitAPI.Areas.Identity.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (input.Reason == EmailVerificationTypes.PasswordReset)
+                if (input.Reason == EmailVerificationTypes.PasswordReset || input.Reason == EmailVerificationTypes.Registration)
                 {
-                    var user = await userManager!.FindByEmailAsync(input.Email!);
+                    if (input.Reason == EmailVerificationTypes.PasswordReset)
+                    {
+                        var user = await userManager!.FindByEmailAsync(input.Email!);
 
-                    if (user == null)
-                        return NoContent();
+                        if (user == null)
+                            return NoContent();
+                    }
 
                     var (Code, CodeHashString) = userManager!.GenerateVerificationCode(input.Email!, input.Reason);
 
                     logger!.LogInformation("Verification Code {code} created for email {email}", Code, input.Email);
-
-                    return Ok(TransactionResult<SendVerificationDto>.Success(new SendVerificationDto(CodeHashString)));
-                }
-
-                if (input.Reason == EmailVerificationTypes.Registration)
-                {
-                    var (Code, CodeHashString) = userManager!.GenerateVerificationCode(input.Email!, input.Reason);
-
-                    logger!.LogInformation("Verification Code {code} created for email {email}", Code, input.Email);
-
-                    /*******************************************************************************************************************
-                     * SEND USER THE VERIFICATION CODE ON EMAIL HERE!!!
-                     *******************************************************************************************************************/
 
                     return Ok(TransactionResult<SendVerificationDto>.Success(new SendVerificationDto(CodeHashString)));
                 }
@@ -112,28 +99,28 @@ namespace OskitAPI.Areas.Identity.Controllers
                     .Failure(TransactionError.Create(nameof(input.Email),
                         IdentityErrorDescriptions.InvalidEmail)));
 
-            var result = await signInManager!.PasswordSignInAsync(user, input.Password!, false, false);
+            var result = await signInManager!.CheckPasswordSignInAsync(user, input.Password!, false);
 
             if (result.Succeeded)
             {
-                var (Token, ExpiryDate) = await signInManager.GenerateJsonWebTokenAsync(user, jwtParameters);
-
-                return Ok(TransactionResult<LoginDto>.Success(GenerateNewUserLoginDto(user, Token)));
+                var (Token, ExpiryDate) = await signInManager.GenerateJsonWebTokenAsync(user);
+                SetAuthenticationCookie(HttpContext, Token, ExpiryDate);
+                user.DateLastLoggedIn = DateTime.Now;
+                await userManager.UpdateAsync(user);
+                return Ok(TransactionResult<LoginDto>
+                    .Success(GenerateNewUserLoginDto(user!)));
             }
             else
-            {
                 return Ok(TransactionResult<LoginDto>
                     .Failure(TransactionError.Create(nameof(input.Password),
                         IdentityErrorDescriptions.PasswordMismatch)));
-            }
         }
 
-        private LoginDto GenerateNewUserLoginDto (User user, string token, string? refreshToken = null)
+        private LoginDto GenerateNewUserLoginDto (User user)
         => new LoginDto
         {
             FirstName = user.FirstName,
             LastName = user.LastName,
-            AccessToken = token,
             Username = user.UserName,
             Photo = user.Photo
         };
@@ -150,7 +137,7 @@ namespace OskitAPI.Areas.Identity.Controllers
             if (user != null)
                 return Ok(TransactionResult.Failure(TransactionError.Create(nameof(input.Email), IdentityErrorDescriptions.DuplicateEmail)));
 
-            var verified = userManager.VerifyCode(input.Email!, input.Code!, input.CodeHashString!, EmailVerificationTypes.Registration);
+            var verified = userManager.VerifyCode(input.Email!, EmailVerificationTypes.Registration, input.Code!, input.CodeHashString!);
 
             if (!verified)
                 return Ok(TransactionResult.Failure(TransactionError.Create(nameof(input.Email), IdentityErrorDescriptions.UnVerifiedEmail)));
@@ -195,24 +182,16 @@ namespace OskitAPI.Areas.Identity.Controllers
             if (createResult.Succeeded)
             {
                 logger!.LogInformation("User created with email {email}", user.Email);
+                user = await userManager.FindByEmailAsync(user.Email) ?? user;
 
-                await userManager.AddClaimsAsync(user!, [
-                    new Claim (type: ClaimTypes.GivenName, input.FirstName!, ClaimValueTypes.String),
-                    new Claim (type: ClaimTypes.Surname, input.LastName!, ClaimValueTypes.String),
-                    new Claim (type: ClaimTypes.Name, user.Email, ClaimValueTypes.String)
-                ]);
+                var (Token, ExpiryDate) = await signInManager!.GenerateJsonWebTokenAsync(user!);
 
-                user = await userManager.FindByNameAsync(user.Email) ?? user;
-
-                var (Token, ExpiryDateTime) = await signInManager!.GenerateJsonWebTokenAsync(user!, jwtParameters);
-                var claims = await userManager.GetClaimsAsync(user!);
-
-                user.LoginHash = BCrypt.Net.BCrypt.HashPassword(Token + user.Id);
-
-                await userManager.GenerateRefreshTokenAsync(user);
+                user.DateLastLoggedIn = DateTime.Now;
+                await userManager.UpdateAsync(user);
+                SetAuthenticationCookie(HttpContext, Token, ExpiryDate);
 
                 return Ok(TransactionResult<LoginDto>
-                    .Success(GenerateNewUserLoginDto(user!, Token)));
+                    .Success(GenerateNewUserLoginDto(user!)));
             }
             else
             {
@@ -236,6 +215,20 @@ namespace OskitAPI.Areas.Identity.Controllers
             }
         }
 
+        private void SetAuthenticationCookie (HttpContext context, string token, DateTimeOffset expires)
+        {
+            context.Response.Cookies.Append(JwtTokenKeys.AccessToken, token, new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = expires,
+                IsEssential = true,
+                SameSite = SameSiteMode.None,
+                Domain = "localhost",
+                Secure = true, // Change to True in Production
+                MaxAge = TimeSpan.FromMinutes(jwtParameters.ExpiryTimeInMinutes)
+            });
+        }
+
         [HttpPost]
         [Route("reset-password")]
         public async Task<IActionResult> ResetPasswordAsync ([FromBody] ResetPasswordModel input)
@@ -248,7 +241,7 @@ namespace OskitAPI.Areas.Identity.Controllers
             if (user == null)
                 return NoContent();
 
-            var verified = userManager.VerifyCode(input.Email!, input.Code!, input.CodeHashString!, EmailVerificationTypes.PasswordReset);
+            var verified = userManager.VerifyCode(input.Email!, EmailVerificationTypes.PasswordReset, input.Code!, input.CodeHashString!);
 
             if (!verified)
                 return Ok(TransactionResult.Failure(TransactionError.Create(nameof(input.Email),
@@ -273,25 +266,33 @@ namespace OskitAPI.Areas.Identity.Controllers
 
         [HttpPost]
         [Route("confirm-login")]
+        [Authorize]
         public async Task<IActionResult> ConfirmSignInAsync ()
         {
-            if (User.Identity!.IsAuthenticated)
-            {
-                var user = await userManager!.FindByNameAsync(User.Identity.Name!);
+            logger!.LogInformation(Request.Headers.Authorization.FirstOrDefault()?.ToString());
+            logger!.LogInformation("Confirm clicked.");
 
-                if (user != null)
-                {
-                    var token = Request.Headers.Authorization.FirstOrDefault()?
-                        .Split(" ").LastOrDefault()!;
+            var user = await userManager!.FindByEmailAsync(User!.Identity!.Name!);
 
-                    if (token != null)
-                        return Ok(TransactionResult<LoginDto>.Success(
-                            GenerateNewUserLoginDto(user, token.Split(" ").LastOrDefault()!)
-                        ));
-                }
-            }
+
+
+            if (user != null)
+                return Ok(TransactionResult<LoginDto>.Success(
+                    GenerateNewUserLoginDto(user)
+                ));
 
             return Unauthorized();
+        }
+
+        [HttpGet]
+        [Route("food")]
+        [Authorize]
+        public IActionResult Food ()
+        {
+            return Ok(new string[]
+            {
+                "Apples", "Oranges"
+            });
         }
     }
 }

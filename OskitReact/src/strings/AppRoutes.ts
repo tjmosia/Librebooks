@@ -1,5 +1,5 @@
 
-const AppRoutes = {
+export default {
     Auth: {
         Username: "/auth",
         Login: "/auth/login",
@@ -9,8 +9,10 @@ const AppRoutes = {
         VerifyEmail: "/auth/verify",
     },
     Account: {
+        Profile: "/account",
         Logout: "/account/logout"
+    },
+    Companies: {
+        Create: "/companies/create"
     }
 }
-
-export default AppRoutes

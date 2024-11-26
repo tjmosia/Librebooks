@@ -57,6 +57,16 @@
   },
   {
     "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
+    "Method": "Food",
+    "RelativePath": "api/auth/food",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
     "Method": "LoginAsync",
     "RelativePath": "api/auth/login",
     "HttpMethod": "POST",

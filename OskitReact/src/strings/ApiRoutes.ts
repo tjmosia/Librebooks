@@ -1,7 +1,5 @@
 
-
-
-export const ApiRoutes = {
+export default {
     Auth: {
         Username: "/auth",
         Login: "/auth/login",
@@ -12,6 +10,7 @@ export const ApiRoutes = {
         Verify: "/auth/verify-email"
     },
     Account: {
-
+        Profile: "/account",
+        Logout: "/account/logout",
     }
 }

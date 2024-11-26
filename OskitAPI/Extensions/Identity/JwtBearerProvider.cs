@@ -1,59 +1,53 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Text;
+﻿using System.Text;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-
-using OskitAPI.Models.Entity.IdentitySpace;
 
 namespace OskitAPI.Extensions.Identity
 {
     public class JwtBearerProvider
     {
-        private readonly IConfiguration Configuration;
-        private readonly ILogger<JwtBearerProvider> Logger;
-        private readonly UserManagerExt UserManager;
-
-        public JwtBearerProvider (IConfiguration config, ILogger<JwtBearerProvider> logger, UserManagerExt userManager)
+        public static void Configure (WebApplicationBuilder builder)
         {
-            Configuration = config;
-            Logger = logger;
-            UserManager = userManager;
-        }
+            builder.Services.Configure<JwtParams>(builder.Configuration.GetSection("JwtParams"));
+            builder.Services
+                .AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(options =>
+                {
+                    options.Authority = "https://localhost:5262";
+                    options.RequireHttpsMetadata = false;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidateLifetime = true,
+                        ValidIssuer = builder.Configuration[JwtParams.GetKeyNames().Issuer],
+                        ValidAudience = builder.Configuration[JwtParams.GetKeyNames().Audience],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration[JwtParams.GetKeyNames().SecretKey]!))
+                    };
+                    options.IncludeErrorDetails = true;
+                    options.SaveToken = true;
 
-        public string CreateToken ()
-        {
-            return string.Empty;
-        }
+                    options.Events = new JwtBearerEvents
+                    {
+                        OnMessageReceived = (context) =>
+                        {
+                            context.Request.Cookies.TryGetValue(JwtTokenKeys.AccessToken, out var token);
 
-        public static void ConfigureJwtBearerAuthenticationService (
-            IServiceCollection service,
-            TokenValidationParameters tokenValidationParameters)
-        {
-            service.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
-            {
-                options.TokenValidationParameters = tokenValidationParameters;
-            });
+                            if (token != null)
+                                context.Request.Headers.Authorization = $"Bearer {token}";
 
-        }
+                            return Task.CompletedTask;
+                        }
+                    };
+                });
 
-        private async Task<string> GenerateJSONWebTokenAsync (User user)
-        {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtTokenValidationParameters:SecretKey"]!));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-            var userClaims = await UserManager.GetClaimsAsync(user);
-
-            var token = new JwtSecurityToken(Configuration["JwtTokenValidationParameters:Issuer"],
-              Configuration["JwtTokenValidationParameters:Issuer"],
-              userClaims,
-              expires: DateTime.Now.AddHours(7),
-              signingCredentials: credentials);
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            builder.Services.AddAuthorizationCore();
         }
     }
 }

@@ -312,7 +312,6 @@ C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\bin\Debug\net8.0\Microsoft
 C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
 C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\bin\Debug\net8.0\Microsoft.Build.dll
 C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\bin\Debug\net8.0\Microsoft.Build.Framework.dll
 C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
@@ -588,3 +587,8 @@ C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\obj\Debug\net8.0\refint\Os
 C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\obj\Debug\net8.0\OskitAPI.pdb
 C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\obj\Debug\net8.0\OskitAPI.genruntimeconfig.cache
 C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\obj\Debug\net8.0\ref\OskitAPI.dll
+C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\bin\Debug\net8.0\OskitAPI.staticwebassets.endpoints.json
+C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\obj\Debug\net8.0\staticwebassets\msbuild.OskitAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Thabo Mosia\source\repos\moskit-crm\OskitAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

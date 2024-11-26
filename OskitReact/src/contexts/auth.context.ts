@@ -1,6 +1,6 @@
 import { createContext, Dispatch, SetStateAction, useContext } from "react"
 import { IUserLoginDto } from "../app/pages/account/LoginDto.type"
-import { IAuthModelAlert } from "../app/pages/auth/auth.layout"
+import { IAuthModelAlert } from "../app/pages/auth/AuthLayout"
 
 export const AuthContext = createContext<IAuthContext>({})
 

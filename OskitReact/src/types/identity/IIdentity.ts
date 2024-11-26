@@ -1,7 +1,5 @@
-import {IAppUser} from './IAppUser'
+import { IAppUser } from './IAppUser'
 
-export interface IIdentity
-{
+export interface IIdentity {
 	user?: IAppUser
-	isAuthenticated: boolean
 }

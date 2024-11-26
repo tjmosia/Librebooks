@@ -7,52 +7,32 @@
       "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:areas\\identity\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\identity\\models\\authreqmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:areas\\identity\\models\\authreqmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\identity\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:areas\\identity\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\extensions\\identity\\usermanagerext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:extensions\\identity\\usermanagerext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\core\\identity\\identityerrordescriptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:core\\identity\\identityerrordescriptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\core\\operations\\transactionerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:core\\operations\\transactionerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\companies\\controllers\\companiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:areas\\companies\\controllers\\companiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\models\\entity\\identityspace\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:models\\entity\\identityspace\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\oskitapi.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:oskitapi.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\extensions\\identity\\jwtcookiekeys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:extensions\\identity\\jwtcookiekeys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\extensions\\identity\\jwtbearerprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:extensions\\identity\\jwtbearerprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Migrations\\20241114174846_M1.0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20241114174846_M1.0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\systemsetups\\services\\systemstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:areas\\systemsetups\\services\\systemstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\models\\entity\\supplierspace\\suppliercontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:models\\entity\\supplierspace\\suppliercontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\systemsetups\\services\\systemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:areas\\systemsetups\\services\\systemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\extensions\\identity\\signinmanagerext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:extensions\\identity\\signinmanagerext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,68 +42,81 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthReqModels.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Models\\AuthReqModels.cs",
-              "RelativeDocumentMoniker": "Areas\\Identity\\Models\\AuthReqModels.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Models\\AuthReqModels.cs",
-              "RelativeToolTip": "Areas\\Identity\\Models\\AuthReqModels.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAJAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "CompaniesController.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Companies\\Controllers\\CompaniesController.cs",
+              "RelativeDocumentMoniker": "Areas\\Companies\\Controllers\\CompaniesController.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Companies\\Controllers\\CompaniesController.cs",
+              "RelativeToolTip": "Areas\\Companies\\Controllers\\CompaniesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T00:56:00.403Z",
+              "WhenOpened": "2024-11-21T10:00:17.344Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserManagerExt.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Extensions\\Identity\\UserManagerExt.cs",
-              "RelativeDocumentMoniker": "Extensions\\Identity\\UserManagerExt.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Extensions\\Identity\\UserManagerExt.cs",
-              "RelativeToolTip": "Extensions\\Identity\\UserManagerExt.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAWwE4AAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T22:19:45.91Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IdentityErrorDescriptions.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Core\\Identity\\IdentityErrorDescriptions.cs",
-              "RelativeDocumentMoniker": "Core\\Identity\\IdentityErrorDescriptions.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Core\\Identity\\IdentityErrorDescriptions.cs",
-              "RelativeToolTip": "Core\\Identity\\IdentityErrorDescriptions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T21:09:52.751Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TransactionError.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Core\\Operations\\TransactionError.cs",
-              "RelativeDocumentMoniker": "Core\\Operations\\TransactionError.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Core\\Operations\\TransactionError.cs",
-              "RelativeToolTip": "Core\\Operations\\TransactionError.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAWwCIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T21:01:44.624Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Models\\Entity\\IdentitySpace\\User.cs",
               "RelativeDocumentMoniker": "Models\\Entity\\IdentitySpace\\User.cs",
               "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Models\\Entity\\IdentitySpace\\User.cs",
               "RelativeToolTip": "Models\\Entity\\IdentitySpace\\User.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T16:37:27.842Z"
+              "WhenOpened": "2024-11-19T23:50:55.155Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "JwtCookieKeys.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Extensions\\Identity\\JwtCookieKeys.cs",
+              "RelativeDocumentMoniker": "Extensions\\Identity\\JwtCookieKeys.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Extensions\\Identity\\JwtCookieKeys.cs",
+              "RelativeToolTip": "Extensions\\Identity\\JwtCookieKeys.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T23:48:14.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "JwtBearerProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Extensions\\Identity\\JwtBearerProvider.cs",
+              "RelativeDocumentMoniker": "Extensions\\Identity\\JwtBearerProvider.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Extensions\\Identity\\JwtBearerProvider.cs",
+              "RelativeToolTip": "Extensions\\Identity\\JwtBearerProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T22:25:22.61Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Areas\\Identity\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAC4AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T19:35:14.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SignInManagerExt.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Extensions\\Identity\\SignInManagerExt.cs",
+              "RelativeDocumentMoniker": "Extensions\\Identity\\SignInManagerExt.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Extensions\\Identity\\SignInManagerExt.cs",
+              "RelativeToolTip": "Extensions\\Identity\\SignInManagerExt.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAABBwCQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T17:57:05.758Z"
             },
             {
               "$type": "Document",
@@ -133,93 +126,22 @@
               "RelativeDocumentMoniker": "Areas\\Identity\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AuthController.cs",
               "RelativeToolTip": "Areas\\Identity\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAOoAAAAAAAAAAAAAAAkBAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAAALsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T16:33:44.13Z",
+              "WhenOpened": "2024-11-19T17:54:59.264Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OskitAPI",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\OskitAPI.csproj",
-              "RelativeDocumentMoniker": "OskitAPI.csproj",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\OskitAPI.csproj",
-              "RelativeToolTip": "OskitAPI.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-14T18:49:12.362Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAAAIEAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAABBwFUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T18:40:09.352Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-14T17:50:19.069Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "20241114174846_M1.0.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Migrations\\20241114174846_M1.0.cs",
-              "RelativeDocumentMoniker": "Migrations\\20241114174846_M1.0.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Migrations\\20241114174846_M1.0.cs",
-              "RelativeToolTip": "Migrations\\20241114174846_M1.0.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACQAAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T17:48:46.749Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SystemStore.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\SystemSetups\\Services\\SystemStore.cs",
-              "RelativeDocumentMoniker": "Areas\\SystemSetups\\Services\\SystemStore.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\SystemSetups\\Services\\SystemStore.cs",
-              "RelativeToolTip": "Areas\\SystemSetups\\Services\\SystemStore.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T17:44:44.559Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "SystemManager.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\SystemSetups\\Services\\SystemManager.cs",
-              "RelativeDocumentMoniker": "Areas\\SystemSetups\\Services\\SystemManager.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\SystemSetups\\Services\\SystemManager.cs",
-              "RelativeToolTip": "Areas\\SystemSetups\\Services\\SystemManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T17:44:16.62Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SupplierContact.cs",
-              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Models\\Entity\\SupplierSpace\\SupplierContact.cs",
-              "RelativeDocumentMoniker": "Models\\Entity\\SupplierSpace\\SupplierContact.cs",
-              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Models\\Entity\\SupplierSpace\\SupplierContact.cs",
-              "RelativeToolTip": "Models\\Entity\\SupplierSpace\\SupplierContact.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T17:40:57.459Z"
+              "WhenOpened": "2024-11-19T17:54:43.675Z"
             }
           ]
         }

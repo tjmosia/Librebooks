@@ -49,7 +49,7 @@ namespace OskitAPI.Extensions.Identity
 
             try
             {
-                var hash = $"{BCrypt.Net.BCrypt.HashPassword(userEmail + reason + Code + salt + GenerateVerificationCodeTimeStamp())}[slot]{salt}";
+                var hash = BCrypt.Net.BCrypt.HashPassword(userEmail + reason + Code + GenerateVerificationCodeTimeStamp(), salt);
                 Logger.LogInformation("Verification Code {hash} created for {email}", hash, userEmail);
                 return (Code, hash);
             }
@@ -78,8 +78,7 @@ namespace OskitAPI.Extensions.Identity
 
             try
             {
-                var split = codeHashString.Split("[slot]");
-                return BCrypt.Net.BCrypt.Verify(userEmail + reason + code + split.LastOrDefault() + GenerateVerificationCodeTimeStamp(), split.FirstOrDefault());
+                return BCrypt.Net.BCrypt.Verify(userEmail + reason + code + GenerateVerificationCodeTimeStamp(), codeHashString);
             }
             catch (SaltParseException ex)
             {

@@ -6,11 +6,13 @@ using OskitAPI.Extensions.Mvc;
 
 namespace OskitAPI.Areas.Identity.Controllers
 {
-    [Route("api/account")]
     [ApiController]
     [Authorize]
-    public class AccountController (UserManagerExt userManager, ILogger<SessionControllerBase> logger) : SessionControllerBase(userManager: userManager, logger: logger)
+    [Route("account")]
+    public class AccountController (UserManagerExt userManager, ILogger<SessionControllerBase> logger)
+        : SessionControllerBase(userManager: userManager, logger: logger)
     {
+
         [HttpGet]
         [Route("claims")]
         public async Task<IActionResult> GetClaimsAsync ()
@@ -40,9 +42,31 @@ namespace OskitAPI.Areas.Identity.Controllers
         public async Task<IActionResult> GetUserAsync ()
         {
             var user = await userManager!.FindByNameAsync(User.Identity!.Name!);
+
             if (user == null)
-                return Forbid();
-            return Ok(await userManager.GetRolesAsync(user));
+                return Unauthorized();
+
+            return Ok(new
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                EmailConfirmed = user.EmailConfirmed,
+                PhoneNumber = user.PhoneNumber,
+                Birthday = user.BirthDay,
+                Gender = user.Gender,
+                DateJoined = user.DateRegistered
+            });
         }
+
+        [HttpPost]
+        [Route("logout")]
+        public IActionResult Logout ()
+        {
+            HttpContext.Response.Cookies.Delete(JwtTokenKeys.AccessToken);
+            return Ok();
+        }
+
+
     }
 }

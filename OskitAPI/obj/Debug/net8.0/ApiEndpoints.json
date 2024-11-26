@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "Moskit.Areas.Identity.Controllers.AccountController",
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AccountController",
     "Method": "GetUserAsync",
     "RelativePath": "api/account",
     "HttpMethod": "GET",
@@ -10,7 +10,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.Identity.Controllers.AccountController",
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AccountController",
     "Method": "GetClaimsAsync",
     "RelativePath": "api/account/claims",
     "HttpMethod": "GET",
@@ -20,7 +20,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.Identity.Controllers.AccountController",
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AccountController",
     "Method": "GetRolesAsync",
     "RelativePath": "api/account/roles",
     "HttpMethod": "GET",
@@ -30,7 +30,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.Identity.Controllers.AuthController",
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
     "Method": "FindUserAsync",
     "RelativePath": "api/auth",
     "HttpMethod": "POST",
@@ -39,14 +39,14 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Moskit.Areas.Identity.Models.AuthRequestModels\u002BUsernameModel",
+        "Type": "OskitAPI.Areas.Identity.Models.AuthReqModels\u002BUsernameModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.Identity.Controllers.AuthController",
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
     "Method": "ConfirmSignInAsync",
     "RelativePath": "api/auth/confirm-login",
     "HttpMethod": "POST",
@@ -56,7 +56,17 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.Identity.Controllers.AuthController",
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
+    "Method": "Food",
+    "RelativePath": "api/auth/food",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
     "Method": "LoginAsync",
     "RelativePath": "api/auth/login",
     "HttpMethod": "POST",
@@ -65,14 +75,14 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Moskit.Areas.Identity.Models.AuthRequestModels\u002BLoginModel",
+        "Type": "OskitAPI.Areas.Identity.Models.AuthReqModels\u002BLoginModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.Identity.Controllers.AuthController",
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
     "Method": "RegisterAsync",
     "RelativePath": "api/auth/register",
     "HttpMethod": "POST",
@@ -81,14 +91,14 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Moskit.Areas.Identity.Models.AuthRequestModels\u002BRegisterModel",
+        "Type": "OskitAPI.Areas.Identity.Models.AuthReqModels\u002BRegisterModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.Identity.Controllers.AuthController",
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
     "Method": "ResetPasswordAsync",
     "RelativePath": "api/auth/reset-password",
     "HttpMethod": "POST",
@@ -97,14 +107,14 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Moskit.Areas.Identity.Models.AuthRequestModels\u002BResetPasswordModel",
+        "Type": "OskitAPI.Areas.Identity.Models.AuthReqModels\u002BResetPasswordModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.Identity.Controllers.AuthController",
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
     "Method": "SendVerificationCodeAsync",
     "RelativePath": "api/auth/send-verification-code",
     "HttpMethod": "POST",
@@ -113,14 +123,14 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Moskit.Areas.Identity.Models.AuthRequestModels\u002BVendVerificationModel",
+        "Type": "OskitAPI.Areas.Identity.Models.AuthReqModels\u002BSendVerificationModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.Identity.Controllers.AuthController",
+    "ContainingType": "OskitAPI.Areas.Identity.Controllers.AuthController",
     "Method": "VerifyEmail",
     "RelativePath": "api/auth/verify-email",
     "HttpMethod": "POST",
@@ -129,14 +139,14 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Moskit.Areas.Identity.Models.AuthRequestModels\u002BVerifyModel",
+        "Type": "OskitAPI.Areas.Identity.Models.AuthReqModels\u002BVerifyModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.Companies.Controllers.CompanyController",
+    "ContainingType": "OskitAPI.Areas.Companies.Controllers.CompanyController",
     "Method": "Get",
     "RelativePath": "api/Company",
     "HttpMethod": "GET",
@@ -152,7 +162,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.SystemSetups.Controllers.CountryController",
+    "ContainingType": "OskitAPI.Areas.SystemSetups.Controllers.CountryController",
     "Method": "GetCountryAsync",
     "RelativePath": "api/countries/{code}",
     "HttpMethod": "GET",
@@ -173,7 +183,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.SystemSetups.Controllers.CountryController",
+    "ContainingType": "OskitAPI.Areas.SystemSetups.Controllers.CountryController",
     "Method": "AddCountryAsync",
     "RelativePath": "api/countries/add",
     "HttpMethod": "POST",
@@ -182,14 +192,14 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Moskit.Areas.SystemSetups.Controllers.CountryController\u002BCountryModel",
+        "Type": "OskitAPI.Areas.SystemSetups.Controllers.CountryController\u002BCountryModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.SystemSetups.Controllers.CountryController",
+    "ContainingType": "OskitAPI.Areas.SystemSetups.Controllers.CountryController",
     "Method": "DeleteCountryAsync",
     "RelativePath": "api/countries/delete",
     "HttpMethod": "POST",
@@ -205,7 +215,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.SystemSetups.Controllers.CountryController",
+    "ContainingType": "OskitAPI.Areas.SystemSetups.Controllers.CountryController",
     "Method": "UpdateCountryAsync",
     "RelativePath": "api/countries/update",
     "HttpMethod": "POST",
@@ -214,14 +224,14 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Moskit.Areas.SystemSetups.Controllers.CountryController\u002BCountryModel",
+        "Type": "OskitAPI.Areas.SystemSetups.Controllers.CountryController\u002BCountryModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.Inventory.Controllers.InventoryController",
+    "ContainingType": "OskitAPI.Areas.Inventory.Controllers.InventoryController",
     "Method": "CreateItemAsync",
     "RelativePath": "api/Inventory/create",
     "HttpMethod": "POST",
@@ -231,7 +241,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Moskit.Areas.Companies.Controllers.CompanyController",
+    "ContainingType": "OskitAPI.Areas.Companies.Controllers.CompanyController",
     "Method": "CreateAsync",
     "RelativePath": "create",
     "HttpMethod": "POST",
@@ -240,7 +250,7 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Moskit.Areas.Companies.Models.CompanyInputModel",
+        "Type": "OskitAPI.Areas.Companies.Models.CompanyInputModel",
         "IsRequired": true
       }
     ],
