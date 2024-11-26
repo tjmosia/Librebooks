@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.CompanySpace;
+using MacbooksAPI.Models.Entity.CompanySpace;
 
-namespace OskitAPI.Models.Entity.SystemSpace
+namespace MacbooksAPI.Models.Entity.SystemSpace
 {
     public class BusinessSector
     {

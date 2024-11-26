@@ -2,10 +2,10 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Core.Types;
-using OskitAPI.Models.Entity.DocumentSpace;
+using MacbooksAPI.Core.Types;
+using MacbooksAPI.Models.Entity.DocumentSpace;
 
-namespace OskitAPI.Models.Entity.PurchasesSpace
+namespace MacbooksAPI.Models.Entity.PurchasesSpace
 {
     public class PurchaseDocument
     {

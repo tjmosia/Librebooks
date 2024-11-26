@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace OskitAPI.Areas.Inventory.Controllers
+namespace MacbooksAPI.Areas.Inventory.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -2,6 +2,8 @@ import { Button, makeStyles, Menu, MenuItem, MenuList, MenuPopover, MenuTrigger,
 import { BsPersonCircle, BsGear } from "react-icons/bs";
 import { VscSignOut } from "react-icons/vsc";
 import useIdentityManager from "../../../hooks/IdentityManager";
+import { useNavigate } from "react-router";
+import { AppRoutes } from "../../../strings";
 
 const MakeTopbarAccountComponentStyles = makeStyles({
     TopbarAccountWrapper: {
@@ -20,6 +22,7 @@ const MakeTopbarAccountComponentStyles = makeStyles({
 export default function TopbarAccountComponent() {
     const styles = MakeTopbarAccountComponentStyles()
     const identityManager = useIdentityManager()
+    const navigate = useNavigate()
 
     return (
         <div className={styles.TopbarAccountWrapper}>
@@ -40,7 +43,7 @@ export default function TopbarAccountComponent() {
                     </MenuTrigger>
                     <MenuPopover>
                         <MenuList>
-                            <MenuItem icon={<BsPersonCircle />}>Profile</MenuItem>
+                            <MenuItem onClick={() => navigate(AppRoutes.Account.Profile)} icon={<BsPersonCircle />}>Profile</MenuItem>
                             <MenuItem onClick={() => identityManager.signOut()} icon={<VscSignOut />}>Logout</MenuItem>
                         </MenuList>
                     </MenuPopover>

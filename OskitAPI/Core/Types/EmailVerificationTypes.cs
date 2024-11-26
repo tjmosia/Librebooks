@@ -1,4 +1,4 @@
-﻿namespace OskitAPI.Core.Types
+﻿namespace MacbooksAPI.Core.Types
 {
     public class EmailVerificationTypes
     {

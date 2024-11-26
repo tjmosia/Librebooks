@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
+using MacbooksAPI.Models.Entity.CompanySpace;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.CompanySpace;
-
-namespace OskitAPI.Models.Entity.IdentitySpace
+namespace MacbooksAPI.Models.Entity.IdentitySpace
 {
     public class User : IdentityUser<string>
     {

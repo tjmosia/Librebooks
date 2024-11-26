@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Core.EFCore;
-using OskitAPI.Data;
-using OskitAPI.Models.Entity.SystemSpace;
+using MacbooksAPI.Core.EFCore;
+using MacbooksAPI.Data;
+using MacbooksAPI.Models.Entity.SystemSpace;
 
-namespace OskitAPI.Areas.SystemSetups.Services.SubStores
+namespace MacbooksAPI.Areas.SystemSetups.Services.SubStores
 {
     public class CountryStore : DbStoreBase
     {

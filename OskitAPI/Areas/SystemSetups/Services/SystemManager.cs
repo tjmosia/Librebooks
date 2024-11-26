@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
 
-using OskitAPI.Core.EFCore;
-using OskitAPI.CoreLib.Operations;
-using OskitAPI.Models.Entity.SystemSpace;
+using MacbooksAPI.Core.EFCore;
+using MacbooksAPI.CoreLib.Operations;
+using MacbooksAPI.Models.Entity.SystemSpace;
 
-namespace OskitAPI.Areas.SystemSetups.Services
+namespace MacbooksAPI.Areas.SystemSetups.Services
 {
     public class SystemManager (SystemStore? systemStore, IDistributedCache? cache, DbErrorDescriber? dbErrorDescriber, ILogger<SystemManager>? logger)
         : ISystemManager

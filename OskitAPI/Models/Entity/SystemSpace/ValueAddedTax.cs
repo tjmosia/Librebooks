@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Core.Types;
+using MacbooksAPI.Core.Types;
 
-namespace OskitAPI.Models.Entity.SystemSpace
+namespace MacbooksAPI.Models.Entity.SystemSpace
 {
     public class ValueAddedTax
     {

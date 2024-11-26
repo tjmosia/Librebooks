@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using Microsoft.EntityFrameworkCore;
-namespace OskitAPI.Models.Entity.BankingSpace
+namespace MacbooksAPI.Models.Entity.BankingSpace
 {
     public class BankAccountCategory
     {

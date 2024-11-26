@@ -8569,9 +8569,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\OskitAPI.csproj",
-      "projectName": "OskitAPI",
-      "projectPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\OskitAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\MacbooksAPI.csproj",
+      "projectName": "MacbooksAPI",
+      "projectPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\MacbooksAPI.csproj",
       "packagesPath": "C:\\Users\\Thabo Mosia\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\obj\\",
       "projectStyle": "PackageReference",

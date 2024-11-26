@@ -1,4 +1,4 @@
-namespace OskitAPI
+namespace MacbooksAPI
 {
     public class WeatherForecast
     {

@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Core.Types;
+using MacbooksAPI.Core.Types;
 
-namespace OskitAPI.Models.Entity.InventorySpace
+namespace MacbooksAPI.Models.Entity.InventorySpace
 {
     public class ItemInventory
     {

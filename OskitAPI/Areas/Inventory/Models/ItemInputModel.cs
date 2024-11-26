@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OskitAPI.Areas.Inventory.Models
+namespace MacbooksAPI.Areas.Inventory.Models
 {
     public class ItemInputModel
     {

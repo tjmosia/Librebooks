@@ -1,6 +1,6 @@
-﻿using OskitAPI.CoreLib.Operations;
+﻿using MacbooksAPI.CoreLib.Operations;
 
-namespace OskitAPI.Core.EFCore
+namespace MacbooksAPI.Core.EFCore
 {
     public class DbError
     {

@@ -2,10 +2,10 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Core.Types;
-using OskitAPI.Models.Entity.CompanySpace;
+using MacbooksAPI.Core.Types;
+using MacbooksAPI.Models.Entity.CompanySpace;
 
-namespace OskitAPI.Models.Entity.AccountingSpace
+namespace MacbooksAPI.Models.Entity.AccountingSpace
 {
     public class Account
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.GeneralSpace;
+using MacbooksAPI.Models.Entity.GeneralSpace;
 
-namespace OskitAPI.Models.Entity.AccountingSpace
+namespace MacbooksAPI.Models.Entity.AccountingSpace
 {
     public class JournalNote
     {

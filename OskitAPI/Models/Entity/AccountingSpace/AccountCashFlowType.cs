@@ -2,7 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace OskitAPI.Models.Entity.AccountingSpace
+namespace MacbooksAPI.Models.Entity.AccountingSpace
 {
     public class AccountCashFlowType
     {

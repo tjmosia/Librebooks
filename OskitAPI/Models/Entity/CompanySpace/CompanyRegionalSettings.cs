@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.SystemSpace;
+using MacbooksAPI.Models.Entity.SystemSpace;
 
-namespace OskitAPI.Models.Entity.CompanySpace
+namespace MacbooksAPI.Models.Entity.CompanySpace
 {
     public class CompanyRegionalSettings
     {

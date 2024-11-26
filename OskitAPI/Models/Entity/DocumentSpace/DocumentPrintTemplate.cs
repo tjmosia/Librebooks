@@ -2,7 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace OskitAPI.Models.Entity.DocumentSpace
+namespace MacbooksAPI.Models.Entity.DocumentSpace
 {
     public class DocumentPrintTemplate
     {

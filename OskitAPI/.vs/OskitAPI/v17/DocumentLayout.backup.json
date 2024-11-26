@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\identity\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:areas\\identity\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\identity\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:areas\\identity\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\identity\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|solutionrelative:areas\\identity\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|OskitAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\companies\\controllers\\companiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -67,7 +67,8 @@
               "RelativeToolTip": "Models\\Entity\\IdentitySpace\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T23:50:55.155Z"
+              "WhenOpened": "2024-11-19T23:50:55.155Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -79,7 +80,8 @@
               "RelativeToolTip": "Extensions\\Identity\\JwtCookieKeys.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T23:48:14.737Z"
+              "WhenOpened": "2024-11-19T23:48:14.737Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -91,17 +93,18 @@
               "RelativeToolTip": "Extensions\\Identity\\JwtBearerProvider.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T22:25:22.61Z"
+              "WhenOpened": "2024-11-19T22:25:22.61Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Areas\\Identity\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAC4AAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-19T19:35:14.961Z",
               "EditorCaption": ""
@@ -114,19 +117,20 @@
               "RelativeDocumentMoniker": "Extensions\\Identity\\SignInManagerExt.cs",
               "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Extensions\\Identity\\SignInManagerExt.cs",
               "RelativeToolTip": "Extensions\\Identity\\SignInManagerExt.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAABBwCQAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwCQAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T17:57:05.758Z"
+              "WhenOpened": "2024-11-19T17:57:05.758Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AuthController.cs",
               "RelativeToolTip": "Areas\\Identity\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAAALsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAMMAAAAAAAAAAMB9wMIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-19T17:54:59.264Z",
               "EditorCaption": ""
@@ -139,9 +143,10 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAABBwFUAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAANB+wFUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T17:54:43.675Z"
+              "WhenOpened": "2024-11-19T17:54:43.675Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -1,4 +1,4 @@
-﻿namespace OskitAPI.Areas.Companies.Services
+﻿namespace MacbooksAPI.Areas.Companies.Services
 {
     public class CompanyManager : ICompanyManager
     {

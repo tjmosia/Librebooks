@@ -1,4 +1,4 @@
-﻿namespace OskitAPI.CoreLib.Types
+﻿namespace MacbooksAPI.CoreLib.Types
 {
     public class AccountingStatementTypes
     {

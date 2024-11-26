@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MacbooksAPI.Extensions.Identity;
+using MacbooksAPI.Extensions.Mvc;
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-using OskitAPI.Extensions.Identity;
-using OskitAPI.Extensions.Mvc;
-
-namespace OskitAPI.Areas.Identity.Controllers
+namespace MacbooksAPI.Areas.Identity.Controllers
 {
     [ApiController]
     [Authorize]
@@ -12,7 +12,6 @@ namespace OskitAPI.Areas.Identity.Controllers
     public class AccountController (UserManagerExt userManager, ILogger<SessionControllerBase> logger)
         : SessionControllerBase(userManager: userManager, logger: logger)
     {
-
         [HttpGet]
         [Route("claims")]
         public async Task<IActionResult> GetClaimsAsync ()

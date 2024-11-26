@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace OskitAPI.Models.Entity.IdentitySpace
+namespace MacbooksAPI.Models.Entity.IdentitySpace
 {
     public class UserLogin : IdentityUserLogin<string>
     {

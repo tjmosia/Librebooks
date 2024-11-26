@@ -3,7 +3,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-namespace OskitAPI.Extensions.Identity
+namespace MacbooksAPI.Extensions.Identity
 {
     public class JwtBearerProvider
     {

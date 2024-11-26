@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.IdentitySpace;
-using OskitAPI.Models.Entity.SalesSpace;
+using MacbooksAPI.Models.Entity.IdentitySpace;
+using MacbooksAPI.Models.Entity.SalesSpace;
 
-namespace OskitAPI.Models.Entity.CompanySpace
+namespace MacbooksAPI.Models.Entity.CompanySpace
 {
     public class CompanyUser
     {

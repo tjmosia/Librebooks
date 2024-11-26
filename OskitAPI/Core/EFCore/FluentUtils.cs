@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace OskitAPI.CoreLib.EFCore
+namespace MacbooksAPI.CoreLib.EFCore
 {
     public class FluentUtils<TModel, TKey> where TModel : class where TKey : notnull
     {

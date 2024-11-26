@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-using OskitAPI.Extensions.Identity;
+using MacbooksAPI.Extensions.Identity;
 
-namespace OskitAPI.Extensions.Mvc
+namespace MacbooksAPI.Extensions.Mvc
 {
     [Route("api/[controller]")]
     [ApiController]

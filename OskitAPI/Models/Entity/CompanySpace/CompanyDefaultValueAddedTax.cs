@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace OskitAPI.Models.Entity.CompanySpace
+namespace MacbooksAPI.Models.Entity.CompanySpace
 {
     public class CompanyDefaultValueAddedTax
     {

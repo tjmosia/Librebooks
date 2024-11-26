@@ -2,13 +2,13 @@ using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Areas.Inventory.Services;
-using OskitAPI.Areas.SystemSetups.Services;
-using OskitAPI.Areas.SystemSetups.Services.SubStores;
-using OskitAPI.Core.EFCore;
-using OskitAPI.Data;
-using OskitAPI.Extensions.Identity;
-using OskitAPI.Models.Entity.IdentitySpace;
+using MacbooksAPI.Areas.Inventory.Services;
+using MacbooksAPI.Areas.SystemSetups.Services;
+using MacbooksAPI.Areas.SystemSetups.Services.SubStores;
+using MacbooksAPI.Core.EFCore;
+using MacbooksAPI.Data;
+using MacbooksAPI.Extensions.Identity;
+using MacbooksAPI.Models.Entity.IdentitySpace;
 
 var builder = WebApplication.CreateBuilder(args);
 var Config = builder.Configuration;

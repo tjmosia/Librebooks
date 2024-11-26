@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.CustomerSpace;
+using MacbooksAPI.Models.Entity.CustomerSpace;
 
-namespace OskitAPI.Models.Entity.SystemSpace
+namespace MacbooksAPI.Models.Entity.SystemSpace
 {
     public class SystemCompanyNumber
     {

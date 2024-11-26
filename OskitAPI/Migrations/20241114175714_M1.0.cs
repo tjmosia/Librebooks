@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace OskitAPI.Migrations
+namespace MacbooksAPI.Migrations
 {
     /// <inheritdoc />
     public partial class M10 : Migration

@@ -2,14 +2,14 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Core.Types;
-using OskitAPI.Models.Entity.CompanySpace;
-using OskitAPI.Models.Entity.PurchasesSpace;
-using OskitAPI.Models.Entity.SalesSpace;
-using OskitAPI.Models.Entity.SystemSpace;
+using MacbooksAPI.Core.Types;
+using MacbooksAPI.Models.Entity.CompanySpace;
+using MacbooksAPI.Models.Entity.PurchasesSpace;
+using MacbooksAPI.Models.Entity.SalesSpace;
+using MacbooksAPI.Models.Entity.SystemSpace;
 
 
-namespace OskitAPI.Models.Entity.BankingSpace
+namespace MacbooksAPI.Models.Entity.BankingSpace
 {
     public class BankAccount
     {

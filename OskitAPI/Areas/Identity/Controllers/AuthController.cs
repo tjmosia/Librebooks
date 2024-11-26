@@ -1,18 +1,18 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MacbooksAPI.Areas.Identity.Models;
+using MacbooksAPI.Core.Identity;
+using MacbooksAPI.CoreLib.Operations;
+using MacbooksAPI.Extensions.Identity;
+using MacbooksAPI.Extensions.Mvc;
+using MacbooksAPI.Models.Entity.IdentitySpace;
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
-using OskitAPI.Areas.Identity.Models;
-using OskitAPI.Core.Identity;
-using OskitAPI.CoreLib.Operations;
-using OskitAPI.Extensions.Identity;
-using OskitAPI.Extensions.Mvc;
-using OskitAPI.Models.Entity.IdentitySpace;
+using static MacbooksAPI.Areas.Identity.Models.AuthReqModels;
+using static MacbooksAPI.Areas.Identity.Models.AuthRespDTOs;
 
-using static OskitAPI.Areas.Identity.Models.AuthReqModels;
-using static OskitAPI.Areas.Identity.Models.AuthRespDTOs;
-
-namespace OskitAPI.Areas.Identity.Controllers
+namespace MacbooksAPI.Areas.Identity.Controllers
 {
     [Route("auth")]
     [ApiController]

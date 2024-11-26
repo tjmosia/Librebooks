@@ -1,4 +1,4 @@
-﻿namespace OskitAPI.Areas.Identity.Models
+﻿namespace MacbooksAPI.Areas.Identity.Models
 {
     public class AuthRespDTOs
     {

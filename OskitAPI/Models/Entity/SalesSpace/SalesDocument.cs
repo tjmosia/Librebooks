@@ -2,12 +2,12 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Core.Types;
-using OskitAPI.Models.Entity.DocumentSpace;
-using OskitAPI.Models.Entity.IdentitySpace;
-using OskitAPI.Models.Entity.SystemSpace;
+using MacbooksAPI.Core.Types;
+using MacbooksAPI.Models.Entity.DocumentSpace;
+using MacbooksAPI.Models.Entity.IdentitySpace;
+using MacbooksAPI.Models.Entity.SystemSpace;
 
-namespace OskitAPI.Models.Entity.SalesSpace
+namespace MacbooksAPI.Models.Entity.SalesSpace
 {
     public class SalesDocument
     {

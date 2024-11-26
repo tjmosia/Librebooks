@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.CompanySpace;
+using MacbooksAPI.Models.Entity.CompanySpace;
 
-namespace OskitAPI.Models.Entity.DocumentSpace
+namespace MacbooksAPI.Models.Entity.DocumentSpace
 {
     public class DocumentSetup
     {

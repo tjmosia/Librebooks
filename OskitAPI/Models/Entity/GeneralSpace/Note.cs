@@ -2,15 +2,15 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Core.Types;
-using OskitAPI.Models.Entity.AccountingSpace;
-using OskitAPI.Models.Entity.CustomerSpace;
-using OskitAPI.Models.Entity.IdentitySpace;
-using OskitAPI.Models.Entity.PurchasesSpace;
-using OskitAPI.Models.Entity.SalesSpace;
-using OskitAPI.Models.Entity.SupplierSpace;
+using MacbooksAPI.Core.Types;
+using MacbooksAPI.Models.Entity.AccountingSpace;
+using MacbooksAPI.Models.Entity.CustomerSpace;
+using MacbooksAPI.Models.Entity.IdentitySpace;
+using MacbooksAPI.Models.Entity.PurchasesSpace;
+using MacbooksAPI.Models.Entity.SalesSpace;
+using MacbooksAPI.Models.Entity.SupplierSpace;
 
-namespace OskitAPI.Models.Entity.GeneralSpace
+namespace MacbooksAPI.Models.Entity.GeneralSpace
 {
     public class Note
     {

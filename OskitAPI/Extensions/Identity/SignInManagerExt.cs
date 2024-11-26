@@ -1,15 +1,15 @@
 ﻿using System.Security.Claims;
 using System.Text;
 
+using MacbooksAPI.Models.Entity.IdentitySpace;
+
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 
-using OskitAPI.Models.Entity.IdentitySpace;
-
-namespace OskitAPI.Extensions.Identity
+namespace MacbooksAPI.Extensions.Identity
 {
     public class SignInManagerExt : SignInManager<User>
     {

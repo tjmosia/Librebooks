@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Core.Types;
+using MacbooksAPI.Core.Types;
 
-namespace OskitAPI.Models.Entity.SalesSpace
+namespace MacbooksAPI.Models.Entity.SalesSpace
 {
     public class SalesDocumentLine
     {

@@ -2,10 +2,10 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-using OskitAPI.Areas.SystemSetups.Services;
-using OskitAPI.Models.Entity.SystemSpace;
+using MacbooksAPI.Areas.SystemSetups.Services;
+using MacbooksAPI.Models.Entity.SystemSpace;
 
-namespace OskitAPI.Areas.SystemSetups.Controllers
+namespace MacbooksAPI.Areas.SystemSetups.Controllers
 {
     [Route("api/countries")]
     [ApiController]

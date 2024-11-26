@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.GeneralSpace;
+using MacbooksAPI.Models.Entity.GeneralSpace;
 
-namespace OskitAPI.Models.Entity.PurchasesSpace
+namespace MacbooksAPI.Models.Entity.PurchasesSpace
 {
     public class PurchaseDocumentNote
     {

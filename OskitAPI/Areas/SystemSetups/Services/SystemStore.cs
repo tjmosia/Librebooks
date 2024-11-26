@@ -1,8 +1,8 @@
-﻿using OskitAPI.Areas.SystemSetups.Services.SubStores;
-using OskitAPI.Core.EFCore;
-using OskitAPI.Data;
+﻿using MacbooksAPI.Areas.SystemSetups.Services.SubStores;
+using MacbooksAPI.Core.EFCore;
+using MacbooksAPI.Data;
 
-namespace OskitAPI.Areas.SystemSetups.Services
+namespace MacbooksAPI.Areas.SystemSetups.Services
 {
     public class SystemStore (
         AppDbContext? context,

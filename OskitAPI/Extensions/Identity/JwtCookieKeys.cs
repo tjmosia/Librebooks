@@ -1,4 +1,4 @@
-﻿namespace OskitAPI.Extensions.Identity
+﻿namespace MacbooksAPI.Extensions.Identity
 {
     public static class JwtTokenKeys
     {

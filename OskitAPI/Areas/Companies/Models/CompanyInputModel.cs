@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OskitAPI.Areas.Companies.Models
+namespace MacbooksAPI.Areas.Companies.Models
 {
     public class CompanyInputModel
     {

@@ -1,4 +1,4 @@
-﻿namespace OskitAPI.Providers.Configurations
+﻿namespace MacbooksAPI.Providers.Configurations
 {
     public class CorsConfiguration
     {

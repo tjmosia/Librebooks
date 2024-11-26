@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.GeneralSpace;
+using MacbooksAPI.Models.Entity.GeneralSpace;
 
-namespace OskitAPI.Models.Entity.CustomerSpace
+namespace MacbooksAPI.Models.Entity.CustomerSpace
 {
     public class CustomerContact
     {

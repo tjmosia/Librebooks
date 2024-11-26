@@ -3,9 +3,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 
-using OskitAPI.Models.Entity.IdentitySpace;
+using MacbooksAPI.Models.Entity.IdentitySpace;
 
-namespace OskitAPI.Extensions.Identity
+namespace MacbooksAPI.Extensions.Identity
 {
     public class UserManagerExt : UserManager<User>
     {

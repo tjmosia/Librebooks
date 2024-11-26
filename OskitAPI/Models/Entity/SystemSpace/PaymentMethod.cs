@@ -2,11 +2,11 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.BankingSpace;
-using OskitAPI.Models.Entity.PurchasesSpace;
-using OskitAPI.Models.Entity.SalesSpace;
+using MacbooksAPI.Models.Entity.BankingSpace;
+using MacbooksAPI.Models.Entity.PurchasesSpace;
+using MacbooksAPI.Models.Entity.SalesSpace;
 
-namespace OskitAPI.Models.Entity.SystemSpace
+namespace MacbooksAPI.Models.Entity.SystemSpace
 {
     public class PaymentMethod
     {

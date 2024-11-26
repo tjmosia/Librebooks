@@ -1,7 +1,7 @@
-﻿using OskitAPI.CoreLib.Operations;
-using OskitAPI.Models.Entity.SystemSpace;
+﻿using MacbooksAPI.CoreLib.Operations;
+using MacbooksAPI.Models.Entity.SystemSpace;
 
-namespace OskitAPI.Areas.SystemSetups.Services
+namespace MacbooksAPI.Areas.SystemSetups.Services
 {
     public interface ISystemManager
     {

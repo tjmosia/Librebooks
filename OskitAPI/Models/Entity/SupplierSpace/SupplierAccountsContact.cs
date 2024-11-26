@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace OskitAPI.Models.Entity.SupplierSpace
+namespace MacbooksAPI.Models.Entity.SupplierSpace
 {
     public class SupplierAccountsContact
     {

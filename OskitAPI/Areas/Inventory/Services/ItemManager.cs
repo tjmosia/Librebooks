@@ -1,8 +1,8 @@
-﻿using OskitAPI.CoreLib.Operations;
-using OskitAPI.Models.Entity.CompanySpace;
-using OskitAPI.Models.Entity.InventorySpace;
+﻿using MacbooksAPI.CoreLib.Operations;
+using MacbooksAPI.Models.Entity.CompanySpace;
+using MacbooksAPI.Models.Entity.InventorySpace;
 
-namespace OskitAPI.Areas.Inventory.Services
+namespace MacbooksAPI.Areas.Inventory.Services
 {
     public class ItemManager
         (ItemStore? store, ILogger<ItemManager> logger) : IItemManager

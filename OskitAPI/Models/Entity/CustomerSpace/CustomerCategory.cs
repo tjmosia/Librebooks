@@ -2,7 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace OskitAPI.Models.Entity.CustomerSpace
+namespace MacbooksAPI.Models.Entity.CustomerSpace
 {
     public class CustomerCategory
     {

@@ -3,11 +3,11 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using OskitAPI.Data;
+using MacbooksAPI.Data;
 
 #nullable disable
 
-namespace OskitAPI.Migrations
+namespace MacbooksAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -17,7 +17,7 @@ namespace OskitAPI.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.AccountingSpace.Account", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.AccountingSpace.Account", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -71,7 +71,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("Account", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.AccountingSpace.AccountCashFlowType", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.AccountingSpace.AccountCashFlowType", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -92,7 +92,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("AccountCashFlowType", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.AccountingSpace.AccountCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.AccountingSpace.AccountCategory", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -122,7 +122,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("AccountCategory", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.AccountingSpace.Journal", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.AccountingSpace.Journal", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -179,7 +179,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("Journal", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.AccountingSpace.JournalNote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.AccountingSpace.JournalNote", b =>
                 {
                     b.Property<string>("JournalId")
                         .HasColumnType("TEXT");
@@ -196,7 +196,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("JournalNote", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.BankingSpace.BankAccount", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.BankingSpace.BankAccount", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -252,7 +252,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("BankAccount", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.BankingSpace.BankAccountCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.BankingSpace.BankAccountCategory", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -276,7 +276,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("BankAccountCategory", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.Company", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.Company", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -337,7 +337,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("Company", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyDefaultBankAccount", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyDefaultBankAccount", b =>
                 {
                     b.Property<string>("CompanyId")
                         .HasColumnType("TEXT");
@@ -355,7 +355,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("CompanyDefaultBankAccount", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyDefaultValueAddedTax", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyDefaultValueAddedTax", b =>
                 {
                     b.Property<string>("CompanyId")
                         .HasColumnType("TEXT");
@@ -373,7 +373,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("CompanyDefaultValueAddedTax", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyMailSettings", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyMailSettings", b =>
                 {
                     b.Property<string>("CompanyId")
                         .HasColumnType("TEXT");
@@ -399,7 +399,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("CompanyMailSettings", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyRegionalSettings", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyRegionalSettings", b =>
                 {
                     b.Property<string>("CompanyId")
                         .HasColumnType("TEXT");
@@ -444,7 +444,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("CompanyRegionalSettings", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyUser", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -468,7 +468,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("CompanyUser", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -494,7 +494,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("CompanyValueAddedTax", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.Customer", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.Customer", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -579,7 +579,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("Customer", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerAccountsContact", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerAccountsContact", b =>
                 {
                     b.Property<string>("CustomerId")
                         .HasColumnType("TEXT");
@@ -596,7 +596,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("CustomerAccountsContact", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerAdjustment", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerAdjustment", b =>
                 {
                     b.Property<string>("JournalId")
                         .HasColumnType("TEXT");
@@ -618,7 +618,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("CustomerAdjustment", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerCategory", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -651,7 +651,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("CustomerCategory", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerContact", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerContact", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -677,7 +677,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("CustomerContact", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerNote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerNote", b =>
                 {
                     b.Property<string>("CustomerId")
                         .HasColumnType("TEXT");
@@ -694,7 +694,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("CustomerNote", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerWriteOff", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerWriteOff", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -739,7 +739,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("CustomerWriteOff", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.DocumentSpace.DocumentPrintTemplate", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.DocumentSpace.DocumentPrintTemplate", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -763,7 +763,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("DocumentPrintTemplate", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.DocumentSpace.DocumentSetup", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.DocumentSpace.DocumentSetup", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -814,7 +814,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("DocumentSetup", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.DocumentSpace.DocumentStatus", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.DocumentSpace.DocumentStatus", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -838,7 +838,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("DocumentStatus", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.GeneralSpace.Contact", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.GeneralSpace.Contact", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -868,7 +868,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("Contact", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.GeneralSpace.Note", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.GeneralSpace.Note", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -904,7 +904,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("Note", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.Role", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.Role", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -930,7 +930,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("Role", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.RoleClaim", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.RoleClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -953,7 +953,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("RoleClaim", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.User", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -1047,7 +1047,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("User", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.UserClaim", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.UserClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1070,7 +1070,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("UserClaim", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.UserLogin", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.UserLogin", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("TEXT");
@@ -1092,7 +1092,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("UserLogin", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.UserRole", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.UserRole", b =>
                 {
                     b.Property<string>("UserId")
                         .HasColumnType("TEXT");
@@ -1107,7 +1107,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("UserRole", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.UserToken", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.UserToken", b =>
                 {
                     b.Property<string>("UserId")
                         .HasColumnType("TEXT");
@@ -1126,7 +1126,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("UserToken", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.InventorySpace.Item", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.InventorySpace.Item", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -1175,7 +1175,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("Item", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.InventorySpace.ItemAdjustment", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.InventorySpace.ItemAdjustment", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -1224,7 +1224,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("ItemAdjustment", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.InventorySpace.ItemCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.InventorySpace.ItemCategory", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -1258,7 +1258,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("ItemCategory", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.InventorySpace.ItemInventory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.InventorySpace.ItemInventory", b =>
                 {
                     b.Property<string>("ItemId")
                         .HasColumnType("TEXT");
@@ -1284,7 +1284,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("ItemInventory", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseBuyer", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseBuyer", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -1316,7 +1316,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseBuyer", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocument", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocument", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -1377,7 +1377,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseDocument", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocumentLine", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocumentLine", b =>
                 {
                     b.Property<string>("DocumentId")
                         .HasColumnType("TEXT");
@@ -1396,7 +1396,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseDocumentLine", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocumentNote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocumentNote", b =>
                 {
                     b.Property<string>("DocumentId")
                         .HasColumnType("TEXT");
@@ -1413,7 +1413,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseDocumentNote", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocumentSupplierDetails", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocumentSupplierDetails", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -1454,7 +1454,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseDocumentSupplierDetails", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", b =>
                 {
                     b.Property<string>("DocumentId")
                         .HasColumnType("TEXT");
@@ -1478,7 +1478,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseInvoice", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoiceReceipt", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoiceReceipt", b =>
                 {
                     b.Property<string>("ReceiptId")
                         .HasColumnType("TEXT");
@@ -1511,7 +1511,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseInvoiceReceipt", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoiceReturn", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoiceReturn", b =>
                 {
                     b.Property<string>("InvoiceId")
                         .HasColumnType("TEXT");
@@ -1530,7 +1530,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseInvoiceReturn", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseLine", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseLine", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -1580,7 +1580,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseLine", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseOrder", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseOrder", b =>
                 {
                     b.Property<string>("DocumentId")
                         .HasColumnType("TEXT");
@@ -1604,7 +1604,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseOrder", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseOrderInvoice", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseOrderInvoice", b =>
                 {
                     b.Property<string>("OrderId")
                         .HasColumnType("TEXT");
@@ -1620,7 +1620,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseOrderInvoice", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseReceipt", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseReceipt", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -1688,7 +1688,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseReceipt", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseReturn", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseReturn", b =>
                 {
                     b.Property<string>("DocumentId")
                         .HasColumnType("TEXT");
@@ -1712,7 +1712,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PurchaseReturn", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesCredit", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesCredit", b =>
                 {
                     b.Property<string>("DocumentId")
                         .HasColumnType("TEXT");
@@ -1734,7 +1734,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesCredit", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesDocument", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesDocument", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -1822,7 +1822,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesDocument", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesDocumentCustomerDetails", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesDocumentCustomerDetails", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -1862,7 +1862,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesDocumentCustomerDetails", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesDocumentLine", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesDocumentLine", b =>
                 {
                     b.Property<string>("DocumentId")
                         .HasColumnType("TEXT");
@@ -1881,7 +1881,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesDocumentLine", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesDocumentNote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesDocumentNote", b =>
                 {
                     b.Property<string>("DocumentId")
                         .HasColumnType("TEXT");
@@ -1897,7 +1897,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesDocumentNote", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesInvoice", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesInvoice", b =>
                 {
                     b.Property<string>("DocumentId")
                         .HasColumnType("TEXT");
@@ -1927,7 +1927,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesInvoice", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesInvoiceCredit", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesInvoiceCredit", b =>
                 {
                     b.Property<string>("InvoiceId")
                         .HasColumnType("TEXT");
@@ -1945,7 +1945,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesInvoiceCredit", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesInvoiceReceipt", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesInvoiceReceipt", b =>
                 {
                     b.Property<string>("InvoiceId")
                         .HasColumnType("TEXT");
@@ -1963,7 +1963,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesInvoiceReceipt", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesLine", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesLine", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2013,7 +2013,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesLine", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesOrder", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesOrder", b =>
                 {
                     b.Property<string>("DocumentId")
                         .HasColumnType("TEXT");
@@ -2037,7 +2037,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesOrder", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesOrderInvoice", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesOrderInvoice", b =>
                 {
                     b.Property<string>("OrderId")
                         .HasColumnType("TEXT");
@@ -2053,7 +2053,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesOrderInvoice", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesPerson", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesPerson", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2084,7 +2084,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesPerson", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesQuote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesQuote", b =>
                 {
                     b.Property<string>("DocumentId")
                         .HasColumnType("TEXT");
@@ -2109,7 +2109,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesQuote", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesQuoteOrder", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesQuoteOrder", b =>
                 {
                     b.Property<string>("QuoteId")
                         .HasColumnType("TEXT");
@@ -2125,7 +2125,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesQuoteOrder", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesReceipt", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesReceipt", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2192,7 +2192,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SalesReceipt", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.Supplier", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2263,7 +2263,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("Supplier", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.SupplierAccountsContact", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.SupplierAccountsContact", b =>
                 {
                     b.Property<string>("SupplierId")
                         .HasColumnType("TEXT");
@@ -2280,7 +2280,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SupplierAccountsContact", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.SupplierAdjustment", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.SupplierAdjustment", b =>
                 {
                     b.Property<string>("JournalId")
                         .HasColumnType("TEXT");
@@ -2304,7 +2304,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SupplierAdjustment", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.SupplierCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.SupplierCategory", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2332,7 +2332,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SupplierCategory", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.SupplierContact", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.SupplierContact", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2357,7 +2357,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SupplierContact", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.SupplierNote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.SupplierNote", b =>
                 {
                     b.Property<string>("SupplierId")
                         .HasColumnType("TEXT");
@@ -2374,7 +2374,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SupplierNote", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SystemSpace.BusinessSector", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SystemSpace.BusinessSector", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2396,7 +2396,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("BusinessSector", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SystemSpace.Country", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SystemSpace.Country", b =>
                 {
                     b.Property<string>("Code")
                         .HasMaxLength(3)
@@ -2421,7 +2421,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("Country", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SystemSpace.Currency", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SystemSpace.Currency", b =>
                 {
                     b.Property<string>("Code")
                         .HasColumnType("TEXT");
@@ -2445,7 +2445,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("Currency", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SystemSpace.DateFormat", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SystemSpace.DateFormat", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2465,7 +2465,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("DateFormat", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SystemSpace.PaymentMethod", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SystemSpace.PaymentMethod", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2491,7 +2491,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PaymentMethod", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SystemSpace.PaymentTerm", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SystemSpace.PaymentTerm", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2517,7 +2517,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("PaymentTerm");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SystemSpace.ShippingMethod", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SystemSpace.ShippingMethod", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2547,7 +2547,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("ShippingMethod", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SystemSpace.ShippingTerm", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SystemSpace.ShippingTerm", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2577,7 +2577,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("ShippingTerm", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SystemSpace.SystemCompanyNumber", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SystemSpace.SystemCompanyNumber", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2600,7 +2600,7 @@ namespace OskitAPI.Migrations
                     b.ToTable("SystemCompanyNumber");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SystemSpace.ValueAddedTax", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SystemSpace.ValueAddedTax", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -2627,27 +2627,27 @@ namespace OskitAPI.Migrations
                     b.ToTable("ValueAddedTax", (string)null);
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.AccountingSpace.Account", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.AccountingSpace.Account", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.AccountingSpace.AccountCategory", "Category")
+                    b.HasOne("MacbooksAPI.Models.Entity.AccountingSpace.AccountCategory", "Category")
                         .WithMany("Accounts")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("ChartOfAccounts")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.AccountingSpace.Account", "ParentAccount")
+                    b.HasOne("MacbooksAPI.Models.Entity.AccountingSpace.Account", "ParentAccount")
                         .WithMany("SubAccounts")
                         .HasForeignKey("ParentAccountId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VAT")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VAT")
                         .WithMany()
                         .HasForeignKey("VATId")
                         .OnDelete(DeleteBehavior.SetNull);
@@ -2661,9 +2661,9 @@ namespace OskitAPI.Migrations
                     b.Navigation("VAT");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.AccountingSpace.AccountCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.AccountingSpace.AccountCategory", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.AccountingSpace.AccountCashFlowType", "CashFlowType")
+                    b.HasOne("MacbooksAPI.Models.Entity.AccountingSpace.AccountCashFlowType", "CashFlowType")
                         .WithMany()
                         .HasForeignKey("CashFlowTypeId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -2672,27 +2672,27 @@ namespace OskitAPI.Migrations
                     b.Navigation("CashFlowType");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.AccountingSpace.Journal", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.AccountingSpace.Journal", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("JournalEntries")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.AccountingSpace.Account", "CreditAccount")
+                    b.HasOne("MacbooksAPI.Models.Entity.AccountingSpace.Account", "CreditAccount")
                         .WithMany("CreditHistory")
                         .HasForeignKey("CreditAccountId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.AccountingSpace.Account", "DebitAccount")
+                    b.HasOne("MacbooksAPI.Models.Entity.AccountingSpace.Account", "DebitAccount")
                         .WithMany("DebitHistory")
                         .HasForeignKey("DebitAccountId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VAT")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VAT")
                         .WithMany()
                         .HasForeignKey("VATId")
                         .OnDelete(DeleteBehavior.SetNull);
@@ -2706,38 +2706,38 @@ namespace OskitAPI.Migrations
                     b.Navigation("VAT");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.AccountingSpace.JournalNote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.AccountingSpace.JournalNote", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.AccountingSpace.Journal", null)
+                    b.HasOne("MacbooksAPI.Models.Entity.AccountingSpace.Journal", null)
                         .WithMany("Notes")
                         .HasForeignKey("JournalId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.GeneralSpace.Note", "Note")
+                    b.HasOne("MacbooksAPI.Models.Entity.GeneralSpace.Note", "Note")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.AccountingSpace.JournalNote", "NoteId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.AccountingSpace.JournalNote", "NoteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Note");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.BankingSpace.BankAccount", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.BankingSpace.BankAccount", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.BankingSpace.BankAccountCategory", "Category")
+                    b.HasOne("MacbooksAPI.Models.Entity.BankingSpace.BankAccountCategory", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("BankAccounts")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SystemSpace.PaymentMethod", "PaymentMethod")
+                    b.HasOne("MacbooksAPI.Models.Entity.SystemSpace.PaymentMethod", "PaymentMethod")
                         .WithMany()
                         .HasForeignKey("PaymentMethodId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -2750,14 +2750,14 @@ namespace OskitAPI.Migrations
                     b.Navigation("PaymentMethod");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.Company", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.Company", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.SystemSpace.BusinessSector", "BusinessSector")
+                    b.HasOne("MacbooksAPI.Models.Entity.SystemSpace.BusinessSector", "BusinessSector")
                         .WithMany("Companies")
                         .HasForeignKey("BusinessSectorId")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.CompanyDefaultBankAccount", "DefaultBankAccount")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.CompanyDefaultBankAccount", "DefaultBankAccount")
                         .WithMany()
                         .HasForeignKey("DefaultBankAccountCompanyId");
 
@@ -2766,17 +2766,17 @@ namespace OskitAPI.Migrations
                     b.Navigation("DefaultBankAccount");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyDefaultBankAccount", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyDefaultBankAccount", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.BankingSpace.BankAccount", "BankAccount")
+                    b.HasOne("MacbooksAPI.Models.Entity.BankingSpace.BankAccount", "BankAccount")
                         .WithOne("DefaultBankAccount")
-                        .HasForeignKey("OskitAPI.Models.Entity.CompanySpace.CompanyDefaultBankAccount", "BankAccountId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CompanySpace.CompanyDefaultBankAccount", "BankAccountId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.CompanySpace.CompanyDefaultBankAccount", "CompanyId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CompanySpace.CompanyDefaultBankAccount", "CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -2785,17 +2785,17 @@ namespace OskitAPI.Migrations
                     b.Navigation("Company");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyDefaultValueAddedTax", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyDefaultValueAddedTax", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithOne("DefaultVAT")
-                        .HasForeignKey("OskitAPI.Models.Entity.CompanySpace.CompanyDefaultValueAddedTax", "CompanyId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CompanySpace.CompanyDefaultValueAddedTax", "CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "CompanyVAT")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "CompanyVAT")
                         .WithOne("CompanyDefaultVAT")
-                        .HasForeignKey("OskitAPI.Models.Entity.CompanySpace.CompanyDefaultValueAddedTax", "CompanyVATId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CompanySpace.CompanyDefaultValueAddedTax", "CompanyVATId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -2804,40 +2804,40 @@ namespace OskitAPI.Migrations
                     b.Navigation("CompanyVAT");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyMailSettings", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyMailSettings", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithOne("MailSettings")
-                        .HasForeignKey("OskitAPI.Models.Entity.CompanySpace.CompanyMailSettings", "CompanyId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CompanySpace.CompanyMailSettings", "CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Company");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyRegionalSettings", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyRegionalSettings", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithOne("RegionalSettings")
-                        .HasForeignKey("OskitAPI.Models.Entity.CompanySpace.CompanyRegionalSettings", "CompanyId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CompanySpace.CompanyRegionalSettings", "CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SystemSpace.Country", "Country")
+                    b.HasOne("MacbooksAPI.Models.Entity.SystemSpace.Country", "Country")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.CompanySpace.CompanyRegionalSettings", "CountryCode")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CompanySpace.CompanyRegionalSettings", "CountryCode")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SystemSpace.Currency", "Currency")
+                    b.HasOne("MacbooksAPI.Models.Entity.SystemSpace.Currency", "Currency")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.CompanySpace.CompanyRegionalSettings", "CurrencyCode")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CompanySpace.CompanyRegionalSettings", "CurrencyCode")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SystemSpace.DateFormat", "DateFormat")
+                    b.HasOne("MacbooksAPI.Models.Entity.SystemSpace.DateFormat", "DateFormat")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.CompanySpace.CompanyRegionalSettings", "DateFormatId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CompanySpace.CompanyRegionalSettings", "DateFormatId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -2850,15 +2850,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("DateFormat");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyUser", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyUser", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("Users")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.IdentitySpace.User", "User")
+                    b.HasOne("MacbooksAPI.Models.Entity.IdentitySpace.User", "User")
                         .WithMany("Companies")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -2868,17 +2868,17 @@ namespace OskitAPI.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("ValueAddedTaxes")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SystemSpace.ValueAddedTax", "VAT")
+                    b.HasOne("MacbooksAPI.Models.Entity.SystemSpace.ValueAddedTax", "VAT")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VATId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VATId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -2887,33 +2887,33 @@ namespace OskitAPI.Migrations
                     b.Navigation("VAT");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.Customer", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.Customer", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.CustomerCategory", "Category")
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.CustomerCategory", "Category")
                         .WithMany("Customers")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("Customers")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesPerson", "SalesPerson")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesPerson", "SalesPerson")
                         .WithMany("Customers")
                         .HasForeignKey("SalesPersonId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("OskitAPI.Models.Entity.SystemSpace.ShippingMethod", "ShippingMethod")
+                    b.HasOne("MacbooksAPI.Models.Entity.SystemSpace.ShippingMethod", "ShippingMethod")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.CustomerSpace.Customer", "ShippingMethodId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CustomerSpace.Customer", "ShippingMethodId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SystemSpace.ShippingTerm", "ShippingTerm")
+                    b.HasOne("MacbooksAPI.Models.Entity.SystemSpace.ShippingTerm", "ShippingTerm")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.CustomerSpace.Customer", "ShippingTermId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CustomerSpace.Customer", "ShippingTermId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -2928,15 +2928,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("ShippingTerm");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerAccountsContact", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerAccountsContact", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.CustomerContact", "CustomerContact")
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.CustomerContact", "CustomerContact")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.CustomerSpace.CustomerAccountsContact", "CustomerContactId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CustomerSpace.CustomerAccountsContact", "CustomerContactId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.Customer", "Customer")
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -2947,19 +2947,19 @@ namespace OskitAPI.Migrations
                     b.Navigation("CustomerContact");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerAdjustment", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerAdjustment", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany()
                         .HasForeignKey("CompanyId");
 
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.Customer", "Customer")
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId");
 
-                    b.HasOne("OskitAPI.Models.Entity.AccountingSpace.Journal", "Journal")
+                    b.HasOne("MacbooksAPI.Models.Entity.AccountingSpace.Journal", "Journal")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.CustomerSpace.CustomerAdjustment", "JournalId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CustomerSpace.CustomerAdjustment", "JournalId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -2970,24 +2970,24 @@ namespace OskitAPI.Migrations
                     b.Navigation("Journal");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerCategory", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.Customer", "Customer")
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId");
 
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerContact", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerContact", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.GeneralSpace.Contact", "Contact")
+                    b.HasOne("MacbooksAPI.Models.Entity.GeneralSpace.Contact", "Contact")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.CustomerSpace.CustomerContact", "ContactId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CustomerSpace.CustomerContact", "ContactId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.Customer", "Customer")
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.Customer", "Customer")
                         .WithMany("ContactPeople")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -2998,32 +2998,32 @@ namespace OskitAPI.Migrations
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerNote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerNote", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.Customer", null)
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.Customer", null)
                         .WithMany("Notes")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.GeneralSpace.Note", "Note")
+                    b.HasOne("MacbooksAPI.Models.Entity.GeneralSpace.Note", "Note")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.CustomerSpace.CustomerNote", "NoteId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.CustomerSpace.CustomerNote", "NoteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Note");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.DocumentSpace.DocumentSetup", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.DocumentSpace.DocumentSetup", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("DocumentSetups")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.DocumentSpace.DocumentPrintTemplate", "PrintTemplate")
+                    b.HasOne("MacbooksAPI.Models.Entity.DocumentSpace.DocumentPrintTemplate", "PrintTemplate")
                         .WithMany()
                         .HasForeignKey("PrintTemplateId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3034,19 +3034,19 @@ namespace OskitAPI.Migrations
                     b.Navigation("PrintTemplate");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.GeneralSpace.Note", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.GeneralSpace.Note", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.IdentitySpace.User", "Creator")
+                    b.HasOne("MacbooksAPI.Models.Entity.IdentitySpace.User", "Creator")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.GeneralSpace.Note", "CreatorId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.GeneralSpace.Note", "CreatorId")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Creator");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.RoleClaim", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.RoleClaim", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.IdentitySpace.Role", "Role")
+                    b.HasOne("MacbooksAPI.Models.Entity.IdentitySpace.Role", "Role")
                         .WithMany("Claims")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3055,9 +3055,9 @@ namespace OskitAPI.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.UserClaim", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.UserClaim", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.IdentitySpace.User", "User")
+                    b.HasOne("MacbooksAPI.Models.Entity.IdentitySpace.User", "User")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3066,9 +3066,9 @@ namespace OskitAPI.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.UserLogin", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.UserLogin", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.IdentitySpace.User", "User")
+                    b.HasOne("MacbooksAPI.Models.Entity.IdentitySpace.User", "User")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3077,15 +3077,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.UserRole", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.UserRole", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.IdentitySpace.Role", "Role")
+                    b.HasOne("MacbooksAPI.Models.Entity.IdentitySpace.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.IdentitySpace.User", "User")
+                    b.HasOne("MacbooksAPI.Models.Entity.IdentitySpace.User", "User")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3096,9 +3096,9 @@ namespace OskitAPI.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.UserToken", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.UserToken", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.IdentitySpace.User", "User")
+                    b.HasOne("MacbooksAPI.Models.Entity.IdentitySpace.User", "User")
                         .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3107,20 +3107,20 @@ namespace OskitAPI.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.InventorySpace.Item", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.InventorySpace.Item", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.InventorySpace.ItemCategory", "Category")
+                    b.HasOne("MacbooksAPI.Models.Entity.InventorySpace.ItemCategory", "Category")
                         .WithMany("Items")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("Items")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VAT")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VAT")
                         .WithMany()
                         .HasForeignKey("VATId")
                         .OnDelete(DeleteBehavior.SetNull);
@@ -3132,15 +3132,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("VAT");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.InventorySpace.ItemAdjustment", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.InventorySpace.ItemAdjustment", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("ItemAdjustments")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.InventorySpace.Item", "Item")
+                    b.HasOne("MacbooksAPI.Models.Entity.InventorySpace.Item", "Item")
                         .WithMany("Adjustments")
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3151,15 +3151,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("Item");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.InventorySpace.ItemCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.InventorySpace.ItemCategory", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("ItemCategories")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.InventorySpace.ItemCategory", "Parent")
+                    b.HasOne("MacbooksAPI.Models.Entity.InventorySpace.ItemCategory", "Parent")
                         .WithMany("SubCategories")
                         .HasForeignKey("ParentId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3170,34 +3170,34 @@ namespace OskitAPI.Migrations
                     b.Navigation("Parent");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.InventorySpace.ItemInventory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.InventorySpace.ItemInventory", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.InventorySpace.Item", "Item")
+                    b.HasOne("MacbooksAPI.Models.Entity.InventorySpace.Item", "Item")
                         .WithOne("Inventory")
-                        .HasForeignKey("OskitAPI.Models.Entity.InventorySpace.ItemInventory", "ItemId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.InventorySpace.ItemInventory", "ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Item");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseBuyer", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseBuyer", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("Buyers")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.CompanyUser", "CompanyUser")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.CompanyUser", "CompanyUser")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.PurchasesSpace.PurchaseBuyer", "CompanyUserId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseBuyer", "CompanyUserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.GeneralSpace.Contact", "Contact")
+                    b.HasOne("MacbooksAPI.Models.Entity.GeneralSpace.Contact", "Contact")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.PurchasesSpace.PurchaseBuyer", "ContactId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseBuyer", "ContactId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -3208,15 +3208,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("Contact");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocument", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocument", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.DocumentSpace.DocumentStatus", "Status")
+                    b.HasOne("MacbooksAPI.Models.Entity.DocumentSpace.DocumentStatus", "Status")
                         .WithMany()
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocumentSupplierDetails", "SupplierDetails")
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocumentSupplierDetails", "SupplierDetails")
                         .WithMany()
                         .HasForeignKey("SupplierDetailsId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3227,15 +3227,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("SupplierDetails");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocumentLine", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocumentLine", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocument", "Document")
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocument", "Document")
                         .WithMany("Lines")
                         .HasForeignKey("DocumentId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseLine", "Line")
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseLine", "Line")
                         .WithMany("DocumentLines")
                         .HasForeignKey("LineId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3246,45 +3246,45 @@ namespace OskitAPI.Migrations
                     b.Navigation("Line");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocumentNote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocumentNote", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocument", null)
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocument", null)
                         .WithMany("Notes")
                         .HasForeignKey("DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.GeneralSpace.Note", "Note")
+                    b.HasOne("MacbooksAPI.Models.Entity.GeneralSpace.Note", "Note")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocumentNote", "NoteId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocumentNote", "NoteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Note");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocumentSupplierDetails", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocumentSupplierDetails", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.SupplierSpace.Supplier", null)
+                    b.HasOne("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", null)
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocumentSupplierDetails", "SupplierId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocumentSupplierDetails", "SupplierId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("PurchaseInvoices")
                         .HasForeignKey("CompanyId");
 
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocument", "Document")
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocument", "Document")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", "DocumentId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", "DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
+                    b.HasOne("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
                         .WithMany("Invoices")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3297,19 +3297,19 @@ namespace OskitAPI.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoiceReceipt", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoiceReceipt", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", "Invoice")
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", "Invoice")
                         .WithMany("Receipts")
                         .HasForeignKey("InvoiceDocumentId");
 
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", null)
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", null)
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoiceReceipt", "InvoiceId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoiceReceipt", "InvoiceId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseReceipt", "Receipt")
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseReceipt", "Receipt")
                         .WithMany("AllocatedInvoices")
                         .HasForeignKey("ReceiptId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3320,15 +3320,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("Receipt");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoiceReturn", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoiceReturn", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", "Invoice")
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", "Invoice")
                         .WithMany("Returns")
                         .HasForeignKey("InvoiceId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseReturn", "Return")
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseReturn", "Return")
                         .WithMany("Invoices")
                         .HasForeignKey("ReturnId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3339,9 +3339,9 @@ namespace OskitAPI.Migrations
                     b.Navigation("Return");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseLine", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseLine", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VAT")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VAT")
                         .WithMany()
                         .HasForeignKey("VATId")
                         .OnDelete(DeleteBehavior.SetNull);
@@ -3349,19 +3349,19 @@ namespace OskitAPI.Migrations
                     b.Navigation("VAT");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseOrder", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseOrder", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("PurchaseOrders")
                         .HasForeignKey("CompanyId");
 
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocument", "Document")
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocument", "Document")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.PurchasesSpace.PurchaseOrder", "DocumentId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseOrder", "DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
+                    b.HasOne("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
                         .WithMany("Orders")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3374,15 +3374,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseOrderInvoice", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseOrderInvoice", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", "Invoice")
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", "Invoice")
                         .WithMany("Orders")
                         .HasForeignKey("InvoiceId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseOrder", "Order")
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseOrder", "Order")
                         .WithMany("Invoices")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3393,27 +3393,27 @@ namespace OskitAPI.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseReceipt", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseReceipt", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.BankingSpace.BankAccount", "BankAccount")
+                    b.HasOne("MacbooksAPI.Models.Entity.BankingSpace.BankAccount", "BankAccount")
                         .WithMany("PurchaseReceipts")
                         .HasForeignKey("BankAccountId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("PurchaseReceipts")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SystemSpace.PaymentMethod", "PaymentMethod")
+                    b.HasOne("MacbooksAPI.Models.Entity.SystemSpace.PaymentMethod", "PaymentMethod")
                         .WithMany()
                         .HasForeignKey("PaymentMethodId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
+                    b.HasOne("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
                         .WithMany("Receipts")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3428,19 +3428,19 @@ namespace OskitAPI.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseReturn", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseReturn", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("PurchaseReturns")
                         .HasForeignKey("CompanyId");
 
-                    b.HasOne("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocument", "Document")
+                    b.HasOne("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocument", "Document")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.PurchasesSpace.PurchaseReturn", "DocumentId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseReturn", "DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
+                    b.HasOne("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
                         .WithMany("Returns")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3453,20 +3453,20 @@ namespace OskitAPI.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesCredit", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesCredit", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("SalesCredits")
                         .HasForeignKey("CompanyId");
 
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.Customer", "Customer")
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.Customer", "Customer")
                         .WithMany("Credits")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesDocument", "Document")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesDocument", "Document")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SalesSpace.SalesCredit", "DocumentId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SalesSpace.SalesCredit", "DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -3477,32 +3477,32 @@ namespace OskitAPI.Migrations
                     b.Navigation("Document");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesDocument", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesDocument", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.IdentitySpace.User", "Creator")
+                    b.HasOne("MacbooksAPI.Models.Entity.IdentitySpace.User", "Creator")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SalesSpace.SalesDocument", "CreatorId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SalesSpace.SalesDocument", "CreatorId")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesDocumentCustomerDetails", "CustomerDetails")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesDocumentCustomerDetails", "CustomerDetails")
                         .WithMany()
                         .HasForeignKey("CustomerDetailsId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesPerson", "SalesPerson")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesPerson", "SalesPerson")
                         .WithMany()
                         .HasForeignKey("SalesPersonId");
 
-                    b.HasOne("OskitAPI.Models.Entity.SystemSpace.ShippingMethod", "ShippingMethod")
+                    b.HasOne("MacbooksAPI.Models.Entity.SystemSpace.ShippingMethod", "ShippingMethod")
                         .WithMany()
                         .HasForeignKey("ShippingMethodId");
 
-                    b.HasOne("OskitAPI.Models.Entity.SystemSpace.ShippingTerm", "ShippingTerm")
+                    b.HasOne("MacbooksAPI.Models.Entity.SystemSpace.ShippingTerm", "ShippingTerm")
                         .WithMany()
                         .HasForeignKey("ShippingTermId");
 
-                    b.HasOne("OskitAPI.Models.Entity.DocumentSpace.DocumentStatus", "Status")
+                    b.HasOne("MacbooksAPI.Models.Entity.DocumentSpace.DocumentStatus", "Status")
                         .WithMany()
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3521,25 +3521,25 @@ namespace OskitAPI.Migrations
                     b.Navigation("Status");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesDocumentCustomerDetails", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesDocumentCustomerDetails", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.Customer", "Customer")
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.Customer", "Customer")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SalesSpace.SalesDocumentCustomerDetails", "CustomerId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SalesSpace.SalesDocumentCustomerDetails", "CustomerId")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesDocumentLine", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesDocumentLine", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesDocument", "Document")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesDocument", "Document")
                         .WithMany("Lines")
                         .HasForeignKey("DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesLine", "Line")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesLine", "Line")
                         .WithMany("DocumentLines")
                         .HasForeignKey("LineId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3550,44 +3550,44 @@ namespace OskitAPI.Migrations
                     b.Navigation("Line");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesDocumentNote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesDocumentNote", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesDocument", null)
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesDocument", null)
                         .WithMany("Notes")
                         .HasForeignKey("DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.GeneralSpace.Note", "Note")
+                    b.HasOne("MacbooksAPI.Models.Entity.GeneralSpace.Note", "Note")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SalesSpace.SalesDocumentNote", "NoteId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SalesSpace.SalesDocumentNote", "NoteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Note");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesInvoice", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesInvoice", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("SalesInvoices")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.Customer", "Customer")
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.Customer", "Customer")
                         .WithMany("Invoices")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.CustomerWriteOff", null)
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.CustomerWriteOff", null)
                         .WithMany("Invoices")
                         .HasForeignKey("CustomerWriteOffId");
 
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesDocument", "Document")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesDocument", "Document")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SalesSpace.SalesInvoice", "DocumentId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SalesSpace.SalesInvoice", "DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -3598,15 +3598,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("Document");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesInvoiceCredit", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesInvoiceCredit", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesCredit", "Credit")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesCredit", "Credit")
                         .WithMany("CreditedInvoices")
                         .HasForeignKey("CreditId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesInvoice", "Invoice")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesInvoice", "Invoice")
                         .WithMany("Credits")
                         .HasForeignKey("InvoiceId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3617,15 +3617,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("Invoice");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesInvoiceReceipt", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesInvoiceReceipt", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesInvoice", "Invoice")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesInvoice", "Invoice")
                         .WithMany("Receipts")
                         .HasForeignKey("InvoiceId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesReceipt", "Receipt")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesReceipt", "Receipt")
                         .WithMany("AllocatedInvoices")
                         .HasForeignKey("ReceiptId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3636,15 +3636,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("Receipt");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesLine", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesLine", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.InventorySpace.Item", "Item")
+                    b.HasOne("MacbooksAPI.Models.Entity.InventorySpace.Item", "Item")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SalesSpace.SalesLine", "ItemCode")
-                        .HasPrincipalKey("OskitAPI.Models.Entity.InventorySpace.Item", "Code")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SalesSpace.SalesLine", "ItemCode")
+                        .HasPrincipalKey("MacbooksAPI.Models.Entity.InventorySpace.Item", "Code")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VAT")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VAT")
                         .WithMany()
                         .HasForeignKey("VATId")
                         .OnDelete(DeleteBehavior.SetNull);
@@ -3654,23 +3654,23 @@ namespace OskitAPI.Migrations
                     b.Navigation("VAT");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesOrder", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesOrder", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("SalesOrders")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.Customer", "Customer")
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.Customer", "Customer")
                         .WithMany("Orders")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesDocument", "Document")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesDocument", "Document")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SalesSpace.SalesOrder", "DocumentId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SalesSpace.SalesOrder", "DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -3681,15 +3681,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("Document");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesOrderInvoice", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesOrderInvoice", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesInvoice", "Invoice")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesInvoice", "Invoice")
                         .WithMany("Orders")
                         .HasForeignKey("InvoiceId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesOrder", "Order")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesOrder", "Order")
                         .WithMany("Invoices")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3700,22 +3700,22 @@ namespace OskitAPI.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesPerson", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesPerson", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("SalesPeople")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.CompanyUser", "CompanyUser")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.CompanyUser", "CompanyUser")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SalesSpace.SalesPerson", "CompanyUserId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SalesSpace.SalesPerson", "CompanyUserId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("OskitAPI.Models.Entity.GeneralSpace.Contact", "Contact")
+                    b.HasOne("MacbooksAPI.Models.Entity.GeneralSpace.Contact", "Contact")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SalesSpace.SalesPerson", "ContactId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SalesSpace.SalesPerson", "ContactId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -3726,23 +3726,23 @@ namespace OskitAPI.Migrations
                     b.Navigation("Contact");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesQuote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesQuote", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("SalesQuotes")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.Customer", "Customer")
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.Customer", "Customer")
                         .WithMany("Quotes")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesDocument", "Document")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesDocument", "Document")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SalesSpace.SalesQuote", "DocumentId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SalesSpace.SalesQuote", "DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -3753,15 +3753,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("Document");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesQuoteOrder", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesQuoteOrder", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesOrder", "Order")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesOrder", "Order")
                         .WithMany("Quotes")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SalesSpace.SalesQuote", "Quote")
+                    b.HasOne("MacbooksAPI.Models.Entity.SalesSpace.SalesQuote", "Quote")
                         .WithMany("Orders")
                         .HasForeignKey("QuoteId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3772,27 +3772,27 @@ namespace OskitAPI.Migrations
                     b.Navigation("Quote");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesReceipt", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesReceipt", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.BankingSpace.BankAccount", "BankAccount")
+                    b.HasOne("MacbooksAPI.Models.Entity.BankingSpace.BankAccount", "BankAccount")
                         .WithMany("SalesReceipts")
                         .HasForeignKey("BankAccountId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("SalesReceipts")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CustomerSpace.Customer", "Customer")
+                    b.HasOne("MacbooksAPI.Models.Entity.CustomerSpace.Customer", "Customer")
                         .WithMany("Receipts")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SystemSpace.PaymentMethod", "PaymentMethod")
+                    b.HasOne("MacbooksAPI.Models.Entity.SystemSpace.PaymentMethod", "PaymentMethod")
                         .WithMany()
                         .HasForeignKey("PaymentMethodId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3807,22 +3807,22 @@ namespace OskitAPI.Migrations
                     b.Navigation("PaymentMethod");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.Supplier", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.SupplierSpace.SupplierCategory", "Category")
+                    b.HasOne("MacbooksAPI.Models.Entity.SupplierSpace.SupplierCategory", "Category")
                         .WithMany("Suppliers")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("Suppliers")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VAT")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", "VAT")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SupplierSpace.Supplier", "VATId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", "VATId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -3833,15 +3833,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("VAT");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.SupplierAccountsContact", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.SupplierAccountsContact", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.SupplierSpace.SupplierContact", "SupplierContact")
+                    b.HasOne("MacbooksAPI.Models.Entity.SupplierSpace.SupplierContact", "SupplierContact")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SupplierSpace.SupplierAccountsContact", "SupplierContactId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SupplierSpace.SupplierAccountsContact", "SupplierContactId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
+                    b.HasOne("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
                         .WithMany("AccountsContacts")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3852,21 +3852,21 @@ namespace OskitAPI.Migrations
                     b.Navigation("SupplierContact");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.SupplierAdjustment", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.SupplierAdjustment", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany("SupplierAdjustments")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.AccountingSpace.Journal", "Journal")
+                    b.HasOne("MacbooksAPI.Models.Entity.AccountingSpace.Journal", "Journal")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SupplierSpace.SupplierAdjustment", "JournalId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SupplierSpace.SupplierAdjustment", "JournalId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
+                    b.HasOne("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
                         .WithMany("Adjustments")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3879,24 +3879,24 @@ namespace OskitAPI.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.SupplierCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.SupplierCategory", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.CompanySpace.Company", "Company")
+                    b.HasOne("MacbooksAPI.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany()
                         .HasForeignKey("CompanyId");
 
                     b.Navigation("Company");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.SupplierContact", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.SupplierContact", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.GeneralSpace.Contact", "Contact")
+                    b.HasOne("MacbooksAPI.Models.Entity.GeneralSpace.Contact", "Contact")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SupplierSpace.SupplierContact", "ContactId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SupplierSpace.SupplierContact", "ContactId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
+                    b.HasOne("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", "Supplier")
                         .WithMany("Contacts")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3907,15 +3907,15 @@ namespace OskitAPI.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.SupplierNote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.SupplierNote", b =>
                 {
-                    b.HasOne("OskitAPI.Models.Entity.GeneralSpace.Note", "Note")
+                    b.HasOne("MacbooksAPI.Models.Entity.GeneralSpace.Note", "Note")
                         .WithOne()
-                        .HasForeignKey("OskitAPI.Models.Entity.SupplierSpace.SupplierNote", "NoteId")
+                        .HasForeignKey("MacbooksAPI.Models.Entity.SupplierSpace.SupplierNote", "NoteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("OskitAPI.Models.Entity.SupplierSpace.Supplier", null)
+                    b.HasOne("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", null)
                         .WithMany("Notes")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3924,7 +3924,7 @@ namespace OskitAPI.Migrations
                     b.Navigation("Note");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.AccountingSpace.Account", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.AccountingSpace.Account", b =>
                 {
                     b.Navigation("CreditHistory");
 
@@ -3933,17 +3933,17 @@ namespace OskitAPI.Migrations
                     b.Navigation("SubAccounts");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.AccountingSpace.AccountCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.AccountingSpace.AccountCategory", b =>
                 {
                     b.Navigation("Accounts");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.AccountingSpace.Journal", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.AccountingSpace.Journal", b =>
                 {
                     b.Navigation("Notes");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.BankingSpace.BankAccount", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.BankingSpace.BankAccount", b =>
                 {
                     b.Navigation("DefaultBankAccount");
 
@@ -3952,7 +3952,7 @@ namespace OskitAPI.Migrations
                     b.Navigation("SalesReceipts");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.Company", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.Company", b =>
                 {
                     b.Navigation("BankAccounts");
 
@@ -4007,12 +4007,12 @@ namespace OskitAPI.Migrations
                     b.Navigation("ValueAddedTaxes");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CompanySpace.CompanyValueAddedTax", b =>
                 {
                     b.Navigation("CompanyDefaultVAT");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.Customer", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.Customer", b =>
                 {
                     b.Navigation("ContactPeople");
 
@@ -4029,24 +4029,24 @@ namespace OskitAPI.Migrations
                     b.Navigation("Receipts");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerCategory", b =>
                 {
                     b.Navigation("Customers");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.CustomerSpace.CustomerWriteOff", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.CustomerSpace.CustomerWriteOff", b =>
                 {
                     b.Navigation("Invoices");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.Role", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.Role", b =>
                 {
                     b.Navigation("Claims");
 
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.IdentitySpace.User", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.IdentitySpace.User", b =>
                 {
                     b.Navigation("Claims");
 
@@ -4059,28 +4059,28 @@ namespace OskitAPI.Migrations
                     b.Navigation("Tokens");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.InventorySpace.Item", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.InventorySpace.Item", b =>
                 {
                     b.Navigation("Adjustments");
 
                     b.Navigation("Inventory");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.InventorySpace.ItemCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.InventorySpace.ItemCategory", b =>
                 {
                     b.Navigation("Items");
 
                     b.Navigation("SubCategories");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseDocument", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseDocument", b =>
                 {
                     b.Navigation("Lines");
 
                     b.Navigation("Notes");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseInvoice", b =>
                 {
                     b.Navigation("Orders");
 
@@ -4089,39 +4089,39 @@ namespace OskitAPI.Migrations
                     b.Navigation("Returns");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseLine", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseLine", b =>
                 {
                     b.Navigation("DocumentLines");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseOrder", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseOrder", b =>
                 {
                     b.Navigation("Invoices");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseReceipt", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseReceipt", b =>
                 {
                     b.Navigation("AllocatedInvoices");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.PurchasesSpace.PurchaseReturn", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.PurchasesSpace.PurchaseReturn", b =>
                 {
                     b.Navigation("Invoices");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesCredit", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesCredit", b =>
                 {
                     b.Navigation("CreditedInvoices");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesDocument", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesDocument", b =>
                 {
                     b.Navigation("Lines");
 
                     b.Navigation("Notes");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesInvoice", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesInvoice", b =>
                 {
                     b.Navigation("Credits");
 
@@ -4130,34 +4130,34 @@ namespace OskitAPI.Migrations
                     b.Navigation("Receipts");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesLine", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesLine", b =>
                 {
                     b.Navigation("DocumentLines");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesOrder", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesOrder", b =>
                 {
                     b.Navigation("Invoices");
 
                     b.Navigation("Quotes");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesPerson", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesPerson", b =>
                 {
                     b.Navigation("Customers");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesQuote", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesQuote", b =>
                 {
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SalesSpace.SalesReceipt", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SalesSpace.SalesReceipt", b =>
                 {
                     b.Navigation("AllocatedInvoices");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.Supplier", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.Supplier", b =>
                 {
                     b.Navigation("AccountsContacts");
 
@@ -4176,12 +4176,12 @@ namespace OskitAPI.Migrations
                     b.Navigation("Returns");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SupplierSpace.SupplierCategory", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SupplierSpace.SupplierCategory", b =>
                 {
                     b.Navigation("Suppliers");
                 });
 
-            modelBuilder.Entity("OskitAPI.Models.Entity.SystemSpace.BusinessSector", b =>
+            modelBuilder.Entity("MacbooksAPI.Models.Entity.SystemSpace.BusinessSector", b =>
                 {
                     b.Navigation("Companies");
                 });

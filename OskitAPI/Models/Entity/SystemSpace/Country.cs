@@ -2,7 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace OskitAPI.Models.Entity.SystemSpace
+namespace MacbooksAPI.Models.Entity.SystemSpace
 {
     public class Country
     {

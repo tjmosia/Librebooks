@@ -1,6 +1,6 @@
-using OskitAPI.Data;
+using MacbooksAPI.Data;
 
-namespace OskitAPI.Core.EFCore
+namespace MacbooksAPI.Core.EFCore
 {
     public abstract class DbStoreBase
         (AppDbContext? context = null, ILogger? logger = null, DbErrorDescriber? dbErrorDescriber = null)

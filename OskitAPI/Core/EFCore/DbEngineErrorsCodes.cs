@@ -1,4 +1,4 @@
-﻿namespace OskitAPI.Core.EFCore
+﻿namespace MacbooksAPI.Core.EFCore
 {
     public struct DbEngineErrorsCodes
     {

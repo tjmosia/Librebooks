@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.GeneralSpace;
+using MacbooksAPI.Models.Entity.GeneralSpace;
 
-namespace OskitAPI.Models.Entity.SalesSpace
+namespace MacbooksAPI.Models.Entity.SalesSpace
 {
     public class SalesDocumentNote
     {

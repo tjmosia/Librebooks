@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.CompanySpace;
-using OskitAPI.Models.Entity.CustomerSpace;
+using MacbooksAPI.Models.Entity.CompanySpace;
+using MacbooksAPI.Models.Entity.CustomerSpace;
 
-namespace OskitAPI.Models.Entity.SalesSpace
+namespace MacbooksAPI.Models.Entity.SalesSpace
 {
     public class SalesOrder
     {

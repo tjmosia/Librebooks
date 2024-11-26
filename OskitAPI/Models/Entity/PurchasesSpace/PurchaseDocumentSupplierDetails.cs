@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.SupplierSpace;
+using MacbooksAPI.Models.Entity.SupplierSpace;
 
-namespace OskitAPI.Models.Entity.PurchasesSpace
+namespace MacbooksAPI.Models.Entity.PurchasesSpace
 {
     public class PurchaseDocumentSupplierDetails
     {

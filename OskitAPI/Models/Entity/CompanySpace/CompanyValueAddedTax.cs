@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.AccountingSpace;
-using OskitAPI.Models.Entity.InventorySpace;
-using OskitAPI.Models.Entity.PurchasesSpace;
-using OskitAPI.Models.Entity.SalesSpace;
-using OskitAPI.Models.Entity.SystemSpace;
+using MacbooksAPI.Models.Entity.AccountingSpace;
+using MacbooksAPI.Models.Entity.InventorySpace;
+using MacbooksAPI.Models.Entity.PurchasesSpace;
+using MacbooksAPI.Models.Entity.SalesSpace;
+using MacbooksAPI.Models.Entity.SystemSpace;
 
-namespace OskitAPI.Models.Entity.CompanySpace
+namespace MacbooksAPI.Models.Entity.CompanySpace
 {
     public class CompanyValueAddedTax
     {

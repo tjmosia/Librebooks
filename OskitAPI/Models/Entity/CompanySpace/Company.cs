@@ -2,17 +2,17 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.AccountingSpace;
-using OskitAPI.Models.Entity.BankingSpace;
-using OskitAPI.Models.Entity.CustomerSpace;
-using OskitAPI.Models.Entity.DocumentSpace;
-using OskitAPI.Models.Entity.InventorySpace;
-using OskitAPI.Models.Entity.PurchasesSpace;
-using OskitAPI.Models.Entity.SalesSpace;
-using OskitAPI.Models.Entity.SupplierSpace;
-using OskitAPI.Models.Entity.SystemSpace;
+using MacbooksAPI.Models.Entity.AccountingSpace;
+using MacbooksAPI.Models.Entity.BankingSpace;
+using MacbooksAPI.Models.Entity.CustomerSpace;
+using MacbooksAPI.Models.Entity.DocumentSpace;
+using MacbooksAPI.Models.Entity.InventorySpace;
+using MacbooksAPI.Models.Entity.PurchasesSpace;
+using MacbooksAPI.Models.Entity.SalesSpace;
+using MacbooksAPI.Models.Entity.SupplierSpace;
+using MacbooksAPI.Models.Entity.SystemSpace;
 
-namespace OskitAPI.Models.Entity.CompanySpace
+namespace MacbooksAPI.Models.Entity.CompanySpace
 {
     public class Company
     {

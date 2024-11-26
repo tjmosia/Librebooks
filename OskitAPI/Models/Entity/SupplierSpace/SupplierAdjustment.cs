@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Models.Entity.AccountingSpace;
-using OskitAPI.Models.Entity.CompanySpace;
+using MacbooksAPI.Models.Entity.AccountingSpace;
+using MacbooksAPI.Models.Entity.CompanySpace;
 
-namespace OskitAPI.Models.Entity.SupplierSpace
+namespace MacbooksAPI.Models.Entity.SupplierSpace
 {
     public class SupplierAdjustment
     {

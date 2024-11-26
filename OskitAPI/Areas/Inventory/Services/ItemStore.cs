@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Core.EFCore;
-using OskitAPI.Data;
-using OskitAPI.Models.Entity.InventorySpace;
+using MacbooksAPI.Core.EFCore;
+using MacbooksAPI.Data;
+using MacbooksAPI.Models.Entity.InventorySpace;
 
-namespace OskitAPI.Areas.Inventory.Services
+namespace MacbooksAPI.Areas.Inventory.Services
 {
     public sealed class ItemStore : DbStoreBase
     {

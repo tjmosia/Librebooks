@@ -1,4 +1,4 @@
-﻿namespace OskitAPI.CoreLib.Util
+﻿namespace MacbooksAPI.CoreLib.Util
 {
     public abstract class ControllerUtils
     {

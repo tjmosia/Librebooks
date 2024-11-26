@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace OskitAPI.Extensions.Identity
+namespace MacbooksAPI.Extensions.Identity
 {
     public class IdentityErrorDescriberExt : IdentityErrorDescriber
     {

@@ -1,4 +1,4 @@
-﻿namespace OskitAPI.Core.Identity
+﻿namespace MacbooksAPI.Core.Identity
 {
     public class AppClaimTypes
     {

@@ -1,4 +1,4 @@
-﻿namespace OskitAPI.Areas.Identity.Data
+﻿namespace MacbooksAPI.Areas.Identity.Data
 {
     public class AuthDTOs
     {

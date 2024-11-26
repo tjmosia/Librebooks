@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.CoreLib.Operations;
-using OskitAPI.Data;
-using OskitAPI.Models.Entity.CompanySpace;
-using OskitAPI.Models.Entity.IdentitySpace;
+using MacbooksAPI.CoreLib.Operations;
+using MacbooksAPI.Data;
+using MacbooksAPI.Models.Entity.CompanySpace;
+using MacbooksAPI.Models.Entity.IdentitySpace;
 
-namespace OskitAPI.Areas.Companies.Services
+namespace MacbooksAPI.Areas.Companies.Services
 {
     public class CompanyStore : IDisposable
     {

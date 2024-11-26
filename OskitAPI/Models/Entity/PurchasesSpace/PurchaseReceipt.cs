@@ -2,13 +2,13 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Core.Types;
-using OskitAPI.Models.Entity.BankingSpace;
-using OskitAPI.Models.Entity.CompanySpace;
-using OskitAPI.Models.Entity.SupplierSpace;
-using OskitAPI.Models.Entity.SystemSpace;
+using MacbooksAPI.Core.Types;
+using MacbooksAPI.Models.Entity.BankingSpace;
+using MacbooksAPI.Models.Entity.CompanySpace;
+using MacbooksAPI.Models.Entity.SupplierSpace;
+using MacbooksAPI.Models.Entity.SystemSpace;
 
-namespace OskitAPI.Models.Entity.PurchasesSpace
+namespace MacbooksAPI.Models.Entity.PurchasesSpace
 {
     public class PurchaseReceipt
     {

@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MacbooksAPI.Areas.Companies.Models;
+using MacbooksAPI.Extensions.Mvc;
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-using OskitAPI.Areas.Companies.Models;
-using OskitAPI.Extensions.Mvc;
-
-namespace OskitAPI.Areas.Companies.Controllers
+namespace MacbooksAPI.Areas.Companies.Controllers
 {
     [Authorize]
     [ApiController]

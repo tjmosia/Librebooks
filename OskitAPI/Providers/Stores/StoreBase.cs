@@ -1,6 +1,6 @@
-﻿using OskitAPI.Data;
+﻿using MacbooksAPI.Data;
 
-namespace OskitAPI.Providers.Stores
+namespace MacbooksAPI.Providers.Stores
 {
     public abstract class StoreBase (AppDbContext context)
     {

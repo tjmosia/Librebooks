@@ -2,11 +2,11 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using OskitAPI.Core.Types;
-using OskitAPI.Models.Entity.CompanySpace;
-using OskitAPI.Models.Entity.PurchasesSpace;
+using MacbooksAPI.Core.Types;
+using MacbooksAPI.Models.Entity.CompanySpace;
+using MacbooksAPI.Models.Entity.PurchasesSpace;
 
-namespace OskitAPI.Models.Entity.SupplierSpace
+namespace MacbooksAPI.Models.Entity.SupplierSpace
 {
     public class Supplier
     {

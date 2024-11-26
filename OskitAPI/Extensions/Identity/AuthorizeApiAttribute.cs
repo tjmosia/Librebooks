@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace OskitAPI.Extensions.Identity
+namespace MacbooksAPI.Extensions.Identity
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
     public class AuthorizeApiAttribute : AuthorizeAttribute, IAuthorizationFilter

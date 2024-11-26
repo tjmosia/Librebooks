@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace OskitAPI.Models.Entity.PurchasesSpace
+namespace MacbooksAPI.Models.Entity.PurchasesSpace
 {
     public class PurchaseOrderInvoice
     {

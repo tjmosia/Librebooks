@@ -1,4 +1,4 @@
-﻿namespace OskitAPI.Areas.Identity.Controllers
+﻿namespace MacbooksAPI.Areas.Identity.Controllers
 {
     internal static class IdentityComponentsEndpointRouteBuilderExtensions
     {

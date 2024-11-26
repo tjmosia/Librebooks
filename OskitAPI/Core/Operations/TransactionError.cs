@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-using OskitAPI.Core.EFCore;
+using MacbooksAPI.Core.EFCore;
 
-namespace OskitAPI.CoreLib.Operations
+namespace MacbooksAPI.CoreLib.Operations
 {
     public class TransactionError : IdentityError
     {
