@@ -1,0 +1,121 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\identity\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:areas\\identity\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\identity\\models\\accountreqmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:areas\\identity\\models\\accountreqmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\identity\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:areas\\identity\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\extensions\\identity\\signinmanagerext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:extensions\\identity\\signinmanagerext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\identity\\models\\authreqmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:areas\\identity\\models\\authreqmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\moskit-crm\\oskitapi\\areas\\identity\\models\\emailverificationtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:areas\\identity\\models\\emailverificationtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SignInManagerExt.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Extensions\\Identity\\SignInManagerExt.cs",
+              "RelativeDocumentMoniker": "Extensions\\Identity\\SignInManagerExt.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Extensions\\Identity\\SignInManagerExt.cs",
+              "RelativeToolTip": "Extensions\\Identity\\SignInManagerExt.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAWwCQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T18:39:45.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Areas\\Identity\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAWwDgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T18:33:43.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthReqModels.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Models\\AuthReqModels.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Models\\AuthReqModels.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Models\\AuthReqModels.cs",
+              "RelativeToolTip": "Areas\\Identity\\Models\\AuthReqModels.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T12:49:38.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmailVerificationTypes.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Models\\EmailVerificationTypes.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Models\\EmailVerificationTypes.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Models\\EmailVerificationTypes.cs",
+              "RelativeToolTip": "Areas\\Identity\\Models\\EmailVerificationTypes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T19:05:13.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountReqModels.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Models\\AccountReqModels.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Models\\AccountReqModels.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Models\\AccountReqModels.cs",
+              "RelativeToolTip": "Areas\\Identity\\Models\\AccountReqModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T12:58:40.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\moskit-crm\\OskitAPI\\Areas\\Identity\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Areas\\Identity\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAANUAAAAAAAAAAAAWwOsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T20:24:39.804Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
