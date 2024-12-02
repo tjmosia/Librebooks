@@ -1,4 +1,5 @@
-﻿using LibreBooks.Core.EFCore;
+﻿
+using LibreBooks.Core.EFCore;
 using LibreBooks.CoreLib.Operations;
 using LibreBooks.Models.Entity.SystemSpace;
 
@@ -9,7 +10,7 @@ namespace LibreBooks.Areas.SystemSetups.Services
     public class SystemManager (SystemStore? systemStore, IDistributedCache? cache, DbErrorDescriber? dbErrorDescriber, ILogger<SystemManager>? logger)
         : ISystemManager
     {
-        private readonly SystemStore? systemStore = systemStore;
+        private readonly SystemStore? store = systemStore;
         private readonly DbErrorDescriber? dbErrorDescriber = dbErrorDescriber;
         private readonly IDistributedCache? cache = cache;
         private readonly ILogger<SystemManager>? logger = logger;
@@ -25,7 +26,7 @@ namespace LibreBooks.Areas.SystemSetups.Services
 
         public async Task<TransactionResult<SystemCompanyNumber>> InitializeAsync (long nextNumber = 1, string? numberPrefix = null, string? numberFormat = null)
         {
-            var setup = await systemStore!.CompanyNumber!.CreateAsync(
+            var setup = await store!.CompanyNumber!.CreateAsync(
                 new SystemCompanyNumber
                 {
                     NumberFormat = numberFormat,
@@ -41,22 +42,22 @@ namespace LibreBooks.Areas.SystemSetups.Services
 
         public async Task<long> GenerateNewCompanyNumberAsync ()
         {
-            var setup = await systemStore!.CompanyNumber!.CurrentAsync();
+            var setup = await store!.CompanyNumber!.CurrentAsync();
 
             if (setup == null)
                 setup = (await InitializeAsync()).Model;
 
-            await systemStore!.CompanyNumber.UpdateAsync(setup!);
+            await store!.CompanyNumber.UpdateAsync(setup!);
             return setup!.NumberNext;
         }
 
         public async Task<TransactionResult> UpdateCompanyNumberParamsAsync (string prefix, string numberFormat)
         {
-            var setup = await systemStore!.CompanyNumber!.CurrentAsync();
+            var setup = await store!.CompanyNumber!.CurrentAsync();
 
             setup!.NumberPrefix = prefix;
             setup.NumberFormat = numberFormat;
-            var result = await systemStore!.CompanyNumber.UpdateAsync(setup!);
+            var result = await store!.CompanyNumber.UpdateAsync(setup!);
             await SyncCompanyNumberParamsToCacheAsync(result.NumberPrefix!, result.NumberFormat!);
 
             return TransactionResult.Success;
@@ -79,7 +80,7 @@ namespace LibreBooks.Areas.SystemSetups.Services
          ******************************************************************/
         public async Task<TransactionResult<Country>> AddCountryAsync (Country country)
         {
-            var result = await systemStore!.Countries!.CreateAsync(country);
+            var result = await store!.Countries!.CreateAsync(country);
 
             if (result != null)
                 return TransactionResult<Country>.Success(result);
@@ -88,19 +89,19 @@ namespace LibreBooks.Areas.SystemSetups.Services
 
         public async Task<TransactionResult> DeleteCountryAsync (params Country[] countries)
         {
-            await systemStore!.Countries!.DeleteAsync(countries);
+            await store!.Countries!.DeleteAsync(countries);
             return TransactionResult.Success;
         }
 
         public async Task<Country?> GetCountryByCodeAsync (string code)
         {
             ArgumentNullException.ThrowIfNull(code, nameof(code));
-            return await systemStore!.Countries!.FindByCodeAsync(code);
+            return await store!.Countries!.FindByCodeAsync(code);
         }
 
         public async Task<TransactionResult<Country>> UpdateCountryAsync (Country country)
         {
-            var result = await systemStore!.Countries!.UpdateAsync(country);
+            var result = await store!.Countries!.UpdateAsync(country);
 
             if (result != null)
                 return TransactionResult<Country>.Success(result);
@@ -113,7 +114,7 @@ namespace LibreBooks.Areas.SystemSetups.Services
          ******************************************************************/
         public async Task<TransactionResult<Currency>> AddCurrencyAsync (Currency currency)
         {
-            var result = await systemStore!.Currencies!.CreateAsync(currency);
+            var result = await store!.Currencies!.CreateAsync(currency);
 
             if (result != null)
                 return TransactionResult<Currency>.Success(result!);
@@ -122,16 +123,16 @@ namespace LibreBooks.Areas.SystemSetups.Services
 
         public async Task<TransactionResult> DeleteCurrencyAsync (params Currency[] currencies)
         {
-            await systemStore!.Currencies!.DeleteAsync(currencies);
+            await store!.Currencies!.DeleteAsync(currencies);
             return TransactionResult.Success;
         }
 
         public async Task<Currency?> GetCurrencyByCodeAsync (string code)
-            => await systemStore!.Currencies!.FindByCodeAsync(code);
+            => await store!.Currencies!.FindByCodeAsync(code);
 
         public async Task<TransactionResult<Currency>> UpdateCurrencyAsync (Currency currency)
         {
-            var result = await systemStore!.Currencies!.UpdateAsync(currency);
+            var result = await store!.Currencies!.UpdateAsync(currency);
 
             if (result != null)
                 return TransactionResult<Currency>.Success(result);
@@ -144,7 +145,7 @@ namespace LibreBooks.Areas.SystemSetups.Services
          ******************************************************************/
         public async Task<TransactionResult<DateFormat>> AddDateFormatAsync (DateFormat dateFormat)
         {
-            var result = await systemStore!.DateFormats!.CreateAsync(dateFormat);
+            var result = await store!.DateFormats!.CreateAsync(dateFormat);
 
             if (result != null)
                 return TransactionResult<DateFormat>.Success(result);
@@ -153,16 +154,16 @@ namespace LibreBooks.Areas.SystemSetups.Services
 
         public async Task<TransactionResult> DeleteDateFormatAsync (params DateFormat[] dateFormats)
         {
-            await systemStore!.DateFormats!.DeleteAsync(dateFormats);
+            await store!.DateFormats!.DeleteAsync(dateFormats);
             return TransactionResult.Success;
         }
 
         public async Task<DateFormat?> GetDateFormatByIdAsync (string id)
-            => await systemStore!.DateFormats!.FindByIdAsync(id);
+            => await store!.DateFormats!.FindByIdAsync(id);
 
         public async Task<TransactionResult<DateFormat>> UpdateDateFormatAsync (DateFormat dateFormat)
         {
-            var result = await systemStore!.DateFormats!.UpdateAsync(dateFormat);
+            var result = await store!.DateFormats!.UpdateAsync(dateFormat);
 
             if (result != null)
                 return TransactionResult<DateFormat>.Success(result);
@@ -175,7 +176,7 @@ namespace LibreBooks.Areas.SystemSetups.Services
          ******************************************************************/
         public async Task<TransactionResult<PaymentMethod>> AddPaymentMethodAsync (PaymentMethod paymentMethod)
         {
-            var result = await systemStore!.PaymentMethods!.CreateAsync(paymentMethod);
+            var result = await store!.PaymentMethods!.CreateAsync(paymentMethod);
 
             if (result != null)
                 return TransactionResult<PaymentMethod>.Success(result);
@@ -184,16 +185,16 @@ namespace LibreBooks.Areas.SystemSetups.Services
 
         public async Task<TransactionResult> DeletePaymentMethodAsync (params PaymentMethod[] paymentMethods)
         {
-            await systemStore!.PaymentMethods!.DeleteAsync(paymentMethods);
+            await store!.PaymentMethods!.DeleteAsync(paymentMethods);
             return TransactionResult.Success;
         }
 
         public Task<PaymentMethod?> GetPaymentMethodByIdAsync (string id)
-            => systemStore!.PaymentMethods!.FindByIdAsync(id);
+            => store!.PaymentMethods!.FindByIdAsync(id);
 
         public async Task<TransactionResult<PaymentMethod>> UpdatePaymentMethodAsync (PaymentMethod paymentMethod)
         {
-            var result = await systemStore!.PaymentMethods!.UpdateAsync(paymentMethod);
+            var result = await store!.PaymentMethods!.UpdateAsync(paymentMethod);
 
             if (result != null)
                 return TransactionResult<PaymentMethod>.Success(result);
@@ -207,7 +208,7 @@ namespace LibreBooks.Areas.SystemSetups.Services
 
         public async Task<TransactionResult<PaymentTerm>> AddPaymentTermAsync (PaymentTerm paymentTerm)
         {
-            var result = await systemStore!.PaymentTerms!.CreateAsync(paymentTerm);
+            var result = await store!.PaymentTerms!.CreateAsync(paymentTerm);
 
             if (result != null)
                 return TransactionResult<PaymentTerm>.Success(result);
@@ -216,16 +217,16 @@ namespace LibreBooks.Areas.SystemSetups.Services
 
         public async Task<TransactionResult> DeletePaymentTermAsync (params PaymentTerm[] paymentTerms)
         {
-            await systemStore!.PaymentTerms!.DeleteAsync(paymentTerms);
+            await store!.PaymentTerms!.DeleteAsync(paymentTerms);
             return TransactionResult.Success;
         }
 
         public async Task<PaymentTerm?> GetPaymentTermByIdAsync (string id)
-            => await systemStore!.PaymentTerms!.FindByIdAsync(id);
+            => await store!.PaymentTerms!.FindByIdAsync(id);
 
         public async Task<TransactionResult<PaymentTerm>> UpdatePaymentTermAsync (PaymentTerm paymentTerm)
         {
-            var result = await systemStore!.PaymentTerms!.UpdateAsync(paymentTerm);
+            var result = await store!.PaymentTerms!.UpdateAsync(paymentTerm);
 
             if (result != null)
                 return TransactionResult<PaymentTerm>.Success(result);
@@ -239,7 +240,7 @@ namespace LibreBooks.Areas.SystemSetups.Services
 
         public async Task<TransactionResult<ShippingMethod>> AddShippingMethodAsync (ShippingMethod shippingMethod)
         {
-            var result = await systemStore!.ShippingMethods!.CreateAsync(shippingMethod);
+            var result = await store!.ShippingMethods!.CreateAsync(shippingMethod);
 
             if (result != null)
                 return TransactionResult<ShippingMethod>.Success(result);
@@ -248,16 +249,16 @@ namespace LibreBooks.Areas.SystemSetups.Services
 
         public async Task<TransactionResult> DeleteShippingMethodAsync (params ShippingMethod[] shippingMethods)
         {
-            await systemStore!.ShippingMethods!.DeleteAsync(shippingMethods);
+            await store!.ShippingMethods!.DeleteAsync(shippingMethods);
             return TransactionResult.Success;
         }
 
         public async Task<ShippingMethod?> GetShippingMethodByIdAsync (string id)
-            => await systemStore!.ShippingMethods!.FindByIdAsync(id);
+            => await store!.ShippingMethods!.FindByIdAsync(id);
 
         public async Task<TransactionResult<ShippingMethod>> UpdateShippingMethodAsync (ShippingMethod shippingMethod)
         {
-            var result = await systemStore!.ShippingMethods!.UpdateAsync(shippingMethod);
+            var result = await store!.ShippingMethods!.UpdateAsync(shippingMethod);
 
             if (result != null)
                 return TransactionResult<ShippingMethod>.Success(result);
@@ -275,17 +276,17 @@ namespace LibreBooks.Areas.SystemSetups.Services
 
         public async Task<TransactionResult> DeleteShippingTermAsync (params ShippingTerm[] shippingTerms)
         {
-            await systemStore!.ShippingTerms!.DeleteAsync(shippingTerms);
+            await store!.ShippingTerms!.DeleteAsync(shippingTerms);
             return TransactionResult.Success;
         }
 
         public async Task<ShippingTerm?> GetShippingTermByIdAsync (string id)
-            => await systemStore!.ShippingTerms!.FindByIdAsync(id);
+            => await store!.ShippingTerms!.FindByIdAsync(id);
 
 
         public async Task<TransactionResult<ShippingTerm>> UpdateShippingTermAsync (ShippingTerm shippingTerm)
         {
-            var result = await systemStore!.ShippingTerms!.UpdateAsync(shippingTerm);
+            var result = await store!.ShippingTerms!.UpdateAsync(shippingTerm);
 
             if (result != null)
                 return TransactionResult<ShippingTerm>.Success(result);
@@ -294,35 +295,65 @@ namespace LibreBooks.Areas.SystemSetups.Services
         }
 
         /******************************************************************
-         * VAT Store Manager Actions
+         * TaxType Store Manager Actions
          ******************************************************************/
-        public async Task<TransactionResult<ValueAddedTax>> AddVATAsync (ValueAddedTax vat)
+        public async Task<TransactionResult<TaxTypes>> AddVATAsync (TaxTypes vat)
         {
-            var result = await systemStore!.ValueAddedTax!.CreateAsync(vat);
+            var result = await store!.ValueAddedTax!.CreateAsync(vat);
 
             if (result != null)
-                return TransactionResult<ValueAddedTax>.Success(result);
+                return TransactionResult<TaxTypes>.Success(result);
 
-            return TransactionResult<ValueAddedTax>.Failure();
+            return TransactionResult<TaxTypes>.Failure();
         }
 
-        public async Task<TransactionResult> DeleteVATAsync (params ValueAddedTax[] vats)
+        public async Task<TransactionResult> DeleteVATAsync (params TaxTypes[] vats)
         {
-            await systemStore!.ValueAddedTax!.DeleteAsync(vats);
+            await store!.ValueAddedTax!.DeleteAsync(vats);
             return TransactionResult.Success;
         }
 
-        public async Task<ValueAddedTax?> GetVATByIdAsync (string id)
-            => await systemStore!.ValueAddedTax!.FindByIdAsync(id);
+        public async Task<TaxTypes?> GetVATByIdAsync (string id)
+            => await store!.ValueAddedTax!.FindByIdAsync(id);
 
-        public async Task<TransactionResult<ValueAddedTax>> UpdateVATAsync (ValueAddedTax vat)
+        public async Task<TransactionResult<TaxTypes>> UpdateVATAsync (TaxTypes vat)
         {
-            var result = await systemStore!.ValueAddedTax!.UpdateAsync(vat);
+            var result = await store!.ValueAddedTax!.UpdateAsync(vat);
 
             if (result != null)
-                return TransactionResult<ValueAddedTax>.Success(result);
+                return TransactionResult<TaxTypes>.Success(result);
 
-            return TransactionResult<ValueAddedTax>.Failure();
+            return TransactionResult<TaxTypes>.Failure();
         }
+
+
+        /******************************************************************
+         * BUSINESS STORE Store Manager Actions
+         ******************************************************************/
+        public async Task<TransactionResult<BusinessSector>> AddBusinessSectorAsync (BusinessSector sector)
+        {
+            var businessSector = await store!.BusinessSector!.CreateAsync(sector);
+            return TransactionResult<BusinessSector>.Success(businessSector);
+
+        }
+
+        public Task<TransactionResult> DeleteBusinessSectorAsync (params BusinessSector[] sectors)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<BusinessSector?> FindBusinessSectorByIdAsync (string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<TransactionResult<BusinessSector>> UpdateBusinessSectorAsync (BusinessSector sector)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IList<BusinessSector>> GetBusinessSectorsAsync ()
+            => await store!.BusinessSector!.FindAllAsync();
+
     }
 }

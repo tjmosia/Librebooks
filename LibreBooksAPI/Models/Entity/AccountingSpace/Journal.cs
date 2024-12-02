@@ -18,7 +18,7 @@ namespace LibreBooks.Models.Entity.AccountingSpace
         public virtual decimal Amount { get; set; }
         public virtual decimal TaxRate { get; set; }
         public virtual bool Posted { get; set; }
-        public virtual string? VATId { get; set; }
+        public virtual string? TaxTypeId { get; set; }
         public virtual string? CompanyId { get; set; }
 
         [ConcurrencyCheck]
@@ -28,7 +28,7 @@ namespace LibreBooks.Models.Entity.AccountingSpace
             => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual Company? Company { get; set; }
-        public virtual CompanyValueAddedTax? VAT { get; set; }
+        public virtual CompanyTaxType? TaxType { get; set; }
         public virtual Account? DebitAccount { get; set; }
         public virtual Account? CreditAccount { get; set; }
         public virtual ICollection<JournalNote>? Notes { get; set; }

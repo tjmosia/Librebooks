@@ -38,8 +38,11 @@ namespace LibreBooks.Extensions.Identity
         /// <param name="parameters"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException" />
-        public (string Token, DateTime ExpiryDateTime) GenerateJsonWebToken (IList<Claim> userClaims)
+        public (string Token, DateTime ExpiryDateTime) GenerateJsonWebToken (params Claim[] userClaims)
         {
+            if (userClaims.Length == 0)
+                throw new ArgumentException("Exception occured at GenerateJsonWebToken. \n Cause: No claims were provided to create the token.", new ArgumentNullException());
+
             var expiryDate = DateTime.Now.AddHours(jwtParams.ExpiryTimeInMinutes);
 
             return (
@@ -59,5 +62,17 @@ namespace LibreBooks.Extensions.Identity
                 ExpiryDateTime: expiryDate
             );
         }
+        public object GenerateUserSessionDTO (User user)
+            => new
+            {
+                user.FirstName,
+                user.LastName,
+                user.Email,
+                user.Birthday,
+                user.Gender,
+                user.Photo,
+                user.PhoneNumber,
+                DateRegistered = DateOnly.FromDateTime(user.DateRegistered)
+            };
     }
 }

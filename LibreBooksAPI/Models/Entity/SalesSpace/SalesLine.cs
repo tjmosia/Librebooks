@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Core.Types;
 using LibreBooks.Models.Entity.CompanySpace;
 using LibreBooks.Models.Entity.InventorySpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.SalesSpace
 {
@@ -19,7 +19,7 @@ namespace LibreBooks.Models.Entity.SalesSpace
         public virtual decimal Price { get; set; }
         public virtual decimal DiscountRate { get; set; }
         public virtual decimal TaxRate { get; set; }
-        public virtual string? VATId { get; set; }
+        public virtual string? TaxTypeId { get; set; }
         public virtual string? Comment { get; set; }
 
         [ConcurrencyCheck]
@@ -30,7 +30,7 @@ namespace LibreBooks.Models.Entity.SalesSpace
 
         public virtual ICollection<SalesDocumentLine>? DocumentLines { get; set; }
         public virtual Item? Item { get; set; }
-        public virtual CompanyValueAddedTax? VAT { get; set; }
+        public virtual CompanyTaxType? TaxType { get; set; }
 
         public SalesLine ()
             => Id = Guid.NewGuid().ToString("N");

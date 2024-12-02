@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-using LibreBooks.Models.Entity.AccountingSpace;
+﻿using LibreBooks.Models.Entity.AccountingSpace;
 using LibreBooks.Models.Entity.BankingSpace;
 using LibreBooks.Models.Entity.CompanySpace;
 using LibreBooks.Models.Entity.CustomerSpace;
@@ -12,6 +10,8 @@ using LibreBooks.Models.Entity.PurchasesSpace;
 using LibreBooks.Models.Entity.SalesSpace;
 using LibreBooks.Models.Entity.SupplierSpace;
 using LibreBooks.Models.Entity.SystemSpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity
 {
@@ -69,19 +69,19 @@ namespace LibreBooks.Models.Entity
              ************************************************************************************************/
             Company.BuildModel(builder);
             CompanyDefaultBankAccount.BuildModel(builder);
-            CompanyDefaultValueAddedTax.BuildModel(builder);
-            CompanyValueAddedTax.BuildModel(builder);
+            CompanySalesTaxType.BuildModel(builder);
+            CompanyTaxType.BuildModel(builder);
             CompanyUser.BuildModel(builder);
+            CompanyMailSettings.BuildModel(builder);
+            CompanyRegionalSettings.BuildModel(builder);
 
             /************************************************************************************************
              * System Space
              ************************************************************************************************/
-            CompanyMailSettings.BuildModel(builder);
-            CompanyRegionalSettings.BuildModel(builder);
             Country.BuildModel(builder);
             Currency.BuildModel(builder);
             DateFormat.BuildModel(builder);
-            ValueAddedTax.BuildModel(builder);
+            TaxTypes.BuildModel(builder);
             ShippingMethod.BuildModel(builder);
             ShippingTerm.BuildModel(builder);
             PaymentMethod.BuildModel(builder);

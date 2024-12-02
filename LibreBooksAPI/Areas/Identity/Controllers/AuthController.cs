@@ -1,4 +1,6 @@
-﻿using LibreBooks.Areas.Identity.Models;
+﻿using System.Security.Claims;
+
+using LibreBooks.Areas.Identity.Models;
 using LibreBooks.Core.Identity;
 using LibreBooks.CoreLib.Operations;
 using LibreBooks.Extensions.Identity;
@@ -103,17 +105,25 @@ namespace LibreBooks.Areas.Identity.Controllers
 
             if (result.Succeeded)
             {
-                var (Token, ExpiryDate) = signInManager.GenerateJsonWebToken(await userManager.GetClaimsAsync(user));
-                SetAuthenticationCookie(HttpContext, Token, ExpiryDate);
                 user.DateLastLoggedIn = DateTime.Now;
                 await userManager.UpdateAsync(user);
+
+                var nameClaim = (await userManager.GetClaimsAsync(user))
+                    .FirstOrDefault(p => p.Type == ClaimTypes.Name);
+
+                var (Token, ExpiryDate) = signInManager.GenerateJsonWebToken(nameClaim!);
+
+                SetAuthenticationCookie(HttpContext, Token, ExpiryDate);
+
                 return Ok(TransactionResult<object>
-                    .Success(GenerateUserSessionDto(user!)));
+                    .Success(signInManager!.GenerateUserSessionDTO(user)));
             }
             else
+            {
                 return Ok(TransactionResult<LoginDto>
                     .Failure(TransactionError.Create(nameof(input.Password),
                         IdentityErrorDescriptions.PasswordMismatch)));
+            }
         }
 
         [HttpPost]
@@ -139,7 +149,7 @@ namespace LibreBooks.Areas.Identity.Controllers
             {
                 birthday = DateTime.Parse(input.Birthday!);
 
-                if (DateTime.Now.Year - birthday.Value.Year >= 15)
+                if (DateTime.Now.Year - birthday.Value.Year <= 15)
                 {
                     ModelState.AddModelError(nameof(input.Birthday), "You need to be atleast 15 years to register.");
                     return BadRequest(ModelState);
@@ -173,17 +183,21 @@ namespace LibreBooks.Areas.Identity.Controllers
             if (createResult.Succeeded)
             {
                 logger!.LogInformation("User created with email {email}", user.Email);
-                user = await userManager.FindByEmailAsync(user.Email) ?? user;
+                user = await userManager.FindByEmailAsync(user.Email);
 
-                var (Token, ExpiryDate) = signInManager!.GenerateJsonWebToken(await userManager.GetClaimsAsync(user));
-
-                user.DateLastLoggedIn = DateTime.Now;
+                user!.DateLastLoggedIn = DateTime.Now;
                 await userManager.UpdateAsync(user);
+                await userManager.AddClaimAsync(user, new Claim(ClaimTypes.Name, user.Email!));
+
+                var nameClaim = (await userManager.GetClaimsAsync(user))
+                    .FirstOrDefault(p => p.Type == ClaimTypes.Name);
+
+                var (Token, ExpiryDate) = signInManager!.GenerateJsonWebToken(nameClaim!);
 
                 SetAuthenticationCookie(HttpContext, Token, ExpiryDate);
 
                 return Ok(TransactionResult<object>
-                    .Success(GenerateUserSessionDto(user!)));
+                    .Success(signInManager!.GenerateUserSessionDTO(user)));
             }
             else
             {
@@ -247,26 +261,17 @@ namespace LibreBooks.Areas.Identity.Controllers
         [Route("confirm-login")]
         public async Task<IActionResult> ConfirmSignInAsync ()
         {
-            var user = await userManager!.FindByEmailAsync(User!.Identity!.Name!);
+            logger!.LogInformation("Session by: {0}", User.Identity!.Name);
 
-            if (user != null)
-                return Ok(TransactionResult<object>.Success(GenerateUserSessionDto(user)));
+            if (!string.IsNullOrEmpty(User!.Identity!.Name))
+            {
+                var user = await userManager!.FindByEmailAsync(User!.Identity!.Name);
+                if (user != null)
+                    return Ok(TransactionResult<object>.Success(signInManager!.GenerateUserSessionDTO(user)));
 
+            }
             return Unauthorized();
         }
-
-        private object GenerateUserSessionDto (User user)
-        => new
-        {
-            user.FirstName,
-            user.LastName,
-            user.Email,
-            user.Birthday,
-            user.Gender,
-            user.Photo,
-            user.PhoneNumber,
-            DateRegistered = DateOnly.FromDateTime(user.DateRegistered)
-        };
 
         private void SetAuthenticationCookie (HttpContext context, string token, DateTimeOffset expires)
         {
@@ -275,9 +280,9 @@ namespace LibreBooks.Areas.Identity.Controllers
                 HttpOnly = true,
                 Expires = expires,
                 IsEssential = true,
-                SameSite = SameSiteMode.None,
+                Secure = false,
+                SameSite = SameSiteMode.Strict,
                 Domain = "localhost",
-                Secure = true,
                 MaxAge = TimeSpan.FromMinutes(jwtParameters.ExpiryTimeInMinutes),
             });
         }

@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../../contexts/AuthContext'
 import { ajax, AjaxError } from 'rxjs/ajax'
 import { StatusCodes } from 'http-status-codes'
-import { ITransactionResult } from '../../../core/Transactions'
+import { ITransactionResult } from '../../../core/extensions/TransactionTypes'
 import { IAppUser } from '../../../types/identity'
-import useSessionData from '../../../extensions/SessionData'
+import useSessionData from '../../../core/extensions/SessionData'
 import { AuthSessionVars, AuthVerificationReasons } from './AuthStrings'
 import { from } from 'rxjs'
 import { ISendVerificationCodeResponse } from './AuthTypes'
@@ -44,6 +44,10 @@ interface IBadRequestErrors {
 }
 
 export default function LoginPage() {
+
+	/*********************************************************************************************************************************
+	 * SERVICES
+	 *********************************************************************************************************************************/
 	usePageTitle("Login")
 	const navigate = useNavigate()
 	const styles = LoginStyles()
@@ -61,6 +65,10 @@ export default function LoginPage() {
 	const identityManager = useIdentityManager()
 
 
+
+	/*********************************************************************************************************************************
+	 * METHODS
+	 *********************************************************************************************************************************/
 	function TogglePasswordHandler() {
 		setShowPassword(!showPassword)
 	}
@@ -73,7 +81,7 @@ export default function LoginPage() {
 		})
 	}
 
-	function handleFormSubmitEvent(event: FormEvent) {
+	function onSubmit(event: FormEvent) {
 		event.preventDefault()
 		setLoading!(true)
 
@@ -102,70 +110,65 @@ export default function LoginPage() {
 			}
 		}).subscribe({
 			next: (resp) => {
-				if (resp.status === StatusCodes.OK) {
-					const result = resp.response
-					if (result.succeeded) {
-						identityManager.signIn(result.model!)
-						session.remove(AuthSessionVars.User)
-						session.remove(AuthSessionVars.Username)
-						setLoading!(false)
-						navigate(session.get<string>(AuthSessionVars.ReturnUrl, false) ?? '/')
-					} else {
-						console.log(result.errors)
-						from(result.errors).subscribe({
-							next: (error) => {
-								if (error.code == "Email") {
-									setLoading!(false)
-									navigate(AppRoutes.Auth.Username)
-								}
-								if (error.code == "Password") {
-									setModel(model => ({
-										password: {
-											...model.password,
-											error: error.description ?? "Incorrect password."
-										}
-									}))
-								}
+				const result = resp.response
+				if (result.succeeded) {
+					identityManager.signIn(result.model!)
+					session.remove(AuthSessionVars.User)
+					session.remove(AuthSessionVars.Username)
+					setLoading!(false)
+					navigate(session.get<string>(AuthSessionVars.ReturnUrl, false) ?? AppRoutes.Home)
+				} else {
+					console.log(result.errors)
+					from(result.errors).subscribe({
+						next: (error) => {
+							if (error.code == "Email") {
 								setLoading!(false)
+								navigate(AppRoutes.Auth.Username)
 							}
-						})
-					}
+							if (error.code == "Password") {
+								setModel(model => ({
+									password: {
+										...model.password,
+										error: error.description ?? "Incorrect password."
+									}
+								}))
+							}
+							setLoading!(false)
+						}
+					})
 				}
 			},
 			error: (error: AjaxError) => {
 				if (error.status === StatusCodes.BAD_REQUEST) {
-					if (error.status === StatusCodes.BAD_REQUEST) {
-						const data = error.response
-						const errors = data.errors as IBadRequestErrors
-						const updatedModel = { ...model }
-						const errorKeys = Object.keys(errors)
+					const data = error.response
+					const errors = data.errors as IBadRequestErrors
+					const updatedModel = { ...model }
+					const errorKeys = Object.keys(errors)
 
-						if (errorKeys.includes("Code") || errorKeys.includes("CodeHashString")) {
-							setLoading!(false)
-							navigate(AppRoutes.Auth.Username)
-						}
-
-						from(errorKeys)
-							.subscribe(key => {
-								if (key === "Email") {
-									setLoading!(false)
-									setAlert!({
-										intent: intent.error,
-										message: errors[key]![0]
-									})
-									navigate(AppRoutes.Auth.Username)
-								}
-
-								const _key = key[0].toLocaleLowerCase() + key.slice(1)
-								try {
-									updatedModel[_key].error = errors[key]![0]
-								} catch {
-									console.log(`Exception Occured. Failed to retrieve object with key ${_key}`)
-								}
-							})
-						setModel(updatedModel)
+					if (errorKeys.includes("Code") || errorKeys.includes("CodeHashString")) {
+						setLoading!(false)
+						navigate(AppRoutes.Auth.Username)
 					}
-					console.log(error.response.errors)
+
+					from(errorKeys)
+						.subscribe(key => {
+							if (key === "Email") {
+								setLoading!(false)
+								setAlert!({
+									intent: intent.error,
+									message: errors[key]![0]
+								})
+								navigate(AppRoutes.Auth.Username)
+							}
+
+							const _key = key[0].toLocaleLowerCase() + key.slice(1)
+							try {
+								updatedModel[_key].error = errors[key]![0]
+							} catch {
+								console.log(`Exception Occured. Failed to retrieve object with key ${_key}`)
+							}
+						})
+					setModel(updatedModel)
 				}
 				setLoading!(false)
 			}
@@ -185,16 +188,6 @@ export default function LoginPage() {
 			</Tooltip>
 		)
 	}
-
-	useEffect(() => {
-		if (!user || !username) {
-			navigate(AppRoutes.Auth.Username)
-			return
-		}
-
-		setFormTitle!(`Welcome Back, ${user.firstName}`)
-		setFormMessage!("")
-	}, [setFormTitle, setFormMessage, user, navigate, username])
 
 	function sendPasswordResetVerificationCode() {
 		ajax<ITransactionResult<ISendVerificationCodeResponse>>({
@@ -220,11 +213,24 @@ export default function LoginPage() {
 			},
 			error: (error: AjaxError) => {
 				console.log(error)
-				setError("Unable to sned verification code.")
+				setError("Unable to send verification code.")
 				setLoading!(false)
 			}
 		})
 	}
+
+	/*********************************************************************************************************************************
+	 * EFFECTS
+	 *********************************************************************************************************************************/
+	useEffect(() => {
+		if (!user || !username) {
+			navigate(AppRoutes.Auth.Username)
+			return
+		}
+
+		setFormTitle!(`Welcome Back, ${user.firstName}`)
+		setFormMessage!("")
+	}, [setFormTitle, setFormMessage, user, navigate, username])
 
 	useEffect(() => {
 		if (error)
@@ -233,7 +239,7 @@ export default function LoginPage() {
 	}, [error])
 
 	return (<>
-		<form onSubmit={handleFormSubmitEvent}
+		<form onSubmit={onSubmit}
 			method="post"
 			className="form">
 			{error ?

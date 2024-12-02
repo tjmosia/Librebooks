@@ -11,11 +11,20 @@ export default {
     },
     Account: {
         Profile: "/account/profile",
-        UpdatePersonInfo: "/account/personal-info/update",
+        UpdatePersonInfo: "/account/personal-info/edit",
         UpdateContactInfo: "/account/change-email",
         ChangePassword: "/account/change-password",
         ResetPassword: "/account/reset-password",
         Logout: "/account/logout",
         SendVerificationCode: "/account/send-verification-code"
+    },
+    System: {
+        BusinessSector: {
+            GetAll: "/sectors",
+            Find: "/sectors/find",
+            Create: "/sectors/create",
+            Delete: "/sectors/delete",
+            Update: "/sectors/edit"
+        }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Models.Entity.AccountingSpace;
 using LibreBooks.Models.Entity.BankingSpace;
 using LibreBooks.Models.Entity.CustomerSpace;
@@ -12,6 +10,8 @@ using LibreBooks.Models.Entity.SalesSpace;
 using LibreBooks.Models.Entity.SupplierSpace;
 using LibreBooks.Models.Entity.SystemSpace;
 
+using Microsoft.EntityFrameworkCore;
+
 namespace LibreBooks.Models.Entity.CompanySpace
 {
     public class Company
@@ -21,10 +21,10 @@ namespace LibreBooks.Models.Entity.CompanySpace
         public virtual string? LegalName { get; set; }
         public virtual string? TradingName { get; set; }
         public virtual string? RegNumber { get; set; }
-        public virtual string? ValueAddedTaxNumber { get; set; }
-        public virtual string? BillingAddress { get; set; }
+        public virtual string? VATNumber { get; set; }
+        public virtual string? PostalAddress { get; set; }
         public virtual string? DeliveryAddress { get; set; }
-        public virtual string? Telephone { get; set; }
+        public virtual string? TelephoneNumber { get; set; }
         public virtual string? EmailAddress { get; set; }
         public virtual string? FaxNumber { get; set; }
         public virtual string? Logo { get; set; }
@@ -42,8 +42,8 @@ namespace LibreBooks.Models.Entity.CompanySpace
         public virtual ICollection<DocumentSetup>? DocumentSetups { get; set; }
         public virtual CompanyRegionalSettings? RegionalSettings { get; set; }
         public virtual CompanyMailSettings? MailSettings { get; set; }
-        public virtual ICollection<CompanyValueAddedTax>? ValueAddedTaxes { get; set; }
-        public virtual CompanyDefaultValueAddedTax? DefaultVAT { get; set; }
+        public virtual ICollection<CompanyTaxType>? TaxTypes { get; set; }
+        public virtual CompanySalesTaxType? SalesTaxType { get; set; }
         public virtual ICollection<SalesPerson>? SalesPeople { get; set; }
         public virtual ICollection<PurchaseBuyer>? Buyers { get; set; }
 
@@ -95,12 +95,6 @@ namespace LibreBooks.Models.Entity.CompanySpace
                 options.HasOne(p => p.DefaultBankAccount)
                     .WithOne(p => p.Company)
                     .HasForeignKey<CompanyDefaultBankAccount>(p => p.CompanyId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-
-                options.HasMany(p => p.ValueAddedTaxes)
-                    .WithOne(p => p.Company)
-                    .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 
@@ -211,6 +205,18 @@ namespace LibreBooks.Models.Entity.CompanySpace
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasMany(p => p.TaxTypes)
+                    .WithOne(p => p.Company)
+                    .HasForeignKey(p => p.CompanyId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                options.HasOne(p => p.SalesTaxType)
+                    .WithOne(p => p.Company)
+                    .HasForeignKey<CompanySalesTaxType>(p => p.CompanyId)
+                    .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
             });
     }
 }

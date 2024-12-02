@@ -2,6 +2,8 @@
 using LibreBooks.Core.EFCore;
 using LibreBooks.Data;
 
+using LibreBooksAPI.Areas.SystemSetups.Services.SubStores;
+
 namespace LibreBooks.Areas.SystemSetups.Services
 {
     public class SystemStore (
@@ -15,7 +17,8 @@ namespace LibreBooks.Areas.SystemSetups.Services
         SystemCompanyNumberStore? companyNumber,
         PaymentMethodStore? paymentMethods,
         PaymentTermStore? paymentTerms,
-        ValueAddedTaxStore? valueAddedTax)
+        TaxTypeStore? valueAddedTax,
+        BusinessSectorStore? businessSector)
         : DbStoreBase(context, logger)
     {
         public readonly ShippingTermStore? ShippingTerms = shippingTerms;
@@ -26,6 +29,7 @@ namespace LibreBooks.Areas.SystemSetups.Services
         public readonly SystemCompanyNumberStore? CompanyNumber = companyNumber;
         public readonly PaymentMethodStore? PaymentMethods = paymentMethods;
         public readonly PaymentTermStore? PaymentTerms = paymentTerms;
-        public readonly ValueAddedTaxStore? ValueAddedTax = valueAddedTax;
+        public readonly TaxTypeStore? ValueAddedTax = valueAddedTax;
+        public readonly BusinessSectorStore? BusinessSector = businessSector;
     }
 }

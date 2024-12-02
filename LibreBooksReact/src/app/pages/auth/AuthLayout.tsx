@@ -4,13 +4,13 @@ import { Depths } from '@fluentui/react'
 import { Body1, Body1Strong, Button, makeStyles, MessageBar, MessageBarBody, ProgressBar, Subtitle1, ToastIntent, tokens, Tooltip } from '@fluentui/react-components'
 import { AuthContext, IAuthContext } from '../../../contexts/AuthContext'
 import AppRoutes from '../../../strings/AppRoutes'
-import useSessionData from '../../../extensions/SessionData'
+import useSessionData from '../../../core/extensions/SessionData'
 import Borders from '../../../strings/ui/Borders'
 import { BsArrowLeft } from 'react-icons/bs'
 import { AuthSessionVars } from './AuthStrings'
 import { IUserLoginDto } from '../account/LoginDto.type'
 import useIdentityManager from '../../../hooks/IdentityManager'
-import useTempData from '../../../extensions/TempData'
+import useTempData from '../../../core/extensions/TempData'
 import { Intent } from '../../../strings/ui/Intent'
 
 export interface IAuthModelAlert {
@@ -24,39 +24,26 @@ export interface IAuthToast {
 }
 
 export default function AuthLayout() {
+	/*********************************************************************************************************************************
+	 * SERVICES
+	 *********************************************************************************************************************************/
 	const identityManager = useIdentityManager()
 	const search = useSearchParams()
 	const session = useSessionData()
 	const location = useLocation()
 	const navigate = useNavigate()
 	const tempData = useTempData()
+	const styles = MakeAuthLayoutStyles()
+
+	/*********************************************************************************************************************************
+	 * STATE
+	 *********************************************************************************************************************************/
 	const [loading, setLoading] = useState(false)
 	const [formTitle, setFormTitle] = useState("Login or Register")
 	const [formMessage, setFormMessage] = useState("")
 	const [user, setUser] = useState<IUserLoginDto | undefined>(session.get<IUserLoginDto>(AuthSessionVars.User) ?? undefined)
 	const [username, setUsername] = useState<string>(session.get(AuthSessionVars.Username) ?? "")
 	const [alert, setAlert] = useState<IAuthModelAlert | undefined>(tempData.get<IAuthModelAlert>('alert') ?? undefined)
-	const styles = MakeAuthLayoutStyles()
-
-	const renderChangeUsernameBarElement = useCallback(() => {
-		if (location.pathname != AppRoutes.Auth.Username)
-			return (
-				<>
-					<div className={styles.changeUsernameBar}>
-						<Tooltip
-							content={`Change username`}
-							relationship="label">
-							<Button appearance='primary'
-								icon={<BsArrowLeft size={20} />}
-								onClick={() => navigate(AppRoutes.Auth.Username)}></Button>
-						</Tooltip>
-						<div className={styles.usernameLabel}>
-							<Body1Strong>{username}</Body1Strong>
-						</div>
-					</div>
-				</>
-			)
-	}, [location.pathname, username, styles, navigate])
 
 	const context: IAuthContext = {
 		loading,
@@ -82,6 +69,52 @@ export default function AuthLayout() {
 		},
 	}
 
+	/*********************************************************************************************************************************
+	 * METHODS
+	 *********************************************************************************************************************************/
+	const renderChangeUsernameBarElement = useCallback(() => {
+		if (location.pathname != AppRoutes.Auth.Username)
+			return (
+				<>
+					<div className={styles.changeUsernameBar}>
+						<Tooltip
+							content={`Change username`}
+							relationship="label">
+							<Button appearance='primary'
+								icon={<BsArrowLeft size={20} />}
+								onClick={() => navigate(AppRoutes.Auth.Username)}></Button>
+						</Tooltip>
+						<div className={styles.usernameLabel}>
+							<Body1Strong>{username}</Body1Strong>
+						</div>
+					</div>
+				</>
+			)
+	}, [location.pathname, username, styles, navigate])
+
+	/*********************************************************************************************************************************
+	 * EFFECTS
+	 *********************************************************************************************************************************/
+	useEffect(() => {
+		if (location.pathname === AppRoutes.Auth.Username) {
+			session.remove(AuthSessionVars.User)
+			session.remove(AuthSessionVars.VerificationReason)
+			session.remove(AuthSessionVars.VerificationCode)
+			session.remove(AuthSessionVars.VerificationHashString)
+		}
+	}, [session, location, search])
+
+	useEffect(() => {
+		if (alert)
+			setTimeout(() => setAlert(undefined), 5000)
+	}, [alert])
+
+	useEffect(() => {
+		if (location.pathname === AppRoutes.Auth.Username && identityManager.getUser())
+			identityManager.signOut()
+
+	}, [location, identityManager])
+
 	useEffect(() => {
 		if (location.pathname === AppRoutes.Auth.Username)
 			return
@@ -102,25 +135,10 @@ export default function AuthLayout() {
 
 	}, [username, location, session, user])
 
-	useEffect(() => {
-		if (location.pathname === AppRoutes.Auth.Username) {
-			session.remove(AuthSessionVars.User)
-			session.remove(AuthSessionVars.VerificationReason)
-			session.remove(AuthSessionVars.VerificationCode)
-			session.remove(AuthSessionVars.VerificationHashString)
-		}
-	}, [session, location, search])
 
-	useEffect(() => {
-		if (alert)
-			setTimeout(() => setAlert(undefined), 5000)
-	}, [alert])
-
-	useEffect(() => {
-		if (location.pathname === AppRoutes.Auth.Username && identityManager.getUser())
-			identityManager.signOut()
-	}, [location, identityManager])
-
+	/*********************************************************************************************************************************
+	 * RENDER
+	 *********************************************************************************************************************************/
 	return <>
 		<AuthContext.Provider value={context}>
 			<div className={"auth-root " + styles.wrapper}>

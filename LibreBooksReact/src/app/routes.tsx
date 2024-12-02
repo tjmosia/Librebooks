@@ -6,12 +6,11 @@ import UsernamePage from './pages/auth/UsernamePage'
 import RegisterPage from './pages/auth/RegisterPage'
 import VerifyEmailPage from './pages/auth/VerifyEmailPage'
 import ResetPasswordPage from './pages/account/ResetPasswordFragment'
-import { CreateCompanyPage } from './pages/companies/wizard/CreateCompanyPage'
+import { CreateCompanyPage } from './pages/companies/CreateCompanyPage'
 import MainLayout from './layouts/MainLayout'
-//import PersonalInfoPage from './pages/account/PersonalInfoFragment'
 import AccountPage from './pages/account/AccountPage'
-//import ChangePasswordPage from './pages/account/ChangePasswordFragment'
-//import ContactInfoPage from './pages/account/ContactInfoFragment'
+import { InventoryRoutes } from './pages/inventory'
+import CustomersRoutes from './pages/customers/CustomersRoutes'
 
 const routes: RouteObject[] = [
 	{
@@ -19,17 +18,19 @@ const routes: RouteObject[] = [
 		element: <MainLayout />,
 		children: [
 			{
-				path: '/',
+				path: '',
 				element: <HomePage />
 			},
 			{
-				path: '/companies/create',
+				path: 'companies/create',
 				element: <CreateCompanyPage />
 			},
 			{
-				path: "/account/*",
+				path: "account/*",
 				element: <AccountPage />
-			}
+			},
+			...InventoryRoutes,
+			...CustomersRoutes
 		]
 	},
 	{

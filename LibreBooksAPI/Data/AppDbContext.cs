@@ -31,9 +31,9 @@ namespace LibreBooks.Data
          ************************************************************************************************/
         public DbSet<Company>? Company { get; set; }
         public DbSet<CompanyUser>? CompanyUser { get; set; }
-        public DbSet<CompanyDefaultValueAddedTax>? CompanyDefaultVAT { get; set; }
+        public DbSet<CompanySalesTaxType>? CompanySalesTaxType { get; set; }
         public DbSet<CompanyDefaultBankAccount>? CompanyDefaultBankAccount { get; set; }
-        public DbSet<CompanyValueAddedTax>? CompanyValueAddedTax { get; set; }
+        public DbSet<CompanyTaxType>? CompanyTaxType { get; set; }
         public DbSet<CompanyMailSettings>? CompanyMailSettings { get; set; }
 
         /************************************************************************************************
@@ -103,7 +103,7 @@ namespace LibreBooks.Data
         public DbSet<Country>? Country { get; set; }
         public DbSet<Currency>? Currency { get; set; }
         public DbSet<DateFormat>? DateFormat { get; set; }
-        public DbSet<ValueAddedTax>? ValueAddedTax { get; set; }
+        public DbSet<TaxTypes>? TaxType { get; set; }
         public DbSet<PaymentMethod>? PaymentMethod { get; set; }
         public DbSet<PaymentTerm>? PaymentTerm { get; set; }
         public DbSet<SystemCompanyNumber>? SystemCompanyNumber { get; set; }

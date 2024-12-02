@@ -20,7 +20,7 @@ namespace LibreBooks.Areas.Companies.Controllers
 
         [HttpPost]
         [Route("/create")]
-        public IActionResult CreateAsync ([FromBody] CompanyInputModel input)
+        public IActionResult CreateAsync ([FromBody] CompaniesReqModels input)
         {
             return Ok();
         }

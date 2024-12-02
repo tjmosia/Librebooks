@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Core.Types;
 using LibreBooks.Models.Entity.CompanySpace;
 using LibreBooks.Models.Entity.PurchasesSpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.SupplierSpace
 {
@@ -25,7 +25,7 @@ namespace LibreBooks.Models.Entity.SupplierSpace
         public virtual int PaymentTermId { get; set; }
         public virtual string? CompanyId { get; set; }
         public virtual string? CategoryId { get; set; }
-        public virtual string? VATId { get; set; }
+        public virtual string? TaxTypeId { get; set; }
 
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
@@ -34,7 +34,7 @@ namespace LibreBooks.Models.Entity.SupplierSpace
             => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual SupplierCategory? Category { get; set; }
-        public virtual CompanyValueAddedTax? VAT { get; set; }
+        public virtual CompanyTaxType? TaxType { get; set; }
         public virtual Company? Company { get; set; }
 
         public virtual ICollection<PurchaseOrder>? Orders { get; set; }
@@ -67,9 +67,9 @@ namespace LibreBooks.Models.Entity.SupplierSpace
                 options.Property(p => p.Balance)
                     .HasColumnType(ColumnTypes.Percentage);
 
-                options.HasOne(p => p.VAT)
+                options.HasOne(p => p.TaxType)
                     .WithOne()
-                    .HasForeignKey<Supplier>(p => p.VATId)
+                    .HasForeignKey<Supplier>(p => p.TaxTypeId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 

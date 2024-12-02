@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import { IFormField, useFormUtils } from "../../../core/forms";
-import { useAppSettings, useHttp, usePageTitle, useValidators } from "../../../hooks";
+import { useAppSettings, useHttp, usePageTitle } from "../../../hooks";
 import CreatePasswordComponent from "./components/CreatePasswordComponent";
 import { Button, Divider, Field, Input, makeStyles, Spinner, Toast, ToastTitle, tokens, Tooltip } from "@fluentui/react-components";
 import { TbLock, TbLockOpen2, TbX } from "react-icons/tb";
@@ -10,7 +10,8 @@ import { StatusCodes } from "http-status-codes";
 import { useAppContext } from "../../../contexts/AppContext";
 import { intent } from "../../../strings/ui";
 import { from } from "rxjs";
-import { ITransactionResult } from "../../../core/Transactions";
+import { ITransactionResult } from "../../../core/extensions/TransactionTypes";
+import { useValidators } from "../../../core/extensions";
 
 interface IChangePasswordModel {
     [key: string]: IFormField<string>
@@ -34,16 +35,27 @@ const initialChangePasswordModel: IChangePasswordModel = {
 
 export default function ChangePasswordFragment() {
     usePageTitle("Change Password")
+
+    /************************************************************************************************************************************************
+     * INJECTABLES
+     ***********************************************************************************************************************************************/
     const styles = MakeChangePasswordFragmentStyles()
     const { passwordValidator } = useValidators()
     const { fieldErrors } = useFormUtils()
     const { createApiPath } = useAppSettings()
     const { toaster } = useAppContext()
     const { headers } = useHttp()
+
+    /************************************************************************************************************************************************
+     * STATE
+     ***********************************************************************************************************************************************/
     const [model, setModel] = useState<IChangePasswordModel>(initialChangePasswordModel)
     const [showPassword, setShowPassword] = useState(false)
     const [loading, setLoading] = useState(false)
 
+    /************************************************************************************************************************************************
+     * METHODS
+     ***********************************************************************************************************************************************/
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
         const { value, name } = event.target
 
@@ -201,6 +213,12 @@ export default function ChangePasswordFragment() {
     function clearModelState() {
         setModel(initialChangePasswordModel)
     }
+
+
+
+    /************************************************************************************************************************************************
+     * EFFECTS
+     ***********************************************************************************************************************************************/
 
     return (
         <form

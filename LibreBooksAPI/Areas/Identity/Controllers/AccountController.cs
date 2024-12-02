@@ -91,7 +91,7 @@ namespace LibreBooks.Areas.Identity.Controllers
         }
 
         [HttpPost]
-        [Route("personal-info/update")]
+        [Route("personal-info/edit")]
         public async Task<IActionResult> UpdateUserPersonalInfoAsync ([FromBody] UpdateUserPersonalInfoModel input)
         {
             if (!ModelState.IsValid)
@@ -193,16 +193,20 @@ namespace LibreBooks.Areas.Identity.Controllers
                 user.NormalizedEmail = userManager.NormalizeEmail(user.UserName);
                 user.NormalizedUserName = userManager.NormalizeName(user.UserName);
                 var result = await userManager.UpdateAsync(user);
+
                 if (result.Succeeded)
                 {
                     await userManager.SetUserNameAsync(user, model.Email);
                     await userManager.UpdateNormalizedUserNameAsync(user);
                     var claims = await userManager.GetClaimsAsync(user);
+
                     await userManager.ReplaceClaimAsync(user,
                         claims.Where(p => p.Type == ClaimTypes.Name).First(),
                         new Claim(ClaimTypes.Name, user.Email));
-                    (string Token, DateTime ExpiryDateTime) = signInManager!.GenerateJsonWebToken(await userManager.GetClaimsAsync(user));
-                    logger!.LogInformation("New Token Generated: {token}", Token);
+
+                    var newClaims = await userManager.GetClaimsAsync(user);
+
+                    (string Token, DateTime ExpiryDateTime) = signInManager!.GenerateJsonWebToken(newClaims.Where(p => p.Type == ClaimTypes.Name).First());
                     RemoveSessionCookie(HttpContext);
                     SetAuthenticationCookie(HttpContext, Token, ExpiryDateTime);
                     return Ok(TransactionResult.Success);
@@ -284,7 +288,7 @@ namespace LibreBooks.Areas.Identity.Controllers
                 HttpOnly = true,
                 Expires = expires,
                 IsEssential = true,
-                SameSite = SameSiteMode.None,
+                SameSite = SameSiteMode.Strict,
                 Domain = "localhost",
                 Secure = true, // Change to True in Production
                 MaxAge = TimeSpan.FromMinutes(jwtParameters.ExpiryTimeInMinutes)

@@ -5,5 +5,6 @@ export default {
     medium: "768px",
     large: "992px",
     xLarge: "1200px",
-    XxLarge: "1400px"
+    XxLarge: "1400px",
+    XxxLarge: "1600px"
 }

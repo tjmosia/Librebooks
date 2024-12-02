@@ -5,33 +5,33 @@ import { useAuthContext } from '../../../contexts/AuthContext'
 import { DatePicker } from '@fluentui/react-datepicker-compat'
 import { BsCalendarPlus } from 'react-icons/bs'
 import { IFormField } from '../../../core/forms'
-import { useFormUtils } from '../../../core/forms/forms.hook'
-import useSessionData from '../../../extensions/SessionData'
+import { useFormUtils } from '../../../core/forms/FormsHook'
+import useSessionData from '../../../core/extensions/SessionData'
 import { AuthSessionVars } from './AuthStrings'
 import { useNavigate } from 'react-router'
 
 import AppRoutes from '../../../strings/AppRoutes'
 import { IAppUser } from '../../../types/identity'
-import { ITransactionResult } from '../../../core/Transactions'
+import { ITransactionResult } from '../../../core/extensions/TransactionTypes'
 import { StatusCodes } from 'http-status-codes'
 import { ajax, AjaxError, AjaxResponse } from 'rxjs/ajax'
 import { from } from 'rxjs'
-import { useAppSettings, useHttp, usePageTitle, useValidators } from '../../../hooks'
-import useIdentityManager from '../../../hooks/IdentityManager'
+import { useAppSettings, useHttp, usePageTitle } from '../../../hooks'
 import { intent } from '../../../strings/ui'
 import { ApiRoutes } from '../../../strings'
+import { useValidators } from '../../../core/extensions'
 
-interface IBadRequestErrors {
-	[key: string]: string[] | undefined
-	Birthday?: string[]
-	Code?: string[]
-	CodeHashString?: string[]
-	Email?: string[]
-	FirstName?: string[]
-	Gender?: string[]
-	LastName?: string[]
-	Password?: string[]
-}
+// interface IBadRequestErrors {
+// 	[key: string]: string[] | undefined
+// 	Birthday?: string[]
+// 	Code?: string[]
+// 	CodeHashString?: string[]
+// 	Email?: string[]
+// 	FirstName?: string[]
+// 	Gender?: string[]
+// 	LastName?: string[]
+// 	Password?: string[]
+// }
 
 interface IRegisterPageModel {
 	[key: string]: IFormField<string | undefined> | IFormField<Date | undefined | null>
@@ -44,6 +44,9 @@ interface IRegisterPageModel {
 }
 
 export default function RegisterPage() {
+	/*********************************************************************************************************************************
+	 * SERVICES
+	 *********************************************************************************************************************************/
 	usePageTitle("Register")
 	const styles = MakeRegisterPageStyles()
 	const navigate = useNavigate()
@@ -53,7 +56,6 @@ export default function RegisterPage() {
 	const { createApiPath } = useAppSettings()
 	const session = useSessionData()
 	const { headers } = useHttp()
-	const identityManager = useIdentityManager()
 
 	const verification = useMemo(() => ({
 		code: session.get<string>(AuthSessionVars.VerificationCode),
@@ -63,8 +65,14 @@ export default function RegisterPage() {
 		}
 	}), [session])
 
+	/*********************************************************************************************************************************
+	 * STATE
+	 *********************************************************************************************************************************/
 	const [model, setModel] = useState<IRegisterPageModel>(emptyModel)
 
+	/*********************************************************************************************************************************
+	 * METHODS
+	 *********************************************************************************************************************************/
 	function handleFormSubmitEvent(event: FormEvent) {
 		event.preventDefault()
 		setLoading!(true)
@@ -77,6 +85,7 @@ export default function RegisterPage() {
 		ajax<ITransactionResult<IAppUser>>({
 			url: createApiPath(ApiRoutes.Auth.Register),
 			method: "POST",
+			withCredentials: true,
 			body: JSON.stringify({
 				email: username,
 				code: verification.code,
@@ -92,24 +101,21 @@ export default function RegisterPage() {
 			}
 		}).subscribe({
 			next: (response: AjaxResponse<ITransactionResult<IAppUser>>) => {
-				console.log(response)
-				if (response.status === StatusCodes.OK) {
-					const data = response.response
-					if (data.succeeded) {
-						setLoading!(false)
-						session.remove(AuthSessionVars.VerificationCode)
-						session.remove(AuthSessionVars.VerificationReason)
-						session.remove(AuthSessionVars.VerificationHashString)
-						identityManager.signIn(data.model!)
-						navigate(session.get<string>(AuthSessionVars.ReturnUrl) ?? '/')
-					}
+				const data = response.response
+				if (data.succeeded) {
+					setLoading!(false)
+					session.remove(AuthSessionVars.VerificationCode)
+					session.remove(AuthSessionVars.VerificationReason)
+					session.remove(AuthSessionVars.VerificationHashString)
+					//identityManager.confirmSignIn()
+					const returnUrl = session.get<string>(AuthSessionVars.ReturnUrl) ?? AppRoutes.Home;
+					navigate(returnUrl)
 				}
 				setLoading!(false)
 			},
 			error: (error: AjaxError) => {
 				if (error.status === StatusCodes.BAD_REQUEST) {
-					const data = error.response
-					const errors = data.errors as IBadRequestErrors
+					const errors = error.response.errors ?? error.response
 					const updatedModel = { ...model }
 					const errorKeys = Object.keys(errors)
 
@@ -120,6 +126,7 @@ export default function RegisterPage() {
 
 					from(errorKeys)
 						.subscribe(key => {
+							console.log(key)
 							if (!Object.keys(updatedModel).includes(key))
 								console.log("incorrect key")
 							const _key = key[0].toLocaleLowerCase() + key.slice(1)
@@ -130,19 +137,19 @@ export default function RegisterPage() {
 							}
 						})
 					setModel(updatedModel)
+					setLoading!(false)
+				} else {
+					setAlert!({
+						intent: intent.error,
+						message: "Something went wrong. Please try again."
+					})
+					setLoading!(false)
 				}
-
-				setAlert!({
-					intent: intent.error,
-					message: "Unable to register user. Please try again."
-				})
-
-				setLoading!(false)
 			}
 		})
 	}
 
-	function inputChangeHandler(event: ChangeEvent<HTMLInputElement>) {
+	function onInputChange(event: ChangeEvent<HTMLInputElement>) {
 		const { value, name } = event.target
 
 		const newVal = value.replace(/\s+/g, "")
@@ -225,7 +232,7 @@ export default function RegisterPage() {
 		return valid
 	}
 
-	function SelectChangeEventHandler(event: ChangeEvent<HTMLSelectElement>, data: SelectOnChangeData) {
+	function onSelectChange(_event: ChangeEvent<HTMLSelectElement>, data: SelectOnChangeData) {
 		setModel(state => ({
 			...state,
 			gender: {
@@ -235,7 +242,7 @@ export default function RegisterPage() {
 		}))
 	}
 
-	function DateSelectEventHandler(date: typeof model.birthday.value) {
+	function onDateSelect(date: typeof model.birthday.value) {
 		setModel(state => ({
 			...state,
 			birthday: {
@@ -249,6 +256,9 @@ export default function RegisterPage() {
 		return !date ? "" : (date.getFullYear()) + "/" + (date.getMonth() + 1) + "/" + date.getDate()
 	};
 
+	/*********************************************************************************************************************************
+	 * METHODS
+	 *********************************************************************************************************************************/
 	useEffect(() => {
 		setFormTitle!("Create your account")
 		setFormMessage!("")
@@ -270,7 +280,7 @@ export default function RegisterPage() {
 							value={model.firstName.value}
 							name="firstName"
 							disabled={loading}
-							onChange={inputChangeHandler}
+							onChange={onInputChange}
 						/>
 					</Field>
 				</div>
@@ -283,7 +293,7 @@ export default function RegisterPage() {
 							value={model.lastName.value}
 							name="lastName"
 							disabled={loading}
-							onChange={inputChangeHandler}
+							onChange={onInputChange}
 						/>
 					</Field>
 				</div>
@@ -297,7 +307,7 @@ export default function RegisterPage() {
 						<DatePicker
 							className={styles.dateControl}
 							required
-							onSelectDate={DateSelectEventHandler}
+							onSelectDate={onDateSelect}
 							formatDate={onFormatDate}
 							type='text'
 							name='birthday'
@@ -315,7 +325,7 @@ export default function RegisterPage() {
 						<Select name='gender'
 							disabled={loading}
 							value={model.gender.value}
-							onChange={SelectChangeEventHandler}>
+							onChange={onSelectChange}>
 							<option value="" hidden></option>
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
@@ -325,7 +335,7 @@ export default function RegisterPage() {
 			</div>
 			<Divider appearance='subtle' className={styles.divider}>Create your Password</Divider>
 			<CreatePasswordComponent
-				inputChangeHandler={inputChangeHandler}
+				inputChangeHandler={onInputChange}
 				password={model.password}
 				confirmPassword={model.confirmPassword} />
 			<div className={styles.terms}>

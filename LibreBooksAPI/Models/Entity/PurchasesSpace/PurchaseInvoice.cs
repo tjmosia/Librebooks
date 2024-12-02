@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-using LibreBooks.Models.Entity.CompanySpace;
+﻿using LibreBooks.Models.Entity.CompanySpace;
 using LibreBooks.Models.Entity.SupplierSpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.PurchasesSpace
 {

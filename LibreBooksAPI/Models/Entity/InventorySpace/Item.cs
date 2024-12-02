@@ -14,7 +14,7 @@ namespace LibreBooks.Models.Entity.InventorySpace
         public virtual string? Unit { get; set; }
         public virtual bool Physical { get; set; }
         public virtual string? CategoryId { get; set; }
-        public virtual string? VATId { get; set; }
+        public virtual string? TaxTypeId { get; set; }
         public virtual string? CompanyId { get; set; }
         public virtual bool? Active { get; set; }
 
@@ -27,7 +27,7 @@ namespace LibreBooks.Models.Entity.InventorySpace
         public virtual Company? Company { get; set; }
         public virtual ItemCategory? Category { get; set; }
         public virtual ItemInventory? Inventory { get; set; }
-        public virtual CompanyValueAddedTax? VAT { get; set; }
+        public virtual CompanyTaxType? TaxType { get; set; }
         public virtual ICollection<ItemAdjustment>? Adjustments { get; set; }
 
         public Item ()

@@ -4,16 +4,17 @@ import { AuthContext } from '../../../contexts/AuthContext'
 import { BsEnvelope } from 'react-icons/bs'
 import { useNavigate } from 'react-router'
 import AppRoutes from '../../../strings/AppRoutes'
-import useSessionData from '../../../extensions/SessionData'
+import useSessionData from '../../../core/extensions/SessionData'
 import StatusCodes from 'http-status-codes'
 import { AuthSessionVars, AuthVerificationReasons } from './AuthStrings'
-import { ITransactionResult } from '../../../core/Transactions'
+import { ITransactionResult } from '../../../core/extensions/TransactionTypes'
 import { ISendVerificationCodeResponse } from './AuthTypes'
 import { useSearchParams } from 'react-router-dom'
 import { ajax, AjaxError } from 'rxjs/ajax'
-import { IUserLoginDto } from '../account/LoginDto.type'
-import { useAppSettings, useHttp, usePageTitle, useValidators } from '../../../hooks'
+import { useAppSettings, useHttp, usePageTitle } from '../../../hooks'
 import { ApiRoutes } from '../../../strings'
+import { useValidators } from '../../../core/extensions'
+import { useFormUtils } from '../../../core/forms'
 
 const LoginStyles = makeStyles({
     wrapper: {
@@ -38,8 +39,20 @@ interface IModel {
     error?: string
 }
 
+interface IUserLoginDto {
+    firstName: string
+    lastName: string
+    accessToken: string
+    username: string
+    photo: string
+}
+
 
 export default function UsernamePage() {
+
+    /*********************************************************************************************************************************
+     * SERVICES
+     *********************************************************************************************************************************/
     usePageTitle!("Sign in or Sign up")
     const styles = LoginStyles()
     const search = useSearchParams()
@@ -47,13 +60,21 @@ export default function UsernamePage() {
     const { setFormTitle, loading, setLoading, username, setFormMessage, setUsername, setUser } = useContext(AuthContext)
     const session = useSessionData()
     const { createApiPath } = useAppSettings()
+    const { headers } = useHttp()
+    const { emailvalidator } = useValidators()
+    const { fieldErrors } = useFormUtils()
+
+    /*********************************************************************************************************************************
+     * STATE
+     *********************************************************************************************************************************/
     const [error, setError] = useState<string | undefined>()
     const [model, setModel] = useState<IModel>({
         email: username ?? ""
     })
-    const { headers } = useHttp()
-    const { emailvalidator } = useValidators()
 
+    /*********************************************************************************************************************************
+     * METHODS
+     *********************************************************************************************************************************/
     function sendRegistrationVerificationCode() {
         ajax<ITransactionResult<ISendVerificationCodeResponse>>({
             url: createApiPath(ApiRoutes.Auth.SendVerificationCode),
@@ -67,10 +88,9 @@ export default function UsernamePage() {
             }
         }).subscribe({
             next: (response) => {
-                console.log(response)
                 const data = response.response
-                if (data && data.succeeded) {
-                    console.log(data.model!.codeHashString)
+
+                if (data.succeeded) {
                     session.add(AuthSessionVars.VerificationHashString, data.model!.codeHashString)
                     session.add(AuthSessionVars.VerificationReason, AuthVerificationReasons.Registration)
                     session.add(AuthSessionVars.FromPath, AppRoutes.Auth.Username)
@@ -80,9 +100,9 @@ export default function UsernamePage() {
                 }
             },
             error: (error: AjaxError) => {
-                console.log(error)
                 if (error.status !== StatusCodes.BAD_REQUEST)
                     setError("Unable to send verification code.")
+
                 setModelError("Pleace check your email.")
                 setLoading!(false)
             }
@@ -96,7 +116,7 @@ export default function UsernamePage() {
         }))
     }
 
-    function FormSubmitHandler(event: FormEvent) {
+    function onSubmit(event: FormEvent) {
         event.preventDefault()
         setLoading!(true)
 
@@ -114,18 +134,17 @@ export default function UsernamePage() {
             }
         }).subscribe({
             next: (response) => {
-                setLoading!(false)
+
                 if (response.status === StatusCodes.OK) {
                     const data = response.response
                     setUsername!(model.email)
                     setUser!(data)
                     navigate(AppRoutes.Auth.Login)
-                    return
+                } else if (response.status === StatusCodes.NO_CONTENT) {
+                    sendRegistrationVerificationCode()
                 }
 
-                if (response.status === StatusCodes.NO_CONTENT)
-                    sendRegistrationVerificationCode()
-
+                setLoading!(false)
             },
             error: (error: AjaxError) => {
                 if (error.status === StatusCodes.BAD_REQUEST)
@@ -139,17 +158,17 @@ export default function UsernamePage() {
         if (!model.email) {
             setModel({
                 email: "",
-                error: "Email is required."
+                error: fieldErrors.required("Email")
             })
             return false
-        }
-        if (!emailvalidator.validate(model.email)) {
+        } else if (!emailvalidator.validate(model.email)) {
             setModel(model => ({
                 email: model.email,
                 error: "Please check your email."
             }))
             return false
         }
+
         return true
     }
 
@@ -160,23 +179,28 @@ export default function UsernamePage() {
         })
     }
 
+    /*********************************************************************************************************************************
+     * EFFECTS
+     *********************************************************************************************************************************/
     useEffect(() => {
         setFormTitle!("Sign in or Sign up")
         session.remove(AuthSessionVars.Username)
         setFormMessage!("Continue with your email address.")
 
         const returnUrl = search[0].get("returnUrl");
+
         if (returnUrl)
-            session.add(AuthSessionVars.ReturnUrl, returnUrl)
+            session.add(AuthSessionVars.ReturnUrl, search[0].get("returnUrl") ?? "/")
 
     }, [setFormTitle, session, setFormMessage, search])
 
     useEffect(() => {
-        if (error) setTimeout(() => setError(undefined), 5000)
+        if (error)
+            setTimeout(() => setError(undefined), 5000)
     }, [error])
 
     return (<>
-        <form onSubmit={FormSubmitHandler}
+        <form onSubmit={onSubmit}
             method="post"
             className="form">
             {error ?

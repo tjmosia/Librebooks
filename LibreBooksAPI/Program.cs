@@ -6,6 +6,8 @@ using LibreBooks.Data;
 using LibreBooks.Extensions.Identity;
 using LibreBooks.Models.Entity.IdentitySpace;
 
+using LibreBooksAPI.Areas.SystemSetups.Services.SubStores;
+
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -13,11 +15,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 var Config = builder.Configuration;
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseSqlite(Config.GetConnectionString("MoskitContext"));
-});
-//builder.Services.AddLogging(options => options.AddConsole());
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(Config.GetConnectionString("MoskitContext")));
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddIdentityCore<User>
@@ -57,8 +55,9 @@ builder.Services.AddScoped<PaymentMethodStore>();
 builder.Services.AddScoped<PaymentTermStore>();
 builder.Services.AddScoped<ShippingTermStore>();
 builder.Services.AddScoped<ShippingMethodStore>();
-builder.Services.AddScoped<ValueAddedTaxStore>();
+builder.Services.AddScoped<TaxTypeStore>();
 builder.Services.AddScoped<SystemCompanyNumberStore>();
+builder.Services.AddScoped<BusinessSectorStore>();
 
 builder.Services.AddCors(options =>
 {

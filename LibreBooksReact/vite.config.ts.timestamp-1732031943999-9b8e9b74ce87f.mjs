@@ -1,7 +1,7 @@
 // vite.config.ts
-import { defineConfig } from "file:///C:/Users/Thabo%20Mosia/source/repos/moskit-crm/OskitReact/node_modules/vite/dist/node/index.js";
-import react from "file:///C:/Users/Thabo%20Mosia/source/repos/moskit-crm/OskitReact/node_modules/@vitejs/plugin-react/dist/index.mjs";
-import mkcert from "file:///C:/Users/Thabo%20Mosia/source/repos/moskit-crm/OskitReact/node_modules/vite-plugin-mkcert/dist/mkcert.mjs";
+import { defineConfig } from "file:///C:/Users/Thabo%20Mosia/source/repos/librebooks/LibreBooksReact/node_modules/vite/dist/node/index.js";
+import react from "file:///C:/Users/Thabo%20Mosia/source/repos/librebooks/LibreBooksReact/node_modules/@vitejs/plugin-react/dist/index.mjs";
+import mkcert from "file:///C:/Users/Thabo%20Mosia/source/repos/librebooks/LibreBooksReact/node_modules/vite-plugin-mkcert/dist/mkcert.mjs";
 var vite_config_default = defineConfig({
   plugins: [react(), mkcert()],
   server: {

@@ -3,9 +3,9 @@ import { Input, Button, makeStyles, tokens, Field, ToastIntent, MessageBar, Mess
 import AppRoutes from '../../../strings/AppRoutes'
 import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../../contexts/AuthContext'
-import { ITransactionResult } from '../../../core/Transactions'
+import { ITransactionResult } from '../../../core/extensions/TransactionTypes'
 import { ISendVerificationCodeResponse } from './AuthTypes'
-import useSessionData from '../../../extensions/SessionData'
+import useSessionData from '../../../core/extensions/SessionData'
 import { AuthSessionVars, AuthVerificationReasons } from './AuthStrings'
 import { StatusCodes } from 'http-status-codes'
 import { ajax, AjaxError } from 'rxjs/ajax'
@@ -40,18 +40,25 @@ interface IModel {
 }
 
 export default function VerifyEmailPage() {
+
+    /************************************************************************************************************************************************
+     * SERVICES
+     ***********************************************************************************************************************************************/
     usePageTitle("Login")
     const navigate = useNavigate()
     const styles = VerifyEmailPageStyles()
-    const { setFormTitle, setFormMessage, loading, setLoading, username } = useAuthContext()
     const form = createRef<HTMLFormElement>()
+    const { setFormTitle, setFormMessage, loading, setLoading, username } = useAuthContext()
     const { headers } = useHttp()
     const { createApiPath } = useAppSettings()
     const session = useSessionData()
     const verificationReason = session.get<string>(AuthSessionVars.VerificationReason)
     const verificationHashString = session.get<string>(AuthSessionVars.VerificationHashString)
-    const [alert, setAlert] = useState<{ message?: string, intent?: ToastIntent } | undefined>(undefined)
 
+    /************************************************************************************************************************************************
+     * STATE
+     ***********************************************************************************************************************************************/
+    const [alert, setAlert] = useState<{ message?: string, intent?: ToastIntent } | undefined>(undefined)
     const [model, setModel] = useState<IModel>({
         code: ""
     })

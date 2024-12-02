@@ -41,17 +41,30 @@ const getFragmentData = () => ({
 })
 
 export default function AccountPage() {
+    /************************************************************************************************************************************************
+     * INJECTABLES
+     ***********************************************************************************************************************************************/
     const styles = MakeAccountPageStyles()
     const navigate = useNavigate()
     const location = useLocation()
-    const [currentTab, setCurrentTab] = useState<string>(location.pathname)
     const identityManager = useIdentityManager()
     const user = identityManager.getUser()
 
+    /************************************************************************************************************************************************
+     * STATE
+     ***********************************************************************************************************************************************/
+    const [currentTab, setCurrentTab] = useState<string>(location.pathname)
+
+    /************************************************************************************************************************************************
+     * METHODS
+     ***********************************************************************************************************************************************/
     function onTabSelect(_event: SelectTabEvent, data: SelectTabData) {
         setCurrentTab(data.value as string)
     }
 
+    /************************************************************************************************************************************************
+     * EFFECTS
+     ***********************************************************************************************************************************************/
     useEffect(() => {
         if (location.pathname !== currentTab)
             navigate(currentTab!)
@@ -64,7 +77,7 @@ export default function AccountPage() {
                     <div className={styles.avatarWrapper}>
                         <Avatar size={72} color="neutral" name={user.firstName + " " + user.lastName} />
                     </div>
-                    <TabList appearance="filled-circular" size="small" onTabSelect={onTabSelect} selectedValue={location.pathname}>
+                    <TabList size="small" onTabSelect={onTabSelect} selectedValue={location.pathname}>
                         <Tab as="button" icon={<TbUserEdit />} value={AppRoutes.Account.Profile}>Personal Info</Tab>
                         <Tab as="button" icon={<TbMail />} value={AppRoutes.Account.ContactInfo}>Contact Info</Tab>
                         <Tab as="button" icon={<TbShieldLock />} value={AppRoutes.Account.ChangePassword}>Change Password</Tab>
@@ -106,11 +119,11 @@ const MakeAccountPageStyles = makeStyles({
     },
     accountNavBar: {
         width: "100%",
-        // paddingTop: tokens.spacingHorizontalM,
-        // paddingLeft: tokens.spacingHorizontalM,
-        // paddingRight: tokens.spacingHorizontalM,
+        paddingTop: tokens.spacingHorizontalM,
+        paddingLeft: tokens.spacingHorizontalM,
+        paddingRight: tokens.spacingHorizontalM,
         //boxShadow: Depths.depth4,
-        padding: tokens.spacingHorizontalM,
+        //padding: tokens.spacingHorizontalM,
         backgroundColor: tokens.colorNeutralBackground1,
         borderBottom: borders.thinNeutralLight,
         display: "flex",

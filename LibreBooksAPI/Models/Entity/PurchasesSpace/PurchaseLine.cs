@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Core.Types;
 using LibreBooks.Models.Entity.CompanySpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.PurchasesSpace
 {
@@ -18,7 +18,7 @@ namespace LibreBooks.Models.Entity.PurchasesSpace
         public virtual decimal Price { get; set; }
         public virtual decimal DiscountRate { get; set; }
         public virtual decimal TaxRate { get; set; }
-        public virtual string? VATId { get; set; }
+        public virtual string? TaxTypeId { get; set; }
         public virtual string? DocumentId { get; set; }
         public virtual string? Comment { get; set; }
 
@@ -29,7 +29,7 @@ namespace LibreBooks.Models.Entity.PurchasesSpace
             => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual ICollection<PurchaseDocumentLine>? DocumentLines { get; set; }
-        public virtual CompanyValueAddedTax? VAT { get; set; }
+        public virtual CompanyTaxType? TaxType { get; set; }
 
         public PurchaseLine ()
             => Id = Guid.NewGuid().ToString("N");

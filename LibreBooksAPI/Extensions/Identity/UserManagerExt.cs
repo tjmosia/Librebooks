@@ -1,9 +1,9 @@
 ﻿using BCrypt.Net;
 
+using LibreBooks.Models.Entity.IdentitySpace;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
-
-using LibreBooks.Models.Entity.IdentitySpace;
 
 namespace LibreBooks.Extensions.Identity
 {
@@ -106,5 +106,6 @@ namespace LibreBooks.Extensions.Identity
 
         private string GenerateVerificationCodeTimeStamp ()
             => DateTime.Now.ToString("yyyy/MM/dd").Replace("/", "");
+
     }
 }

@@ -2,9 +2,9 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { Button, Divider, Field, Input, Spinner, Tag, Text, Toast, ToastBody, ToastTitle, makeStyles, tokens } from '@fluentui/react-components'
 import { IFormField } from '../../../core/forms'
-import { useFormUtils } from '../../../core/forms/forms.hook'
-import { useAppSettings, useHttp, usePageTitle, useValidators } from '../../../hooks'
-import { ITransactionResult } from '../../../core/Transactions'
+import { useFormUtils } from '../../../core/forms/FormsHook'
+import { useAppSettings, useHttp, usePageTitle } from '../../../hooks'
+import { ITransactionResult } from '../../../core/extensions/TransactionTypes'
 import { IAppUser } from '../../../types/identity'
 import { ajax, AjaxError, AjaxResponse } from 'rxjs/ajax'
 import { StatusCodes } from 'http-status-codes'
@@ -12,6 +12,7 @@ import useIdentityManager from '../../../hooks/IdentityManager'
 import { from } from 'rxjs'
 import { Animations, ApiRoutes } from '../../../strings'
 import { useAppContext } from '../../../contexts/AppContext'
+import { useValidators } from '../../../core/extensions'
 
 interface IContactInfoFragmentModel {
     [key: string]: IFormField<string>
@@ -20,16 +21,23 @@ interface IContactInfoFragmentModel {
 }
 
 export default function ContactInfoFragment() {
+    /************************************************************************************************************************************************
+     * INJECTABLES
+     ***********************************************************************************************************************************************/
     usePageTitle("Contact Info")
     const styles = MakePersonalInfoFragmentStyles()
     const { fieldErrors } = useFormUtils()
     const [loading, setLoading] = useState(false)
-    const [requestLoading, setRequestLoading] = useState(false)
     const { headers } = useHttp()
     const { createApiPath } = useAppSettings()
     const identityManager = useIdentityManager()
     const user = identityManager.getUser()!
     const appContext = useAppContext()
+
+    /************************************************************************************************************************************************
+     * STATE
+     ***********************************************************************************************************************************************/
+    const [requestLoading, setRequestLoading] = useState(false)
     const { emailvalidator } = useValidators()
     const [codeHashString, setCodeHashString] = useState<string | undefined>()
     const [model, setModel] = useState<IContactInfoFragmentModel>({
@@ -41,6 +49,9 @@ export default function ContactInfoFragment() {
         }
     })
 
+    /************************************************************************************************************************************************
+     * METHODS
+     ***********************************************************************************************************************************************/
     function clearModelState() {
         setModel({
             code: { value: "" },
@@ -259,6 +270,9 @@ export default function ContactInfoFragment() {
         })
     }
 
+    /************************************************************************************************************************************************
+     * EFFECTS
+     ***********************************************************************************************************************************************/
     useEffect(() => {
         if (codeHashString)
             console.log(codeHashString)
@@ -273,7 +287,7 @@ export default function ContactInfoFragment() {
                 }
             }))
         }
-    }, [model.email.value])
+    }, [model.email.value, model.code.value])
 
     return (<>
         <form onSubmit={onFormSubmit}

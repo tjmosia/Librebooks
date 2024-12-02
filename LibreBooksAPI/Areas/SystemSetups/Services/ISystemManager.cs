@@ -22,6 +22,15 @@ namespace LibreBooks.Areas.SystemSetups.Services
         Task<TransactionResult<Currency>> UpdateCurrencyAsync (Currency currency);
 
         /******************************************************************
+         * BUSINESS_SECTOR Store Manager Actions
+         ******************************************************************/
+        Task<TransactionResult<BusinessSector>> AddBusinessSectorAsync (BusinessSector sector);
+        Task<TransactionResult> DeleteBusinessSectorAsync (params BusinessSector[] sectors);
+        Task<BusinessSector?> FindBusinessSectorByIdAsync (string id);
+        Task<TransactionResult<BusinessSector>> UpdateBusinessSectorAsync (BusinessSector sector);
+        Task<IList<BusinessSector>> GetBusinessSectorsAsync ();
+
+        /******************************************************************
          * DATE_FORMAT Store Manager Actions
          ******************************************************************/
         Task<TransactionResult<DateFormat>> AddDateFormatAsync (DateFormat dateFormat);
@@ -62,12 +71,12 @@ namespace LibreBooks.Areas.SystemSetups.Services
         Task<TransactionResult<ShippingTerm>> UpdateShippingTermAsync (ShippingTerm shippingTerm);
 
         /******************************************************************
-         * VAT Store Manager Actions
+         * TaxType Store Manager Actions
          ******************************************************************/
-        Task<TransactionResult<ValueAddedTax>> AddVATAsync (ValueAddedTax vat);
-        Task<TransactionResult> DeleteVATAsync (params ValueAddedTax[] vat);
-        Task<ValueAddedTax?> GetVATByIdAsync (string id);
-        Task<TransactionResult<ValueAddedTax>> UpdateVATAsync (ValueAddedTax vat);
+        Task<TransactionResult<TaxTypes>> AddVATAsync (TaxTypes vat);
+        Task<TransactionResult> DeleteVATAsync (params TaxTypes[] vat);
+        Task<TaxTypes?> GetVATByIdAsync (string id);
+        Task<TransactionResult<TaxTypes>> UpdateVATAsync (TaxTypes vat);
 
         /******************************************************************
          * SYSTEM_COMPANY_NUMBER Store Manager Actions

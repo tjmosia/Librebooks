@@ -1,11 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import IdentityReducer from '../slices/IdentitySlice'
-import companyReducer from '../slices/CompanySlice'
 import { useDispatch } from 'react-redux'
+import { companyReducer, identityReducer } from '../reducers'
 
 const store = configureStore({
 	reducer: {
-		identity: IdentityReducer,
+		identity: identityReducer,
 		company: companyReducer
 	}
 })

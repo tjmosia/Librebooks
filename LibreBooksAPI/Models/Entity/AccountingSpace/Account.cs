@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Core.Types;
 using LibreBooks.Models.Entity.CompanySpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.AccountingSpace
 {
@@ -12,7 +12,7 @@ namespace LibreBooks.Models.Entity.AccountingSpace
         public virtual string? Id { get; set; }
         public virtual string? Name { get; set; }
         public virtual decimal Balance { get; set; }
-        public virtual string? VATId { get; set; }
+        public virtual string? TaxTypeId { get; set; }
         public virtual string? Description { get; set; }
         public virtual string? ParentAccountId { get; set; }
         public virtual bool Active { get; set; }
@@ -23,18 +23,18 @@ namespace LibreBooks.Models.Entity.AccountingSpace
         public virtual Account? ParentAccount { get; set; }
         public virtual Company? Company { get; set; }
         public virtual AccountCategory? Category { get; set; }
-        public virtual CompanyValueAddedTax? VAT { get; set; }
+        public virtual CompanyTaxType? TaxType { get; set; }
 
         public virtual ICollection<Journal>? DebitHistory { get; set; }
         public virtual ICollection<Journal>? CreditHistory { get; set; }
         public virtual ICollection<Account>? SubAccounts { get; set; }
-
 
         public Account ()
             => Id = Guid.NewGuid().ToString("N");
 
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
+
         public void UpdateConcurrencyToken ()
             => RowVersion = Guid.NewGuid().ToString("N");
 

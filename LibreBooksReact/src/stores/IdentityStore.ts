@@ -3,17 +3,15 @@ import { IAppUser } from '../types/identity'
 
 export interface IIdentityStore {
     user?: IAppUser
-    updateUser: (user: IAppUser) => void
+    setUser: (user: IAppUser) => void
     deleteUser: () => void
 }
 
 const useIdentityStore = create<IIdentityStore>(set => ({
     user: undefined,
-    updateUser: (user: IAppUser) => {
-        console.log(user)
+    setUser: (user: IAppUser) => {
         set(({ user }))
     },
     deleteUser: () => set({ user: undefined })
 }))
-
 export default useIdentityStore

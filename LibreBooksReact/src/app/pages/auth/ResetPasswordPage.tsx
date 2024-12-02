@@ -2,18 +2,19 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { Button, Spinner, makeStyles, tokens, Field } from '@fluentui/react-components'
 import { useAuthContext } from '../../../contexts/AuthContext'
 import CreatePasswordComponent from './components/CreatePasswordComponent'
-import useSessionData from '../../../extensions/SessionData'
+import useSessionData from '../../../core/extensions/SessionData'
 import { AuthSessionVars } from './AuthStrings'
 import { IAppUser } from '../../../types/identity'
 import { useNavigate } from 'react-router'
 import AppRoutes from '../../../strings/AppRoutes'
 import { ajax, AjaxError } from 'rxjs/ajax'
-import { ITransactionResult } from '../../../core/Transactions'
+import { ITransactionResult } from '../../../core/extensions/TransactionTypes'
 import { StatusCodes } from 'http-status-codes'
 import { from } from 'rxjs'
 import { Intent } from '../../../strings/ui/Intent'
-import { useAppSettings, useHttp, usePageTitle, useValidators } from '../../../hooks'
+import { useAppSettings, useHttp, usePageTitle } from '../../../hooks'
 import { ApiRoutes } from '../../../strings'
+import { useValidators } from '../../../core/extensions'
 
 const ResetPasswordPageStyles = makeStyles({
     field: {
@@ -36,6 +37,9 @@ interface IModel {
 }
 
 export default function ResetPasswordPage() {
+    /*********************************************************************************************************************************
+     * SERVICES
+     *********************************************************************************************************************************/
     usePageTitle("Reset Password")
     const styles = ResetPasswordPageStyles()
     const session = useSessionData()

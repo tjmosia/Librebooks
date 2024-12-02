@@ -2,7 +2,7 @@ import { ChangeEvent, useCallback } from "react"
 import { Caption1, Caption1Stronger, Field, Input, makeStyles, tokens } from "@fluentui/react-components"
 import Borders from "../../../../strings/ui/Borders"
 import { BsCheckCircle, BsXCircle } from "react-icons/bs"
-import { useValidators } from "../../../../hooks"
+import { useValidators } from "../../../../core/extensions"
 
 export interface ICreatePasswordComponentProps {
     password: {

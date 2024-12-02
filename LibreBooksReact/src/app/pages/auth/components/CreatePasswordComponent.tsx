@@ -3,7 +3,7 @@ import { Button, Caption1, Caption1Stronger, Field, Input, makeStyles, tokens, T
 import Borders from "../../../../strings/ui/Borders"
 import { BsCheckCircle, BsLock, BsUnlock, BsXCircle } from "react-icons/bs"
 import { useAuthContext } from "../../../../contexts/AuthContext"
-import { useValidators } from "../../../../hooks"
+import { useValidators } from "../../../../core/extensions"
 
 export interface ICreatePasswordComponentProps {
     password: {
@@ -44,11 +44,21 @@ const CreatePasswordComponentStyles = makeStyles({
 })
 
 const CreatePasswordComponent: FC<ICreatePasswordComponentProps> = ({ password, confirmPassword, inputChangeHandler }) => {
+    /*********************************************************************************************************************************
+     * SERVICES
+     *********************************************************************************************************************************/
     const { passwordValidator } = useValidators()
     const styles = CreatePasswordComponentStyles()
     const { loading } = useAuthContext()
+
+    /*********************************************************************************************************************************
+     * STATE
+     *********************************************************************************************************************************/
     const [showPassword, setShowPassword] = useState(false)
 
+    /*********************************************************************************************************************************
+     * METHODS
+     *********************************************************************************************************************************/
     function TogglePasswordHandler() {
         setShowPassword(!showPassword)
     }
@@ -103,6 +113,10 @@ const CreatePasswordComponent: FC<ICreatePasswordComponentProps> = ({ password, 
         )
     }
 
+
+    /*********************************************************************************************************************************
+     * RENDER
+     *********************************************************************************************************************************/
     return (
         <>
             <Field className={styles.field} label={"Password"}

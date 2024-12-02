@@ -1,2 +1,2 @@
-export { type IFormField } from './forms.types'
-export { useFormUtils } from './forms.hook'
+export { type IFormField } from './FormsTypes'
+export { useFormUtils } from './FormsHook'
