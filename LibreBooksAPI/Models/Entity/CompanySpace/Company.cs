@@ -10,6 +10,8 @@ using LibreBooks.Models.Entity.SalesSpace;
 using LibreBooks.Models.Entity.SupplierSpace;
 using LibreBooks.Models.Entity.SystemSpace;
 
+using LibreBooksAPI.Models.Entity.CompanySpace;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.CompanySpace
@@ -23,13 +25,14 @@ namespace LibreBooks.Models.Entity.CompanySpace
         public virtual string? RegNumber { get; set; }
         public virtual string? VATNumber { get; set; }
         public virtual string? PostalAddress { get; set; }
-        public virtual string? DeliveryAddress { get; set; }
+        public virtual string? PhysicalAddress { get; set; }
         public virtual string? TelephoneNumber { get; set; }
         public virtual string? EmailAddress { get; set; }
         public virtual string? FaxNumber { get; set; }
-        public virtual string? Logo { get; set; }
         public virtual int YearsInBusienss { get; set; }
         public virtual string? BusinessSectorId { get; set; }
+        public virtual string? LogoId { get; set; }
+
 
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
@@ -60,6 +63,7 @@ namespace LibreBooks.Models.Entity.CompanySpace
         public virtual ICollection<SalesInvoice>? SalesInvoices { get; set; }
         public virtual ICollection<SalesCredit>? SalesCredits { get; set; }
         public virtual ICollection<SalesReceipt>? SalesReceipts { get; set; }
+        public virtual CompanyLogo? Logo { get; set; }
 
         public virtual ICollection<Item>? Items { get; set; }
         public virtual ICollection<ItemAdjustment>? ItemAdjustments { get; set; }
@@ -96,6 +100,12 @@ namespace LibreBooks.Models.Entity.CompanySpace
                     .WithOne(p => p.Company)
                     .HasForeignKey<CompanyDefaultBankAccount>(p => p.CompanyId)
                         .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasOne(p => p.Logo)
+                    .WithOne()
+                    .HasForeignKey<Company>(p => p.LogoId)
+                        .IsRequired(false)
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.DocumentSetups)

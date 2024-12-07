@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Models.Entity.CompanySpace;
 using LibreBooks.Models.Entity.SalesSpace;
 using LibreBooks.Models.Entity.SystemSpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.CustomerSpace
 {

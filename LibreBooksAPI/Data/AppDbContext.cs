@@ -13,6 +13,8 @@ using LibreBooks.Models.Entity.SalesSpace;
 using LibreBooks.Models.Entity.SupplierSpace;
 using LibreBooks.Models.Entity.SystemSpace;
 
+using LibreBooksAPI.Models.Entity.CompanySpace;
+
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -141,6 +143,7 @@ namespace LibreBooks.Data
         public DbSet<Contact>? Contact { get; set; }
         public DbSet<Note>? Note { get; set; }
         public DbSet<BusinessSector>? BusinessSector { get; set; }
+        public DbSet<CompanyLogo>? CompanyLogo { get; set; }
 
         protected override void OnModelCreating (ModelBuilder builder)
         {

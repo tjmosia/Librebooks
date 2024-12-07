@@ -592,4 +592,3 @@ C:\Users\Thabo Mosia\source\repos\librebooks\LibreBooksAPI\obj\Debug\net9.0\refi
 C:\Users\Thabo Mosia\source\repos\librebooks\LibreBooksAPI\obj\Debug\net9.0\LibreBooksAPI.pdb
 C:\Users\Thabo Mosia\source\repos\librebooks\LibreBooksAPI\obj\Debug\net9.0\LibreBooksAPI.genruntimeconfig.cache
 C:\Users\Thabo Mosia\source\repos\librebooks\LibreBooksAPI\obj\Debug\net9.0\ref\LibreBooksAPI.dll
-C:\Users\Thabo Mosia\source\repos\librebooks\LibreBooksAPI\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
