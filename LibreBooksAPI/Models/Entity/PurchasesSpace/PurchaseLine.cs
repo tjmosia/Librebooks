@@ -25,14 +25,14 @@ namespace LibreBooks.Models.Entity.PurchasesSpace
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
 
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
-
         public virtual ICollection<PurchaseDocumentLine>? DocumentLines { get; set; }
         public virtual CompanyTaxType? TaxType { get; set; }
 
         public PurchaseLine ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<PurchaseLine>(options =>

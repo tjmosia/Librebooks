@@ -13,6 +13,11 @@ using LibreBooks.Models.Entity.SalesSpace;
 using LibreBooks.Models.Entity.SupplierSpace;
 using LibreBooks.Models.Entity.SystemSpace;
 
+using LibreBooksAPI.Models.Entity.CompanySpace;
+using LibreBooksAPI.Models.Entity.CustomerSpace;
+using LibreBooksAPI.Models.Entity.InventorySpace;
+using LibreBooksAPI.Models.Entity.SupplierSpace;
+
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,10 +36,12 @@ namespace LibreBooks.Data
          ************************************************************************************************/
         public DbSet<Company>? Company { get; set; }
         public DbSet<CompanyUser>? CompanyUser { get; set; }
-        public DbSet<CompanySalesTaxType>? CompanySalesTaxType { get; set; }
+        public DbSet<CompanyDefaultTaxType>? CompanyDefaultTaxType { get; set; }
         public DbSet<CompanyDefaultBankAccount>? CompanyDefaultBankAccount { get; set; }
         public DbSet<CompanyTaxType>? CompanyTaxType { get; set; }
         public DbSet<CompanyMailSettings>? CompanyMailSettings { get; set; }
+        public DbSet<CompanyLogo>? CompanyLogo { get; set; }
+        public DbSet<CompanyImage>? CompanyImage { get; set; }
 
         /************************************************************************************************
          * Customer Space
@@ -45,6 +52,7 @@ namespace LibreBooks.Data
         public DbSet<CustomerCategory>? CustomerCategory { get; set; }
         public DbSet<CustomerContact>? CustomerContact { get; set; }
         public DbSet<CustomerNote>? CustomerNote { get; set; }
+        public DbSet<CustomerSetup>? CustomerSetup { get; set; }
         public DbSet<CompanyRegionalSettings>? CompanyRegionalSettings { get; set; }
 
         /************************************************************************************************
@@ -69,6 +77,7 @@ namespace LibreBooks.Data
          * Inventory Space
          ************************************************************************************************/
         public DbSet<Item>? Item { get; set; }
+        public DbSet<ItemSetup>? ItemSetup { get; set; }
         public DbSet<ItemAdjustment>? ItemAdjustment { get; set; }
         public DbSet<ItemCategory>? ItemCategory { get; set; }
         public DbSet<ItemInventory>? ItemInventory { get; set; }
@@ -103,10 +112,10 @@ namespace LibreBooks.Data
         public DbSet<Country>? Country { get; set; }
         public DbSet<Currency>? Currency { get; set; }
         public DbSet<DateFormat>? DateFormat { get; set; }
-        public DbSet<TaxTypes>? TaxType { get; set; }
+        public DbSet<TaxType>? TaxType { get; set; }
         public DbSet<PaymentMethod>? PaymentMethod { get; set; }
         public DbSet<PaymentTerm>? PaymentTerm { get; set; }
-        public DbSet<SystemCompanyNumber>? SystemCompanyNumber { get; set; }
+        public DbSet<CompanySetup>? SystemCompanyNumber { get; set; }
 
         /************************************************************************************************
          * Supplier Space
@@ -117,6 +126,7 @@ namespace LibreBooks.Data
         public DbSet<SupplierAdjustment>? SupplierAdjustment { get; set; }
         public DbSet<SupplierCategory>? SupplierCategory { get; set; }
         public DbSet<SupplierContact>? SupplierContact { get; set; }
+        public DbSet<SupplierSetup>? SupplierSetup { get; set; }
 
         /************************************************************************************************
          * Purchases Space

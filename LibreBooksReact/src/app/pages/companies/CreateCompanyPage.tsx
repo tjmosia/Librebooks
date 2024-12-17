@@ -1,7 +1,11 @@
-import { Button, Divider, Field, Input, makeStyles, ProgressBar, Select, SelectOnChangeData, Spinner, Text, Textarea, tokens } from "@fluentui/react-components"
+import {
+    Button, Divider, Field, Input, makeStyles, ProgressBar, Select, SelectOnChangeData, SpinButton, SpinButtonChangeEvent,
+    SpinButtonOnChangeData, Spinner, TeachingPopover, TeachingPopoverBody, TeachingPopoverFooter, TeachingPopoverHeader,
+    TeachingPopoverSurface, TeachingPopoverTitle, TeachingPopoverTrigger, Text, Textarea, Toast, ToastBody, ToastTitle, tokens, Toolbar
+} from "@fluentui/react-components"
 import { useAppSettings, usePageTitle } from "../../../hooks"
 import { borders, breakpoints } from "../../../strings/ui"
-import { ChangeEvent, FormEvent, useCallback, useEffect, useMemo, useState } from "react"
+import { ChangeEvent, FormEvent, useCallback, useEffect, useRef, useState } from "react"
 import { IFormField } from "../../../core/forms"
 import { TbArrowRight } from "react-icons/tb"
 import { Depths } from "@fluentui/react"
@@ -9,9 +13,12 @@ import { useValidators } from "../../../core/extensions"
 import { MdBusiness } from "react-icons/md"
 import { ajax } from "rxjs/ajax"
 import { ApiRoutes } from "../../../strings"
+import { ImageAddRegular, Info20Regular } from "@fluentui/react-icons"
+import './CreateCompanyPage.tsx.scss'
+import { useAppContext } from "../../../contexts/AppContext"
 
 interface ICompanyModelState {
-    [key: string]: IFormField<string> | undefined
+    [key: string]: IFormField<string> | undefined | IFormField<number>
     legalName: IFormField<string>
     tradingName: IFormField<string>
     VATNumber: IFormField<string>
@@ -20,15 +27,40 @@ interface ICompanyModelState {
     postalAddress: IFormField<string>
     telephoneNumber: IFormField<string>
     emailAddress: IFormField<string>
-    faxNumber: IFormField<string>,
-    yearsInBusiness: IFormField<string>,
+    yearsInBusiness: IFormField<number>
     businessSector: IFormField<string>,
+    logo: IFormField<string>
 }
 
 interface BusinessSector {
     name: string
     id: string
 }
+
+function validateModelState(modelState: ICompanyModelState) {
+    const model = { ...modelState }
+
+    if (!modelState.legalName.value)
+        model.legalName.error = "Registered Name if required."
+
+    if (!modelState.physicalAddress.value)
+        model.physicalAddress.error = "Physical Address is required."
+
+    if (!modelState.postalAddress.value)
+        model.postalAddress.error = "Postal Address is required."
+
+    if (!modelState.emailAddress.value)
+        model.emailAddress.error = "Email is required."
+
+    if (!modelState.telephoneNumber.value)
+        model.telephoneNumber.error = "Telephone is required."
+
+    return {
+        valid: !(model.legalName.error || model.emailAddress.error || model.telephoneNumber.error || model.physicalAddress.error || model.postalAddress.error),
+        model
+    }
+}
+
 
 export default function CreateCompanyPage() {
     usePageTitle("Create a company")
@@ -38,6 +70,9 @@ export default function CreateCompanyPage() {
     const [loading, setLoading] = useState(false)
     const [sectors, setSectors] = useState<BusinessSector[]>([])
     const { createApiPath } = useAppSettings()
+    const fileUploadElement = useRef<HTMLInputElement | null>(null)
+    const imageElement = useRef<HTMLImageElement | null>(null)
+    const { toaster } = useAppContext()
 
     function updateState(name: string, value: string) {
         setModelState(state => ({
@@ -52,7 +87,6 @@ export default function CreateCompanyPage() {
         const { value, name } = (changeEvent.target instanceof HTMLInputElement)
             ? changeEvent.target as HTMLInputElement :
             changeEvent.target as HTMLTextAreaElement
-
         updateState(name, value)
     }
 
@@ -83,41 +117,30 @@ export default function CreateCompanyPage() {
             }))
     }
 
-    function validateModel() {
-        const model = { ...modelState }
-        if (!modelState.legalName.value)
-            model.legalName.error = "Registered Name if required."
-        if (!modelState.physicalAddress.value)
-            model.physicalAddress.error = "Physical Address is required."
-
-        if (!modelState.postalAddress.value)
-            model.postalAddress.error = "Postal Address is required."
-
-        if (!modelState.emailAddress.value)
-            model.emailAddress.error = "Email is required."
-
-        if (!modelState.telephoneNumber.value)
-            model.telephoneNumber.error = "Telephone is required."
-
-
-        console.log(model)
-        setModelState(model)
-
-        return !(model.legalName.error || model.emailAddress.error || model.telephoneNumber.error || model.physicalAddress.error || model.postalAddress.error)
+    function onSpinChange(_event: SpinButtonChangeEvent, data: SpinButtonOnChangeData) {
+        setModelState(state => ({
+            ...state,
+            yearsInBusiness: {
+                value: data.value ?? 0
+            }
+        }))
     }
 
     function onSubmit(submitEvent: FormEvent<HTMLFormElement>) {
         submitEvent.preventDefault()
         setLoading(true);
-        if (!validateModel()) {
+        const result = validateModelState(modelState)
+        if (!result.valid) {
             setLoading(false)
+            setModelState(result.model)
             return
         }
 
         setTimeout(() => setLoading(false), 5000)
     }
 
-    function onSelect(event: ChangeEvent<HTMLSelectElement>, data: SelectOnChangeData) {
+    function onBusinessSectorSelect(event: ChangeEvent<HTMLSelectElement>, data: SelectOnChangeData) {
+        console.log(event.target.name)
         setModelState(state => ({
             ...state,
             [event.target.name]: {
@@ -126,26 +149,12 @@ export default function CreateCompanyPage() {
         }))
     }
 
-    const renderYearsInBusinessSelect = useMemo(() => {
-        const values = [
-            "0-1",
-            "2-4",
-            "5-9",
-            "10+"
-        ]
-
-        return values.map(value => {
-            return (<option value={value}> {value} Years</option>)
-        })
-    }, [])
-
     const renderSectorOptions = useCallback(() => {
         if (sectors.length > 0)
-            return sectors.map(sector => {
-                return (<option value={sector.id}> {sector.name}</option>)
+            return sectors.map((sector, i) => {
+                return (<option key={i} value={sector.id}> {sector.name}</option>)
             })
-        else
-            return ""
+        return ""
     }, [sectors])
 
     const fetchSectors = useCallback(() => {
@@ -161,23 +170,149 @@ export default function CreateCompanyPage() {
         })
     }, [setSectors, createApiPath])
 
+    function onFileInputChange(event: ChangeEvent<HTMLInputElement>) {
+
+        if (!event.target.files) return
+        const file = event.target.files[0]
+
+        if (file == null)
+            return
+
+        if ((file.size / 1024) > 150)
+            return setModelState(state => ({
+                ...state,
+                logo: {
+                    ...state.logo,
+                    error: "Logo size must not exceed 150kb."
+                }
+            }))
+
+        const reader = new FileReader()
+
+        reader.readAsDataURL(file)
+
+        reader.onload = (event) => {
+            const val = event.target!.result as string
+            setModelState(state => ({
+                ...state,
+                logo: {
+                    value: val,
+                    error: ""
+                }
+            }))
+        }
+    }
+
+    function loadImage(src?: string) {
+        const img = imageElement.current
+
+        if (img == null)
+            return
+
+        img.src = src ?? "/assets/imgs/upload-img.jpg"
+
+        img.onload = (imgEvent) => {
+            const image = imgEvent.target as HTMLImageElement
+
+            if (image.width < image.height) {
+                image.style.height = "100%"
+                image.style.width = "auto"
+            }
+            else {
+                image.style.width = "100%"
+                image.style.height = "auto"
+            }
+        }
+    }
+
+    useEffect(() => {
+        loadImage(modelState.logo.value)
+    }, [modelState.logo.value])
+
+    useEffect(() => {
+        if (!modelState.logo.error)
+            return
+
+        toaster.dispatchToast(
+            <Toast>
+                <ToastTitle>Image File Error!</ToastTitle>
+                <ToastBody>{modelState.logo.error}</ToastBody>
+            </Toast>,
+            {
+                position: "bottom-end",
+                politeness: "assertive",
+                intent: "error",
+                priority: 1,
+                pauseOnHover: true
+            })
+
+        setTimeout(() => setModelState(state => ({
+            ...state,
+            logo: {
+                ...state.logo,
+                error: ""
+            }
+        })), 3000)
+    }, [modelState.logo.error, toaster])
+
     useEffect(() => {
         if (sectors.length < 1)
             fetchSectors()
-
     }, [fetchSectors, sectors])
 
     return <div className={styles.root}>
         <div className={styles.contentContainer}>
             {loading ? <ProgressBar /> : ""}
             <div className={styles.formLabel}>
-                <MdBusiness size={24} /><Text size={400} weight="semibold">Create Your Company</Text>
+                <MdBusiness size={24} />
+                <Text size={400} weight="semibold">
+                    Create Your Company
+                </Text>
             </div>
             <div className={styles.formWrapper}>
                 <form className={styles.formElement} onSubmit={onSubmit}>
                     <div className={`row ${styles.formFields}`}>
-                        <div className={`col-12 mt-3 mb-1`}>
-                            <Divider>Business Information</Divider>
+                        <div className="col-12 pt-3">
+                            <div className={styles.logoUploadWrapper}>
+                                <div className={styles.logoImgWrapper}>
+                                    <img ref={imageElement}
+                                        className={styles.logoElement}
+                                        src={modelState.logo.value ?? "/assets/imgs/upload-img.jpg"}
+                                        width="100%"
+                                        height="100%"
+                                        alt="Company Logo" />
+                                </div>
+                                <input type="file" onChange={onFileInputChange} hidden ref={fileUploadElement} />
+                                <Toolbar>
+                                    <Button
+                                        appearance="subtle"
+                                        icon={<ImageAddRegular />}
+                                        id="fileUpload"
+                                        onClick={() => fileUploadElement.current!.click()}>
+                                        Image
+                                    </Button>
+                                    <TeachingPopover size="small">
+                                        <TeachingPopoverTrigger>
+                                            <Button appearance="subtle" icon={<Info20Regular />} />
+                                        </TeachingPopoverTrigger>
+                                        <TeachingPopoverSurface>
+                                            <TeachingPopoverHeader>Tips</TeachingPopoverHeader>
+                                            <TeachingPopoverBody>
+                                                <TeachingPopoverTitle>Image Requirements:</TeachingPopoverTitle>
+                                                <ul className="ps-3">
+                                                    <li><Text size={300}>Image must be of type: PNG/JPEG/JPG.</Text></li>
+                                                    <li><Text size={300}>Image size must less than 200kb.</Text></li>
+                                                </ul>
+                                                <div>These requirements are neccessary for your logo to be properly displayed on documents.</div>
+                                            </TeachingPopoverBody>
+                                            <TeachingPopoverFooter primary="Got it" />
+                                        </TeachingPopoverSurface>
+                                    </TeachingPopover>
+                                </Toolbar>
+                            </div>
+                        </div>
+                        <div className={`col-12 mt-3 mb-2`}>
+                            <Divider>Company Information</Divider>
                         </div>
                         <div className="col-6">
                             <Field label="Registered Name"
@@ -219,8 +354,33 @@ export default function CreateCompanyPage() {
                                     value={modelState.VATNumber?.value} />
                             </Field>
                         </div>
-                        <div className={`col-12 mt-3 mb-1`}>
-                            <Divider>Addresses</Divider>
+                        <div className="col-4">
+                            <Field label="Years in Business"
+                                validationState={modelState.yearsInBusiness.error ? "error" : "none"}
+                                validationMessage={modelState.yearsInBusiness.error}>
+                                <SpinButton name="yearsInBusiness"
+                                    onChange={onSpinChange}
+                                    disabled={loading}
+                                    min={0}
+                                    value={modelState.yearsInBusiness.value} />
+                            </Field>
+                        </div>
+                        <div className="col-8">
+                            <Field label="Business Sector"
+                                className={styles.selectField}
+                                validationState={modelState.businessSector?.error ? "error" : "none"}
+                                validationMessage={modelState.businessSector.error}>
+                                <Select value={modelState.businessSector.value}
+                                    onChange={onBusinessSectorSelect}
+                                    name="businessSector"
+                                    className={styles.sectorSelect}>
+                                    <option hidden value=""></option>
+                                    {renderSectorOptions()}
+                                </Select>
+                            </Field>
+                        </div>
+                        <div className={`col-12 mt-3 mb-2`}>
+                            <Divider>Address Information</Divider>
                         </div>
                         <div className="col-5">
                             <Field size="small"
@@ -256,11 +416,10 @@ export default function CreateCompanyPage() {
                                     placeholder="Street Address / P.O Box &#10;Town/City&#10;State&#10;Postal Code" />
                             </Field>
                         </div>
-
-                        <div className={`col-12 mt-3 mb-1`}>
+                        <div className={`col-12 mt-3 mb-2`}>
                             <Divider>Contact Information</Divider>
                         </div>
-                        <div className="col-4">
+                        <div className="col-6">
                             <Field label="Email Address"
                                 validationState={modelState.emailAddress.error ? "error" : "none"}
                                 validationMessage={modelState.emailAddress.error}>
@@ -271,7 +430,7 @@ export default function CreateCompanyPage() {
                                     value={modelState.emailAddress?.value} />
                             </Field>
                         </div>
-                        <div className="col-4">
+                        <div className="col-6">
                             <Field label="Telephone"
                                 validationState={modelState.telephoneNumber?.error ? "error" : "none"}
                                 validationMessage={modelState.telephoneNumber.error}>
@@ -279,43 +438,6 @@ export default function CreateCompanyPage() {
                                     onChange={onInputChange}
                                     disabled={loading}
                                     value={modelState.telephoneNumber.value} />
-                            </Field>
-                        </div>
-                        <div className="col-4">
-                            <Field label="Fax Number"
-                                validationState={modelState.faxNumber?.error ? "error" : "none"}
-                                validationMessage={modelState.faxNumber.error}>
-                                <Input name="faxNumber"
-                                    onChange={onInputChange}
-                                    disabled={loading}
-                                    value={modelState.faxNumber.value} />
-                            </Field>
-                        </div>
-                        <div className={`col-12 mt-3 mb-1`}>
-                            <Divider>Other Information</Divider>
-                        </div>
-                        <div className="col-4">
-                            <Field label="Years in Business"
-                                validationState={modelState.yearsInBusiness.error ? "error" : "none"}
-                                validationMessage={modelState.yearsInBusiness.error}>
-                                <Select value={modelState.yearsInBusiness.value}
-                                    onChange={onSelect}>
-                                    <option hidden></option>
-                                    {renderYearsInBusinessSelect}
-                                </Select>
-                            </Field>
-                        </div>
-                        <div className="col-8">
-                            <Field label="Business Sector"
-                                className={styles.selectField}
-                                validationState={modelState.businessSector?.error ? "error" : "none"}
-                                validationMessage={modelState.businessSector.error}>
-                                <Select value={modelState.businessSector.value}
-                                    onChange={onSelect}
-                                    className={styles.sectorSelect}>
-                                    <option></option>
-                                    {renderSectorOptions()}
-                                </Select>
                             </Field>
                         </div>
                         <div className={`col-12 mt-3 mb-1`}>
@@ -361,15 +483,15 @@ const initialModelState: ICompanyModelState = {
         value: ""
     },
     yearsInBusiness: {
-        value: ""
+        value: 1
     },
     businessSector: {
         value: ""
     },
-    faxNumber: {
+    emailAddress: {
         value: ""
     },
-    emailAddress: {
+    logo: {
         value: ""
     }
 }
@@ -389,18 +511,32 @@ const MakeCreateCompanyStyles = makeStyles({
         boxShadow: Depths.depth4,
         overflow: "hidden"
     },
+    logoImgWrapper: {
+        width: "180px",
+        height: "180px",
+        border: borders.thinNeutral,
+        borderRadius: tokens.borderRadiusMedium,
+        padding: tokens.spacingHorizontalXXS,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden"
+    },
+    logoElement: {
+        display: "block",
+        margin: "auto"
+    },
     formWrapper: {
         padding: tokens.spacingHorizontalL,
         paddingBottom: tokens.spacingVerticalXXXL,
-        borderTop: borders.thinNeutral,
-        //minHeight: breakpoints.small
+        borderTop: borders.thinNeutral
     },
     formElement: {
-        maxWidth: breakpoints.medium,
+        maxWidth: breakpoints.small,
         margin: "0 auto"
     },
     formFields: {
-        rowGap: tokens.spacingVerticalS
+        rowGap: tokens.spacingVerticalM
     },
     formLabel: {
         backgroundColor: tokens.colorNeutralBackground1Hover,
@@ -439,5 +575,11 @@ const MakeCreateCompanyStyles = makeStyles({
     sectorSelect: {
         width: "100%",
         overflow: "auto"
+    },
+    logoUploadWrapper: {
+        maxWidth: "200px",
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: "column"
     }
 })

@@ -6,18 +6,18 @@ namespace LibreBooks.Models.Entity.AccountingSpace
 {
     public class AccountCashFlowType
     {
-        public virtual string? Id { get; set; }
+        public virtual string Id { get; set; }
         public virtual string? Name { get; set; }
         public virtual string? Description { get; set; }
 
         [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
-
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
+        public virtual string RowVersion { get; set; }
 
         public AccountCashFlowType ()
-            => Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
         {

@@ -3,13 +3,13 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { Button, makeStyles, Menu, MenuDivider, MenuGroupHeader, MenuItem, MenuList, MenuPopover, MenuTrigger, Spinner, Toaster, tokens, Toolbar, ToolbarButton, ToolbarDivider, ToolbarGroup, Tooltip, useId } from '@fluentui/react-components'
 import useIdentityManager from '../../hooks/IdentityManager'
 import { AppContext, IAppContext } from '../../contexts'
-import { TbHome, TbLogout, TbPlus, TbReportAnalytics, TbSettings, TbUserCircle } from 'react-icons/tb'
+import { TbHome, TbLogout, TbReportAnalytics, TbSettings, TbUserCircle } from 'react-icons/tb'
 import { AppRoutes } from '../../strings'
 import { breakpoints } from '../../strings/ui'
 import { Depths } from '@fluentui/react'
 import AuthorizedCompanyView from './shared/AuthorizedCompanyView'
 import { useCompanyManager } from '../../hooks'
-import { BiChevronDown } from 'react-icons/bi'
+import { Add20Regular, ChevronDown20Regular } from '@fluentui/react-icons'
 
 const renderLoadingElement = (styles: ReturnType<typeof MakeEntryLayoutStyles>) => {
 	return (
@@ -60,8 +60,8 @@ export default function MainLayout() {
 											<>
 												<Menu>
 													<MenuTrigger disableButtonEnhancement>
-														<Button tabIndex={0} icon={<TbPlus />}
-															appearance='primary' />
+														<Button tabIndex={0} iconPosition='after' icon={<Add20Regular />}
+															appearance='primary'>New</Button>
 													</MenuTrigger>
 													<MenuPopover>
 														<MenuList>
@@ -70,7 +70,7 @@ export default function MainLayout() {
 																	<MenuItem>Sales</MenuItem>
 																</MenuTrigger>
 																<MenuPopover>
-																	<MenuGroupHeader>Sales Management</MenuGroupHeader>
+																	<MenuGroupHeader>Customer Transactions</MenuGroupHeader>
 																	<MenuDivider />
 																	<MenuList>
 																		<MenuItem>Quote</MenuItem>
@@ -88,7 +88,7 @@ export default function MainLayout() {
 																	<MenuItem>Purchases</MenuItem>
 																</MenuTrigger>
 																<MenuPopover>
-																	<MenuGroupHeader>Purchases Management</MenuGroupHeader>
+																	<MenuGroupHeader>Supplier Transactions</MenuGroupHeader>
 																	<MenuDivider />
 																	<MenuList>
 																		<MenuItem>Order</MenuItem>
@@ -105,7 +105,7 @@ export default function MainLayout() {
 																	<MenuItem>Inventory</MenuItem>
 																</MenuTrigger>
 																<MenuPopover>
-																	<MenuGroupHeader>Inventory Management</MenuGroupHeader>
+																	<MenuGroupHeader>Inventory Transactions</MenuGroupHeader>
 																	<MenuDivider />
 																	<MenuList>
 																		<MenuItem>Item</MenuItem>
@@ -134,7 +134,7 @@ export default function MainLayout() {
 												<ToolbarButton appearance='subtle'>Dashboard</ToolbarButton>
 												<Menu>
 													<MenuTrigger disableButtonEnhancement>
-														<Button tabIndex={0} icon={<BiChevronDown />}
+														<Button tabIndex={0} icon={<ChevronDown20Regular />}
 															iconPosition='after'
 															appearance='subtle'>Sales</Button>
 													</MenuTrigger>
@@ -146,9 +146,9 @@ export default function MainLayout() {
 																</MenuTrigger>
 																<MenuPopover>
 																	<MenuList>
-																		<MenuItem icon={<TbPlus />}>New Customer</MenuItem>
+																		<MenuItem icon={<Add20Regular />}>New Customer</MenuItem>
 																		<MenuDivider />
-																		<MenuItem>Customers</MenuItem>
+																		<MenuItem>List of Customers</MenuItem>
 																		<MenuItem>Customer Categories</MenuItem>
 																	</MenuList>
 																</MenuPopover>
@@ -164,7 +164,7 @@ export default function MainLayout() {
 														<MenuList>
 															<Menu>
 																<MenuTrigger disableButtonEnhancement>
-																	<MenuItem icon={<TbReportAnalytics />}>Reports</MenuItem>
+																	<MenuItem>Reports</MenuItem>
 																</MenuTrigger>
 																<MenuPopover>
 																	<MenuGroupHeader>Reports</MenuGroupHeader>
@@ -181,7 +181,7 @@ export default function MainLayout() {
 												</Menu>
 												<Menu>
 													<MenuTrigger disableButtonEnhancement>
-														<Button tabIndex={0} icon={<BiChevronDown />}
+														<Button tabIndex={0} icon={<ChevronDown20Regular />}
 															iconPosition='after'
 															appearance='subtle'>Purchases</Button>
 													</MenuTrigger>
@@ -193,7 +193,7 @@ export default function MainLayout() {
 																</MenuTrigger>
 																<MenuPopover>
 																	<MenuList>
-																		<MenuItem icon={<TbPlus />}>New Supplier</MenuItem>
+																		<MenuItem icon={<Add20Regular />}>New Supplier</MenuItem>
 																		<MenuDivider />
 																		<MenuItem>List of Suppliers</MenuItem>
 																		<MenuItem>Supplier Categories</MenuItem>
@@ -227,12 +227,12 @@ export default function MainLayout() {
 												</Menu>
 												<Menu>
 													<MenuTrigger disableButtonEnhancement>
-														<Button tabIndex={0} icon={<BiChevronDown />}
+														<Button tabIndex={0} icon={<ChevronDown20Regular />}
 															iconPosition='after'
 															appearance='subtle'>Inventory</Button>
 													</MenuTrigger>
 													<MenuPopover>
-														<MenuItem icon={<TbPlus />}>New Item</MenuItem>
+														<MenuItem icon={<Add20Regular />}>New Item</MenuItem>
 														<MenuDivider />
 														<MenuItem>List of Items</MenuItem>
 														<MenuItem>Item Categories</MenuItem>
@@ -258,7 +258,7 @@ export default function MainLayout() {
 												</Menu>
 												<Menu>
 													<MenuTrigger disableButtonEnhancement>
-														<Button tabIndex={0} icon={<BiChevronDown />}
+														<Button tabIndex={0} icon={<ChevronDown20Regular />}
 															iconPosition='after'
 															appearance='subtle'>Accounting</Button>
 													</MenuTrigger>
@@ -299,7 +299,7 @@ export default function MainLayout() {
 												</Menu>
 												<Menu>
 													<MenuTrigger disableButtonEnhancement>
-														<Button tabIndex={0} icon={<BiChevronDown />}
+														<Button tabIndex={0} icon={<ChevronDown20Regular />}
 															iconPosition='after'
 															appearance='subtle'>Reports</Button>
 													</MenuTrigger>

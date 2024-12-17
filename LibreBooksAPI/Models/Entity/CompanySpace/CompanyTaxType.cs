@@ -15,11 +15,17 @@ namespace LibreBooks.Models.Entity.CompanySpace
         public virtual string? TaxTypeId { get; set; }
 
         public virtual Company? Company { get; set; }
-        public virtual TaxTypes? TaxType { get; set; }
-        public virtual CompanySalesTaxType? CompanySalesTaxType { get; set; }
+        public virtual TaxType? TaxType { get; set; }
+        public virtual CompanyDefaultTaxType? CompanySalesTaxType { get; set; }
 
         public CompanyTaxType ()
-            => Id = Guid.NewGuid().ToString("N");
+            => Id = Guid.NewGuid().ToString("N").ToUpper();
+
+        public CompanyTaxType (string companyId, string taxTypeId) : this()
+        {
+            CompanyId = companyId;
+            TaxTypeId = taxTypeId;
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<CompanyTaxType>(options =>
@@ -70,7 +76,7 @@ namespace LibreBooks.Models.Entity.CompanySpace
 
                 options.HasOne(p => p.CompanySalesTaxType)
                 .WithOne(p => p.CompanyTaxType)
-                .HasForeignKey<CompanySalesTaxType>(p => p.CompanyTaxTypeId)
+                .HasForeignKey<CompanyDefaultTaxType>(p => p.CompanyTaxTypeId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.NoAction);
             });

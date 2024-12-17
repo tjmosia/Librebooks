@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LibreBooksAPI.Areas.Identity.Models
+namespace LibreBooks.Areas.Identity.Models
 {
     public class AccountReqModels
     {

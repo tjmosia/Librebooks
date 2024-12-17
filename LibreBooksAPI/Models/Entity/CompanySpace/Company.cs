@@ -10,32 +10,34 @@ using LibreBooks.Models.Entity.SalesSpace;
 using LibreBooks.Models.Entity.SupplierSpace;
 using LibreBooks.Models.Entity.SystemSpace;
 
+using LibreBooksAPI.Models.Entity.CustomerSpace;
+using LibreBooksAPI.Models.Entity.InventorySpace;
+using LibreBooksAPI.Models.Entity.SupplierSpace;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.CompanySpace
 {
     public class Company
     {
-        public virtual string? Id { get; set; }
+        public virtual string Id { get; set; }
         public virtual string? Number { get; set; }
         public virtual string? LegalName { get; set; }
         public virtual string? TradingName { get; set; }
         public virtual string? RegNumber { get; set; }
         public virtual string? VATNumber { get; set; }
         public virtual string? PostalAddress { get; set; }
-        public virtual string? DeliveryAddress { get; set; }
+        public virtual string? PhysicalAddress { get; set; }
         public virtual string? TelephoneNumber { get; set; }
         public virtual string? EmailAddress { get; set; }
         public virtual string? FaxNumber { get; set; }
-        public virtual string? Logo { get; set; }
         public virtual int YearsInBusienss { get; set; }
         public virtual string? BusinessSectorId { get; set; }
+        public virtual string? LogoId { get; set; }
+
 
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
-
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual BusinessSector? BusinessSector { get; set; }
         public virtual ICollection<CompanyUser>? Users { get; set; }
@@ -43,9 +45,10 @@ namespace LibreBooks.Models.Entity.CompanySpace
         public virtual CompanyRegionalSettings? RegionalSettings { get; set; }
         public virtual CompanyMailSettings? MailSettings { get; set; }
         public virtual ICollection<CompanyTaxType>? TaxTypes { get; set; }
-        public virtual CompanySalesTaxType? SalesTaxType { get; set; }
+        public virtual CompanyDefaultTaxType? DefaultTaxType { get; set; }
         public virtual ICollection<SalesPerson>? SalesPeople { get; set; }
         public virtual ICollection<PurchaseBuyer>? Buyers { get; set; }
+        public virtual ItemSetup? ItemSetup { get; set; }
 
         public virtual ICollection<Supplier>? Suppliers { get; set; }
         public virtual ICollection<SupplierAdjustment>? SupplierAdjustments { get; set; }
@@ -60,6 +63,7 @@ namespace LibreBooks.Models.Entity.CompanySpace
         public virtual ICollection<SalesInvoice>? SalesInvoices { get; set; }
         public virtual ICollection<SalesCredit>? SalesCredits { get; set; }
         public virtual ICollection<SalesReceipt>? SalesReceipts { get; set; }
+        public virtual CompanyLogo? Logo { get; set; }
 
         public virtual ICollection<Item>? Items { get; set; }
         public virtual ICollection<ItemAdjustment>? ItemAdjustments { get; set; }
@@ -69,9 +73,14 @@ namespace LibreBooks.Models.Entity.CompanySpace
         public virtual ICollection<Account>? ChartOfAccounts { get; set; }
         public virtual ICollection<BankAccount>? BankAccounts { get; set; }
         public virtual CompanyDefaultBankAccount? DefaultBankAccount { get; set; }
+        public virtual SupplierSetup? SupplierSetup { get; set; }
+        public virtual CustomerSetup? CustomerSetup { get; set; }
 
         public Company ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<Company>(options =>
@@ -84,13 +93,13 @@ namespace LibreBooks.Models.Entity.CompanySpace
                     .WithOne(p => p.Company)
                     .HasForeignKey<CompanyRegionalSettings>(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 options.HasOne(p => p.MailSettings)
                     .WithOne(p => p.Company)
                     .HasForeignKey<CompanyMailSettings>(p => p.CompanyId)
                         .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 options.HasOne(p => p.DefaultBankAccount)
                     .WithOne(p => p.Company)
@@ -98,8 +107,38 @@ namespace LibreBooks.Models.Entity.CompanySpace
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 
+                options.HasOne(p => p.Logo)
+                    .WithOne()
+                    .HasForeignKey<CompanyLogo>(p => p.CompanyId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
+
                 options.HasMany(p => p.DocumentSetups)
-                    .WithOne(p => p.Company)
+                    .WithOne()
+                    .HasForeignKey(p => p.CompanyId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasOne(p => p.CustomerSetup)
+                    .WithOne()
+                    .HasForeignKey<CustomerSetup>(p => p.CompanyId)
+                    .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                options.HasOne(p => p.ItemSetup)
+                    .WithOne()
+                    .HasForeignKey<ItemSetup>(p => p.CompanyId)
+                    .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                options.HasOne(p => p.SupplierSetup)
+                    .WithOne()
+                    .HasForeignKey<SupplierSetup>(p => p.CompanyId)
+                    .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                options.HasMany<CompanyImage>()
+                    .WithOne()
                     .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
@@ -212,9 +251,9 @@ namespace LibreBooks.Models.Entity.CompanySpace
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Cascade);
 
-                options.HasOne(p => p.SalesTaxType)
+                options.HasOne(p => p.DefaultTaxType)
                     .WithOne(p => p.Company)
-                    .HasForeignKey<CompanySalesTaxType>(p => p.CompanyId)
+                    .HasForeignKey<CompanyDefaultTaxType>(p => p.CompanyId)
                     .IsRequired()
                     .OnDelete(DeleteBehavior.Cascade);
             });

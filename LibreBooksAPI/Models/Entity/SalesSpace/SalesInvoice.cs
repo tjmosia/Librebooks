@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LibreBooks.Models.Entity.CompanySpace;
 
-using LibreBooks.Models.Entity.CompanySpace;
-using LibreBooks.Models.Entity.CustomerSpace;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.SalesSpace
 {
@@ -13,7 +12,6 @@ namespace LibreBooks.Models.Entity.SalesSpace
 
         public virtual SalesDocument? Document { get; set; }
         public virtual Company? Company { get; set; }
-        public virtual Customer? Customer { get; set; }
         public virtual ICollection<SalesOrderInvoice>? Orders { get; set; }
         public virtual ICollection<SalesInvoiceCredit>? Credits { get; set; }
         public virtual ICollection<SalesInvoiceReceipt>? Receipts { get; set; }

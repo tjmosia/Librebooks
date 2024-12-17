@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace LibreBooksAPI.Areas.SystemSetups.Controllers
+namespace LibreBooks.Areas.SystemSetups.Controllers
 {
     [ApiController]
     //[Authorize]

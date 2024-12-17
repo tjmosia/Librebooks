@@ -1,16 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Models.Entity.CompanySpace;
 using LibreBooks.Models.Entity.SalesSpace;
 using LibreBooks.Models.Entity.SystemSpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.CustomerSpace
 {
     public class Customer
     {
-        public virtual string? Id { get; set; }
+        public virtual string Id { get; set; }
         public virtual string? LegalName { get; set; }
         public virtual string? TradingName { get; set; }
         public virtual string? DeliveryAddress { get; set; }
@@ -33,9 +33,6 @@ namespace LibreBooks.Models.Entity.CustomerSpace
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
 
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
-
         public virtual Company? Company { get; set; }
         public virtual CustomerCategory? Category { get; set; }
         public virtual ICollection<SalesInvoice>? Invoices { get; set; }
@@ -50,7 +47,10 @@ namespace LibreBooks.Models.Entity.CustomerSpace
         public virtual SalesPerson? SalesPerson { get; set; }
 
         public Customer ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<Customer>(options =>
@@ -63,8 +63,15 @@ namespace LibreBooks.Models.Entity.CustomerSpace
                     .IsClustered();
 
                 options.HasMany(p => p.Quotes)
+                    .WithOne()
+                    .HasForeignKey(p => p.CustomerId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasMany<SalesDocumentCustomerDetails>()
                     .WithOne(p => p.Customer)
                     .HasForeignKey(p => p.CustomerId)
+                    .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 
@@ -75,31 +82,31 @@ namespace LibreBooks.Models.Entity.CustomerSpace
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Orders)
-                    .WithOne(p => p.Customer)
+                    .WithOne()
                     .HasForeignKey(p => p.CustomerId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Invoices)
-                    .WithOne(p => p.Customer)
+                    .WithOne()
                     .HasForeignKey(p => p.CustomerId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Credits)
-                    .WithOne(p => p.Customer)
+                    .WithOne()
                     .HasForeignKey(p => p.CustomerId)
                         .IsRequired(false)
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Receipts)
-                    .WithOne(p => p.Customer)
+                    .WithOne()
                     .HasForeignKey(p => p.CustomerId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.ContactPeople)
-                    .WithOne(p => p.Customer)
+                    .WithOne()
                     .HasForeignKey(p => p.CustomerId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);

@@ -14,11 +14,11 @@ namespace LibreBooks.Models.Entity.DocumentSpace
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
 
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
-
         public DocumentPrintTemplate ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<DocumentPrintTemplate>(options =>

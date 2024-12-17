@@ -1,15 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Core.Types;
+using LibreBooks.Models.Entity.CompanySpace;
 using LibreBooks.Models.Entity.DocumentSpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.PurchasesSpace
 {
     public class PurchaseDocument
     {
-        public virtual string? Id { get; set; }
+        public virtual string Id { get; set; }
         public virtual DateTime Date { get; set; }
         public virtual DateTime? DueDate { get; set; }
         public virtual string? Number { get; set; }
@@ -22,20 +23,22 @@ namespace LibreBooks.Models.Entity.PurchasesSpace
         public virtual bool IsDraft { get; set; }
         public virtual bool Printed { get; set; }
         public virtual string? StatusId { get; set; }
+        public virtual string? LogoId { get; set; }
 
         [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
+        public virtual string RowVersion { get; set; }
 
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
-
+        public virtual CompanyImage? Logo { get; set; }
         public virtual DocumentStatus? Status { get; set; }
         public virtual ICollection<PurchaseDocumentLine>? Lines { get; set; }
         public virtual ICollection<PurchaseDocumentNote>? Notes { get; set; }
         public virtual PurchaseDocumentSupplierDetails? SupplierDetails { get; set; }
 
         public PurchaseDocument ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<PurchaseDocument>(options =>

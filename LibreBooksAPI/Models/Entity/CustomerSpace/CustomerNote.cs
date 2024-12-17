@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LibreBooks.Models.Entity.GeneralSpace;
 
-using LibreBooks.Models.Entity.GeneralSpace;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.CustomerSpace
 {

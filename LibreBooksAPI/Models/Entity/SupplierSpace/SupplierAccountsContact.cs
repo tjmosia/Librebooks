@@ -8,7 +8,6 @@ namespace LibreBooks.Models.Entity.SupplierSpace
         public virtual string? SupplierContactId { get; set; }
 
         public virtual SupplierContact? SupplierContact { get; set; }
-        public virtual Supplier? Supplier { get; set; }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<SupplierAccountsContact>(options =>

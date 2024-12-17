@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Models.Entity.CompanySpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.InventorySpace
 {
@@ -13,12 +13,8 @@ namespace LibreBooks.Models.Entity.InventorySpace
         public virtual string? Description { get; set; }
         public virtual string? CompanyId { get; set; }
         public virtual string? ParentId { get; set; }
-
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
-
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual ItemCategory? Parent { get; set; }
         public virtual Company? Company { get; set; }
@@ -26,7 +22,11 @@ namespace LibreBooks.Models.Entity.InventorySpace
         public virtual ICollection<ItemCategory>? SubCategories { get; set; }
 
         public ItemCategory ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
+
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<ItemCategory>(options =>

@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LibreBooks.Models.Entity.CompanySpace;
 
-using LibreBooks.Models.Entity.CompanySpace;
-using LibreBooks.Models.Entity.SupplierSpace;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.PurchasesSpace
 {
@@ -13,7 +12,6 @@ namespace LibreBooks.Models.Entity.PurchasesSpace
 
         public virtual PurchaseDocument? Document { get; set; }
         public virtual Company? Company { get; set; }
-        public virtual Supplier? Supplier { get; set; }
         public virtual ICollection<PurchaseOrderInvoice>? Invoices { get; set; }
 
         public static void BuildModel (ModelBuilder builder)

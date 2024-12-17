@@ -18,7 +18,7 @@
             Errors = errors;
         }
 
-        public static TransactionResult<TModel> Success (TModel? Model)
+        public static TransactionResult<TModel> Success (TModel? Model = null)
             => new TransactionResult<TModel>(true, [], Model);
 
         public static TransactionResult<TModel> Failure (params TransactionError[] errors)

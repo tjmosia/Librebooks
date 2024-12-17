@@ -1,6 +1,6 @@
 
 export interface IFormField<T> {
-    value: T | undefined
+    value: T
     error?: string
     helperText?: string
 }

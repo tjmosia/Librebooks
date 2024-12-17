@@ -1,12 +1,9 @@
-using LibreBooks.Areas.Inventory.Services;
-using LibreBooks.Areas.SystemSetups.Services;
-using LibreBooks.Areas.SystemSetups.Services.SubStores;
-using LibreBooks.Core.EFCore;
 using LibreBooks.Data;
 using LibreBooks.Extensions.Identity;
 using LibreBooks.Models.Entity.IdentitySpace;
 
-using LibreBooksAPI.Areas.SystemSetups.Services.SubStores;
+using LibreBooksAPI.Areas;
+using LibreBooksAPI.Core.EFCore;
 
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Identity;
@@ -41,24 +38,9 @@ builder.Services.AddIdentityCore<User>
     .AddDefaultTokenProviders();
 
 JwtBearerProvider.Configure(builder);
-
 builder.Services.AddSingleton<IdentityErrorDescriberExt>();
-builder.Services.AddSingleton<DbErrorDescriber>();
-builder.Services.AddScoped<SystemStore>();
-builder.Services.AddScoped<ISystemManager, SystemManager>();
-builder.Services.AddScoped<ItemStore>();
-builder.Services.AddScoped<IItemManager, ItemManager>();
-builder.Services.AddScoped<CountryStore>();
-builder.Services.AddScoped<CurrencyStore>();
-builder.Services.AddScoped<DateFormatStore>();
-builder.Services.AddScoped<PaymentMethodStore>();
-builder.Services.AddScoped<PaymentTermStore>();
-builder.Services.AddScoped<ShippingTermStore>();
-builder.Services.AddScoped<ShippingMethodStore>();
-builder.Services.AddScoped<TaxTypeStore>();
-builder.Services.AddScoped<SystemCompanyNumberStore>();
-builder.Services.AddScoped<BusinessSectorStore>();
-
+AreaServices.ConfigureAll(builder.Services);
+builder.Services.AddSingleton<AppErrorDescriber>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("DevOrigin", options =>
@@ -91,13 +73,6 @@ app.UseCors("DevOrigin");
 app.UseDefaultFiles();
 app.UseStaticFiles();
 app.UseHttpsRedirection();
-//app.Use(async (context, next) =>
-//{
-//    context.Request.Cookies.TryGetValue(JwtTokenKeys.AccessToken, out var token);
-//    if (token != null)
-//        context.Request.Headers.Authorization = $"Bearer {token}";
-//    await next.Invoke();
-//});
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

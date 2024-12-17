@@ -11,6 +11,11 @@ using LibreBooks.Models.Entity.SalesSpace;
 using LibreBooks.Models.Entity.SupplierSpace;
 using LibreBooks.Models.Entity.SystemSpace;
 
+using LibreBooksAPI.Models.Entity.CompanySpace;
+using LibreBooksAPI.Models.Entity.CustomerSpace;
+using LibreBooksAPI.Models.Entity.InventorySpace;
+using LibreBooksAPI.Models.Entity.SupplierSpace;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity
@@ -37,6 +42,7 @@ namespace LibreBooks.Models.Entity
             ItemCategory.BuildModel(builder);
             ItemInventory.BuildModel(builder);
             ItemAdjustment.BuildModel(builder);
+            ItemSetup.BuildModel(builder);
 
             /************************************************************************************************
              * Document Space
@@ -69,11 +75,13 @@ namespace LibreBooks.Models.Entity
              ************************************************************************************************/
             Company.BuildModel(builder);
             CompanyDefaultBankAccount.BuildModel(builder);
-            CompanySalesTaxType.BuildModel(builder);
+            CompanyDefaultTaxType.BuildModel(builder);
             CompanyTaxType.BuildModel(builder);
             CompanyUser.BuildModel(builder);
             CompanyMailSettings.BuildModel(builder);
             CompanyRegionalSettings.BuildModel(builder);
+            CompanyLogo.BuildModel(builder);
+            CompanyImage.BuildModel(builder);
 
             /************************************************************************************************
              * System Space
@@ -81,11 +89,11 @@ namespace LibreBooks.Models.Entity
             Country.BuildModel(builder);
             Currency.BuildModel(builder);
             DateFormat.BuildModel(builder);
-            TaxTypes.BuildModel(builder);
+            TaxType.BuildModel(builder);
             ShippingMethod.BuildModel(builder);
             ShippingTerm.BuildModel(builder);
             PaymentMethod.BuildModel(builder);
-            SystemCompanyNumber.BuildModel(builder);
+            CompanySetup.BuildModel(builder);
             BusinessSector.BuildModel(builder);
 
             /************************************************************************************************
@@ -98,6 +106,7 @@ namespace LibreBooks.Models.Entity
             CustomerAccountsContact.BuildModel(builder);
             CustomerWriteOff.BuildModel(builder);
             CustomerAdjustment.BuildModel(builder);
+            CustomerSetup.BuildModel(builder);
 
             /************************************************************************************************
              * Accounting Space
@@ -117,6 +126,7 @@ namespace LibreBooks.Models.Entity
             SupplierContact.BuildModel(builder);
             SupplierAccountsContact.BuildModel(builder);
             SupplierCategory.BuildModel(builder);
+            SupplierSetup.BuildModel(builder);
 
             /************************************************************************************************
              * Purchasing Space

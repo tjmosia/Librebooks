@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Core.Types;
 using LibreBooks.Models.Entity.SalesSpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.CustomerSpace
 {
@@ -22,13 +22,13 @@ namespace LibreBooks.Models.Entity.CustomerSpace
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
 
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
-
         public virtual ICollection<SalesInvoice>? Invoices { get; set; }
 
         public CustomerWriteOff ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<CustomerWriteOff>(options =>

@@ -12,7 +12,7 @@ namespace LibreBooks.Areas.SystemSetups.Services.SubStores
             : base(context, logger) { }
 
         /// <exception cref="DbUpdateException"/>
-        public async Task<TaxTypes> CreateAsync (TaxTypes vat)
+        public async Task<TaxType> CreateAsync (TaxType vat)
         {
             var result = await context!.TaxType!.AddAsync(vat);
             await context.SaveChangesAsync();
@@ -20,23 +20,23 @@ namespace LibreBooks.Areas.SystemSetups.Services.SubStores
         }
 
         /// <exception cref="DbUpdateException"/>
-        public async Task<TaxTypes> UpdateAsync (TaxTypes vat)
+        public async Task<TaxType> UpdateAsync (TaxType vat)
         {
             var result = context!.TaxType!.Update(vat);
             await context.SaveChangesAsync();
             return result.Entity;
         }
 
-        public async Task<TaxTypes?> FindByIdAsync (string id)
+        public async Task<TaxType?> FindByIdAsync (string id)
             => await context!.TaxType!.FindAsync(id);
 
-        public async Task DeleteAsync (params TaxTypes[] vats)
+        public async Task DeleteAsync (params TaxType[] vats)
         {
             context!.TaxType!.RemoveRange(vats);
             await context.SaveChangesAsync();
         }
 
-        public async Task<IList<TaxTypes>> FindAllAsync ()
+        public async Task<IList<TaxType>> FindAllAsync ()
             => await context!.TaxType!.ToListAsync();
     }
 }

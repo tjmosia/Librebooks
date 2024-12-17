@@ -1,12 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-using LibreBooks.Models.Entity.AccountingSpace;
+﻿using LibreBooks.Models.Entity.AccountingSpace;
 using LibreBooks.Models.Entity.CompanySpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.SupplierSpace
 {
     public class SupplierAdjustment
     {
+        public virtual string? Id { get; set; }
         public virtual string? JournalId { get; set; }
         public virtual string? CompanyId { get; set; }
         public virtual string? SupplierId { get; set; }

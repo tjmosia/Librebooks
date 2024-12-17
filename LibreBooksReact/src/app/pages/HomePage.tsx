@@ -1,6 +1,6 @@
 import { Button, Caption1Strong, makeStyles, tokens } from "@fluentui/react-components";
+import { Add20Regular } from "@fluentui/react-icons";
 import { usePageTitle } from "../../hooks";
-import { BsPlus } from "react-icons/bs";
 import { FaStore } from "react-icons/fa";
 import Borders from "../../strings/ui/Borders";
 import { useNavigate } from "react-router";
@@ -21,7 +21,7 @@ export function HomePage() {
 				{/* <Button appearance="transparent" disabled>No Companies Listed...</Button> */}
 			</div>
 			<div className={styles.companyListControls}>
-				<Button onClick={() => navigate(AppRoutes.Companies.Create)} appearance="primary" icon={<BsPlus />}>Create Company</Button>
+				<Button onClick={() => navigate(AppRoutes.Companies.Create)} appearance="primary" icon={<Add20Regular />}>Create Company</Button>
 				{/* <CompoundButton appearance="primary" size="small" icon={<BsPlus />} secondaryContent="Create a new company.">Something New</CompoundButton> */}
 			</div>
 		</div>

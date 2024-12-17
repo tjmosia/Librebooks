@@ -3,6 +3,8 @@ using LibreBooks.Core.EFCore;
 using LibreBooks.CoreLib.Operations;
 using LibreBooks.Models.Entity.SystemSpace;
 
+using LibreBooksAPI.Models.Entity.CompanySpace;
+
 using Microsoft.Extensions.Caching.Distributed;
 
 namespace LibreBooks.Areas.SystemSetups.Services
@@ -24,10 +26,10 @@ namespace LibreBooks.Areas.SystemSetups.Services
         public async Task<string?> GetCompanyNumberParamsFromCacheAsync ()
             => await cache!.GetStringAsync(COMP_NUM_PREFIX);
 
-        public async Task<TransactionResult<SystemCompanyNumber>> InitializeAsync (long nextNumber = 1, string? numberPrefix = null, string? numberFormat = null)
+        public async Task<TransactionResult<CompanySetup>> InitializeAsync (long nextNumber = 1, string? numberPrefix = null, string? numberFormat = null)
         {
             var setup = await store!.CompanyNumber!.CreateAsync(
-                new SystemCompanyNumber
+                new CompanySetup
                 {
                     NumberFormat = numberFormat,
                     NumberPrefix = numberPrefix,
@@ -36,7 +38,7 @@ namespace LibreBooks.Areas.SystemSetups.Services
 
             await SyncCompanyNumberParamsToCacheAsync(setup.NumberPrefix!, setup.NumberFormat!);
 
-            return TransactionResult<SystemCompanyNumber>
+            return TransactionResult<CompanySetup>
                     .Success(setup);
         }
 
@@ -297,33 +299,33 @@ namespace LibreBooks.Areas.SystemSetups.Services
         /******************************************************************
          * TaxType Store Manager Actions
          ******************************************************************/
-        public async Task<TransactionResult<TaxTypes>> AddVATAsync (TaxTypes vat)
+        public async Task<TransactionResult<TaxType>> AddVATAsync (TaxType vat)
         {
             var result = await store!.ValueAddedTax!.CreateAsync(vat);
 
             if (result != null)
-                return TransactionResult<TaxTypes>.Success(result);
+                return TransactionResult<TaxType>.Success(result);
 
-            return TransactionResult<TaxTypes>.Failure();
+            return TransactionResult<TaxType>.Failure();
         }
 
-        public async Task<TransactionResult> DeleteVATAsync (params TaxTypes[] vats)
+        public async Task<TransactionResult> DeleteVATAsync (params TaxType[] vats)
         {
             await store!.ValueAddedTax!.DeleteAsync(vats);
             return TransactionResult.Success;
         }
 
-        public async Task<TaxTypes?> GetVATByIdAsync (string id)
+        public async Task<TaxType?> GetVATByIdAsync (string id)
             => await store!.ValueAddedTax!.FindByIdAsync(id);
 
-        public async Task<TransactionResult<TaxTypes>> UpdateVATAsync (TaxTypes vat)
+        public async Task<TransactionResult<TaxType>> UpdateVATAsync (TaxType vat)
         {
             var result = await store!.ValueAddedTax!.UpdateAsync(vat);
 
             if (result != null)
-                return TransactionResult<TaxTypes>.Success(result);
+                return TransactionResult<TaxType>.Success(result);
 
-            return TransactionResult<TaxTypes>.Failure();
+            return TransactionResult<TaxType>.Failure();
         }
 
 

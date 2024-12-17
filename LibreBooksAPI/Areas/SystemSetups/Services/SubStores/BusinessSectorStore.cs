@@ -4,7 +4,7 @@ using LibreBooks.Data;
 using LibreBooks.Models.Entity.SystemSpace;
 
 using Microsoft.EntityFrameworkCore;
-namespace LibreBooksAPI.Areas.SystemSetups.Services.SubStores
+namespace LibreBooks.Areas.SystemSetups.Services.SubStores
 {
     public class BusinessSectorStore : DbStoreBase
     {
@@ -14,17 +14,20 @@ namespace LibreBooksAPI.Areas.SystemSetups.Services.SubStores
         public async Task<IList<BusinessSector>> FindAllAsync ()
         {
             ThrowIfDisposed();
-            return await context!.BusinessSector!.ToListAsync();
+            return await context!
+                .BusinessSector!
+                .OrderBy(p => p.Name)
+                .ToListAsync();
         }
 
-        /// <exception cref="DbUpdateException" />
-        /// <exception cref="DbUpdateConcurrencyException" />
         public async Task<BusinessSector?> FindByIdAsync (string id)
         {
             ThrowIfDisposed();
             ArgumentNullException.ThrowIfNullOrEmpty(id, nameof(id));
 
-            return await context!.BusinessSector!.FindAsync(id);
+            return await context!
+                .BusinessSector!
+                .FindAsync(id);
         }
 
         /// <exception cref="DbUpdateException" />
@@ -39,7 +42,6 @@ namespace LibreBooksAPI.Areas.SystemSetups.Services.SubStores
 
             return result.Entity;
         }
-
 
         /// <exception cref="DbUpdateException" />
         /// <exception cref="DbUpdateConcurrencyException" />

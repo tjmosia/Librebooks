@@ -2,6 +2,7 @@ import { RouteObject } from "react-router"
 import ViewCompanyPage from "./ViewCompanyPage"
 import CreateCompanyPage from "./CreateCompanyPage"
 import EditCompanyPage from "./EditCompanyPage"
+import CompanyPage from "./CompanyPage"
 
 const CompaniesRoutes: RouteObject[] = [
     {
@@ -13,8 +14,12 @@ const CompaniesRoutes: RouteObject[] = [
         element: <CreateCompanyPage />
     },
     {
-        path: "companies/create",
+        path: "companies/:id/edit",
         element: <EditCompanyPage />
+    },
+    {
+        path: "companies/:id",
+        element: <CompanyPage />
     },
 ]
 

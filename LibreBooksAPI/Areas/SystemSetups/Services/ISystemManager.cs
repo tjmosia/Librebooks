@@ -1,6 +1,8 @@
 ﻿using LibreBooks.CoreLib.Operations;
 using LibreBooks.Models.Entity.SystemSpace;
 
+using LibreBooksAPI.Models.Entity.CompanySpace;
+
 namespace LibreBooks.Areas.SystemSetups.Services
 {
     public interface ISystemManager
@@ -73,15 +75,15 @@ namespace LibreBooks.Areas.SystemSetups.Services
         /******************************************************************
          * TaxType Store Manager Actions
          ******************************************************************/
-        Task<TransactionResult<TaxTypes>> AddVATAsync (TaxTypes vat);
-        Task<TransactionResult> DeleteVATAsync (params TaxTypes[] vat);
-        Task<TaxTypes?> GetVATByIdAsync (string id);
-        Task<TransactionResult<TaxTypes>> UpdateVATAsync (TaxTypes vat);
+        Task<TransactionResult<TaxType>> AddVATAsync (TaxType vat);
+        Task<TransactionResult> DeleteVATAsync (params TaxType[] vat);
+        Task<TaxType?> GetVATByIdAsync (string id);
+        Task<TransactionResult<TaxType>> UpdateVATAsync (TaxType vat);
 
         /******************************************************************
          * SYSTEM_COMPANY_NUMBER Store Manager Actions
          ******************************************************************/
-        Task<TransactionResult<SystemCompanyNumber>> InitializeAsync (
+        Task<TransactionResult<CompanySetup>> InitializeAsync (
             long nextNumber = 1,
             string? numberPrefix = null,
             string? numberFormat = null

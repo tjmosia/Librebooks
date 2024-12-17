@@ -40,8 +40,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Accounting\Controllers\" />
+    <Folder Include="Areas\Accounting\Data\" />
+    <Folder Include="Areas\Accounting\Models\" />
     <Folder Include="Areas\Companies\Data\" />
+    <Folder Include="Areas\Customers\Controllers\" />
+    <Folder Include="Areas\Customers\Data\" />
+    <Folder Include="Areas\Customers\Models\" />
     <Folder Include="Areas\Inventory\Data\" />
+    <Folder Include="Areas\Suppliers\Controllers\" />
+    <Folder Include="Areas\Suppliers\Data\" />
+    <Folder Include="Areas\Suppliers\Models\" />
     <Folder Include="Areas\SystemSetups\Data\" />
     <Folder Include="Areas\SystemSetups\Models\" />
     <Folder Include="Extensions\Data\" />

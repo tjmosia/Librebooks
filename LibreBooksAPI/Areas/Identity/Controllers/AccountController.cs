@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
-using static LibreBooksAPI.Areas.Identity.Models.AccountReqModels;
+using static LibreBooks.Areas.Identity.Models.AccountReqModels;
 
 namespace LibreBooks.Areas.Identity.Controllers
 {

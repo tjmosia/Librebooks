@@ -1,24 +1,26 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Core.Types;
+using LibreBooks.Models.Entity.CompanySpace;
 using LibreBooks.Models.Entity.DocumentSpace;
 using LibreBooks.Models.Entity.IdentitySpace;
 using LibreBooks.Models.Entity.SystemSpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.SalesSpace
 {
     public class SalesDocument
     {
-        public virtual string? Id { get; set; }
+        public virtual string Id { get; set; }
+        public virtual string? Title { get; set; }
         public virtual string? Number { get; set; }
         public virtual string? CustomerReference { get; set; }
         public virtual string? CustomerDetailsId { get; set; }
         public virtual DateTime Date { get; set; }
         public virtual DateTime? DueDate { get; set; }
         public virtual string? Message { get; set; }
-        public virtual string? Footer { get; set; }
+        public virtual string? FooterMessage { get; set; }
         public virtual bool TaxExempt { get; set; }
         public virtual string? Currency { get; set; }
         public virtual string? SalesPersonId { get; set; }
@@ -30,13 +32,11 @@ namespace LibreBooks.Models.Entity.SalesSpace
         public virtual string? StatusId { get; set; }
         public virtual bool Printed { get; set; }
         public virtual string? CreatorId { get; set; }
-
+        public virtual string? LogoId { get; set; }
         [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
+        public virtual string RowVersion { get; set; }
 
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
-
+        public virtual CompanyImage? Logo { get; set; }
         public virtual DocumentStatus? Status { get; set; }
         public virtual SalesPerson? SalesPerson { get; set; }
         public virtual ShippingMethod? ShippingMethod { get; set; }
@@ -47,7 +47,10 @@ namespace LibreBooks.Models.Entity.SalesSpace
         public virtual User? Creator { get; set; }
 
         public SalesDocument ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpperInvariant();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpperInvariant();
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<SalesDocument>(options =>

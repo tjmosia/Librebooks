@@ -33,7 +33,7 @@ function App() {
 		<AppSettingsContext.Provider value={appSettingsContext}>
 			<FluentProvider theme={(AppThemes[theme] as IAppTheme).theme}
 				style={{
-					height: "100vh",
+					minHeight: "100vh",
 					backgroundColor: tokens.colorNeutralBackground1Pressed
 				}}>
 				<QueryClientProvider client={queryClient}>

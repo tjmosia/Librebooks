@@ -1,63 +1,421 @@
-﻿using LibreBooks.CoreLib.Operations;
+﻿using LibreBooks.Areas.SystemSetups.Services;
+using LibreBooks.Core.EFCore;
+using LibreBooks.CoreLib.Operations;
 using LibreBooks.Data;
+using LibreBooks.Models.Entity.BankingSpace;
 using LibreBooks.Models.Entity.CompanySpace;
+using LibreBooks.Models.Entity.DocumentSpace;
+using LibreBooks.Models.Entity.GeneralSpace;
 using LibreBooks.Models.Entity.IdentitySpace;
+using LibreBooks.Models.Entity.SalesSpace;
+using LibreBooks.Models.Entity.SystemSpace;
+
+using LibreBooksAPI.Areas.Companies.Services;
+using LibreBooksAPI.Models.Entity.CustomerSpace;
+using LibreBooksAPI.Models.Entity.InventorySpace;
+using LibreBooksAPI.Models.Entity.SupplierSpace;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Areas.Companies.Services
 {
-    public class CompanyStore : IDisposable
+    public class CompanyStore (AppDbContext context, ILogger logger, SystemManager sysManager)
+        : DbStoreBase(context, logger), ICompanyStore
     {
-        private readonly AppDbContext context;
-        private readonly ILogger<CompanyStore> logger;
-        private bool disposed = false;
+        private readonly SystemManager systemManager = sysManager;
 
-        public CompanyStore (AppDbContext context, ILogger<CompanyStore> logger)
-        {
-            this.context = context;
-            this.logger = logger;
-        }
+        /***********************************************************************************************************************************
+         ****** SELECT TRANSACTIONS
+         ***********************************************************************************************************************************/
+        public async Task<Company?> FindByIdAsync (string? companyId)
+            => await context!.Company!
+                .FindAsync(companyId);
 
-        public async Task<Company?> FindByIdAsync (string? id)
-            => await context.Company!.FindAsync(id);
-
-        public async Task<Company?> FindByNumberAsync (string number)
-            => await context.Company!
-                .Where(p => p.Number == number)
+        public async Task<Company?> FindByNumberAsync (string companyNumber)
+            => await context!.Company!
+                .Where(p => p.Number == companyNumber)
                 .FirstOrDefaultAsync();
 
-        public TransactionResult Add (Company company, User user)
+        public async Task<CompanyRegionalSettings?> FindRegionalSettingsAsync (string companyId)
+            => await context!.CompanyRegionalSettings!
+                .FindAsync(companyId);
+
+        public async Task<CompanyImage?> FindLogoAsync (string companyId)
+            => await context!.CompanyLogo!
+                .Where(p => p.CompanyId == companyId)
+                .Include(p => p.Image)
+                .Select(p => p.Image)
+                .FirstOrDefaultAsync();
+
+        public async Task<IList<TaxType>> FindTaxTypesAsync (string companyId)
+            => await context!.CompanyTaxType!
+                .Where(p => p.CompanyId == companyId)
+                .Include(p => p.TaxType)
+                .Select(p => p.TaxType!)
+                .ToListAsync();
+
+        public async Task<TaxType?> FindTaxTypeByIdAsync (string companyId, string taxTypeId)
+            => await context!.CompanyTaxType!
+                .Where(p => p.CompanyId == companyId && p.TaxTypeId == taxTypeId)
+                .Include(p => p.TaxType)
+                .Select(p => p.TaxType)
+                .FirstOrDefaultAsync();
+
+        public async Task<TaxType?> FindDefaultTaxTypeAsync (string companyId)
+            => await context!.CompanyDefaultTaxType!
+                .Where(p => p.CompanyId == companyId)
+                .Include(p => p.CompanyTaxType)
+                    .ThenInclude(p => p!.TaxType)
+                .Select(p => p.CompanyTaxType!.TaxType)
+                .FirstOrDefaultAsync();
+
+        public async Task<CompanyMailSettings?> FindMailSettingsAsync (string companyId)
+            => await context!.CompanyMailSettings!
+                .FindAsync(companyId);
+
+        public async Task<BankAccount?> FindDefaultBankAccountAsync (string companyId)
+         => await context!.CompanyDefaultBankAccount!
+                .Where(p => p.CompanyId == companyId)
+                .Include(p => p.BankAccount)
+                .Select(p => p.BankAccount)
+                .FirstOrDefaultAsync();
+
+        public async Task<BankAccount?> FindBankAccountByIdAsync (string companyId, string bankAccountId)
+            => await context!.BankAccount!
+                .Where(p => p.CompanyId == companyId && bankAccountId == p.Id)
+                .FirstOrDefaultAsync();
+
+        public async Task<IList<BankAccount>> FindBankAccountsAsync (string companyId)
+            => await context!.BankAccount!
+                .Where(p => p.CompanyId == companyId)
+                .ToListAsync();
+
+        public async Task<Contact?> FindSalesPersonByIdAsync (string companyId, string salesPersonId)
+            => await context!.SalesPerson!
+                .Where(p => p.CompanyId == companyId && p.ContactId == salesPersonId)
+                .Include(p => p.Contact)
+                .Select(p => p.Contact)
+                .FirstOrDefaultAsync();
+
+        public async Task<Contact?> FindSalesPersonByUserIdAsync (string companyId, string userId)
+            => await context!.SalesPerson!
+                .Where(p => p.CompanyId == companyId && p.CompanyUserId == userId)
+                .Include(p => p.Contact)
+                .Select(p => p.Contact)
+                .FirstOrDefaultAsync();
+
+        public async Task<IList<User>> FindUsersAsync (string companyId)
+            => await context!.CompanyUser!
+                .Where(p => p.CompanyId == companyId)
+                .Include(p => p.User)
+                .Select(p => p.User!)
+                .ToListAsync();
+
+        /***********************************************************************************************************************************
+         ****** INSERT TRANSACTIONS
+         ***********************************************************************************************************************************/
+
+        public async Task<TransactionResult<Company>> CreateAsync (Company company)
         {
             try
             {
-                var result = context.Company!.Add(company);
-                context.CompanyUser!.Add(new CompanyUser
+                var result = await context!.AddAsync(company);
+                context.SaveChanges();
+                return TransactionResult<Company>.Success(result.Entity);
+            }
+            catch (Exception ex)
+            {
+                logger!.LogError("***DB Error with Exception occurred while trying to create Company:*** \n\n{message}", ex.Message);
+                return TransactionResult<Company>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<TaxType>> CreateTaxTypeAsync (Company company, TaxType taxType)
+        {
+            try
+            {
+                var result = await context.TaxType!.AddAsync(taxType);
+                await context.CompanyTaxType!.AddAsync(new CompanyTaxType(company.Id, taxType.Id));
+                await context.SaveChangesAsync();
+
+                return TransactionResult<TaxType>.Success(result.Entity);
+            }
+            catch (Exception ex)
+            {
+                logger!.LogError("***DB Error occured with Exception while creating Company TaxType:*** \n\n{message}", ex.Message);
+                return TransactionResult<TaxType>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<Contact>> CreateSalesPersonAsync (Company company, Contact contact)
+        {
+            try
+            {
+                var result = await context.Contact!.AddAsync(contact);
+
+                await context.SalesPerson!.AddAsync(new SalesPerson
                 {
                     CompanyId = company.Id,
-                    UserId = user.Id
+                    ContactId = contact.Id,
                 });
 
-                context.SaveChanges();
+                await context.SaveChangesAsync();
+
+                return TransactionResult<Contact>.Success(result.Entity);
+            }
+            catch (Exception ex)
+            {
+                logger!.LogError("***DB Error occured with Exception while creating Company TaxType:*** \n\n{message}", ex.Message);
+                return TransactionResult<Contact>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<BankAccount>> CreateBankAccountAsync (Company company, BankAccount bankAccount)
+        {
+            try
+            {
+                bankAccount.CompanyId = company.Id;
+                var result = await context.BankAccount!.AddAsync(bankAccount);
+                await context.SaveChangesAsync();
+                return TransactionResult<BankAccount>.Success(result.Entity);
+            }
+            catch (Exception)
+            {
+                return TransactionResult<BankAccount>.Failure();
+            }
+        }
+
+        /***********************************************************************************************************************************
+         ****** UPDATE TRANSACTIONS
+         ***********************************************************************************************************************************/
+        public async Task<TransactionResult<CompanyRegionalSettings>> UpdateRegionalSettingsAsync (CompanyRegionalSettings regionalSettings)
+        {
+            try
+            {
+                var result = context!.CompanyRegionalSettings!.Update(regionalSettings);
+                await context.SaveChangesAsync();
+                return TransactionResult<CompanyRegionalSettings>.Success(result.Entity);
+            }
+            catch (Exception ex)
+            {
+                logger!.LogError("***DB Error occured with Exception while trying to update CompanyRegionalSettings:*** \n\n{message}", ex.Message);
+                return TransactionResult<CompanyRegionalSettings>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<CompanyDefaultBankAccount>> UpdateDefaultTaxTypeAsync (CompanyDefaultTaxType defaultTaxType)
+        {
+            try
+            {
+                context!.CompanyDefaultTaxType!.Update(defaultTaxType);
+                await context!.SaveChangesAsync();
+                return TransactionResult<CompanyDefaultBankAccount>.Success();
+            }
+            catch (Exception ex)
+            {
+                logger!.LogError("***DB Error occurred with Exception while trying to update CompanyDefaultTaxType:*** \n\n{message}", ex.Message);
+                return TransactionResult<CompanyDefaultBankAccount>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<TaxType>> UpdateTaxTypeAsync (TaxType taxType)
+        {
+            try
+            {
+                var result = context!.TaxType!.Update(taxType);
+                await context.SaveChangesAsync();
+                return TransactionResult<TaxType>.Success(result.Entity);
+            }
+            catch (Exception ex)
+            {
+                logger!.LogError("***DB Error occurred with Exception while trying to update CompanyDefaultTaxType:*** \n\n{message}", ex.Message);
+                return TransactionResult<TaxType>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<CompanyImage>> UpdateLogoAsync (CompanyImage companyImage)
+        {
+            try
+            {
+                var result = await context!.CompanyImage!.AddAsync(companyImage);
+                var companyLogo = await context.CompanyLogo!.FindAsync(companyImage.CompanyId!);
+
+                if (companyLogo == null)
+                {
+                    await context!.CompanyLogo!.AddAsync(new CompanyLogo(companyImage.CompanyId!, companyImage.Id));
+                }
+                else
+                {
+                    companyLogo.ImageId = companyImage.CompanyId;
+                    context!.CompanyLogo!.Update(new CompanyLogo(companyImage.CompanyId!, companyImage.Id));
+                }
+
+                await context!.SaveChangesAsync();
+                return TransactionResult<CompanyImage>.Success(result.Entity);
+            }
+            catch (Exception ex)
+            {
+                logger!.LogError("***DB Error occurred with Exception while trying to Update Company Logo:*** \n\n{message}", ex.Message);
+                return TransactionResult<CompanyImage>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult> UpdateMailSettingsAsync (CompanyMailSettings companyMailSettings)
+        {
+            try
+            {
+                context!.CompanyMailSettings!.Update(companyMailSettings);
+                await context!.SaveChangesAsync();
+                return TransactionResult.Success;
+            }
+            catch (Exception)
+            {
+                return TransactionResult.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<SupplierSetup>> UpdateSupplierSetupAsync (SupplierSetup supplierSetup)
+        {
+            try
+            {
+                var result = context.SupplierSetup!.Update(supplierSetup);
+                await context.SaveChangesAsync();
+                return TransactionResult<SupplierSetup>.Success(result.Entity);
+            }
+            catch (Exception)
+            {
+                return TransactionResult<SupplierSetup>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<CustomerSetup>> UpdateCustomerSetupAsync (CustomerSetup customerSetup)
+        {
+            try
+            {
+                var result = context.CustomerSetup!.Update(customerSetup);
+                await context.SaveChangesAsync();
+                return TransactionResult<CustomerSetup>.Success(result.Entity);
+            }
+            catch (Exception)
+            {
+                return TransactionResult<CustomerSetup>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<ItemSetup>> UpdateItemSetupAsync (ItemSetup itemSetup)
+        {
+            try
+            {
+                var result = context.ItemSetup!.Update(itemSetup);
+                await context.SaveChangesAsync();
+                return TransactionResult<ItemSetup>.Success(result.Entity);
+            }
+            catch (Exception)
+            {
+                return TransactionResult<ItemSetup>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<DocumentSetup>> UpdateDocumentSetupAsync (DocumentSetup documentSetup)
+        {
+            try
+            {
+                var result = context.DocumentSetup!.Update(documentSetup);
+                await context.SaveChangesAsync();
+                return TransactionResult<DocumentSetup>.Success(result.Entity);
+            }
+            catch (Exception)
+            {
+                return TransactionResult<DocumentSetup>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<BankAccount>> UpdateBankAccountAsync (BankAccount bankAccount)
+        {
+            try
+            {
+                var result = context.BankAccount!.Update(bankAccount);
+                await context.SaveChangesAsync();
+                return TransactionResult<BankAccount>.Success(result.Entity);
+            }
+            catch (Exception)
+            {
+                return TransactionResult<BankAccount>.Failure();
+            }
+
+        }
+
+
+        /***********************************************************************************************************************************
+         ****** DELETE TRANSACTIONS
+         ***********************************************************************************************************************************/
+        public async Task<TransactionResult> DeleteSalesPersonAsync (SalesPerson salesPerson)
+        {
+            try
+            {
+                context.SalesPerson!.Remove(salesPerson);
+                context.Contact!.Remove(salesPerson.Contact!);
+                await context!.SaveChangesAsync();
+
                 return TransactionResult.Success;
             }
             catch (Exception ex)
             {
-                logger.LogError("Exception Occurred at {method} with stack trade: \n {trace}", "CompanyService.Add", ex.StackTrace);
-                return TransactionResult.Failure([]);
+                logger!.LogError("***DB Error occurred with Exception while trying to remove Sales Person:*** \n\n{message}", ex.Message);
+                return TransactionResult.Failure();
             }
         }
 
-        protected virtual void Dispose (bool disposing)
+        public async Task<TransactionResult> DeleteAsync (Company company)
         {
-            if (!disposed && disposing)
-                disposed = true;
+
+            try
+            {
+                context.Company!.Remove(company);
+                await context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                logger!.LogError("***DB Error occurred with Exception while removing Company:*** \n\n{message}", ex.Message);
+                return TransactionResult.Failure();
+            }
+            return TransactionResult.Success;
         }
 
-        public void Dispose ()
+        public async Task<TransactionResult> DeleteTaxTypeAsync (CompanyTaxType companyTaxType)
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
+            ArgumentNullException.ThrowIfNull(companyTaxType.TaxType, nameof(companyTaxType.TaxType));
+
+            if (companyTaxType.TaxType!.System)
+                return TransactionResult.Failure(TransactionError.Create("", "Cannot remove a system tax type."));
+
+            try
+            {
+                context.CompanyTaxType!.Remove(companyTaxType);
+                context.TaxType!.Remove(companyTaxType.TaxType);
+                await context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                logger!.LogError("***DB Error occurred with Exception while trying to remove Sales Person:*** \n\n{message}", ex.Message);
+                return TransactionResult.Failure();
+            }
+
+            return TransactionResult.Success;
+        }
+
+        public async Task<TransactionResult> DeleteBankAccountAsync (BankAccount bankAccount)
+        {
+            try
+            {
+                context.BankAccount!.Remove(bankAccount);
+                await context.SaveChangesAsync();
+                return TransactionResult.Success;
+            }
+            catch (Exception)
+            {
+                return TransactionResult.Failure();
+            }
         }
     }
 }

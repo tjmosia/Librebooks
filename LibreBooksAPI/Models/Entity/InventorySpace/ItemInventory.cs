@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Core.Types;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.InventorySpace
 {
@@ -17,10 +17,10 @@ namespace LibreBooks.Models.Entity.InventorySpace
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
 
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
-
         public virtual Item? Item { get; set; }
+
+        public ItemInventory ()
+            => RowVersion = Guid.NewGuid().ToString("N").ToUpper();
 
         public static void BuildModel (ModelBuilder builder)
         {

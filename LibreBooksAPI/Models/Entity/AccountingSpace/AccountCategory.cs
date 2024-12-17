@@ -6,23 +6,23 @@ namespace LibreBooks.Models.Entity.AccountingSpace
 {
     public class AccountCategory
     {
-        public virtual string? Id { get; set; }
+        public virtual string Id { get; set; }
         public virtual string? Name { get; set; }
         public virtual string? Description { get; set; }
         public virtual string? ClassType { get; set; }
         public virtual string? CashFlowTypeId { get; set; }
-
         [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
+        public virtual string RowVersion { get; set; }
 
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual ICollection<Account>? Accounts { get; set; }
         public virtual AccountCashFlowType? CashFlowType { get; set; }
 
         public AccountCategory ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<AccountCategory>(options =>

@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-using LibreBooks.Models.Entity.CompanySpace;
+﻿using LibreBooks.Models.Entity.CompanySpace;
 using LibreBooks.Models.Entity.GeneralSpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.PurchasesSpace
 {
@@ -17,7 +17,7 @@ namespace LibreBooks.Models.Entity.PurchasesSpace
         public virtual CompanyUser? CompanyUser { get; set; }
 
         public PurchaseBuyer ()
-            => Id = Guid.NewGuid().ToString("N");
+            => Id = Guid.NewGuid().ToString("N").ToUpper();
 
         public static void BuildModel (ModelBuilder builder)
         {

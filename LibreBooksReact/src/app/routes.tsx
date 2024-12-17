@@ -6,11 +6,11 @@ import UsernamePage from './pages/auth/UsernamePage'
 import RegisterPage from './pages/auth/RegisterPage'
 import VerifyEmailPage from './pages/auth/VerifyEmailPage'
 import ResetPasswordPage from './pages/account/ResetPasswordFragment'
-import { CreateCompanyPage } from './pages/companies/CreateCompanyPage'
 import MainLayout from './layouts/MainLayout'
 import AccountPage from './pages/account/AccountPage'
 import { InventoryRoutes } from './pages/inventory'
 import CustomersRoutes from './pages/customers/CustomersRoutes'
+import CompaniesRoutes from './pages/companies/CompaniesRoutes'
 
 const routes: RouteObject[] = [
 	{
@@ -22,15 +22,12 @@ const routes: RouteObject[] = [
 				element: <HomePage />
 			},
 			{
-				path: 'companies/create',
-				element: <CreateCompanyPage />
-			},
-			{
 				path: "account/*",
 				element: <AccountPage />
 			},
 			...InventoryRoutes,
-			...CustomersRoutes
+			...CustomersRoutes,
+			...CompaniesRoutes
 		]
 	},
 	{

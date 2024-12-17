@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Core.Types;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.PurchasesSpace
 {
@@ -13,11 +13,14 @@ namespace LibreBooks.Models.Entity.PurchasesSpace
         public virtual decimal Amount { get; set; }
         public virtual string? Comment { get; set; }
 
-        [Timestamp, ConcurrencyCheck]
-        public virtual byte[]? RowVersion { get; set; }
+        [ConcurrencyCheck]
+        public virtual string? RowVersion { get; set; }
 
         public virtual PurchaseReceipt? Receipt { get; set; }
         public virtual PurchaseInvoice? Invoice { get; set; }
+
+        public PurchaseInvoiceReceipt ()
+            => RowVersion = Guid.NewGuid().ToString("N").ToUpper();
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<PurchaseInvoiceReceipt>(options =>

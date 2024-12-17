@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-using LibreBooks.Models.Entity.IdentitySpace;
+﻿using LibreBooks.Models.Entity.IdentitySpace;
 using LibreBooks.Models.Entity.SalesSpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.CompanySpace
 {
@@ -16,6 +16,13 @@ namespace LibreBooks.Models.Entity.CompanySpace
 
         public CompanyUser ()
             => Id = Guid.NewGuid().ToString("N");
+
+        public CompanyUser (string companyId, string userId)
+            : this()
+        {
+            CompanyId = companyId;
+            UserId = userId;
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<CompanyUser>(options =>

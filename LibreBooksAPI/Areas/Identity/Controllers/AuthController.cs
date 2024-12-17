@@ -45,7 +45,7 @@ namespace LibreBooks.Areas.Identity.Controllers
                     Username = user.Email,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
-                    Photo = user.Photo
+                    Photo = user.GetPhotoAsBase64()
                 });
         }
 
@@ -112,7 +112,7 @@ namespace LibreBooks.Areas.Identity.Controllers
                     .FirstOrDefault(p => p.Type == ClaimTypes.Name);
 
                 var (Token, ExpiryDate) = signInManager.GenerateJsonWebToken(nameClaim!);
-
+                logger!.LogInformation($"Jwt Token: {Token}");
                 SetAuthenticationCookie(HttpContext, Token, ExpiryDate);
 
                 return Ok(TransactionResult<object>
@@ -268,7 +268,6 @@ namespace LibreBooks.Areas.Identity.Controllers
                 var user = await userManager!.FindByEmailAsync(User!.Identity!.Name);
                 if (user != null)
                     return Ok(TransactionResult<object>.Success(signInManager!.GenerateUserSessionDTO(user)));
-
             }
             return Unauthorized();
         }
@@ -293,7 +292,7 @@ namespace LibreBooks.Areas.Identity.Controllers
             FirstName = user.FirstName,
             LastName = user.LastName,
             Username = user.UserName,
-            Photo = user.Photo
+            Photo = user.GetPhotoAsBase64()
         };
     }
 }

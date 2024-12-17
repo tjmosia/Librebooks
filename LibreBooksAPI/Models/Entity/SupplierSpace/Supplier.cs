@@ -10,7 +10,7 @@ namespace LibreBooks.Models.Entity.SupplierSpace
 {
     public class Supplier
     {
-        public virtual string? Id { get; set; }
+        public virtual string Id { get; set; }
         public virtual string? RegisteredName { get; set; }
         public virtual string? TradingName { get; set; }
         public virtual string? VendorNumber { get; set; }
@@ -28,10 +28,7 @@ namespace LibreBooks.Models.Entity.SupplierSpace
         public virtual string? TaxTypeId { get; set; }
 
         [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
-
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
+        public virtual string RowVersion { get; set; }
 
         public virtual SupplierCategory? Category { get; set; }
         public virtual CompanyTaxType? TaxType { get; set; }
@@ -47,7 +44,10 @@ namespace LibreBooks.Models.Entity.SupplierSpace
         public virtual ICollection<SupplierAccountsContact>? AccountsContacts { get; set; }
 
         public Supplier ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
         {
@@ -80,13 +80,13 @@ namespace LibreBooks.Models.Entity.SupplierSpace
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.AccountsContacts)
-                    .WithOne(p => p.Supplier)
+                    .WithOne()
                     .HasForeignKey(p => p.SupplierId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Orders)
-                    .WithOne(p => p.Supplier)
+                    .WithOne()
                     .HasForeignKey(p => p.SupplierId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
@@ -98,25 +98,25 @@ namespace LibreBooks.Models.Entity.SupplierSpace
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Contacts)
-                    .WithOne(p => p.Supplier)
+                    .WithOne()
                     .HasForeignKey(p => p.SupplierId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Invoices)
-                    .WithOne(p => p.Supplier)
+                    .WithOne()
                     .HasForeignKey(p => p.SupplierId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Returns)
-                    .WithOne(p => p.Supplier)
+                    .WithOne()
                     .HasForeignKey(p => p.SupplierId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Receipts)
-                    .WithOne(p => p.Supplier)
+                    .WithOne()
                     .HasForeignKey(p => p.SupplierId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);

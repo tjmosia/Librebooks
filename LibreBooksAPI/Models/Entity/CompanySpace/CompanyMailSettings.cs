@@ -15,8 +15,8 @@ namespace LibreBooks.Models.Entity.CompanySpace
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
 
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
+        public CompanyMailSettings ()
+            => RowVersion = Guid.NewGuid().ToString("N").ToUpper();
 
         public virtual Company? Company { get; set; }
 

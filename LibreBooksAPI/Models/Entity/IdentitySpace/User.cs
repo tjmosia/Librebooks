@@ -13,7 +13,7 @@ namespace LibreBooks.Models.Entity.IdentitySpace
         public virtual string? LastName { get; set; }
         public virtual DateOnly? Birthday { get; set; }
         public virtual string? Gender { get; set; }
-        public virtual string? Photo { get; set; }
+        public virtual byte[]? Photo { get; set; }
 
         public virtual DateTime DateRegistered { get; set; }
         public virtual DateTime DateLastLoggedIn { get; set; }
@@ -30,8 +30,11 @@ namespace LibreBooks.Models.Entity.IdentitySpace
         [NotMapped]
         public virtual string? FullName { get => $"{FirstName} + {LastName}"; }
 
+        public string GetPhotoAsBase64 ()
+            => Photo == null ? "" : Convert.ToBase64String(Photo!);
+
         public User ()
-            => Id = Guid.NewGuid().ToString("N");
+            => Id = Guid.NewGuid().ToString("N").ToUpper();
 
         public static void BuildModel (ModelBuilder builder)
         {

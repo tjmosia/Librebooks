@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Core.Types;
 using LibreBooks.Models.Entity.AccountingSpace;
 using LibreBooks.Models.Entity.CustomerSpace;
@@ -10,11 +8,13 @@ using LibreBooks.Models.Entity.PurchasesSpace;
 using LibreBooks.Models.Entity.SalesSpace;
 using LibreBooks.Models.Entity.SupplierSpace;
 
+using Microsoft.EntityFrameworkCore;
+
 namespace LibreBooks.Models.Entity.GeneralSpace
 {
     public class Note
     {
-        public virtual string? Id { get; set; }
+        public virtual string Id { get; set; }
         public virtual string? Description { get; set; }
         public virtual bool Actionable { get; set; }
         public virtual bool Completed { get; set; }
@@ -23,15 +23,15 @@ namespace LibreBooks.Models.Entity.GeneralSpace
         public virtual string? CreatorId { get; set; }
 
         [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
-
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
+        public virtual string RowVersion { get; set; }
 
         public virtual User? Creator { get; set; }
 
         public Note ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<Note>(options =>

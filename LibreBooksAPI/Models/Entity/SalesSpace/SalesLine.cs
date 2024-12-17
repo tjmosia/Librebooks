@@ -21,19 +21,18 @@ namespace LibreBooks.Models.Entity.SalesSpace
         public virtual decimal TaxRate { get; set; }
         public virtual string? TaxTypeId { get; set; }
         public virtual string? Comment { get; set; }
-
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
-
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
 
         public virtual ICollection<SalesDocumentLine>? DocumentLines { get; set; }
         public virtual Item? Item { get; set; }
         public virtual CompanyTaxType? TaxType { get; set; }
 
         public SalesLine ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<SalesLine>(options =>

@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Core.Types;
 using LibreBooks.Models.Entity.BankingSpace;
 using LibreBooks.Models.Entity.CompanySpace;
-using LibreBooks.Models.Entity.CustomerSpace;
 using LibreBooks.Models.Entity.SystemSpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.SalesSpace
 {
@@ -14,7 +13,7 @@ namespace LibreBooks.Models.Entity.SalesSpace
     {
         public virtual string? Id { get; set; }
         public virtual DateTime Date { get; set; }
-        public virtual string? CustomerName { get; set; }
+        public virtual string? CustomerDetailsId { get; set; }
         public virtual string? Reference { get; set; }
         public virtual decimal Amount { get; set; }
         public virtual string? Message { get; set; }
@@ -26,21 +25,23 @@ namespace LibreBooks.Models.Entity.SalesSpace
         public virtual string? CompanyId { get; set; }
         public virtual string? CustomerId { get; set; }
         public virtual string? PaymentMethodId { get; set; }
+        public virtual string? LogoId { get; set; }
 
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
 
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
-
+        public virtual CompanyImage? Logo { get; set; }
         public virtual Company? Company { get; set; }
-        public virtual Customer? Customer { get; set; }
+        public virtual SalesDocumentCustomerDetails? CustomerDetails { get; set; }
         public virtual BankAccount? BankAccount { get; set; }
         public virtual PaymentMethod? PaymentMethod { get; set; }
         public virtual ICollection<SalesInvoiceReceipt>? AllocatedInvoices { get; set; }
 
         public SalesReceipt ()
-            => Id = Guid.NewGuid().ToString("N");
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<SalesReceipt>(options =>

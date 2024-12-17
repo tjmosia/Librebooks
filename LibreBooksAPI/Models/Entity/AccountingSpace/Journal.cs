@@ -1,15 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Core.Types;
 using LibreBooks.Models.Entity.CompanySpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.AccountingSpace
 {
     public class Journal
     {
-        public virtual string? Id { get; set; }
+        public virtual string Id { get; set; }
         public virtual DateTime Date { get; set; }
         public virtual string? Reference { get; set; }
         public virtual string? Description { get; set; }
@@ -20,12 +20,8 @@ namespace LibreBooks.Models.Entity.AccountingSpace
         public virtual bool Posted { get; set; }
         public virtual string? TaxTypeId { get; set; }
         public virtual string? CompanyId { get; set; }
-
         [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
-
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
+        public virtual string RowVersion { get; set; }
 
         public virtual Company? Company { get; set; }
         public virtual CompanyTaxType? TaxType { get; set; }
@@ -34,7 +30,10 @@ namespace LibreBooks.Models.Entity.AccountingSpace
         public virtual ICollection<JournalNote>? Notes { get; set; }
 
         public Journal ()
-            => Id = Guid.NewGuid().ToString();
+        {
+            Id = Guid.NewGuid().ToString("N").ToUpper();
+            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+        }
 
         public static void BuildModel (ModelBuilder builder)
         {

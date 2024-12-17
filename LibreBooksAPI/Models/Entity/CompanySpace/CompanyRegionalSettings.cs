@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 using LibreBooks.Models.Entity.SystemSpace;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.CompanySpace
 {
@@ -19,8 +19,8 @@ namespace LibreBooks.Models.Entity.CompanySpace
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
 
-        public void UpdateConcurrencyToken ()
-            => RowVersion = Guid.NewGuid().ToString("N");
+        public CompanyRegionalSettings ()
+            => RowVersion = Guid.NewGuid().ToString("N").ToUpper();
 
         public virtual DateFormat? DateFormat { get; set; }
         public virtual Country? Country { get; set; }
