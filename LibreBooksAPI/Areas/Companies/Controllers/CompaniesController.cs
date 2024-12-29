@@ -44,7 +44,7 @@ namespace LibreBooks.Areas.Companies.Controllers
                 FaxNumber = input.FaxNumber,
                 PhysicalAddress = input.PhysicalAddress,
                 PostalAddress = input.PostalAddress,
-                TelephoneNumber = input.TelephoneNumber,
+                PhoneNumber = input.TelephoneNumber,
                 EmailAddress = input.EmailAddress
             };
 

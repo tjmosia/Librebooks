@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using LibreBooks.Core.EFCore;
 
-using LibreBooks.Core.EFCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace LibreBooks.CoreLib.Operations
 {
@@ -28,7 +28,6 @@ namespace LibreBooks.CoreLib.Operations
 
         public static TransactionError FromIE (IdentityError error)
             => FromIdentityError(error);
-
 
         public static IEnumerable<TransactionError> FromIEs (params IdentityError[] errors)
             => FromIdentityErrors(errors);

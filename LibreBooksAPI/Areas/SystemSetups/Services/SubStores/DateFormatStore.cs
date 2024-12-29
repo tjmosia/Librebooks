@@ -8,7 +8,7 @@ namespace LibreBooks.Areas.SystemSetups.Services.SubStores
 {
     public class DateFormatStore : DbStoreBase
     {
-        public DateFormatStore (AppDbContext? context, ILogger<DateFormatStore>? logger)
+        public DateFormatStore (AppDbContext context, ILogger<DateFormatStore> logger)
             : base(context, logger) { }
 
         public async Task<DateFormat> CreateAsync (DateFormat dateFormat)

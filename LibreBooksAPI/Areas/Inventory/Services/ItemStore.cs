@@ -8,7 +8,7 @@ namespace LibreBooks.Areas.Inventory.Services
 {
     public sealed class ItemStore : DbStoreBase
     {
-        public ItemStore (AppDbContext? context, ILogger<ItemStore>? logger, DbErrorDescriber? errorDescriber)
+        public ItemStore (AppDbContext context, ILogger<ItemStore> logger, DbErrorDescriber errorDescriber)
         : base(context, logger, errorDescriber) { }
 
         public async Task<Item?> CreateAsync (string companyId, Item item)

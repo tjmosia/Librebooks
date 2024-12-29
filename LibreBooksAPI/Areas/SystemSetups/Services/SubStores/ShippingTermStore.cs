@@ -8,7 +8,7 @@ namespace LibreBooks.Areas.SystemSetups.Services.SubStores
 {
     public class ShippingTermStore : DbStoreBase
     {
-        public ShippingTermStore (AppDbContext? context, ILogger<ShippingTermStore>? logger)
+        public ShippingTermStore (AppDbContext context, ILogger<ShippingTermStore> logger)
             : base(context, logger) { }
 
         public async Task<ShippingTerm> CreateAsync (ShippingTerm term)

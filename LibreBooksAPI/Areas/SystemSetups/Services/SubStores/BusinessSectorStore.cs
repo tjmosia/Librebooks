@@ -1,5 +1,4 @@
-﻿using LibreBooks.Areas.SystemSetups.Services.SubStores;
-using LibreBooks.Core.EFCore;
+﻿using LibreBooks.Core.EFCore;
 using LibreBooks.Data;
 using LibreBooks.Models.Entity.SystemSpace;
 
@@ -8,56 +7,65 @@ namespace LibreBooks.Areas.SystemSetups.Services.SubStores
 {
     public class BusinessSectorStore : DbStoreBase
     {
-        public BusinessSectorStore (AppDbContext? context, ILogger<CountryStore>? logger)
+        public BusinessSectorStore (AppDbContext context, ILogger<CountryStore> logger)
             : base(context, logger) { }
 
         public async Task<IList<BusinessSector>> FindAllAsync ()
-        {
-            ThrowIfDisposed();
-            return await context!
+        => await context!
                 .BusinessSector!
                 .OrderBy(p => p.Name)
                 .ToListAsync();
-        }
 
         public async Task<BusinessSector?> FindByIdAsync (string id)
-        {
-            ThrowIfDisposed();
-            ArgumentNullException.ThrowIfNullOrEmpty(id, nameof(id));
-
-            return await context!
+        => await context!
                 .BusinessSector!
                 .FindAsync(id);
-        }
 
-        /// <exception cref="DbUpdateException" />
-        /// <exception cref="DbUpdateConcurrencyException" />
+        public async Task<BusinessSector?> FindByNameAsync (string name)
+        => await context.BusinessSector!.Where(p => p.Name == name)
+            .FirstOrDefaultAsync();
+
         public async Task<BusinessSector?> CreateAsync (BusinessSector sector)
         {
-            ThrowIfDisposed();
-            ArgumentNullException.ThrowIfNullOrEmpty(nameof(sector));
+            try
+            {
+                var result = await context!.BusinessSector!.AddAsync(sector);
+                await context.SaveChangesAsync();
 
-            var result = await context!.BusinessSector!.AddAsync(sector);
-            await context.SaveChangesAsync();
+                return result.Entity;
+            }
+            catch (Exception) { }
 
-            return result.Entity;
+            return null;
         }
 
-        /// <exception cref="DbUpdateException" />
-        /// <exception cref="DbUpdateConcurrencyException" />
-        public async Task DeleteAsync (params BusinessSector[] sectors)
+        public async Task<BusinessSector?> UpdateAsync (BusinessSector sector)
         {
-            ThrowIfDisposed();
-            ArgumentNullException.ThrowIfNullOrEmpty(nameof(sectors));
+            try
+            {
+                var result = context!.BusinessSector!.Update(sector);
+                await context.SaveChangesAsync();
 
-            context!.BusinessSector!.RemoveRange(sectors);
-            await context.SaveChangesAsync();
+                return result.Entity;
+            }
+            catch (Exception) { }
+
+            return null;
         }
 
-        public void ThrowIfDisposed ()
+        public async Task<bool> DeleteAsync (params BusinessSector[] sectors)
         {
-            if (context == null)
-                throw new ArgumentNullException(nameof(context));
+            try
+            {
+                context!.BusinessSector!.RemoveRange(sectors);
+                await context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

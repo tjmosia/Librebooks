@@ -21,21 +21,19 @@ namespace LibreBooks.Models.Entity.CompanySpace
     public class Company
     {
         public virtual string Id { get; set; }
-        public virtual string? Number { get; set; }
+        public virtual string? UniqueNumber { get; set; }
         public virtual string? LegalName { get; set; }
         public virtual string? TradingName { get; set; }
         public virtual string? RegNumber { get; set; }
         public virtual string? VATNumber { get; set; }
         public virtual string? PostalAddress { get; set; }
         public virtual string? PhysicalAddress { get; set; }
-        public virtual string? TelephoneNumber { get; set; }
+        public virtual string? PhoneNumber { get; set; }
         public virtual string? EmailAddress { get; set; }
         public virtual string? FaxNumber { get; set; }
-        public virtual int YearsInBusienss { get; set; }
+        public virtual int YearsInBusiness { get; set; }
         public virtual string? BusinessSectorId { get; set; }
         public virtual string? LogoId { get; set; }
-
-
         [ConcurrencyCheck]
         public virtual string? RowVersion { get; set; }
 

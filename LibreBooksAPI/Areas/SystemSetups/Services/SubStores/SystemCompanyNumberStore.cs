@@ -9,10 +9,10 @@ namespace LibreBooks.Areas.SystemSetups.Services.SubStores
 {
     public class SystemCompanyNumberStore : DbStoreBase
     {
-        public SystemCompanyNumberStore (AppDbContext? context, ILogger<SystemCompanyNumberStore>? logger)
+        public SystemCompanyNumberStore (AppDbContext context, ILogger<SystemCompanyNumberStore> logger)
             : base(context, logger) { }
 
-        public async Task<CompanySetup?> CurrentAsync ()
+        public async Task<CompanySetup?> GetCurrentAsync ()
             => await context!.SystemCompanyNumber!.FirstOrDefaultAsync();
 
         public async Task<CompanySetup> CreateAsync (CompanySetup setup)

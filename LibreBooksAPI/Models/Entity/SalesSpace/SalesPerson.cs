@@ -17,6 +17,16 @@ namespace LibreBooks.Models.Entity.SalesSpace
         public virtual CompanyUser? CompanyUser { get; set; }
         public virtual ICollection<Customer>? Customers { get; set; }
 
+        public SalesPerson () { }
+
+        public SalesPerson (string companyId, string contactId, string? companyUserId = null)
+            : this()
+        {
+            CompanyId = companyId;
+            CompanyUserId = companyUserId;
+            ContactId = contactId;
+        }
+
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<SalesPerson>(options =>
             {
@@ -27,12 +37,6 @@ namespace LibreBooks.Models.Entity.SalesSpace
                 options.HasIndex(p => new { p.CompanyId, p.ContactId })
                     .IsUnique()
                     .IsClustered();
-
-                options.HasMany(p => p.Customers)
-                    .WithOne(p => p.SalesPerson)
-                    .HasForeignKey(p => p.SalesPersonId)
-                        .IsRequired(false)
-                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasMany(p => p.Customers)
                     .WithOne(p => p.SalesPerson)

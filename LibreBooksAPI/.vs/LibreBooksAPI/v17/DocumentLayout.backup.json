@@ -1,7 +1,48 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\librebooks\\librebooksapi\\areas\\companies\\services\\companymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:areas\\companies\\services\\companymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\librebooks\\librebooksapi\\models\\entity\\salesspace\\salesperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:models\\entity\\salesspace\\salesperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\librebooks\\librebooksapi\\models\\entity\\companyspace\\companyuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:models\\entity\\companyspace\\companyuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\librebooks\\librebooksapi\\areas\\systemsetups\\services\\substores\\businesssectorstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:areas\\systemsetups\\services\\substores\\businesssectorstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\librebooks\\librebooksapi\\models\\entity\\systemspace\\businesssector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:models\\entity\\systemspace\\businesssector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\librebooks\\librebooksapi\\areas\\systemsetups\\services\\systemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:areas\\systemsetups\\services\\systemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\librebooks\\librebooksapi\\areas\\systemsetups\\services\\systemstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:areas\\systemsetups\\services\\systemstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\librebooks\\librebooksapi\\core\\operations\\transactionerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:core\\operations\\transactionerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\librebooks\\librebooksapi\\areas\\systemsetups\\services\\substores\\systemcompanynumberstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:areas\\systemsetups\\services\\substores\\systemcompanynumberstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|c:\\users\\thabo mosia\\source\\repos\\librebooks\\librebooksapi\\areas\\companies\\services\\icompanymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|LibreBooksAPI.csproj|solutionrelative:areas\\companies\\services\\icompanymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +50,139 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
-          "Children": []
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CompanyUser.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Models\\Entity\\CompanySpace\\CompanyUser.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\CompanySpace\\CompanyUser.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Models\\Entity\\CompanySpace\\CompanyUser.cs",
+              "RelativeToolTip": "Models\\Entity\\CompanySpace\\CompanyUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T13:49:09.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BusinessSector.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Models\\Entity\\SystemSpace\\BusinessSector.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\SystemSpace\\BusinessSector.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Models\\Entity\\SystemSpace\\BusinessSector.cs",
+              "RelativeToolTip": "Models\\Entity\\SystemSpace\\BusinessSector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T13:42:27.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BusinessSectorStore.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\SystemSetups\\Services\\SubStores\\BusinessSectorStore.cs",
+              "RelativeDocumentMoniker": "Areas\\SystemSetups\\Services\\SubStores\\BusinessSectorStore.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\SystemSetups\\Services\\SubStores\\BusinessSectorStore.cs",
+              "RelativeToolTip": "Areas\\SystemSetups\\Services\\SubStores\\BusinessSectorStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T13:27:56.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SystemStore.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\SystemSetups\\Services\\SystemStore.cs",
+              "RelativeDocumentMoniker": "Areas\\SystemSetups\\Services\\SystemStore.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\SystemSetups\\Services\\SystemStore.cs",
+              "RelativeToolTip": "Areas\\SystemSetups\\Services\\SystemStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T13:25:00.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SalesPerson.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Models\\Entity\\SalesSpace\\SalesPerson.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\SalesSpace\\SalesPerson.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Models\\Entity\\SalesSpace\\SalesPerson.cs",
+              "RelativeToolTip": "Models\\Entity\\SalesSpace\\SalesPerson.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T13:11:25.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TransactionError.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Core\\Operations\\TransactionError.cs",
+              "RelativeDocumentMoniker": "Core\\Operations\\TransactionError.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Core\\Operations\\TransactionError.cs",
+              "RelativeToolTip": "Core\\Operations\\TransactionError.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAWwA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T13:06:52.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SystemCompanyNumberStore.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\SystemSetups\\Services\\SubStores\\SystemCompanyNumberStore.cs",
+              "RelativeDocumentMoniker": "Areas\\SystemSetups\\Services\\SubStores\\SystemCompanyNumberStore.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\SystemSetups\\Services\\SubStores\\SystemCompanyNumberStore.cs",
+              "RelativeToolTip": "Areas\\SystemSetups\\Services\\SubStores\\SystemCompanyNumberStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T12:24:04.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SystemManager.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\SystemSetups\\Services\\SystemManager.cs",
+              "RelativeDocumentMoniker": "Areas\\SystemSetups\\Services\\SystemManager.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\SystemSetups\\Services\\SystemManager.cs",
+              "RelativeToolTip": "Areas\\SystemSetups\\Services\\SystemManager.cs",
+              "ViewState": "AgIAAEYBAAAAAAAAAAAWwGQBAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T12:23:44.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CompanyManager.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Companies\\Services\\CompanyManager.cs",
+              "RelativeDocumentMoniker": "Areas\\Companies\\Services\\CompanyManager.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Companies\\Services\\CompanyManager.cs",
+              "RelativeToolTip": "Areas\\Companies\\Services\\CompanyManager.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAWwKMAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T12:20:30.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ICompanyManager.cs",
+              "DocumentMoniker": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Companies\\Services\\ICompanyManager.cs",
+              "RelativeDocumentMoniker": "Areas\\Companies\\Services\\ICompanyManager.cs",
+              "ToolTip": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Companies\\Services\\ICompanyManager.cs",
+              "RelativeToolTip": "Areas\\Companies\\Services\\ICompanyManager.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T12:20:07.672Z",
+              "EditorCaption": ""
+            }
+          ]
         }
       ]
     }

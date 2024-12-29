@@ -92,7 +92,7 @@ namespace LibreBooks.Areas.SystemSetups.Services
         Task<long> GenerateNewCompanyNumberAsync ();
         Task<TransactionResult> UpdateCompanyNumberParamsAsync (string prefix, string numberFormat);
 
-        //Task SyncCompanyNumberParamsToCacheAsync (string? numPrefix, string? numFormat);
-        //Task DeleteCompanyNumberParamsFromCacheAsync ();
+        //Task CacheCompanySetupParamsAsync (string? numPrefix, string? numFormat);
+        //Task DeCacheCompanySetupParamsAsync ();
     }
 }

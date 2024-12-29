@@ -8,7 +8,7 @@ namespace LibreBooks.Areas.SystemSetups.Services.SubStores
 {
     public class ShippingMethodStore : DbStoreBase
     {
-        public ShippingMethodStore (AppDbContext? context, ILogger<ShippingMethodStore>? logger)
+        public ShippingMethodStore (AppDbContext context, ILogger<ShippingMethodStore>? logger)
             : base(context, logger) { }
 
         public async Task<ShippingMethod> CreateAsync (ShippingMethod method)

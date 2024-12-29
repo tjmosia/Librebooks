@@ -8,7 +8,7 @@ namespace LibreBooks.Areas.SystemSetups.Services.SubStores
 {
     public class CountryStore : DbStoreBase
     {
-        public CountryStore (AppDbContext? context, ILogger<CountryStore>? logger)
+        public CountryStore (AppDbContext context, ILogger<CountryStore> logger)
             : base(context, logger) { }
 
         /// <exception cref="DbUpdateException"/>

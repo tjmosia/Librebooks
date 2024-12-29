@@ -116,6 +116,7 @@ namespace LibreBooks.Data
         public DbSet<PaymentMethod>? PaymentMethod { get; set; }
         public DbSet<PaymentTerm>? PaymentTerm { get; set; }
         public DbSet<CompanySetup>? SystemCompanyNumber { get; set; }
+        public DbSet<BusinessSector>? BusinessSector { get; set; }
 
         /************************************************************************************************
          * Supplier Space
@@ -150,7 +151,6 @@ namespace LibreBooks.Data
          ************************************************************************************************/
         public DbSet<Contact>? Contact { get; set; }
         public DbSet<Note>? Note { get; set; }
-        public DbSet<BusinessSector>? BusinessSector { get; set; }
 
         protected override void OnModelCreating (ModelBuilder builder)
         {

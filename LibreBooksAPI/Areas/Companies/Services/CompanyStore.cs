@@ -33,7 +33,7 @@ namespace LibreBooks.Areas.Companies.Services
 
         public async Task<Company?> FindByNumberAsync (string companyNumber)
             => await context!.Company!
-                .Where(p => p.Number == companyNumber)
+                .Where(p => p.UniqueNumber == companyNumber)
                 .FirstOrDefaultAsync();
 
         public async Task<CompanyRegionalSettings?> FindRegionalSettingsAsync (string companyId)

@@ -39,13 +39,13 @@ namespace LibreBooks.Areas.Companies.Services
             => store.FindByNumberAsync(number);
 
         public async Task<CompanyRegionalSettings?> GetRegionalSettingsAsync (Company company)
-            => await store.FindCompanyRegionalSettingsByIdAsync(company.Id!);
+            => await store.FindRegionalSettingsAsync(company.Id!);
 
         public async Task<TaxType?> GetSalesTaxTypeAsync (Company company)
-            => await store.FindDefaultTaxTypeByIdAsync(company.Id!);
+            => await store.FindDefaultTaxTypeAsync(company.Id!);
 
         public async Task<CompanyMailSettings?> GetMailSettingsAsync (Company company)
-            => await store.FindMailSettingsByIdAsync(company.Id!);
+            => await store.FindMailSettingsAsync(company.Id!);
 
         public async Task<IList<User>> GetUsersAsync (Company company)
             => await store.FindUsersAsync(company.Id!);
@@ -57,7 +57,7 @@ namespace LibreBooks.Areas.Companies.Services
             => await store.FindBankAccountsAsync(company.Id!);
 
         public async Task<BankAccount?> GetDefaultBankAccountAsync (Company company)
-            => await store.FindDefaultBankAccountByIdAsync(company.Id!);
+            => await store.FindDefaultBankAccountAsync(company.Id!);
 
         public async Task<TaxType?> FindTaxTypeByIdAsync (Company company, string taxTypeId)
             => await store.FindTaxTypeByIdAsync(company.Id!, taxTypeId);
@@ -70,6 +70,7 @@ namespace LibreBooks.Areas.Companies.Services
 
         public async Task<Contact?> FindSalesPersonByUserIdAsync (Company company, string userId)
             => await store.FindSalesPersonByUserIdAsync(company.Id!, userId);
+
 
         /********************************************************************
          ** COMPANY CREATE TRANSACTIONS
@@ -100,9 +101,31 @@ namespace LibreBooks.Areas.Companies.Services
             return await store.CreateAsync(newCompany);
         }
 
-        public Task<TransactionResult<CompanyUser>> AddUserAsync (Company company, User user, bool isSalesPerson = false)
+        public async Task<TransactionResult> AddUserAsync (Company company, User user, bool isSalesPerson = false)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = await context.CompanyUser!.AddAsync(new CompanyUser(company.Id, user.Id));
+                await context.SaveChangesAsync();
+
+                if (!isSalesPerson)
+                {
+                    var result2 = await AddSalesPersonAsync(company, new Contact
+                    {
+                        FirstName = user.FirstName,
+                        LastName = user.LastName,
+                        Email = user.Email
+                    }, result.Entity);
+
+                    if (!result2.Succeeded)
+                        return TransactionResult.Failure(TransactionError.Create(nameof(SalesPerson)));
+                }
+
+                return TransactionResult.Success;
+            }
+            catch (Exception) { }
+
+            return TransactionResult.Failure(TransactionError.Create(nameof(CompanyUser)));
         }
 
         public Task<TransactionResult<CompanyLogo>> AddLogoAsync (Company company, CompanyLogo logo)
@@ -125,9 +148,21 @@ namespace LibreBooks.Areas.Companies.Services
             throw new NotImplementedException();
         }
 
-        public Task<TransactionResult<Contact>> AddSalesPersonAsync (Company company, Contact contact, CompanyUser? companyUser = null)
+        public async Task<TransactionResult<Contact>> AddSalesPersonAsync (Company company, Contact contact, CompanyUser? companyUser = null)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = await context.Contact!.AddAsync(contact);
+
+                await context.SalesPerson!
+                    .AddAsync(new SalesPerson(company.Id, contact.Id, companyUser?.Id));
+
+                await context.SaveChangesAsync();
+
+                return TransactionResult<Contact>.Success(result.Entity);
+            }
+            catch (Exception) { }
+            return TransactionResult<Contact>.Failure();
         }
 
         /********************************************************************

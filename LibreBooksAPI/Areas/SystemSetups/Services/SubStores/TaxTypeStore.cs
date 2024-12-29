@@ -8,7 +8,7 @@ namespace LibreBooks.Areas.SystemSetups.Services.SubStores
 {
     public class TaxTypeStore : DbStoreBase
     {
-        public TaxTypeStore (AppDbContext? context, ILogger<TaxTypeStore>? logger)
+        public TaxTypeStore (AppDbContext context, ILogger<TaxTypeStore>? logger)
             : base(context, logger) { }
 
         /// <exception cref="DbUpdateException"/>
