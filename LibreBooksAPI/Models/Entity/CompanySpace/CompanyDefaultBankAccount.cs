@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LibreBooks.Models.Entity.BankingSpace;
 
-using LibreBooks.Models.Entity.BankingSpace;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreBooks.Models.Entity.CompanySpace
 {
@@ -11,6 +11,13 @@ namespace LibreBooks.Models.Entity.CompanySpace
 
         public virtual Company? Company { get; set; }
         public virtual BankAccount? BankAccount { get; set; }
+
+        public CompanyDefaultBankAccount () { }
+        public CompanyDefaultBankAccount (string companyId, string bankAccountId) : this()
+        {
+            CompanyId = companyId;
+            BankAccountId = bankAccountId;
+        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<CompanyDefaultBankAccount>(options =>

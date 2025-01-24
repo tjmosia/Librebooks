@@ -13,7 +13,7 @@ namespace LibreBooks.Models.Entity.BankingSpace
 {
     public class BankAccount
     {
-        public virtual string? Id { get; set; }
+        public virtual string Id { get; set; }
         public virtual string? BankName { get; set; }
         public virtual string? AccountNumber { get; set; }
         public virtual string? BranchName { get; set; }

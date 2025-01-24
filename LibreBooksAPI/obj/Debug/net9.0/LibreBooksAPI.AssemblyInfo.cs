@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LibreBooksAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fff240f83ea2c9969558b038980b4acaaf42eca6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+682d5f0febf7cb0c6e9c241ad801d82af21400ed")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibreBooksAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibreBooksAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

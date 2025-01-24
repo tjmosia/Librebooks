@@ -16,6 +16,7 @@ namespace LibreBooks.Areas.Companies.Services
         /********************************************************************
          ** COMPANY GET TRANSACTIONS
          ********************************************************************/
+        Task<Company[]> FindAllByUserAsync (string userId);
         Task<Company?> FindByIdAsync (string companyId);
         Task<Company?> FindByNumberAsync (string companyNumber);
         Task<CompanyRegionalSettings?> GetRegionalSettingsAsync (Company company);
@@ -36,10 +37,10 @@ namespace LibreBooks.Areas.Companies.Services
         Task<TransactionResult<Company>> CreateAsync (Company company, User user, CompanyRegionalSettings regionalSettings, TaxType[] taxTypes,
             TaxType defaultTaxType, CustomerSetup customerSetup, SupplierSetup supplierSetup);
         Task<TransactionResult<CompanyUser>> AddUserAsync (Company company, User user, bool isSalesPerson = false);
-        Task<TransactionResult<CompanyLogo>> AddLogoAsync (Company company, CompanyLogo logo);
+        Task<TransactionResult<CompanyImage>> AddLogoAsync (Company company, CompanyImage image);
         Task<TransactionResult<CompanyTaxType>> AddTaxTypeAsync (Company company, TaxType taxTypes);
         Task<TransactionResult<BankAccount>> AddBankAccountAsync (Company company, BankAccount bankAccount);
-        Task<TransactionResult<CompanyDefaultBankAccount>> AddDefaultBankAccountAsync (Company company, BankAccount bankAccount);
+        Task<TransactionResult<BankAccount>> AddDefaultBankAccountAsync (Company company, BankAccount bankAccount);
         Task<TransactionResult<Contact>> AddSalesPersonAsync (Company company, Contact contact, CompanyUser? companyUser = null);
 
         /********************************************************************

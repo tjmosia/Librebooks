@@ -21,7 +21,7 @@ namespace LibreBooksAPI.Areas.Companies.Services
         Task<Company?> FindByIdAsync (string companyId);
         Task<Company?> FindByNumberAsync (string companyNumber);
         Task<CompanyRegionalSettings?> FindRegionalSettingsAsync (string companyId);
-        Task<CompanyImage?> FindLogoAsync (string companyId);
+        Task<CompanyLogo?> FindLogoAsync (string companyId);
         Task<IList<TaxType>> FindTaxTypesAsync (string companyId);
         Task<TaxType?> FindTaxTypeByIdAsync (string companyId, string taxTypeId);
         Task<TaxType?> FindDefaultTaxTypeAsync (string companyId);
@@ -39,6 +39,7 @@ namespace LibreBooksAPI.Areas.Companies.Services
         Task<TransactionResult<TaxType>> CreateTaxTypeAsync (Company company, TaxType taxType);
         Task<TransactionResult<Contact>> CreateSalesPersonAsync (Company company, Contact contact);
         Task<TransactionResult<BankAccount>> CreateBankAccountAsync (Company company, BankAccount bankAccount);
+        Task<TransactionResult<CompanyImage>> CreateLogoAsync (Company company, CompanyImage image);
 
         /***********************************************************************************************************************************
          ****** UPDATE TRANSACTIONS
@@ -61,5 +62,6 @@ namespace LibreBooksAPI.Areas.Companies.Services
         Task<TransactionResult> DeleteAsync (Company company);
         Task<TransactionResult> DeleteTaxTypeAsync (CompanyTaxType companyTaxType);
         Task<TransactionResult> DeleteBankAccountAsync (BankAccount bankAccount);
+        Task<TransactionResult> DeleteLogoAsync (CompanyLogo companyLogo);
     }
 }

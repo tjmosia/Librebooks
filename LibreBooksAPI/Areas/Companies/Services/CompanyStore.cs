@@ -40,11 +40,10 @@ namespace LibreBooks.Areas.Companies.Services
             => await context!.CompanyRegionalSettings!
                 .FindAsync(companyId);
 
-        public async Task<CompanyImage?> FindLogoAsync (string companyId)
+        public async Task<CompanyLogo?> FindLogoAsync (string companyId)
             => await context!.CompanyLogo!
                 .Where(p => p.CompanyId == companyId)
                 .Include(p => p.Image)
-                .Select(p => p.Image)
                 .FirstOrDefaultAsync();
 
         public async Task<IList<TaxType>> FindTaxTypesAsync (string companyId)
@@ -179,9 +178,41 @@ namespace LibreBooks.Areas.Companies.Services
                 await context.SaveChangesAsync();
                 return TransactionResult<BankAccount>.Success(result.Entity);
             }
+            catch (Exception ex)
+            {
+                logger!.LogError("***DB Error occured with Exception while creating Company Bank Account:*** \n\n{message}", ex.Message);
+                return TransactionResult<BankAccount>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<BankAccount>> CreateDefaultBankAccountAsync (Company company, BankAccount bankAccount)
+        {
+            try
+            {
+                var result = await context.CompanyDefaultBankAccount!
+                    .AddAsync(new CompanyDefaultBankAccount(company.Id, bankAccount.Id));
+                await context.SaveChangesAsync();
+                return TransactionResult<BankAccount>.Success(bankAccount);
+            }
+            catch (Exception ex)
+            {
+                logger!.LogError("***DB Error occured with Exception while creating Company Default Bank Account:*** \n\n{message}", ex.Message);
+                return TransactionResult<BankAccount>.Failure();
+            }
+        }
+
+        public async Task<TransactionResult<CompanyImage>> CreateLogoAsync (Company company, CompanyImage image)
+        {
+            try
+            {
+                var result = await context.CompanyImage!.AddAsync(image);
+                await context.SaveChangesAsync();
+                await UpdateLogoAsync(result.Entity);
+                return TransactionResult<CompanyImage>.Success(result.Entity);
+            }
             catch (Exception)
             {
-                return TransactionResult<BankAccount>.Failure();
+                return TransactionResult<CompanyImage>.Failure();
             }
         }
 
@@ -247,7 +278,7 @@ namespace LibreBooks.Areas.Companies.Services
                 else
                 {
                     companyLogo.ImageId = companyImage.CompanyId;
-                    context!.CompanyLogo!.Update(new CompanyLogo(companyImage.CompanyId!, companyImage.Id));
+                    context!.CompanyLogo!.Update(companyLogo);
                 }
 
                 await context!.SaveChangesAsync();
@@ -409,6 +440,20 @@ namespace LibreBooks.Areas.Companies.Services
             try
             {
                 context.BankAccount!.Remove(bankAccount);
+                await context.SaveChangesAsync();
+                return TransactionResult.Success;
+            }
+            catch (Exception)
+            {
+                return TransactionResult.Failure();
+            }
+        }
+
+        public async Task<TransactionResult> DeleteLogoAsync (CompanyLogo companyLogo)
+        {
+            try
+            {
+                context.CompanyLogo!.Remove(companyLogo);
                 await context.SaveChangesAsync();
                 return TransactionResult.Success;
             }

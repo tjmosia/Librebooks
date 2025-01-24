@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "LibreBooksAPI.Areas.Identity.Models.AccountReqModels\u002BChangeEmailModel",
+        "Type": "LibreBooks.Areas.Identity.Models.AccountReqModels\u002BChangeEmailModel",
         "IsRequired": true
       }
     ],
@@ -25,7 +25,7 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "LibreBooksAPI.Areas.Identity.Models.AccountReqModels\u002BChangePasswordModel",
+        "Type": "LibreBooks.Areas.Identity.Models.AccountReqModels\u002BChangePasswordModel",
         "IsRequired": true
       }
     ],
@@ -61,7 +61,7 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "LibreBooksAPI.Areas.Identity.Models.AccountReqModels\u002BUpdateUserPersonalInfoModel",
+        "Type": "LibreBooks.Areas.Identity.Models.AccountReqModels\u002BUpdateUserPersonalInfoModel",
         "IsRequired": true
       }
     ],
@@ -97,7 +97,7 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "LibreBooksAPI.Areas.Identity.Models.AccountReqModels\u002BSendVerificationCodeModel",
+        "Type": "LibreBooks.Areas.Identity.Models.AccountReqModels\u002BSendVerificationCodeModel",
         "IsRequired": true
       }
     ],
@@ -321,7 +321,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LibreBooksAPI.Areas.SystemSetups.Controllers.BusinessSectorsController",
+    "ContainingType": "LibreBooks.Areas.SystemSetups.Controllers.BusinessSectorsController",
     "Method": "GetASync",
     "RelativePath": "sectors",
     "HttpMethod": "GET",
@@ -331,7 +331,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LibreBooksAPI.Areas.SystemSetups.Controllers.BusinessSectorsController",
+    "ContainingType": "LibreBooks.Areas.SystemSetups.Controllers.BusinessSectorsController",
     "Method": "CreateAsync",
     "RelativePath": "sectors/create",
     "HttpMethod": "POST",

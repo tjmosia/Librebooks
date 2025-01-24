@@ -12,6 +12,8 @@ using LibreBooksAPI.Core.EFCore;
 using LibreBooksAPI.Models.Entity.CustomerSpace;
 using LibreBooksAPI.Models.Entity.SupplierSpace;
 
+using Microsoft.EntityFrameworkCore;
+
 namespace LibreBooks.Areas.Companies.Services
 {
     public class CompanyManager : ICompanyManager
@@ -32,11 +34,19 @@ namespace LibreBooks.Areas.Companies.Services
         /********************************************************************
          ** COMPANY GET TRANSACTIONS
          ********************************************************************/
-        public Task<Company?> FindByIdAsync (string id)
-           => store.FindByIdAsync(id);
 
-        public Task<Company?> FindByNumberAsync (string number)
-            => store.FindByNumberAsync(number);
+        public async Task<Company[]> FindAllByUserAsync (string userId)
+        => await context.CompanyUser!
+                .Where(p => p.UserId == userId)
+                .Include(p => p.Company)
+                .Select(p => p.Company!)
+                .ToArrayAsync();
+
+        public async Task<Company?> FindByIdAsync (string id)
+           => await store.FindByIdAsync(id);
+
+        public async Task<Company?> FindByNumberAsync (string number)
+            => await store.FindByNumberAsync(number);
 
         public async Task<CompanyRegionalSettings?> GetRegionalSettingsAsync (Company company)
             => await store.FindRegionalSettingsAsync(company.Id!);
@@ -56,20 +66,20 @@ namespace LibreBooks.Areas.Companies.Services
         public async Task<IList<BankAccount>> GetBankAccountsAsync (Company company)
             => await store.FindBankAccountsAsync(company.Id!);
 
-        public async Task<BankAccount?> GetDefaultBankAccountAsync (Company company)
-            => await store.FindDefaultBankAccountAsync(company.Id!);
-
         public async Task<TaxType?> FindTaxTypeByIdAsync (Company company, string taxTypeId)
             => await store.FindTaxTypeByIdAsync(company.Id!, taxTypeId);
-
-        public async Task<BankAccount?> FindBankAccountByIdAsync (Company company, string bankAccountId)
-            => await store.FindBankAccountByIdAsync(company.Id!, bankAccountId);
 
         public async Task<Contact?> FindSalesPersonByIdAsync (Company company, string salesPersonId)
             => await store.FindSalesPersonByIdAsync(company.Id!, salesPersonId);
 
         public async Task<Contact?> FindSalesPersonByUserIdAsync (Company company, string userId)
             => await store.FindSalesPersonByUserIdAsync(company.Id!, userId);
+
+        public async Task<BankAccount?> GetDefaultBankAccountAsync (Company company)
+            => await store.FindDefaultBankAccountAsync(company.Id!);
+
+        public async Task<BankAccount?> FindBankAccountByIdAsync (Company company, string bankAccountId)
+            => await store.FindBankAccountByIdAsync(company.Id!, bankAccountId);
 
 
         /********************************************************************
@@ -128,9 +138,15 @@ namespace LibreBooks.Areas.Companies.Services
             return TransactionResult.Failure(TransactionError.Create(nameof(CompanyUser)));
         }
 
-        public Task<TransactionResult<CompanyLogo>> AddLogoAsync (Company company, CompanyLogo logo)
+        public async Task<TransactionResult<CompanyImage>> AddLogoAsync (Company company, CompanyImage image)
         {
-            throw new NotImplementedException();
+
+            var result = await store.CreateLogoAsync(company, image);
+
+            if (result.Succeeded)
+                return TransactionResult<CompanyImage>.Success(result.Model);
+            else
+                return TransactionResult<CompanyImage>.Failure();
         }
 
         public Task<TransactionResult<CompanyTaxType>> AddTaxTypeAsync (Company company, TaxType taxTypes)
@@ -138,14 +154,23 @@ namespace LibreBooks.Areas.Companies.Services
             throw new NotImplementedException();
         }
 
-        public Task<TransactionResult<BankAccount>> AddBankAccountAsync (Company company, BankAccount bankAccount)
+        public async Task<TransactionResult<BankAccount>> AddBankAccountAsync (Company company, BankAccount bankAccount)
         {
-            throw new NotImplementedException();
+            var result = await store.CreateBankAccountAsync(company, bankAccount);
+
+            if (result.Succeeded)
+                return TransactionResult<BankAccount>.Success(result.Model);
+            else
+                return TransactionResult<BankAccount>.Failure();
         }
 
-        public Task<TransactionResult<CompanyDefaultBankAccount>> AddDefaultBankAccountAsync (Company company, BankAccount bankAccount)
+        public async Task<TransactionResult<BankAccount>> AddDefaultBankAccountAsync (Company company, BankAccount bankAccount)
         {
-            throw new NotImplementedException();
+            var result = await store.CreateDefaultBankAccountAsync(company, bankAccount);
+            if (result.Succeeded)
+                return TransactionResult<BankAccount>.Success(result.Model);
+            else
+                return TransactionResult<BankAccount>.Failure();
         }
 
         public async Task<TransactionResult<Contact>> AddSalesPersonAsync (Company company, Contact contact, CompanyUser? companyUser = null)
@@ -161,8 +186,10 @@ namespace LibreBooks.Areas.Companies.Services
 
                 return TransactionResult<Contact>.Success(result.Entity);
             }
-            catch (Exception) { }
-            return TransactionResult<Contact>.Failure();
+            catch (Exception)
+            {
+                return TransactionResult<Contact>.Failure();
+            }
         }
 
         /********************************************************************
@@ -227,6 +254,11 @@ namespace LibreBooks.Areas.Companies.Services
         }
 
         public Task<TransactionResult> DeleteSalesPersonAsync (BankAccount bankAccount)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TransactionResult<CompanyUser>> ICompanyManager.AddUserAsync (Company company, User user, bool isSalesPerson)
         {
             throw new NotImplementedException();
         }

@@ -1,5 +1,7 @@
 ﻿using LibreBooks.Areas.Companies.Models;
+using LibreBooks.Areas.Companies.Services;
 using LibreBooks.Areas.SystemSetups.Services;
+using LibreBooks.Extensions.Identity;
 using LibreBooks.Extensions.Mvc;
 using LibreBooks.Models.Entity.CompanySpace;
 
@@ -11,19 +13,25 @@ namespace LibreBooks.Areas.Companies.Controllers
     [Authorize]
     [ApiController]
     [Route("companies")]
-    public class CompaniesController (SystemManager sysManager) : SessionControllerBase
+    public class CompaniesController (SystemManager sysManager, CompanyManager companyManager, UserManagerExt userManager) : SessionControllerBase(userManager)
     {
         private readonly SystemManager sysManager = sysManager;
+        private readonly CompanyManager companyManager = companyManager;
 
         [HttpGet]
         [Route("")]
-        public IActionResult Get ([FromRoute] string id)
+        public async Task<IActionResult> GetAsync ()
         {
-            return Ok();
+            var user = await userManager!.FindByNameAsync(User.Identity!.Name!);
+
+            if (user == null)
+                return Unauthorized();
+
+            return Ok(await companyManager.FindAllByUserAsync(user!.Id));
         }
 
         [HttpPost]
-        [Route("/create")]
+        [Route("/companies/create")]
         public async Task<IActionResult> CreateAsync ([FromBody] CompaniesReqModels.CreateModel input)
         {
             if (!ModelState.IsValid)
