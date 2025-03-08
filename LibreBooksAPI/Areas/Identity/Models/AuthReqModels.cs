@@ -49,12 +49,6 @@ namespace LibreBooks.Areas.Identity.Models
 
         public class RegisterModel : UsernameModel
         {
-            [Required(ErrorMessage = "Code is require.d")]
-            public string? Code { get; set; }
-
-            [Required(ErrorMessage = "CodeHashString is required.")]
-            public string? CodeHashString { get; set; }
-
             [Required(ErrorMessage = "FirstName is required.")]
             public string? FirstName { get; set; }
 

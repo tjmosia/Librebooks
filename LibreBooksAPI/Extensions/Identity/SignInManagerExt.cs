@@ -62,17 +62,14 @@ namespace LibreBooks.Extensions.Identity
                 ExpiryDateTime: expiryDate
             );
         }
+
         public object GenerateUserSessionDTO (User user)
             => new
             {
                 user.FirstName,
                 user.LastName,
                 user.Email,
-                user.Birthday,
-                user.Gender,
-                user.Photo,
-                user.PhoneNumber,
-                DateRegistered = DateOnly.FromDateTime(user.DateRegistered)
+                user.Photo
             };
     }
 }

@@ -42,7 +42,7 @@ namespace LibreBooks.Areas.Identity.Controllers
             else
                 return Ok(new FindUserDto
                 {
-                    Username = user.Email,
+                    Email = user.Email,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     Photo = user.GetPhotoAsBase64()
@@ -138,11 +138,6 @@ namespace LibreBooks.Areas.Identity.Controllers
             if (user != null)
                 return Ok(TransactionResult.Failure(TransactionError.Create(nameof(input.Email), IdentityErrorDescriptions.DuplicateEmail)));
 
-            var verified = userManager.VerifyCode(input.Email!, EmailVerificationTypes.Registration, input.Code!, input.CodeHashString!);
-
-            if (!verified)
-                return Ok(TransactionResult.Failure(TransactionError.Create(nameof(input.Email), IdentityErrorDescriptions.UnVerifiedEmail)));
-
             DateTime? birthday = null;
 
             try
@@ -175,7 +170,7 @@ namespace LibreBooks.Areas.Identity.Controllers
                 NormalizedUserName = userManager.NormalizeName(input.Email),
                 DateLastLoggedIn = DateTime.Now,
                 DateRegistered = DateTime.Now,
-                EmailConfirmed = true
+                EmailConfirmed = false
             };
 
             var createResult = await userManager.CreateAsync(user, input.Password!);
@@ -197,7 +192,11 @@ namespace LibreBooks.Areas.Identity.Controllers
                 SetAuthenticationCookie(HttpContext, Token, ExpiryDate);
 
                 return Ok(TransactionResult<object>
-                    .Success(signInManager!.GenerateUserSessionDTO(user)));
+                    .Success(new
+                    {
+                        Username = user.Email,
+                        HashString = userManager.GenerateVerificationCode(user.Email!, EmailVerificationTypes.Registration)
+                    }));
             }
             else
             {
@@ -269,6 +268,7 @@ namespace LibreBooks.Areas.Identity.Controllers
                 if (user != null)
                     return Ok(TransactionResult<object>.Success(signInManager!.GenerateUserSessionDTO(user)));
             }
+
             return Unauthorized();
         }
 
@@ -291,7 +291,7 @@ namespace LibreBooks.Areas.Identity.Controllers
         {
             FirstName = user.FirstName,
             LastName = user.LastName,
-            Username = user.UserName,
+            Email = user.UserName,
             Photo = user.GetPhotoAsBase64()
         };
     }

@@ -37,7 +37,7 @@ namespace LibreBooks.Models.Entity.PurchasesSpace
                 options.HasIndex(p => p.SupplierId)
                     .IsClustered();
 
-                options.HasOne<Supplier>()
+                options.HasOne(p => p.Supplier)
                     .WithOne()
                     .HasForeignKey<PurchaseDocumentSupplierDetails>(p => p.SupplierId)
                         .IsRequired()

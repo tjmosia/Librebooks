@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\LibreBooksAPI.csproj": {}
+    "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\LibreBooksAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\LibreBooksAPI.csproj": {
+    "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\LibreBooksAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\LibreBooksAPI.csproj",
+        "projectUniqueName": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\LibreBooksAPI.csproj",
         "projectName": "LibreBooksAPI",
-        "projectPath": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\LibreBooksAPI.csproj",
-        "packagesPath": "C:\\Users\\Thabo Mosia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Thabo Mosia\\source\\repos\\Librebooks\\LibreBooksAPI\\obj\\",
+        "projectPath": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\LibreBooksAPI.csproj",
+        "packagesPath": "C:\\Users\\TJmos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Thabo Mosia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TJmos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

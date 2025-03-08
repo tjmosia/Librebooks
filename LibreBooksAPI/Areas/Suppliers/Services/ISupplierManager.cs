@@ -7,7 +7,6 @@ namespace LibreBooksAPI.Areas.Suppliers.Services
 {
     public interface ISupplierManager
     {
-
         Task<TransactionResult> AllocateReturnToInvoiceAsync (PurchaseInvoice invoice, PurchaseReturn purchaseReturn);
         Task<TransactionResult> AllocateReceiptToInvoiceAsync (PurchaseReceipt receipt, PurchaseInvoice invoice);
 

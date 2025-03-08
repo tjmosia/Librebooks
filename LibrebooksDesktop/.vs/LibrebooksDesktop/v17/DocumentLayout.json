@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksDesktop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F614E99C-00FC-422D-9120-75B22366D9C4}|LibrebooksDesktop\\LibrebooksDesktop.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksdesktop\\librebooksdesktop\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F614E99C-00FC-422D-9120-75B22366D9C4}|LibrebooksDesktop\\LibrebooksDesktop.csproj|solutionrelative:librebooksdesktop\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F614E99C-00FC-422D-9120-75B22366D9C4}|LibrebooksDesktop\\LibrebooksDesktop.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksdesktop\\librebooksdesktop\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F614E99C-00FC-422D-9120-75B22366D9C4}|LibrebooksDesktop\\LibrebooksDesktop.csproj|solutionrelative:librebooksdesktop\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.axaml",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksDesktop\\LibrebooksDesktop\\MainWindow.axaml",
+              "RelativeDocumentMoniker": "LibrebooksDesktop\\MainWindow.axaml",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksDesktop\\LibrebooksDesktop\\MainWindow.axaml",
+              "RelativeToolTip": "LibrebooksDesktop\\MainWindow.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-08T13:53:50.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.axaml.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksDesktop\\LibrebooksDesktop\\MainWindow.axaml.cs",
+              "RelativeDocumentMoniker": "LibrebooksDesktop\\MainWindow.axaml.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksDesktop\\LibrebooksDesktop\\MainWindow.axaml.cs",
+              "RelativeToolTip": "LibrebooksDesktop\\MainWindow.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T13:53:50.269Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

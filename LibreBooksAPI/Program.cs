@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 var Config = builder.Configuration;
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(Config.GetConnectionString("MoskitContext")));
+//builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Config.GetConnectionString("MoskitContext")));
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddIdentityCore<User>
@@ -76,4 +77,5 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+//IdentityComponentsEndpointRouteBuilderExtensions.Map(app);
 app.Run();

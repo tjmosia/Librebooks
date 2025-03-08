@@ -20,10 +20,10 @@
 
         public static (string SecretKey, string Issuer, string Audience, string ExpiryTimeInMinutes) GetKeyNames ()
             => (
-                SecretKey: string.Concat(nameof(JwtParams), nameof(SecretKey)),
-                Issuer: string.Concat(nameof(JwtParams), nameof(Issuer)),
-                Audience: string.Concat(nameof(JwtParams), nameof(Audience)),
-                ExpiryTimeInMinutes: string.Concat(nameof(JwtParams), nameof(ExpiryTimeInMinutes))
+                SecretKey: string.Concat(nameof(JwtParams), ":", nameof(SecretKey)),
+                Issuer: string.Concat(nameof(JwtParams), ":", nameof(Issuer)),
+                Audience: string.Concat(nameof(JwtParams), ":", nameof(Audience)),
+                ExpiryTimeInMinutes: string.Concat(nameof(JwtParams), ":", nameof(ExpiryTimeInMinutes))
             );
     }
 }

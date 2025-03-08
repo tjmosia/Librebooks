@@ -290,24 +290,18 @@
   },
   {
     "ContainingType": "LibreBooks.Areas.Companies.Controllers.CompaniesController",
-    "Method": "Get",
+    "Method": "GetAsync",
     "RelativePath": "companies",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
     "ContainingType": "LibreBooks.Areas.Companies.Controllers.CompaniesController",
     "Method": "CreateAsync",
-    "RelativePath": "create",
+    "RelativePath": "companies/create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

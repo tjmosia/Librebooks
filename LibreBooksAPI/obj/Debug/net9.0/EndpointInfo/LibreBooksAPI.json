@@ -454,16 +454,6 @@
         "tags": [
           "Companies"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -471,7 +461,7 @@
         }
       }
     },
-    "/create": {
+    "/companies/create": {
       "post": {
         "tags": [
           "Companies"

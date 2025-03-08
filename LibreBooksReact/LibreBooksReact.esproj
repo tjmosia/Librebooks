@@ -9,9 +9,13 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="src\providers\**" />
+    <None Remove="src\utils\**" />
+    <TypeScriptConfiguration Remove="src\providers\**" />
+    <TypeScriptConfiguration Remove="src\utils\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="src\app\shared\" />
     <Folder Include="src\core\" />
-    <Folder Include="src\utils\" />
-    <Folder Include="src\providers\" />
   </ItemGroup>
 </Project>
