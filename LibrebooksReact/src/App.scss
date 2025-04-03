@@ -1,0 +1,21 @@
+@use "@blueprintjs/core/lib/scss/variables" as bpVars;
+
+html {
+  font-size: 12.5px;
+}
+
+body {
+  height: 100%;
+  min-height: 100vh;
+}
+
+#root {
+  height: inherit;
+  min-height: inherit;
+  background-color: bpVars.$light-gray3;
+}
+
+.layout {
+  height: inherit;
+  min-height: inherit;
+}

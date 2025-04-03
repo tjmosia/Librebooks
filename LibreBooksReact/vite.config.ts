@@ -1,15 +1,10 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-//import basicSsl from '@vitejs/plugin-basic-ssl'
+import { defineConfig } from 'vite';
+import plugin from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern-compiler' // or "modern"
-      }
+    plugins: [plugin()],
+    server: {
+        port: 51570,
     }
-  }
 })

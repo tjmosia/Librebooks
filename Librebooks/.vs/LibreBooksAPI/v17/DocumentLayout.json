@@ -1,0 +1,197 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksapi\\areas\\admin\\models\\taxtypemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\admin\\models\\taxtypemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksapi\\areas\\admin\\services\\isystemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\admin\\services\\isystemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksapi\\areas\\admin\\controllers\\taxtypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\admin\\controllers\\taxtypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksapi\\areas\\admin\\controllers\\businesssectorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\admin\\controllers\\businesssectorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksapi\\models\\entity\\systemspace\\businesssector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:models\\entity\\systemspace\\businesssector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksapi\\areas\\admin\\models\\businesssectormodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\admin\\models\\businesssectormodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksapi\\models\\entity\\systemspace\\currency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:models\\entity\\systemspace\\currency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksapi\\models\\entity\\systemspace\\shippingmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:models\\entity\\systemspace\\shippingmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksapi\\providers\\stores\\storebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:providers\\stores\\storebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksapi\\providers\\configurations\\corsconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:providers\\configurations\\corsconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAswCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T22:56:41.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ISystemManager.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Admin\\Services\\ISystemManager.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Services\\ISystemManager.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Admin\\Services\\ISystemManager.cs",
+              "RelativeToolTip": "Areas\\Admin\\Services\\ISystemManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T22:26:39.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TaxTypeModels.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Admin\\Models\\TaxTypeModels.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Models\\TaxTypeModels.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Admin\\Models\\TaxTypeModels.cs",
+              "RelativeToolTip": "Areas\\Admin\\Models\\TaxTypeModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T22:21:13.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TaxTypesController.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Admin\\Controllers\\TaxTypesController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\TaxTypesController.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Admin\\Controllers\\TaxTypesController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\TaxTypesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T22:20:10.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BusinessSectorModels.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Admin\\Models\\BusinessSectorModels.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Models\\BusinessSectorModels.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Admin\\Models\\BusinessSectorModels.cs",
+              "RelativeToolTip": "Areas\\Admin\\Models\\BusinessSectorModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T21:31:31.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ShippingMethod.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Models\\Entity\\SystemSpace\\ShippingMethod.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\SystemSpace\\ShippingMethod.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Models\\Entity\\SystemSpace\\ShippingMethod.cs",
+              "RelativeToolTip": "Models\\Entity\\SystemSpace\\ShippingMethod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T21:25:22.387Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Currency.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Models\\Entity\\SystemSpace\\Currency.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\SystemSpace\\Currency.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Models\\Entity\\SystemSpace\\Currency.cs",
+              "RelativeToolTip": "Models\\Entity\\SystemSpace\\Currency.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T21:25:20.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BusinessSector.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Models\\Entity\\SystemSpace\\BusinessSector.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\SystemSpace\\BusinessSector.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Models\\Entity\\SystemSpace\\BusinessSector.cs",
+              "RelativeToolTip": "Models\\Entity\\SystemSpace\\BusinessSector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T21:18:15.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BusinessSectorsController.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Admin\\Controllers\\BusinessSectorsController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\BusinessSectorsController.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Areas\\Admin\\Controllers\\BusinessSectorsController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\BusinessSectorsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T21:11:43.689Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StoreBase.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Providers\\Stores\\StoreBase.cs",
+              "RelativeDocumentMoniker": "Providers\\Stores\\StoreBase.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Providers\\Stores\\StoreBase.cs",
+              "RelativeToolTip": "Providers\\Stores\\StoreBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T20:55:49.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CorsConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Providers\\Configurations\\CorsConfiguration.cs",
+              "RelativeDocumentMoniker": "Providers\\Configurations\\CorsConfiguration.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksAPI\\Providers\\Configurations\\CorsConfiguration.cs",
+              "RelativeToolTip": "Providers\\Configurations\\CorsConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T20:55:48.38Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

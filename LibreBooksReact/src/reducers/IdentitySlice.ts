@@ -1,24 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { IAppUser, IIdentity } from '../types/identity'
-import IReducerPayloadAction from '../types/IReducerPayloadAction'
+import { IUser } from "../core/identity"
+import { createSlice, type PayloadAction as IPayloadAction } from "@reduxjs/toolkit"
 
-const IdentitySlice = createSlice({
-	name: "identity",
-	initialState: {} as IIdentity,
-	reducers: {
-		setUser(state, action: IReducerPayloadAction<IAppUser | undefined>) {
-			state.user = action.payload
-		},
-		removeUser: (state) => {
-			state.user = undefined
-		}
-	},
-	selectors: {
-		getUser: (state) => state.user
-	}
+
+interface IIdentityStore {
+    user: IUser | null
+}
+
+const initialState: IIdentityStore = {
+    user: null
+}
+
+const identitySlice = createSlice({
+    name: 'identity',
+    initialState,
+    reducers: {
+        login(state, action: IPayloadAction<IUser>) {
+            state.user = action.payload
+        },
+        logout(state) {
+            state.user = null
+        },
+        updateUser(state, action: IPayloadAction<IUser>) {
+            state.user = action.payload
+        }
+    }
 })
 
-export const { setUser, removeUser } = IdentitySlice.actions
-export const { getUser } = IdentitySlice.selectors
-export default IdentitySlice.reducer
 
+export const identityActions = identitySlice.actions
+
+export default identitySlice.reducer
