@@ -1,5 +1,5 @@
 export { default as usePasswordValidator } from './usePasswordValidator'
-export { default as useIdentityManager } from './useIdentityManager'
+export { default as useUserManager } from './useUserManager'
 export { default as useSesionData } from './useSessionData'
 export { default as useTempData } from './useTempData'
 export { default as useAppSettings } from './useAppSettings'

@@ -1,15 +1,17 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router";
-import useIdentityManager from "../hooks/useIdentityManager";
+import { useUserManager } from "../hooks";
+import { routes } from "../values";
 
 export default function SessionLayout() {
-    const identityManager = useIdentityManager()
+    const {isSignedIn} = useUserManager()
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!identityManager.isAuthenticated)
-            navigate("/auth/login")
-    }, [identityManager, navigate])
+        if(!isSignedIn())
+            navigate(routes.auth.login)
+
+    }, [isSignedIn, navigate])
 
     return (
         <>
