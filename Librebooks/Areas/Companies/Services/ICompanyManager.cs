@@ -53,6 +53,7 @@ namespace Librebooks.Areas.Companies.Services
         Task<TransactionResult<BankAccount>> UpdateBankAccountAsync (BankAccount bankAccount);
         Task<TransactionResult<BankAccount>> UpdateDefaultBankAccountAsync (Company company, BankAccount bankAccount);
         Task<TransactionResult<SalesPerson>> UpdateSalesPersonAsync (SalesPerson salesPerson, Contact updatedContactInfo);
+        Task<TransactionResult<CompanyLogo>> UpdateCompanyLogoAsync (CompanyLogo oldCompanyLogo,  );
 
         /********************************************************************
          ** COMPANY DELETE TRANSACTIONS

@@ -8,7 +8,7 @@ export default function RootLayout() {
 
     useEffect(() => {
         if (location.pathname === "/")
-            navigate("/app/")
+            navigate("/home/")
     }, [location, navigate])
 
     return (

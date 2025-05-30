@@ -42,6 +42,7 @@ namespace Librebooks.Models.Entity.SalesSpace
         public virtual ShippingMethod? ShippingMethod { get; set; }
         public virtual ShippingTerm? ShippingTerm { get; set; }
         public virtual SalesDocumentCustomerDetails? CustomerDetails { get; set; }
+        public virtual SalesDocumentCompanyDetails? CompanyDetails { get; set; }
         public virtual ICollection<SalesDocumentNote>? Notes { get; set; }
         public virtual ICollection<SalesDocumentLine>? Lines { get; set; }
         public virtual User? Creator { get; set; }

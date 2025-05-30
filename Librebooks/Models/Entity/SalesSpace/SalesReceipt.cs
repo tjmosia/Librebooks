@@ -33,6 +33,7 @@ namespace Librebooks.Models.Entity.SalesSpace
         public virtual CompanyImage? Logo { get; set; }
         public virtual Company? Company { get; set; }
         public virtual SalesDocumentCustomerDetails? CustomerDetails { get; set; }
+        public virtual SalesDocumentCompanyDetails? CompanyDetails { get; set; }
         public virtual BankAccount? BankAccount { get; set; }
         public virtual PaymentMethod? PaymentMethod { get; set; }
         public virtual ICollection<SalesInvoiceReceipt>? AllocatedInvoices { get; set; }

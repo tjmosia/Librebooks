@@ -67,6 +67,7 @@ namespace Librebooks.Data
         public DbSet<SalesLine>? SalesLine { get; set; }
         public DbSet<SalesQuoteOrder>? SalesQuoteOrder { get; set; }
         public DbSet<SalesDocumentCustomerDetails>? SalesDocumentCustomerDetails { get; set; }
+        public DbSet<SalesDocumentCompanyDetails>? SalesDocumentCompanyDetails { get; set; }
 
         /************************************************************************************************
          * Inventory Space

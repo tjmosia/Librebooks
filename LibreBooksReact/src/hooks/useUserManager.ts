@@ -1,31 +1,21 @@
 import { useContext } from "react";
-import UserManagerContext from "../contexts/AuthContext";
 import { IClaim } from "../core/identity";
-
+import { UserManagerContext } from "../contexts";
 
 function userManager(){
-    const userContext = useContext(UserManagerContext)
-
-    function signOut(){
-        userContext.signOut!()
-    }
-
-    function signIn(){
-        userContext.signIn
-    }
+    const userContext = useContext(UserManagerContext)!
 
     return {
-        getUser: () => userContext.user,
-        getRoles: () => userContext.roles,
-        isSignedIn: () => userContext.user != null,
-        signOut,
-        signIn,
-        getClaims: () => userContext.claims,
+        getUser: userContext.user,
+        getClaims: userContext.claims,
+        getRoles: userContext.roles,
+        signOut: () => userContext.clearUserData,
         addRoles: (roles: string[]) => userContext.addRoles!(roles),
         addClaims: (claims: IClaim[]) => userContext.addClaims!(claims),
+        addUser: userContext.addUser,
+        signIn: userContext.addUser,
+        isSignedIn: () => userContext.user != null
     }
 }
-
-
 
 export default userManager

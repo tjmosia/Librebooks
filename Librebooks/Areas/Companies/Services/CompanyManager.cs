@@ -118,7 +118,7 @@ namespace Librebooks.Areas.Companies.Services
                 var result = await context.CompanyUser!.AddAsync(new CompanyUser(company.Id, user.Id));
                 await context.SaveChangesAsync();
 
-                if (!isSalesPerson)
+                if (isSalesPerson)
                 {
                     var result2 = await AddSalesPersonAsync(company, new Contact
                     {
@@ -229,6 +229,8 @@ namespace Librebooks.Areas.Companies.Services
         {
             throw new NotImplementedException();
         }
+
+        
 
         /********************************************************************
          ** COMPANY DELETE TRANSACTIONS

@@ -14,7 +14,9 @@ namespace Librebooks.Areas.Companies.Controllers
     [Authorize]
     [ApiController]
     [Route("companies")]
-    public class CompaniesController (SystemManager sysManager, CompanyManager companyManager, UserManagerExtension userManager) : SessionControllerBase(userManager)
+    public class CompaniesController 
+        (SystemManager sysManager, CompanyManager companyManager, UserManagerExtension userManager) 
+        : SessionControllerBase(userManager)
     {
         private readonly SystemManager sysManager = sysManager;
         private readonly CompanyManager companyManager = companyManager;
@@ -27,12 +29,19 @@ namespace Librebooks.Areas.Companies.Controllers
 
             if (user == null)
                 return Unauthorized();
+            var companies = await companyManager.FindAllByUserAsync(user!.Id);
 
-            return Ok(await companyManager.FindAllByUserAsync(user!.Id));
+
+            return Ok(companies.Select(p=> new
+            {
+                Id = p.Id,
+                TradingName = p.TradingName,
+                Logo = p.Logo
+            }));
         }
 
         [HttpPost]
-        [Route("/companies/create")]
+        [Route("create")]
         public async Task<IActionResult> CreateAsync ([FromBody] CompaniesReqModels.CreateModel input)
         {
             if (!ModelState.IsValid)
@@ -56,7 +65,6 @@ namespace Librebooks.Areas.Companies.Controllers
                 PhoneNumber = input.TelephoneNumber,
                 EmailAddress = input.EmailAddress
             };
-
 
             return Ok();
         }

@@ -61,9 +61,11 @@ namespace Librebooks.Models.Entity
             SalesInvoiceReceipt.BuildModel(builder);
             SalesLine.BuildModel(builder);
             SalesDocumentCustomerDetails.BuildModel(builder);
+            SalesDocumentCompanyDetails.BuildModel(builder);
             SalesPerson.BuildModel(builder);
             SalesInvoiceCredit.BuildModel(builder);
             SalesDocumentNote.BuildModel(builder);
+
 
             /************************************************************************************************
              * Company Space
