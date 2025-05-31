@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router";
 import AuthLayout from "./layouts/AuthLayout";
 import LoginPage from "./app/identity/auth/login/Login";
 import RootLayout from "./layouts/RootLayout";
-import HomePage from "./app/Home";
+import HomePage from "./app/HomePage";
 import SessionLayout from "./layouts/SessionLayout";
 import AdminLayout from "./layouts/AdminLayout";
 import RegisterPage from "./app/identity/auth/register/Register";
@@ -11,6 +11,7 @@ import ResetPasswordPage from "./app/identity/auth/reset-password/ResetPassword"
 import VerifyEmailPage from "./app/identity/auth/verify-email/VerifyEmail";
 import { routes } from "./values";
 import HomeLayout from "./layouts/HomeLayout";
+import AdminHomePage from "./app/admin/AdminHomePage";
 
 export default function Routing() {
   return (<>
@@ -21,7 +22,7 @@ export default function Routing() {
             <Route index element={<HomePage />} />
           </Route>
           <Route path="admin/*" element={<AdminLayout />}>
-            <Route index element={<HomePage />} />
+            <Route index element={<AdminHomePage />} />
           </Route>
         </Route>
         <Route path="auth/*" element={<AuthLayout />}>

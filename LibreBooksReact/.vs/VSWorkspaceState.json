@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\admin",
+    "\\src\\components",
+    "\\src\\components\\navbar-account",
+    "\\src\\layouts",
+    "\\src\\values"
+  ],
+  "SelectedNode": "\\src\\routing.tsx",
+  "PreviewInSolutionExplorer": false
+}
