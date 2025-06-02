@@ -1,7 +1,11 @@
 
+.admin-layout{
+    height: 100%;
+    width: 100%;
 
-.adminBody
-{
+}
+
+.adminBody {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -13,4 +17,8 @@
 .adminSideMenuContainer {
     width: 200px;
     height: 100%;
+    height: 100vh;
+    background-color: #fff;
+    position: fixed;
+    left: 0;
 }

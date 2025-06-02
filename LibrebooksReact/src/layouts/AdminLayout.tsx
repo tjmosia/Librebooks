@@ -22,12 +22,10 @@ export default function AdminLayout () {
                             <MenuItem icon="dashboard" text="Dashboard" />
                             <MenuItem icon="user" text="Users" />
                             <MenuItem icon="shop" text="Companies" />
-                            <MenuItem icon="settings" text="System Setups">
-                                <Menu>
-                                    <MenuItem text="VAT Tax" />
-                                    <MenuItem text="Industries" />
-                                    <MenuItem text="Chart of Accounts" />
-                                </Menu>
+                            <MenuItem icon="cog" text="System Setups">
+                                <MenuItem text="Value Added Tax" />
+                                <MenuItem text="Business Sectors" />
+                                <MenuItem text="Chart of Accounts" />
                             </MenuItem>
                         </Menu>
                     </aside>
