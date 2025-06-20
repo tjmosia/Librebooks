@@ -6,3 +6,7 @@
 @import 'animate.css';
 @import "@blueprintjs/datetime2/lib/css/blueprint-datetime2.css";
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
+html, body {
+    font-family: Lato, sans-serif !important;
+}

@@ -3,7 +3,7 @@ import Routing from './routing'
 import { BrowserRouter } from 'react-router'
 import { BlueprintProvider } from "@blueprintjs/core";
 import { IUserData, IUserManagerContext, UserManagerContext } from './contexts/UserManagerContext';
-import { IClaim, IUser } from './core/identity';
+import { IClaim } from './core/identity';
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { CompanyManagerContext, ICompanyData, ICompanyManagerContext } from './contexts';
@@ -48,15 +48,15 @@ function App() {
     return (
         <>
             <BlueprintProvider>
-                <BrowserRouter>
-                    <QueryClientProvider client={queryClient}>
-                        <UserManagerContext.Provider value={userManagerContext}>
-                            <CompanyManagerContext.Provider value={companyManagerContext}>
-                                <Routing />
-                            </CompanyManagerContext.Provider>
-                        </UserManagerContext.Provider>
-                    </QueryClientProvider>
-                </BrowserRouter>
+                    <BrowserRouter>
+                        <QueryClientProvider client={queryClient}>
+                            <UserManagerContext.Provider value={userManagerContext}>
+                                <CompanyManagerContext.Provider value={companyManagerContext}>
+                                    <Routing />
+                                </CompanyManagerContext.Provider>
+                            </UserManagerContext.Provider>
+                        </QueryClientProvider>
+                    </BrowserRouter>
             </BlueprintProvider>
         </>
     )
