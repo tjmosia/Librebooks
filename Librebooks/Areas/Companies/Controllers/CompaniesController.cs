@@ -1,10 +1,9 @@
-﻿using Librebooks.Areas.Companies.Models;
+﻿using Librebooks.Areas.Admin.Services;
+using Librebooks.Areas.Companies.Models;
 using Librebooks.Areas.Companies.Services;
-using Librebooks.Areas.Admin.Services;
+using Librebooks.Areas.Identity.Services;
 using Librebooks.Extensions.Mvc;
 using Librebooks.Models.Entity.CompanySpace;
-
-using Librebooks.Areas.Identity.Services;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,8 +13,8 @@ namespace Librebooks.Areas.Companies.Controllers
     [Authorize]
     [ApiController]
     [Route("companies")]
-    public class CompaniesController 
-        (SystemManager sysManager, CompanyManager companyManager, UserManagerExtension userManager) 
+    public class CompaniesController
+        (SystemManager sysManager, CompanyManager companyManager, UserManagerExtension userManager)
         : SessionControllerBase(userManager)
     {
         private readonly SystemManager sysManager = sysManager;
@@ -31,12 +30,11 @@ namespace Librebooks.Areas.Companies.Controllers
                 return Unauthorized();
             var companies = await companyManager.FindAllByUserAsync(user!.Id);
 
-
-            return Ok(companies.Select(p=> new
+            return Ok(companies.Select(p => new
             {
-                Id = p.Id,
-                TradingName = p.TradingName,
-                Logo = p.Logo
+                p.Id,
+                p.TradingName,
+                p.Logo
             }));
         }
 

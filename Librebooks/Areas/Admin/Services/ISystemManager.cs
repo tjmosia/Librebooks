@@ -84,6 +84,7 @@ namespace Librebooks.Areas.Admin.Services
         Task<TransactionResult> DeleteTaxTypeAsync (params TaxType[] taxType);
         Task<TaxType?> FindTaxTypeByIdAsync (string id);
         Task<TransactionResult<TaxType>> UpdateTaxTypeAsync (TaxType taxType);
+        Task<IList<TaxType>> GetTaxTypesAsync ();
 
         /******************************************************************
          * SYSTEM_COMPANY_NUMBER Store Manager Actions

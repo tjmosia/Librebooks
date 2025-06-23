@@ -1,13 +1,12 @@
 ﻿using Librebooks.CoreLib.Operations;
 using Librebooks.Models.Entity.BankingSpace;
 using Librebooks.Models.Entity.CompanySpace;
+using Librebooks.Models.Entity.CustomerSpace;
 using Librebooks.Models.Entity.GeneralSpace;
 using Librebooks.Models.Entity.IdentitySpace;
 using Librebooks.Models.Entity.SalesSpace;
-using Librebooks.Models.Entity.SystemSpace;
-
-using Librebooks.Models.Entity.CustomerSpace;
 using Librebooks.Models.Entity.SupplierSpace;
+using Librebooks.Models.Entity.SystemSpace;
 
 namespace Librebooks.Areas.Companies.Services
 {
@@ -37,11 +36,11 @@ namespace Librebooks.Areas.Companies.Services
         Task<TransactionResult<Company>> CreateAsync (Company company, User user, CompanyRegionalSettings regionalSettings, TaxType[] taxTypes,
             TaxType defaultTaxType, CustomerSetup customerSetup, SupplierSetup supplierSetup);
         Task<TransactionResult<CompanyUser>> AddUserAsync (Company company, User user, bool isSalesPerson = false);
-        Task<TransactionResult<CompanyImage>> AddLogoAsync (Company company, CompanyImage image);
         Task<TransactionResult<CompanyTaxType>> AddTaxTypeAsync (Company company, TaxType taxTypes);
         Task<TransactionResult<BankAccount>> AddBankAccountAsync (Company company, BankAccount bankAccount);
         Task<TransactionResult<BankAccount>> AddDefaultBankAccountAsync (Company company, BankAccount bankAccount);
         Task<TransactionResult<Contact>> AddSalesPersonAsync (Company company, Contact contact, CompanyUser? companyUser = null);
+        Task<TransactionResult<CompanyImage>> AddLogoAsync (Company company, CompanyImage image);
 
         /********************************************************************
          ** COMPANY UPDATE TRANSACTIONS
@@ -53,7 +52,7 @@ namespace Librebooks.Areas.Companies.Services
         Task<TransactionResult<BankAccount>> UpdateBankAccountAsync (BankAccount bankAccount);
         Task<TransactionResult<BankAccount>> UpdateDefaultBankAccountAsync (Company company, BankAccount bankAccount);
         Task<TransactionResult<SalesPerson>> UpdateSalesPersonAsync (SalesPerson salesPerson, Contact updatedContactInfo);
-        Task<TransactionResult<CompanyLogo>> UpdateCompanyLogoAsync (CompanyLogo oldCompanyLogo,  );
+        Task<TransactionResult<CompanyLogo>> UpdateLogoAsync (CompanyLogo oldLogo, CompanyLogo newLogo);
 
         /********************************************************************
          ** COMPANY DELETE TRANSACTIONS

@@ -1,16 +1,14 @@
-﻿using Librebooks.CoreLib.Operations;
+﻿using Librebooks.Core.EFCore;
+using Librebooks.CoreLib.Operations;
 using Librebooks.Data;
 using Librebooks.Models.Entity.BankingSpace;
 using Librebooks.Models.Entity.CompanySpace;
+using Librebooks.Models.Entity.CustomerSpace;
 using Librebooks.Models.Entity.GeneralSpace;
 using Librebooks.Models.Entity.IdentitySpace;
 using Librebooks.Models.Entity.SalesSpace;
-using Librebooks.Models.Entity.SystemSpace;
-
-using Librebooks.Areas.Companies.Services;
-using Librebooks.Core.EFCore;
-using Librebooks.Models.Entity.CustomerSpace;
 using Librebooks.Models.Entity.SupplierSpace;
+using Librebooks.Models.Entity.SystemSpace;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -230,7 +228,12 @@ namespace Librebooks.Areas.Companies.Services
             throw new NotImplementedException();
         }
 
-        
+        public Task<TransactionResult<CompanyLogo>> UpdateLogoAsync (CompanyLogo oldLogo, CompanyLogo newLogo)
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         /********************************************************************
          ** COMPANY DELETE TRANSACTIONS

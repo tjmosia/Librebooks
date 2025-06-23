@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using Librebooks.Models.Entity.CompanySpace;
-using Librebooks.Models.Entity.CustomerSpace;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +17,7 @@ namespace Librebooks.Models.Entity.SalesSpace
         public virtual byte[]? Logo { get; set; }
         public virtual DateTime DateCreated { get; set; }
         public virtual bool Active { get; set; }
+
         [ConcurrencyCheck]
         public virtual string RowVersion { get; set; }
 
@@ -49,12 +49,6 @@ namespace Librebooks.Models.Entity.SalesSpace
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
 
-                options.HasOne<Company>()
-                    .WithOne()
-                    .HasForeignKey<SalesDocumentCompanyDetails>(p => p.CompanyId)
-                        .IsRequired(false)
-                    .OnDelete(DeleteBehavior.SetNull);
-
                 options.HasMany<SalesReceipt>()
                     .WithOne(p => p.CompanyDetails)
                     .HasForeignKey(p => p.CustomerDetailsId)
@@ -62,5 +56,4 @@ namespace Librebooks.Models.Entity.SalesSpace
                     .OnDelete(DeleteBehavior.Cascade);
             });
     }
-}
 }

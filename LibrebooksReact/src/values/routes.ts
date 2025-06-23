@@ -11,5 +11,9 @@ export const routes = {
         unverifiedEmail: "/auth/unverified-email",
         verifyEmailComplete: "/auth/verify-email-complete",
     },
+    admin: {
+        home: "/admin"
+    },
+    home: "/home",
     getPageRouteName: (route: string) => route.split('/').pop()
 }

@@ -924,22 +924,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/CountryUpdateModel"
+                "$ref": "#/components/schemas/TaxTypeModel"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CountryUpdateModel"
+                "$ref": "#/components/schemas/TaxTypeModel"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CountryUpdateModel"
+                "$ref": "#/components/schemas/TaxTypeModel"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CountryUpdateModel"
+                "$ref": "#/components/schemas/TaxTypeModel"
               }
             }
           }
@@ -951,7 +951,7 @@
         }
       }
     },
-    "/taxtypes/{code}": {
+    "/taxtypes/{countryCode}": {
       "get": {
         "tags": [
           "TaxTypes"
@@ -959,6 +959,14 @@
         "parameters": [
           {
             "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "countryCode",
             "in": "path",
             "required": true,
             "schema": {
@@ -1002,25 +1010,19 @@
               "text/plain": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CountryDTO"
-                  }
+                  "items": { }
                 }
               },
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CountryDTO"
-                  }
+                  "items": { }
                 }
               },
               "text/json": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CountryDTO"
-                  }
+                  "items": { }
                 }
               }
             }

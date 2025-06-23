@@ -312,7 +312,7 @@ namespace Librebooks.Areas.Admin.Services
          ******************************************************************/
         public async Task<TransactionResult<TaxType>> AddTaxTypeAsync (TaxType taxType)
         {
-            var result = await store.ValueAddedTax.CreateAsync(taxType);
+            var result = await store.TaxTypes.CreateAsync(taxType);
 
             if (result != null)
                 return TransactionResult<TaxType>.Success(result);
@@ -322,16 +322,16 @@ namespace Librebooks.Areas.Admin.Services
 
         public async Task<TransactionResult> DeleteTaxTypeAsync (params TaxType[] taxType)
         {
-            await store.ValueAddedTax.DeleteAsync(taxType);
+            await store.TaxTypes.DeleteAsync(taxType);
             return TransactionResult.Success;
         }
 
         public async Task<TaxType?> FindTaxTypeByIdAsync (string id)
-            => await store.ValueAddedTax.FindByIdAsync(id);
+            => await store.TaxTypes.FindByIdAsync(id);
 
         public async Task<TransactionResult<TaxType>> UpdateTaxTypeAsync (TaxType taxType)
         {
-            var result = await store.ValueAddedTax.UpdateAsync(taxType);
+            var result = await store.TaxTypes.UpdateAsync(taxType);
 
             if (result != null)
                 return TransactionResult<TaxType>.Success(result);
@@ -341,7 +341,7 @@ namespace Librebooks.Areas.Admin.Services
 
         public async Task<IList<TaxType>> GetTaxTypesAsync ()
         {
-            return await store.ValueAddedTax.FindAllAsync();
+            return await store.TaxTypes.FindAllAsync();
         }
 
 

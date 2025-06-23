@@ -1,38 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\",
+  "WorkspaceRootPath": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\app\\Home.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\Home.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\layouts\\AdminLayout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\layouts\\AdminLayout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\app\\Home.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\Home.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\App.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\components\\navbar-account\\NavbarAccountComponent.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\components\\navbar-account\\NavbarAccountComponent.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\navbar-account\\NavbarAccountComponent.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\main.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\values\\routes.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\values\\routes.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\routing.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\routing.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\index.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\index.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\layouts\\AdminLayout.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\layouts\\AdminLayout.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\App.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\app\\admin\\AdminHomePage.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\admin\\AdminHomePage.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,117 +33,87 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 215,
-          "SelectedChildIndex": 6,
+          "DockedWidth": 235,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "main.tsx",
-              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\main.tsx",
-              "RelativeDocumentMoniker": "src\\main.tsx",
-              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\main.tsx",
-              "RelativeToolTip": "src\\main.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAASAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "routing.tsx",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\routing.tsx",
+              "RelativeDocumentMoniker": "src\\routing.tsx",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\routing.tsx",
+              "RelativeToolTip": "src\\routing.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-05-30T13:27:37.482Z",
+              "WhenOpened": "2025-05-31T13:52:59.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "routes.ts",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\values\\routes.ts",
+              "RelativeDocumentMoniker": "src\\values\\routes.ts",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\values\\routes.ts",
+              "RelativeToolTip": "src\\values\\routes.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-05-31T13:51:16.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NavbarAccountComponent.tsx",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\components\\navbar-account\\NavbarAccountComponent.tsx",
+              "RelativeDocumentMoniker": "src\\components\\navbar-account\\NavbarAccountComponent.tsx",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\components\\navbar-account\\NavbarAccountComponent.tsx",
+              "RelativeToolTip": "src\\components\\navbar-account\\NavbarAccountComponent.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-05-31T13:33:51.6Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminLayout.tsx",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\layouts\\AdminLayout.tsx",
+              "RelativeDocumentMoniker": "src\\layouts\\AdminLayout.tsx",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\layouts\\AdminLayout.tsx",
+              "RelativeToolTip": "src\\layouts\\AdminLayout.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-05-31T11:51:30.544Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "package.json",
-              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\package.json",
-              "RelativeDocumentMoniker": "package.json",
-              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\package.json",
-              "RelativeToolTip": "package.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-30T13:23:51.195Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NavbarAccountComponent.tsx",
-              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\components\\navbar-account\\NavbarAccountComponent.tsx",
-              "RelativeDocumentMoniker": "src\\components\\navbar-account\\NavbarAccountComponent.tsx",
-              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\components\\navbar-account\\NavbarAccountComponent.tsx",
-              "RelativeToolTip": "src\\components\\navbar-account\\NavbarAccountComponent.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA0AAAAAAAAAA==",
+              "Title": "AdminHomePage.tsx",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\app\\admin\\AdminHomePage.tsx",
+              "RelativeDocumentMoniker": "src\\app\\admin\\AdminHomePage.tsx",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\app\\admin\\AdminHomePage.tsx",
+              "RelativeToolTip": "src\\app\\admin\\AdminHomePage.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-05-30T13:17:42.595Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "App.scss",
-              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\App.scss",
-              "RelativeDocumentMoniker": "src\\App.scss",
-              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\App.scss",
-              "RelativeToolTip": "src\\App.scss",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
-              "WhenOpened": "2025-05-30T13:14:43.169Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "index.scss",
-              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\index.scss",
-              "RelativeDocumentMoniker": "src\\index.scss",
-              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\index.scss",
-              "RelativeToolTip": "src\\index.scss",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
-              "WhenOpened": "2025-05-30T13:14:38.704Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.tsx",
-              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\App.tsx",
-              "RelativeDocumentMoniker": "src\\App.tsx",
-              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\App.tsx",
-              "RelativeToolTip": "src\\App.tsx",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-05-30T13:14:27.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Home.tsx",
-              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\app\\Home.tsx",
-              "RelativeDocumentMoniker": "src\\app\\Home.tsx",
-              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\app\\Home.tsx",
-              "RelativeToolTip": "src\\app\\Home.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-05-30T13:10:54.167Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T11:51:13.814Z"
             }
           ]
         },
         {
-          "DockedWidth": 185,
+          "DockedWidth": 165,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Home.scss",
-              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\app\\Home.scss",
-              "RelativeDocumentMoniker": "src\\app\\Home.scss",
-              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksReact\\src\\app\\Home.scss",
-              "RelativeToolTip": "src\\app\\Home.scss",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAQAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "AdminLayout.scss",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\layouts\\AdminLayout.scss",
+              "RelativeDocumentMoniker": "src\\layouts\\AdminLayout.scss",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibreBooksReact\\src\\layouts\\AdminLayout.scss",
+              "RelativeToolTip": "src\\layouts\\AdminLayout.scss",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
-              "WhenOpened": "2025-05-30T13:11:18.845Z",
+              "WhenOpened": "2025-05-31T11:54:52.315Z",
               "EditorCaption": ""
             }
           ]

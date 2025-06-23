@@ -3,8 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooks\\areas\\companies\\controllers\\companiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\companies\\controllers\\companiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooks\\models\\entity\\salesspace\\salesdocumentcompanydetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:models\\entity\\salesspace\\salesdocumentcompanydetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooks\\areas\\admin\\services\\systemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\admin\\services\\systemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooks\\areas\\admin\\services\\isystemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\admin\\services\\isystemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooks\\areas\\admin\\services\\substores\\taxtypestore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\admin\\services\\substores\\taxtypestore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooks\\areas\\admin\\services\\systemstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\admin\\services\\systemstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooks\\areas\\companies\\services\\companymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\companies\\services\\companymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooks\\areas\\companies\\services\\icompanymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\companies\\services\\icompanymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +38,91 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CompaniesController.cs",
-              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Companies\\Controllers\\CompaniesController.cs",
-              "RelativeDocumentMoniker": "Areas\\Companies\\Controllers\\CompaniesController.cs",
-              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Companies\\Controllers\\CompaniesController.cs",
-              "RelativeToolTip": "Areas\\Companies\\Controllers\\CompaniesController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ISystemManager.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Admin\\Services\\ISystemManager.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Services\\ISystemManager.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Admin\\Services\\ISystemManager.cs",
+              "RelativeToolTip": "Areas\\Admin\\Services\\ISystemManager.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAFYAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T18:07:46.624Z",
+              "WhenOpened": "2025-06-20T17:02:21.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TaxTypeStore.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Admin\\Services\\SubStores\\TaxTypeStore.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Services\\SubStores\\TaxTypeStore.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Admin\\Services\\SubStores\\TaxTypeStore.cs",
+              "RelativeToolTip": "Areas\\Admin\\Services\\SubStores\\TaxTypeStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T17:00:21.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SystemManager.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Admin\\Services\\SystemManager.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Services\\SystemManager.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Admin\\Services\\SystemManager.cs",
+              "RelativeToolTip": "Areas\\Admin\\Services\\SystemManager.cs",
+              "ViewState": "AgIAACUBAAAAAAAAAAAvwFQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T16:59:26.142Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SystemStore.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Admin\\Services\\SystemStore.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Services\\SystemStore.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Admin\\Services\\SystemStore.cs",
+              "RelativeToolTip": "Areas\\Admin\\Services\\SystemStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T16:59:25.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CompanyManager.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Companies\\Services\\CompanyManager.cs",
+              "RelativeDocumentMoniker": "Areas\\Companies\\Services\\CompanyManager.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Companies\\Services\\CompanyManager.cs",
+              "RelativeToolTip": "Areas\\Companies\\Services\\CompanyManager.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAvwNsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T16:54:24.042Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ICompanyManager.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Companies\\Services\\ICompanyManager.cs",
+              "RelativeDocumentMoniker": "Areas\\Companies\\Services\\ICompanyManager.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Companies\\Services\\ICompanyManager.cs",
+              "RelativeToolTip": "Areas\\Companies\\Services\\ICompanyManager.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAADIAAAB2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T16:52:57.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SalesDocumentCompanyDetails.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Models\\Entity\\SalesSpace\\SalesDocumentCompanyDetails.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\SalesSpace\\SalesDocumentCompanyDetails.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Models\\Entity\\SalesSpace\\SalesDocumentCompanyDetails.cs",
+              "RelativeToolTip": "Models\\Entity\\SalesSpace\\SalesDocumentCompanyDetails.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T16:52:49.687Z",
               "EditorCaption": ""
             }
           ]

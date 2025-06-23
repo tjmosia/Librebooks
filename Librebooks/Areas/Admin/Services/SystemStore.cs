@@ -15,7 +15,7 @@ namespace Librebooks.Areas.Admin.Services
         SystemCompanyNumberStore companyNumber,
         PaymentMethodStore paymentMethods,
         PaymentTermStore paymentTerms,
-        TaxTypeStore valueAddedTax,
+        TaxTypeStore taxTypes,
         BusinessSectorStore businessSector)
         : DbStoreBase(context, logger)
     {
@@ -27,7 +27,7 @@ namespace Librebooks.Areas.Admin.Services
         public readonly SystemCompanyNumberStore CompanyNumber = companyNumber;
         public readonly PaymentMethodStore PaymentMethods = paymentMethods;
         public readonly PaymentTermStore PaymentTerms = paymentTerms;
-        public readonly TaxTypeStore ValueAddedTax = valueAddedTax;
+        public readonly TaxTypeStore TaxTypes = taxTypes;
         public readonly BusinessSectorStore BusinessSector = businessSector;
     }
 }

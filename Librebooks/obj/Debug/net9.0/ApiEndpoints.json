@@ -435,7 +435,7 @@
   },
   {
     "ContainingType": "Librebooks.Areas.Admin.Controllers.TaxTypesController",
-    "Method": "GetCountriesAsync",
+    "Method": "GetAsync",
     "RelativePath": "taxtypes",
     "HttpMethod": "GET",
     "IsController": true,
@@ -443,7 +443,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Librebooks.Areas.Admin.Models.CountryDTO, Librebooks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -455,8 +455,8 @@
   },
   {
     "ContainingType": "Librebooks.Areas.Admin.Controllers.TaxTypesController",
-    "Method": "GetCountryAsync",
-    "RelativePath": "taxtypes/{code}",
+    "Method": "GetTaxTypeAsync",
+    "RelativePath": "taxtypes/{countryCode}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -464,6 +464,11 @@
       {
         "Name": "code",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "countryCode",
+        "Type": "",
         "IsRequired": true
       }
     ],
@@ -513,7 +518,7 @@
   },
   {
     "ContainingType": "Librebooks.Areas.Admin.Controllers.TaxTypesController",
-    "Method": "UpdateCountryAsync",
+    "Method": "EditTaxTypeAsync",
     "RelativePath": "taxtypes/edit",
     "HttpMethod": "POST",
     "IsController": true,
@@ -521,7 +526,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "Librebooks.Areas.Admin.Models.CountryUpdateModel",
+        "Type": "Librebooks.Areas.Admin.Models.TaxTypeModel",
         "IsRequired": true
       }
     ],

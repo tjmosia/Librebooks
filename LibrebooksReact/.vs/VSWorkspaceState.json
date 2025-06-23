@@ -3,10 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\admin",
     "\\src\\components",
     "\\src\\components\\navbar-account",
-    "\\src\\components\\new-company-form"
+    "\\src\\layouts",
+    "\\src\\values"
   ],
-  "SelectedNode": "\\src\\components\\new-company-form\\NewCompanyDialogComponent.scss",
   "PreviewInSolutionExplorer": false
 }

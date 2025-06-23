@@ -11,7 +11,6 @@ namespace Librebooks.Areas.Admin.Services.SubStores
         public TaxTypeStore (AppDbContext context, ILogger<TaxTypeStore>? logger)
             : base(context, logger) { }
 
-        /// <exception cref="DbUpdateException"/>
         public async Task<TaxType> CreateAsync (TaxType vat)
         {
             var result = await context!.TaxType!.AddAsync(vat);
@@ -19,7 +18,6 @@ namespace Librebooks.Areas.Admin.Services.SubStores
             return result.Entity;
         }
 
-        /// <exception cref="DbUpdateException"/>
         public async Task<TaxType> UpdateAsync (TaxType vat)
         {
             var result = context!.TaxType!.Update(vat);
