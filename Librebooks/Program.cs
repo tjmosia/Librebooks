@@ -47,7 +47,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("DevOrigin", options =>
     {
-        options.WithOrigins("http://localhost:51570", "https://localhost:5262")
+        _ = options.WithOrigins("http://localhost:51570", "https://localhost:5262")
             .AllowCredentials()
             .AllowAnyHeader()
             .AllowAnyMethod();
@@ -70,8 +70,8 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    _ = app.UseSwagger();
+    _ = app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

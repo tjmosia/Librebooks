@@ -97,7 +97,7 @@ namespace Librebooks.Areas.Identity.Controllers
             if (result.Succeeded)
             {
                 user.DateLastLoggedIn = DateTime.Now;
-                await userManager.UpdateAsync(user);
+                _ = await userManager.UpdateAsync(user);
 
                 var nameClaim = (await userManager.GetClaimsAsync(user))
                     .FirstOrDefault(p => p.Type == ClaimTypes.Name);
@@ -150,8 +150,8 @@ namespace Librebooks.Areas.Identity.Controllers
                 user = await userManager.FindByEmailAsync(user.Email);
 
                 user!.DateLastLoggedIn = DateTime.Now;
-                await userManager.UpdateAsync(user);
-                await userManager.AddClaimAsync(user, new Claim(ClaimTypes.Name, user.Email!));
+                _ = await userManager.UpdateAsync(user);
+                _ = await userManager.AddClaimAsync(user, new Claim(ClaimTypes.Name, user.Email!));
 
                 var nameClaim = (await userManager.GetClaimsAsync(user))
                     .FirstOrDefault(p => p.Type == ClaimTypes.Name);
