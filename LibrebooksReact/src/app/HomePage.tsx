@@ -12,8 +12,7 @@ export default function HomePage() {
 
     const toggleCompanyDialog = () => setNewCompanyDialogOpen(false)
 
-    const renderCompanyCards = () =>
-    {
+    const renderCompanyCards = () => {
         if (companies.length > 0) {
             return companies.map((company) => (
                 <Card key={company.id} interactive>
@@ -28,32 +27,36 @@ export default function HomePage() {
         )
     }
 
-    useEffect(() =>
-    {
+    useEffect(() => {
         setCompanies([
             {
                 id: "UJKIANSDJANDLASD",
                 logo: "https://picsum.photos/200/300?random=1",
-				name: "Valve Supply Line",
+                name: "Valve Supply Line",
+            },
+            {
+                id: "JKASDLAKSDASKDN",
+                logo: "https://picsum.photos/200/300?random=1",
+                name: "Motocoil Electric Motors"
             }
         ])
     }, [])
 
-  return (<>
-    <div className="homePage-Container">
-          <Section className="companyListContainer"
-              title="Companies"
-              subtitle="This is the list of companies you're linked to." >
-              <SectionCard padded={false }>
-                  <CardList title="List of Companies" bordered={false}>
-                      {renderCompanyCards()}
-                      <Card >
-                          <Button onClick={() => setNewCompanyDialogOpen(true) } intent="primary" icon="plus">Add Company</Button>
-						  <NewCompanyDialogComponent isOpen={newCompanyDialogOpen} toggleDialog={toggleCompanyDialog} />
-                      </Card>
-                  </CardList>
-              </SectionCard>
-        </Section>
-    </div>
-  </>)
+    return (<>
+        <div className="homePage-Container">
+            <Section className="companyListContainer"
+                title="Companies"
+                subtitle="This is the list of companies you're linked to." >
+                <SectionCard padded={false}>
+                    <CardList title="List of Companies" bordered={false}>
+                        {renderCompanyCards()}
+                        <Card >
+                            <Button onClick={() => setNewCompanyDialogOpen(true)} intent="primary" icon="plus">Add Company</Button>
+
+                        </Card>
+                    </CardList>
+                </SectionCard>
+            </Section>
+        </div>
+    </>)
 }

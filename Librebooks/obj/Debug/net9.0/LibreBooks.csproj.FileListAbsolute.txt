@@ -881,7 +881,11 @@ C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\staticwebasse
 C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\Librebooks.csproj.Up2Date
 C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\Librebooks.genruntimeconfig.cache
 C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\ref\Librebooks.dll
+C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net9.0\swae.build.ex.cache
