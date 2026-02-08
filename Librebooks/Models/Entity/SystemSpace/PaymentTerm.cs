@@ -1,34 +1,33 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.SystemSpace
 {
-    public class PaymentTerm
+    [Table(nameof(PaymentTerm))]
+    [Index(nameof(Name), IsUnique = true)]
+    [Index(nameof(ShortName), IsUnique = true)]
+    public class PaymentTerm () : VersionedEntityBase()
     {
-        public virtual string Id { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+
+        [Required, MaxLength(100)]
         public virtual string? Name { get; set; }
+
+        [Required, MaxLength(10)]
         public virtual string? ShortName { get; set; }
-        public virtual string? Type { get; set; }
+
+        [MaxLength(255)]
         public virtual string? Description { get; set; }
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
 
-        public PaymentTerm ()
+        public static void OnModelCreating (ModelBuilder builder)
         {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<PaymentTerm>(options =>
+            builder.Entity<PaymentTerm>(options =>
             {
-                options.ToTable(nameof(PaymentTerm))
-                    .HasKey(x => x.Id)
-                    .IsClustered();
 
-                options.HasIndex(p => p.Name)
-                    .IsUnique();
             });
+        }
     }
 }

@@ -1,31 +1,24 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.SystemSpace
+namespace Librebooks.Models.Entity.SystemSpace;
+
+[Table(nameof(DateFormat))]
+[Index(nameof(Format), IsUnique = true)]
+public class DateFormat () : VersionedEntityBase()
 {
-    public class DateFormat
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
+
+    [Required, MaxLength(50)]
+    public virtual string? Format { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string Id { get; set; }
-        public virtual string? Format { get; set; }
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
-
-        public DateFormat ()
+        builder.Entity<DateFormat>(options =>
         {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<DateFormat>(options =>
-            {
-                options.ToTable(nameof(DateFormat))
-                    .HasKey(x => x.Id);
-
-                options.HasIndex(p => p.Format)
-                    .IsUnique();
-
-            });
+        });
     }
 }

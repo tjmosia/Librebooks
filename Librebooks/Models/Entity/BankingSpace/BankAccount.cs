@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Core.Types;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.CompanySpace;
 using Librebooks.Models.Entity.PurchasesSpace;
 using Librebooks.Models.Entity.SalesSpace;
@@ -11,22 +12,32 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.BankingSpace
 {
-    public class BankAccount
+    [Table(nameof(BankAccount))]
+    public class BankAccount () : VersionedEntityBase()
     {
-        public virtual string Id { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+
+        [Required, MaxLength(100)]
         public virtual string? BankName { get; set; }
+
+        [MaxLength(50), Required]
         public virtual string? AccountNumber { get; set; }
+
+        [MaxLength(50)]
         public virtual string? BranchName { get; set; }
+
+        [MaxLength(20)]
         public virtual string? BranchCode { get; set; }
+
+        [MaxLength(50)]
         public virtual string? SwiftCode { get; set; }
+        [Column(TypeName = ColumnTypes.Monetary)]
         public virtual decimal Balance { get; set; }
         public virtual bool Active { get; set; }
-        public virtual string? CategoryId { get; set; }
-        public virtual string? CompanyId { get; set; }
-        public virtual string? PaymentMethodId { get; set; }
-
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
+        public virtual int? CategoryId { get; set; }
+        public virtual int CompanyId { get; set; }
+        public virtual int PaymentMethodId { get; set; }
 
         public virtual BankAccountCategory? Category { get; set; }
         public virtual Company? Company { get; set; }
@@ -35,28 +46,12 @@ namespace Librebooks.Models.Entity.BankingSpace
         public virtual ICollection<SalesReceipt>? SalesReceipts { get; set; }
         public virtual ICollection<PurchaseReceipt>? PurchaseReceipts { get; set; }
 
-        public BankAccount ()
-        {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
         public static void BuildModel (ModelBuilder builder)
         {
             builder.Entity<BankAccount>(options =>
             {
-                options.ToTable(nameof(BankAccount))
-                    .HasKey(p => p.Id)
-                    .IsClustered(false);
-
-                options.HasIndex(p => p.CompanyId)
+                options.HasIndex(p => new { p.CompanyId, p.Id })
                     .IsClustered();
-
-                options.Property(p => p.Balance)
-                    .HasColumnType(ColumnTypes.Monetary);
-
-                options.Property(p => p.RowVersion)
-                    .IsRowVersion();
 
                 options.HasOne(p => p.DefaultBankAccount)
                     .WithOne(p => p.BankAccount)

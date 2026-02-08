@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.AccountingSpace;
 using Librebooks.Models.Entity.BankingSpace;
 using Librebooks.Models.Entity.CustomerSpace;
@@ -14,24 +15,49 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.CompanySpace
 {
-    public class Company
+    [Table(nameof(Company))]
+    public class Company () : VersionedEntityBase()
     {
-        public virtual string Id { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+
+        [MaxLength(20)]
         public virtual string? UniqueNumber { get; set; }
+
+        [Required]
+        [MaxLength(100)]
         public virtual string? LegalName { get; set; }
+
+        [MaxLength(100)]
         public virtual string? TradingName { get; set; }
+
+        [Required]
+        [MaxLength(20)]
         public virtual string? RegNumber { get; set; }
+
+        [MaxLength(15)]
         public virtual string? VATNumber { get; set; }
+
+        [MaxLength(155)]
         public virtual string? PostalAddress { get; set; }
+
+        [MaxLength(155)]
         public virtual string? PhysicalAddress { get; set; }
+
+        [Required]
+        [MaxLength(15)]
         public virtual string? PhoneNumber { get; set; }
+
+        [Required]
+        [MaxLength(100)]
         public virtual string? EmailAddress { get; set; }
+
+        [MaxLength(15)]
         public virtual string? FaxNumber { get; set; }
+
         public virtual int YearsInBusiness { get; set; }
-        public virtual string? BusinessSectorId { get; set; }
-        public virtual string? LogoId { get; set; }
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
+        public virtual int? BusinessSectorId { get; set; }
+        public virtual int? LogoId { get; set; }
 
         public virtual BusinessSector? BusinessSector { get; set; }
         public virtual ICollection<CompanyUser>? Users { get; set; }
@@ -70,19 +96,9 @@ namespace Librebooks.Models.Entity.CompanySpace
         public virtual SupplierSetup? SupplierSetup { get; set; }
         public virtual CustomerSetup? CustomerSetup { get; set; }
 
-        public Company ()
-        {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<Company>(options =>
             {
-                options.ToTable(nameof(Company))
-                    .HasKey(p => p.Id)
-                    .IsClustered();
-
                 options.HasOne(p => p.RegionalSettings)
                     .WithOne(p => p.Company)
                     .HasForeignKey<CompanyRegionalSettings>(p => p.CompanyId)

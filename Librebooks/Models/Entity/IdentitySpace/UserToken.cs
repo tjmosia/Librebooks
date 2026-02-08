@@ -3,10 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.IdentitySpace
 {
-    public class UserToken : IdentityUserToken<string>
+    public class UserToken : IdentityUserToken<int>
     {
         public virtual User? User { get; set; }
-        public static void BuildModel (ModelBuilder builder)
+
+        public static void OnModelCreating (ModelBuilder builder)
         {
             builder.Entity<UserToken>(options =>
             {

@@ -1,46 +1,40 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.PurchasesSpace;
 using Librebooks.Models.Entity.SalesSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.DocumentSpace
+namespace Librebooks.Models.Entity.DocumentSpace;
+
+[Table(nameof(DocumentStatus))]
+public class DocumentStatus () : VersionedEntityBase()
 {
-    public class DocumentStatus
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
+
+    [Required, MaxLength(50)]
+    public virtual string? Name { get; set; }
+
+    [Required, MaxLength(6)]
+    public virtual string? Color { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? Id { get; set; }
-        public virtual string? Name { get; set; }
-        public virtual string? Type { get; set; }
-        public virtual string? Color { get; set; }
-
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
-
-        public DocumentStatus ()
+        builder.Entity<DocumentStatus>(options =>
         {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
+            options.HasMany<PurchaseDocument>()
+                .WithOne(p => p.Status)
+                .HasForeignKey(p => p.StatusId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
 
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<DocumentStatus>(options =>
-            {
-                options.ToTable(nameof(DocumentStatus))
-                    .HasKey(p => p.Id)
-                    .IsClustered();
-
-                options.HasMany<PurchaseDocument>()
-                    .WithOne(p => p.Status)
-                    .HasForeignKey(p => p.StatusId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-
-                options.HasMany<SalesDocument>()
-                    .WithOne(p => p.Status)
-                    .HasForeignKey(p => p.StatusId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
+            options.HasMany<SalesDocument>()
+                .WithOne(p => p.Status)
+                .HasForeignKey(p => p.StatusId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+        });
     }
 }

@@ -1,59 +1,54 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.GeneralSpace
+namespace Librebooks.Models.Entity.GeneralSpace;
+
+[Table(nameof(VerificationRequest))]
+public class VerificationRequest : VersionedEntityBase
 {
-    public class VerificationRequest
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
+
+    [Required]
+    [MaxLength(75)]
+    public virtual string? Subject { get; set; }
+
+    [Required]
+    [MaxLength(50)]
+    public virtual string? Reason { get; set; }
+
+    [Required]
+    [MaxLength(155)]
+    public virtual string? HashString { get; set; }
+
+    public virtual DateTime ValidUntil { get; set; }
+    public virtual short Attempts { get; set; }
+    public virtual short MaxAttemptsAllowed { get; set; }
+
+    public VerificationRequest () : base()
     {
-        public virtual string? Id { get; set; }
-        public virtual string? Subject { get; set; }
-        public virtual string? RequestUrl { get; set; }
-        public virtual string? HashString { get; set; }
-        public virtual Boolean Verified { get; set; }
-        public virtual DateTime ValidUntil { get; set; }
-        public virtual short Attempts { get; set; }
+        Attempts = 0;
+        MaxAttemptsAllowed = 3;
+        ValidUntil = DateTime.Now.AddHours(3);
+    }
 
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
+    public VerificationRequest (string subject, string reason)
+        : this()
+    {
+        Subject = subject;
+        Reason = reason;
+    }
 
-        public VerificationRequest ()
+    public bool HasExpired ()
+        => DateTime.Now.CompareTo(ValidUntil) > 0 || Attempts > 2;
+
+    public static void OnModelCreating (ModelBuilder builder)
+    {
+        builder.Entity<VerificationRequest>(options =>
         {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-            Verified = false;
-            Attempts = 0;
-        }
 
-        public VerificationRequest (string subject, string requestUrl)
-            : this()
-        {
-            Subject = subject;
-            RequestUrl = requestUrl;
-        }
-
-        public void RefreshConcurrencyToken ()
-        {
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
-        public void Confirm ()
-        {
-            Verified = true;
-            ValidUntil = DateTime.Now;
-        }
-
-        public bool HasExpired ()
-            => DateTime.Now.CompareTo(ValidUntil) > 0 || Attempts == 3;
-
-        public static void BuildModel (ModelBuilder builder)
-        {
-            builder.Entity<VerificationRequest>(options =>
-            {
-                options.ToTable(nameof(VerificationRequest))
-                    .HasKey(p => p.Id)
-                    .IsClustered();
-            });
-        }
+        });
     }
 }

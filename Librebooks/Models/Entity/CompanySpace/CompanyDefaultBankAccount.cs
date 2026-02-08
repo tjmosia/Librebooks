@@ -19,7 +19,7 @@ namespace Librebooks.Models.Entity.CompanySpace
             BankAccountId = bankAccountId;
         }
 
-        public static void BuildModel (ModelBuilder builder)
+        public static void OnModelCreating (ModelBuilder builder)
             => builder.Entity<CompanyDefaultBankAccount>(options =>
             {
                 options.ToTable(nameof(CompanyDefaultBankAccount))

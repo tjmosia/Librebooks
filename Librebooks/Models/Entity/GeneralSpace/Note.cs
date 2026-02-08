@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
-using Librebooks.Core.Types;
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.AccountingSpace;
 using Librebooks.Models.Entity.CustomerSpace;
 using Librebooks.Models.Entity.IdentitySpace;
@@ -12,40 +12,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.GeneralSpace
 {
-    public class Note
+    [Table(nameof(Note))]
+    public class Note () : VersionedEntityBase()
     {
-        public virtual string Id { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+
+        [Required]
+        [MaxLength(255)]
         public virtual string? Description { get; set; }
+
         public virtual bool Actionable { get; set; }
         public virtual bool Completed { get; set; }
-        public virtual DateTime DateCreated { get; set; }
-        public virtual DateTime? DueDate { get; set; }
+        public virtual DateOnly DateCreated { get; set; }
+        public virtual DateOnly? DueDate { get; set; }
         public virtual string? CreatorId { get; set; }
 
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
-
         public virtual User? Creator { get; set; }
-
-        public Note ()
-        {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<Note>(options =>
             {
-                options.ToTable(nameof(Note))
-                    .HasKey(p => p.Id)
-                    .IsClustered();
-
-                options.Property(p => p.DateCreated)
-                    .HasColumnType(ColumnTypes.Date);
-
-                options.Property(p => p.DueDate)
-                    .HasColumnType(ColumnTypes.Date);
-
                 options.HasOne(p => p.Creator)
                     .WithOne()
                     .HasForeignKey<Note>(options => options.CreatorId)

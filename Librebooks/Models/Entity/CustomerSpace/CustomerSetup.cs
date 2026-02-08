@@ -3,29 +3,29 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.InventorySpace;
+namespace Librebooks.Models.Entity.CustomerSpace;
 
-[Table(nameof(ItemSetup))]
-public class ItemSetup () : VersionedEntityBase()
+[Table(nameof(CustomerSetup))]
+public class CustomerSetup () : VersionedEntityBase()
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
     public virtual int CompanyId { get; set; }
 
-    [MaxLength(10)]
+    [MaxLength(20)]
     public virtual string? Prefix { get; set; }
 
-    [MaxLength(10)]
+    [MaxLength(20)]
     public virtual string? Suffix { get; set; }
 
     public virtual int NextNumber { get; set; }
 
     public static void OnModelCreating (ModelBuilder builder)
     {
-        builder.Entity<ItemSetup>(options =>
+        builder.Entity<CustomerSetup>(options =>
         {
-            options.ToTable(nameof(ItemSetup))
+            options.ToTable(nameof(CustomerSetup))
                 .HasKey(p => p.CompanyId)
-                .IsClustered(false);
+                .IsClustered();
         });
     }
 }

@@ -77,6 +77,7 @@ namespace Librebooks.Data
         public DbSet<ItemAdjustment>? ItemAdjustment { get; set; }
         public DbSet<ItemCategory>? ItemCategory { get; set; }
         public DbSet<ItemInventory>? ItemInventory { get; set; }
+        public DbSet<ItemDetail>? ItemDetail { get; set; }
 
         /************************************************************************************************
          * Accounting Space

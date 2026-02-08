@@ -1,13 +1,17 @@
-﻿using Librebooks.Models.Entity.GeneralSpace;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Models.Entity.GeneralSpace;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.CustomerSpace
 {
+    [Table(nameof(CustomerContact))]
     public class CustomerContact
     {
-        public virtual string? ContactId { get; set; }
-        public virtual string? CustomerId { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public virtual int ContactId { get; set; }
+        public virtual int CustomerId { get; set; }
 
         public virtual Contact? Contact { get; set; }
 
@@ -15,11 +19,7 @@ namespace Librebooks.Models.Entity.CustomerSpace
         {
             builder.Entity<CustomerContact>(options =>
             {
-                options.ToTable(nameof(CustomerContact))
-                    .HasKey(p => p.ContactId)
-                    .IsClustered(false);
-
-                options.HasIndex(p => p.CustomerId)
+                options.HasIndex(p => new { p.CustomerId, p.ContactId })
                     .IsClustered();
             });
         }

@@ -1,16 +1,23 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Core.Types;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.CompanySpace;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.AccountingSpace
 {
-    public class Account
+    [Table(nameof(Account))]
+    public class Account () : VersionedEntityBase()
     {
-        public virtual string Id { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+
+        [Required]
+        [MaxLength(75)]
         public virtual string? Name { get; set; }
+
         public virtual decimal Balance { get; set; }
         public virtual string? TaxTypeId { get; set; }
         public virtual string? Description { get; set; }
@@ -19,8 +26,6 @@ namespace Librebooks.Models.Entity.AccountingSpace
         public virtual bool System { get; set; }
         public virtual string? CompanyId { get; set; }
         public virtual string? CategoryId { get; set; }
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
 
         public virtual Account? ParentAccount { get; set; }
         public virtual Company? Company { get; set; }
@@ -30,12 +35,6 @@ namespace Librebooks.Models.Entity.AccountingSpace
         public virtual ICollection<Journal>? DebitHistory { get; set; }
         public virtual ICollection<Journal>? CreditHistory { get; set; }
         public virtual ICollection<Account>? SubAccounts { get; set; }
-
-        public Account ()
-        {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<Account>(options =>

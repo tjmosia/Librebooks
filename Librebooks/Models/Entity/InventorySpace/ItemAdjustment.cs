@@ -1,61 +1,51 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Core.Types;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.CompanySpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.InventorySpace
+namespace Librebooks.Models.Entity.InventorySpace;
+
+[Table(nameof(ItemAdjustment))]
+public class ItemAdjustment () : VersionedEntityBase()
 {
-    public class ItemAdjustment
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
+    public virtual DateOnly Date { get; set; }
+
+    [Required, MaxLength(50)]
+    public virtual string? Reason { get; set; }
+
+    public virtual int ItemId { get; set; }
+
+    [Column(TypeName = ColumnTypes.Number)]
+    public virtual decimal OldQuantityOnHand { get; set; }
+
+    [Column(TypeName = ColumnTypes.Number)]
+    public virtual decimal QuantityOnHand { get; set; }
+
+    [Column(TypeName = ColumnTypes.Monetary)]
+    public virtual decimal OldPrice { get; set; }
+
+    [Column(TypeName = ColumnTypes.Monetary)]
+    public virtual decimal Price { get; set; }
+
+    public virtual int CompanyId { get; set; }
+
+    public virtual bool FromSales { get; set; }
+
+    public virtual Item? Item { get; set; }
+    public virtual Company? Company { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? Id { get; set; }
-        public virtual DateTime Date { get; set; }
-        public virtual string? Reason { get; set; }
-        public virtual string? ItemId { get; set; }
-        public virtual decimal OldQuantityOnHand { get; set; }
-        public virtual decimal QuantityOnHand { get; set; }
-        public virtual decimal OldPrice { get; set; }
-        public virtual decimal Price { get; set; }
-        public virtual string? CompanyId { get; set; }
-        public virtual bool FromSales { get; set; }
-
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
-
-        public virtual Item? Item { get; set; }
-        public virtual Company? Company { get; set; }
-
-        public ItemAdjustment ()
+        builder.Entity<ItemAdjustment>(options =>
         {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
+            options.HasIndex(p => new { p.CompanyId, p.ItemId })
+                .IsClustered();
 
-        public static void BuildModel (ModelBuilder builder)
-        {
-            builder.Entity<ItemAdjustment>(options =>
-            {
-                options.ToTable(nameof(ItemAdjustment))
-                    .HasKey(p => p.Id)
-                    .IsClustered(false);
-
-                options.HasIndex(p => new { p.CompanyId, p.ItemId })
-                    .IsClustered();
-
-                options.Property(p => p.QuantityOnHand)
-                    .HasColumnType(ColumnTypes.Number);
-
-                options.Property(p => p.OldQuantityOnHand)
-                    .HasColumnType(ColumnTypes.Number);
-
-                options.Property(p => p.Price)
-                    .HasColumnType(ColumnTypes.Monetary);
-
-                options.Property(p => p.OldPrice)
-                    .HasColumnType(ColumnTypes.Monetary);
-
-            });
-        }
+        });
     }
 }

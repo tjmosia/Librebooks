@@ -1,23 +1,26 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.SystemSpace
 {
-    public class ShippingMethod
+    [Table(nameof(ShippingMethod))]
+    [Index(nameof(Name), IsUnique = true)]
+    [Index(nameof(ShortName), IsUnique = true)]
+    public class ShippingMethod () : VersionedEntityBase()
     {
-        public virtual string Id { get; set; }
-        public virtual string? Name { get; set; }
-        public virtual string? ShortName { get; set; }
-        public virtual string? Description { get; set; }
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
 
-        public ShippingMethod ()
-        {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
+        [Required, MaxLength(100)]
+        public virtual string? Name { get; set; }
+
+        [MaxLength(20)]
+        public virtual string? ShortName { get; set; }
+
+        [MaxLength(255)]
+        public virtual string? Description { get; set; }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<ShippingMethod>(options =>

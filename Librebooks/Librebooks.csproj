@@ -26,7 +26,6 @@
     <Compile Remove="Areas\Admin\Data\**" />
     <Compile Remove="Extensions\Data\**" />
     <Compile Remove="Extensions\Identity\**" />
-    <Compile Remove="Providers\Managers\**" />
     <Content Remove="Areas\Accounting\**" />
     <Content Remove="Areas\Companies\Data\**" />
     <Content Remove="Areas\Inventory\Data\**" />
@@ -36,7 +35,6 @@
     <Content Remove="Areas\Admin\Data\**" />
     <Content Remove="Extensions\Data\**" />
     <Content Remove="Extensions\Identity\**" />
-    <Content Remove="Providers\Managers\**" />
     <EmbeddedResource Remove="Areas\Accounting\**" />
     <EmbeddedResource Remove="Areas\Companies\Data\**" />
     <EmbeddedResource Remove="Areas\Inventory\Data\**" />
@@ -46,7 +44,6 @@
     <EmbeddedResource Remove="Areas\Admin\Data\**" />
     <EmbeddedResource Remove="Extensions\Data\**" />
     <EmbeddedResource Remove="Extensions\Identity\**" />
-    <EmbeddedResource Remove="Providers\Managers\**" />
     <None Remove="Areas\Accounting\**" />
     <None Remove="Areas\Companies\Data\**" />
     <None Remove="Areas\Inventory\Data\**" />
@@ -56,7 +53,6 @@
     <None Remove="Areas\Admin\Data\**" />
     <None Remove="Extensions\Data\**" />
     <None Remove="Extensions\Identity\**" />
-    <None Remove="Providers\Managers\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -79,6 +75,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.0.0" />
     <PackageReference Include="System.Text.Json" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Providers\Managers\" />
   </ItemGroup>
 
 </Project>

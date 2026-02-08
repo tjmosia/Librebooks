@@ -1,36 +1,34 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.SystemSpace
 {
-    public class ShippingTerm
+    [Table(nameof(ShippingTerm))]
+    [Index(nameof(Name), IsUnique = true)]
+    [Index(nameof(ShortName), IsUnique = true)]
+    public class ShippingTerm () : VersionedEntityBase()
     {
-        public virtual string Id { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+
+        [Required]
+        [MaxLength(155)]
         public virtual string? Name { get; set; }
+
+        [MaxLength(10)]
         public virtual string? ShortName { get; set; }
+
+        [MaxLength(255)]
         public virtual string? Description { get; set; }
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
 
-        public ShippingTerm ()
+        public static void OnModelCreating (ModelBuilder builder)
         {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<ShippingTerm>(options =>
+            builder.Entity<ShippingTerm>(options =>
             {
-                options.ToTable(nameof(ShippingTerm))
-                    .HasKey(p => p.Id)
-                    .IsClustered();
 
-                options.HasIndex(p => p.Name)
-                    .IsUnique();
-
-                options.HasIndex(p => p.ShortName)
-                    .IsUnique();
             });
+        }
     }
 }

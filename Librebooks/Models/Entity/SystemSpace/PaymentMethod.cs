@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.BankingSpace;
 using Librebooks.Models.Entity.PurchasesSpace;
 using Librebooks.Models.Entity.SalesSpace;
@@ -8,30 +9,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.SystemSpace
 {
-    public class PaymentMethod
+    [Table(nameof(ShippingMethod))]
+    [Index(nameof(Name), IsUnique = true)]
+    public class PaymentMethod () : VersionedEntityBase()
     {
-        public virtual string Id { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+
+        [Required, MaxLength(50)]
         public virtual string? Name { get; set; }
-        public virtual string? Type { get; set; }
+
+        [MaxLength(255)]
         public virtual string? Description { get; set; }
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
 
-        public PaymentMethod ()
-        {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
-        public static void BuildModel (ModelBuilder builder)
+        public static void OnModelCreating (ModelBuilder builder)
             => builder.Entity<PaymentMethod>(options =>
             {
-                options.ToTable(nameof(PaymentMethod))
-                    .HasKey(x => x.Id);
-
-                options.HasIndex(p => p.Name)
-                    .IsUnique();
-
                 options.HasMany<BankAccount>()
                     .WithOne(p => p.PaymentMethod)
                     .HasForeignKey(p => p.PaymentMethodId)

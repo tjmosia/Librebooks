@@ -22,29 +22,30 @@ namespace Librebooks.Models.Entity
             /************************************************************************************************
              * Uer Space
              ************************************************************************************************/
-            User.BuildModel(builder);
-            Role.BuildModel(builder);
-            RoleClaim.BuildModel(builder);
-            UserRole.BuildModel(builder);
-            UserToken.BuildModel(builder);
-            UserLogin.BuildModel(builder);
-            UserClaim.BuildModel(builder);
+            User.OnModelCreating(builder);
+            Role.OnModelCreating(builder);
+            RoleClaim.OnModelCreating(builder);
+            UserRole.OnModelCreating(builder);
+            UserToken.OnModelCreating(builder);
+            UserLogin.OnModelCreating(builder);
+            UserClaim.OnModelCreating(builder);
 
             /************************************************************************************************
              * Inventory Space
              ************************************************************************************************/
-            Item.BuildModel(builder);
-            ItemCategory.BuildModel(builder);
-            ItemInventory.BuildModel(builder);
-            ItemAdjustment.BuildModel(builder);
-            ItemSetup.BuildModel(builder);
+            Item.OnModelCreating(builder);
+            ItemCategory.OnModelCreating(builder);
+            ItemInventory.OnModelCreating(builder);
+            ItemAdjustment.OnModelCreating(builder);
+            ItemSetup.OnModelCreating(builder);
+            ItemDetail.OnModelCreating(builder);
 
             /************************************************************************************************
              * Document Space
              ************************************************************************************************/
-            DocumentStatus.BuildModel(builder);
-            DocumentSetup.BuildModel(builder);
-            DocumentPrintTemplate.BuildModel(builder);
+            DocumentStatus.OnModelCreating(builder);
+            DocumentSetup.OnModelCreating(builder);
+            DocumentPrintTemplate.OnModelCreating(builder);
 
             /************************************************************************************************
              * Sales Space
@@ -52,7 +53,7 @@ namespace Librebooks.Models.Entity
             SalesDocument.BuildModel(builder);
             SalesCredit.BuildModel(builder);
             SalesDocumentLine.BuildModel(builder);
-            SalesInvoice.BuildModel(builder);
+            SalesInvoice.OnModelCreating(builder);
             SalesReceipt.BuildModel(builder);
             SalesOrder.BuildModel(builder);
             SalesOrderInvoice.BuildModel(builder);
@@ -71,7 +72,7 @@ namespace Librebooks.Models.Entity
              * Company Space
              ************************************************************************************************/
             Company.BuildModel(builder);
-            CompanyDefaultBankAccount.BuildModel(builder);
+            CompanyDefaultBankAccount.OnModelCreating(builder);
             CompanyDefaultTaxType.BuildModel(builder);
             CompanyTaxType.BuildModel(builder);
             CompanyUser.BuildModel(builder);
@@ -83,27 +84,27 @@ namespace Librebooks.Models.Entity
             /************************************************************************************************
              * System Space
              ************************************************************************************************/
-            Country.BuildModel(builder);
-            Currency.BuildModel(builder);
-            DateFormat.BuildModel(builder);
-            TaxType.BuildModel(builder);
+            Country.OnModelCreating(builder);
+            Currency.OnModelCreating(builder);
+            DateFormat.OnModelCreating(builder);
+            TaxType.OnModelCreating(builder);
             ShippingMethod.BuildModel(builder);
-            ShippingTerm.BuildModel(builder);
-            PaymentMethod.BuildModel(builder);
+            ShippingTerm.OnModelCreating(builder);
+            PaymentMethod.OnModelCreating(builder);
             CompanySetup.BuildModel(builder);
             BusinessSector.BuildModel(builder);
 
             /************************************************************************************************
              * Customer Space
              ************************************************************************************************/
-            Customer.BuildModel(builder);
+            Customer.OnModelCreating(builder);
             CustomerCategory.BuildModel(builder);
-            CustomerNote.BuildModel(builder);
+            CustomerNote.OnModelCreating(builder);
             CustomerContact.BuildModel(builder);
-            CustomerAccountsContact.BuildModel(builder);
+            CustomerAccountsContact.OnModelCreating(builder);
             CustomerWriteOff.BuildModel(builder);
             CustomerAdjustment.BuildModel(builder);
-            CustomerSetup.BuildModel(builder);
+            CustomerSetup.OnModelCreating(builder);
 
             /************************************************************************************************
              * Accounting Space
@@ -147,7 +148,7 @@ namespace Librebooks.Models.Entity
              ************************************************************************************************/
             BankAccount.BuildModel(builder);
             BankAccountCategory.BuildModel(builder);
-            VerificationRequest.BuildModel(builder);
+            VerificationRequest.OnModelCreating(builder);
 
             /************************************************************************************************
              * General Space

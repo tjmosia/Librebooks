@@ -1,27 +1,26 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.CustomerSpace
 {
-    public class CustomerCategory
+    [Table(nameof(CustomerCategory))]
+    public class CustomerCategory () : VersionedEntityBase()
     {
-        public virtual string? Id { get; set; }
-        public virtual string? Name { get; set; }
-        public virtual string? Description { get; set; }
-        public virtual string? CompanyId { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
 
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
+        [Required, MaxLength(75)]
+        public virtual string? Name { get; set; }
+
+        [MaxLength(255)]
+        public virtual string? Description { get; set; }
+
+        public virtual int CompanyId { get; set; }
 
         public virtual Customer? Customer { get; set; }
         public virtual ICollection<Customer>? Customers { get; set; }
-
-        public CustomerCategory ()
-        {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<CustomerCategory>(options =>

@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.IdentitySpace
 {
-    public class Role : IdentityRole<string>
+    public class Role : IdentityRole<int>
     {
         public virtual ICollection<RoleClaim>? Claims { get; set; }
         public virtual ICollection<UserRole>? Users { get; set; }
 
-        public static void BuildModel (ModelBuilder builder)
+        public static void OnModelCreating (ModelBuilder builder)
         {
             builder.Entity<Role>(options =>
             {

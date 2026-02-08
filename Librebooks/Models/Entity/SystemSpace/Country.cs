@@ -1,39 +1,28 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.SystemSpace
 {
-    public class Country
+    [Table(nameof(Country))]
+    [Index(nameof(Name), IsUnique = true)]
+    public class Country () : VersionedEntityBase()
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+
+        [MaxLength(3), Required]
         public virtual string? Code { get; set; }
+
+        [MaxLength(75), Required]
         public virtual string? Name { get; set; }
-        public virtual string? DialingCode { get; set; }
 
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
-
-        public Country ()
-            => RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-
-        public void NormalizeCode ()
+        public static void OnModelCreating (ModelBuilder builder)
         {
-            if (!string.IsNullOrEmpty(Code))
-                Code = Code.ToUpper();
-        }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<Country>(options =>
+            builder.Entity<Country>(options =>
             {
-                options.ToTable(nameof(Country))
-                    .HasKey(x => x.Code)
-                    .IsClustered();
-
-                options.HasIndex(p => p.Name)
-                    .IsUnique();
-
-                options.Property(p => p.Code)
-                    .HasMaxLength(3);
             });
+        }
     }
 }

@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.IdentitySpace
 {
-    public class UserClaim : IdentityUserClaim<string>
+    public class UserClaim : IdentityUserClaim<int>
     {
         public virtual User? User { get; set; }
 
-        public static void BuildModel (ModelBuilder builder)
+        public static void OnModelCreating (ModelBuilder builder)
         {
             builder.Entity<UserClaim>(options =>
             {

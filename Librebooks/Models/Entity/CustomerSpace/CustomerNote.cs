@@ -1,22 +1,27 @@
-﻿using Librebooks.Models.Entity.GeneralSpace;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Models.Entity.GeneralSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.CustomerSpace
+namespace Librebooks.Models.Entity.CustomerSpace;
+
+[Table(nameof(CustomerNote))]
+public class CustomerNote
 {
-    public class CustomerNote
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+    public virtual int NoteId { get; set; }
+
+    public virtual int CustomerId { get; set; }
+
+    public virtual Note? Note { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? CustomerId { get; set; }
-        public virtual string? NoteId { get; set; }
-
-        public virtual Note? Note { get; set; }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<CustomerNote>(options =>
-            {
-                options.ToTable(nameof(CustomerNote))
-                    .HasKey(p => new { p.CustomerId, p.NoteId })
-                    .IsClustered();
-            });
+        builder.Entity<CustomerNote>(options =>
+        {
+            options.HasIndex(p => new { p.CustomerId, p.NoteId })
+                .IsClustered();
+        });
     }
 }
