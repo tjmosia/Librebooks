@@ -1,4 +1,6 @@
-﻿using Librebooks.Models.Entity.AccountingSpace;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Models.Entity.AccountingSpace;
 using Librebooks.Models.Entity.InventorySpace;
 using Librebooks.Models.Entity.PurchasesSpace;
 using Librebooks.Models.Entity.SalesSpace;
@@ -8,31 +10,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.CompanySpace
 {
+    [Table(nameof(CompanyTaxType))]
     public class CompanyTaxType
     {
-        public virtual string? Id { get; set; }
-        public virtual string? CompanyId { get; set; }
-        public virtual string? TaxTypeId { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+        public virtual int CompanyId { get; set; }
+        public virtual int TaxTypeId { get; set; }
 
         public virtual Company? Company { get; set; }
         public virtual TaxType? TaxType { get; set; }
         public virtual CompanyDefaultTaxType? CompanySalesTaxType { get; set; }
 
-        public CompanyTaxType ()
-            => Id = Guid.NewGuid().ToString("N").ToUpper();
-
-        public CompanyTaxType (string companyId, string taxTypeId) : this()
-        {
-            CompanyId = companyId;
-            TaxTypeId = taxTypeId;
-        }
-
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<CompanyTaxType>(options =>
             {
-                options.ToTable(nameof(CompanyTaxType))
-                    .HasKey(x => x.Id)
-                    .IsClustered(false);
 
                 options.HasIndex(p => new { p.CompanyId, p.TaxTypeId })
                     .IsUnique()

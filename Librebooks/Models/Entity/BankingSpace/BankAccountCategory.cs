@@ -1,38 +1,34 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
-namespace Librebooks.Models.Entity.BankingSpace
+
+namespace Librebooks.Models.Entity.BankingSpace;
+
+[Table(nameof(BankAccountCategory))]
+public class BankAccountCategory () : VersionedEntityBase()
 {
-    public class BankAccountCategory
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
+
+    [Required, MaxLength(50)]
+    public virtual string? Name { get; set; }
+
+    [MaxLength(75), Required]
+    public virtual string? Type { get; set; }
+
+    [MaxLength(255)]
+    public virtual string? Description { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? Id { get; set; }
-        public virtual string? Name { get; set; }
-        public virtual string? Type { get; set; }
-        public virtual string? Description { get; set; }
-
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
-
-        public BankAccountCategory ()
+        builder.Entity<BankAccountCategory>(options =>
         {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
-        public static void BuildModel (ModelBuilder builder)
-        {
-            builder.Entity<BankAccountCategory>(options =>
-            {
-                options.ToTable(nameof(BankAccountCategory))
-                    .HasKey(p => p.Id)
-                    .IsClustered();
-
-                options.HasMany<BankAccount>()
-                    .WithOne(p => p.Category)
-                    .HasForeignKey(p => p.CategoryId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
-        }
+            options.HasMany<BankAccount>()
+                .WithOne(p => p.Category)
+                .HasForeignKey(p => p.CategoryId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+        });
     }
 }

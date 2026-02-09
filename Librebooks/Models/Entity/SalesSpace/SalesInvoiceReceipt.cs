@@ -20,7 +20,7 @@ namespace Librebooks.Models.Entity.SalesSpace
                     .HasKey(p => new { p.InvoiceId, p.ReceiptId });
 
                 options.Property(p => p.Amount)
-                    .HasColumnType(ColumnTypes.Monetary);
+                    .HasColumnType(ColumnTypes.MONETARY);
             });
     }
 }

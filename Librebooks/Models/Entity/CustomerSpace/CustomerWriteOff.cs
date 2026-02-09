@@ -13,36 +13,38 @@ public class CustomerWriteOff () : VersionedEntityBase()
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public virtual int Id { get; set; }
+
+    [MaxLength(100)]
     public virtual string? CustomerName { get; set; }
+
+    [MaxLength(50), Required]
     public virtual string? Number { get; set; }
-    public virtual decimal Amount { get; set; }
-    public virtual string? Description { get; set; }
+
+    [MaxLength(50)]
     public virtual string? Reference { get; set; }
-    public virtual DateTime Date { get; set; }
-    public virtual string? CompanyId { get; set; }
-    public virtual string? CustomerId { get; set; }
+
+    [Column(TypeName = ColumnTypes.MONETARY)]
+    public virtual decimal Amount { get; set; }
+
+    [MaxLength(255)]
+    public virtual string? Description { get; set; }
+    public virtual DateOnly Date { get; set; }
+    public virtual int CompanyId { get; set; }
+    public virtual int CustomerId { get; set; }
 
     public virtual ICollection<SalesInvoice>? Invoices { get; set; }
     public virtual ICollection<SalesQuote>? Quotes { get; set; }
     public virtual ICollection<SalesInvoice>? SalesOrders { get; set; }
 
-    public static void BuildModel (ModelBuilder builder)
-        => builder.Entity<CustomerWriteOff>(options =>
+    public static void OnModelCreating (ModelBuilder builder)
+    {
+        builder.Entity<CustomerWriteOff>(options =>
         {
-            options.ToTable(nameof(CustomerWriteOff))
-                .HasKey(p => p.Id)
-                .IsClustered(false);
-
-            options.Property(p => p.Date)
-                .HasColumnType(ColumnTypes.Date);
-
-            options.Property(p => p.Amount)
-                .HasColumnType(ColumnTypes.Monetary);
-
             options.HasIndex(p => new { p.CompanyId, p.CustomerId })
                 .IsClustered();
 
             options.HasIndex(p => new { p.CompanyId, p.Number })
                 .IsUnique();
         });
+    }
 }

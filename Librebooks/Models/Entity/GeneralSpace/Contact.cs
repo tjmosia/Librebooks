@@ -32,7 +32,7 @@ namespace Librebooks.Models.Entity.GeneralSpace
         [MaxLength(15)]
         public virtual string? Mobile { get; set; }
 
-        public static void BuildModel (ModelBuilder builder)
+        public static void OnModelCreating (ModelBuilder builder)
         {
             builder.Entity<Contact>(options =>
             {

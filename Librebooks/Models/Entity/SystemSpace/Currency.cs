@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Extensions.Models;
+using Librebooks.Models.Entity.SalesSpace;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.SystemSpace;
@@ -28,6 +29,12 @@ public class Currency () : VersionedEntityBase()
             options.ToTable(nameof(Currency))
                 .HasKey(x => x.Code)
                 .IsClustered();
+
+            options.HasMany<SalesDocument>()
+                .WithOne(p => p.Currency)
+                .HasForeignKey(p => p.CurrencyId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         });
     }
 }

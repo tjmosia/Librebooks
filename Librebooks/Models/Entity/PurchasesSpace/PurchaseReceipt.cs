@@ -54,10 +54,10 @@ namespace Librebooks.Models.Entity.PurchasesSpace
                     .IsUnique();
 
                 options.Property(p => p.Date)
-                    .HasColumnType(ColumnTypes.Date);
+                    .HasColumnType(ColumnTypes.DATE);
 
                 options.Property(p => p.Amount)
-                    .HasColumnType(ColumnTypes.Monetary);
+                    .HasColumnType(ColumnTypes.MONETARY);
 
                 options.HasOne(p => p.PaymentMethod)
                     .WithMany()

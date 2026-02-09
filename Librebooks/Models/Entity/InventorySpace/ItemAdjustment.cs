@@ -20,16 +20,16 @@ public class ItemAdjustment () : VersionedEntityBase()
 
     public virtual int ItemId { get; set; }
 
-    [Column(TypeName = ColumnTypes.Number)]
+    [Column(TypeName = ColumnTypes.NUMBER)]
     public virtual decimal OldQuantityOnHand { get; set; }
 
-    [Column(TypeName = ColumnTypes.Number)]
+    [Column(TypeName = ColumnTypes.NUMBER)]
     public virtual decimal QuantityOnHand { get; set; }
 
-    [Column(TypeName = ColumnTypes.Monetary)]
+    [Column(TypeName = ColumnTypes.MONETARY)]
     public virtual decimal OldPrice { get; set; }
 
-    [Column(TypeName = ColumnTypes.Monetary)]
+    [Column(TypeName = ColumnTypes.MONETARY)]
     public virtual decimal Price { get; set; }
 
     public virtual int CompanyId { get; set; }

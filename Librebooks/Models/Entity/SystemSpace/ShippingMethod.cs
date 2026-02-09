@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Extensions.Models;
+using Librebooks.Models.Entity.SalesSpace;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.SystemSpace
@@ -34,6 +35,12 @@ namespace Librebooks.Models.Entity.SystemSpace
 
                 options.HasIndex(p => p.ShortName)
                     .IsUnique();
+
+                options.HasMany<SalesDocument>()
+                    .WithOne(p => p.ShippingMethod)
+                    .HasForeignKey(p => p.ShippingMethodId)
+                        .IsRequired(false)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
     }
 }

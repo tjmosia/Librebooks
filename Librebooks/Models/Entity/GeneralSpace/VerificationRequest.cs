@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Core.Types;
 using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,7 +24,9 @@ public class VerificationRequest : VersionedEntityBase
     [MaxLength(155)]
     public virtual string? HashString { get; set; }
 
+    [Column(TypeName = ColumnTypes.DATETIME)]
     public virtual DateTime ValidUntil { get; set; }
+
     public virtual short Attempts { get; set; }
     public virtual short MaxAttemptsAllowed { get; set; }
 

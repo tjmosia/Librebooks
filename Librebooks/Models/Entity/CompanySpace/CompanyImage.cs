@@ -1,66 +1,55 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.PurchasesSpace;
 using Librebooks.Models.Entity.SalesSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.CompanySpace
+namespace Librebooks.Models.Entity.CompanySpace;
+
+[Table(nameof(CompanyImage))]
+public class CompanyImage () : VersionedEntityBase()
 {
-    public class CompanyImage
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
+    public virtual int CompanyId { get; set; }
+    public virtual DateOnly DateCreated { get; set; }
+    public virtual byte[]? Data { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string Id { get; set; }
-        public virtual byte[]? Data { get; set; }
-        public virtual string? DateCreated { get; set; }
-        public virtual string? CompanyId { get; set; }
-
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
-
-        public CompanyImage ()
+        builder.Entity<CompanyImage>(options =>
         {
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-        }
+            options.HasOne<CompanyLogo>()
+                .WithOne(p => p.Image)
+                .HasForeignKey<CompanyLogo>(p => p.ImageId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
 
-        public static void BuildModel (ModelBuilder builder)
-        {
-            builder.Entity<CompanyImage>(options =>
-            {
-                options.ToTable(nameof(CompanyImage))
-                    .HasKey(p => p.Id)
-                    .IsClustered();
+            options.HasMany<SalesDocument>()
+                .WithOne(p => p.Logo)
+                .HasForeignKey(p => p.LogoId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
 
-                options.HasOne<CompanyLogo>()
-                    .WithOne(p => p.Image)
-                    .HasForeignKey<CompanyLogo>(p => p.ImageId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
+            options.HasMany<SalesReceipt>()
+                .WithOne(p => p.Logo)
+                .HasForeignKey(p => p.LogoId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
 
-                options.HasMany<SalesDocument>()
-                    .WithOne(p => p.Logo)
-                    .HasForeignKey(p => p.LogoId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
+            options.HasMany<PurchaseDocument>()
+                .WithOne(p => p.Logo)
+                .HasForeignKey(p => p.LogoId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
 
-                options.HasMany<SalesReceipt>()
-                    .WithOne(p => p.Logo)
-                    .HasForeignKey(p => p.LogoId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-
-                options.HasMany<PurchaseDocument>()
-                    .WithOne(p => p.Logo)
-                    .HasForeignKey(p => p.LogoId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-
-                options.HasMany<PurchaseReceipt>()
-                    .WithOne(p => p.Logo)
-                    .HasForeignKey(p => p.LogoId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
-        }
+            options.HasMany<PurchaseReceipt>()
+                .WithOne(p => p.Logo)
+                .HasForeignKey(p => p.LogoId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+        });
     }
 }

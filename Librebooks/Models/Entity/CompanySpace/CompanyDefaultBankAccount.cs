@@ -1,36 +1,25 @@
-﻿using Librebooks.Models.Entity.BankingSpace;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Models.Entity.BankingSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.CompanySpace
+namespace Librebooks.Models.Entity.CompanySpace;
+
+[Table(nameof(CompanyDefaultBankAccount))]
+public class CompanyDefaultBankAccount
 {
-    public class CompanyDefaultBankAccount
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+    public virtual int CompanyId { get; set; }
+    public virtual int BankAccountId { get; set; }
+
+    public virtual Company? Company { get; set; }
+    public virtual BankAccount? BankAccount { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? CompanyId { get; set; }
-        public virtual string? BankAccountId { get; set; }
-
-        public virtual Company? Company { get; set; }
-        public virtual BankAccount? BankAccount { get; set; }
-
-        public CompanyDefaultBankAccount () { }
-        public CompanyDefaultBankAccount (string companyId, string bankAccountId) : this()
-        {
-            CompanyId = companyId;
-            BankAccountId = bankAccountId;
-        }
-
-        public static void OnModelCreating (ModelBuilder builder)
-            => builder.Entity<CompanyDefaultBankAccount>(options =>
-            {
-                options.ToTable(nameof(CompanyDefaultBankAccount))
-                    .HasKey(a => a.CompanyId)
-                    .IsClustered();
-
-                options.HasOne(p => p.Company)
-                    .WithOne()
-                    .HasForeignKey<CompanyDefaultBankAccount>(p => p.CompanyId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
+        builder.Entity<CompanyDefaultBankAccount>(options =>
+           {
+           });
     }
 }

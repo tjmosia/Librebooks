@@ -48,7 +48,7 @@ namespace Librebooks.Models.Entity.PurchasesSpace
                     .IsClustered(false);
 
                 options.Property(p => p.Date)
-                    .HasColumnType(ColumnTypes.Date);
+                    .HasColumnType(ColumnTypes.DATE);
 
                 options.HasIndex(p => new { p.CompanyId, p.Number })
                     .IsUnique()
@@ -67,10 +67,10 @@ namespace Librebooks.Models.Entity.PurchasesSpace
                     .OnDelete(DeleteBehavior.Cascade);
 
                 options.Property(p => p.Date)
-                    .HasColumnType(ColumnTypes.Date);
+                    .HasColumnType(ColumnTypes.DATE);
 
                 options.Property(p => p.DueDate)
-                    .HasColumnType(ColumnTypes.Date);
+                    .HasColumnType(ColumnTypes.DATE);
             });
     }
 }

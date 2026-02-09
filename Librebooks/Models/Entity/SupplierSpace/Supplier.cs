@@ -62,10 +62,10 @@ namespace Librebooks.Models.Entity.SupplierSpace
                     .IsUnique();
 
                 options.Property(p => p.Discount)
-                    .HasColumnType(ColumnTypes.Percentage);
+                    .HasColumnType(ColumnTypes.PERCENTATE);
 
                 options.Property(p => p.Balance)
-                    .HasColumnType(ColumnTypes.Percentage);
+                    .HasColumnType(ColumnTypes.PERCENTATE);
 
                 options.HasOne(p => p.TaxType)
                     .WithOne()

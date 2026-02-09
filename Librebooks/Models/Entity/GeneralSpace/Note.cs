@@ -30,7 +30,7 @@ namespace Librebooks.Models.Entity.GeneralSpace
 
         public virtual User? Creator { get; set; }
 
-        public static void BuildModel (ModelBuilder builder)
+        public static void OnModelCreating (ModelBuilder builder)
             => builder.Entity<Note>(options =>
             {
                 options.HasOne(p => p.Creator)

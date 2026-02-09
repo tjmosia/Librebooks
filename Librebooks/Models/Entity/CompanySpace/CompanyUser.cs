@@ -1,45 +1,37 @@
-﻿using Librebooks.Models.Entity.IdentitySpace;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Models.Entity.IdentitySpace;
 using Librebooks.Models.Entity.SalesSpace;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.CompanySpace
 {
+    [Table(nameof(CompanyUser))]
     public class CompanyUser
     {
-        public virtual string? Id { get; set; }
-        public virtual string? UserId { get; set; }
-        public virtual string? CompanyId { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+        public virtual int UserId { get; set; }
+        public virtual int CompanyId { get; set; }
 
         public virtual Company? Company { get; set; }
         public virtual User? User { get; set; }
 
-        public CompanyUser ()
-            => Id = Guid.NewGuid().ToString("N");
-
-        public CompanyUser (string companyId, string userId)
-            : this()
+        public static void OnModelCreating (ModelBuilder builder)
         {
-            CompanyId = companyId;
-            UserId = userId;
+            builder.Entity<CompanyUser>(options =>
+               {
+                   options.HasIndex(p => new { p.UserId, p.CompanyId })
+                       .IsUnique()
+                       .IsClustered();
+
+                   options.HasOne<SalesPerson>()
+                       .WithOne(p => p.CompanyUser)
+                       .HasForeignKey<SalesPerson>(p => p.CompanyUserId)
+                           .IsRequired(false)
+                       .OnDelete(DeleteBehavior.Restrict);
+               });
         }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<CompanyUser>(options =>
-            {
-                options.ToTable(nameof(CompanyUser))
-                    .HasKey(p => p.Id)
-                    .IsClustered(false);
-
-                options.HasIndex(p => new { p.UserId, p.CompanyId })
-                    .IsUnique()
-                    .IsClustered();
-
-                options.HasOne<SalesPerson>()
-                    .WithOne(p => p.CompanyUser)
-                    .HasForeignKey<SalesPerson>(p => p.CompanyUserId)
-                        .IsRequired(false)
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
     }
 }

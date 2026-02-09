@@ -12,16 +12,16 @@ public class ItemInventory () : VersionedEntityBase()
     [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
     public virtual string? ItemId { get; set; }
 
-    [Column(TypeName = ColumnTypes.Monetary)]
+    [Column(TypeName = ColumnTypes.MONETARY)]
     public virtual decimal Price { get; set; }
 
-    [Column(TypeName = ColumnTypes.Number)]
+    [Column(TypeName = ColumnTypes.NUMBER)]
     public virtual decimal QuantityOnHand { get; set; }
 
-    [Column(TypeName = ColumnTypes.Number)]
+    [Column(TypeName = ColumnTypes.NUMBER)]
     public virtual decimal MinQuantity { get; set; }
 
-    [Column(TypeName = ColumnTypes.Number)]
+    [Column(TypeName = ColumnTypes.NUMBER)]
     public virtual decimal MaxQuantity { get; set; }
 
     public virtual Item? Item { get; set; }
@@ -34,16 +34,16 @@ public class ItemInventory () : VersionedEntityBase()
                 .HasKey(p => p.ItemId);
 
             options.Property(p => p.QuantityOnHand)
-                .HasColumnType(ColumnTypes.Number);
+                .HasColumnType(ColumnTypes.NUMBER);
 
             options.Property(p => p.Price)
-                .HasColumnType(ColumnTypes.Monetary);
+                .HasColumnType(ColumnTypes.MONETARY);
 
             options.Property(p => p.MinQuantity)
-                .HasColumnType(ColumnTypes.Number);
+                .HasColumnType(ColumnTypes.NUMBER);
 
             options.Property(p => p.MaxQuantity)
-                .HasColumnType(ColumnTypes.Number);
+                .HasColumnType(ColumnTypes.NUMBER);
         });
     }
 }

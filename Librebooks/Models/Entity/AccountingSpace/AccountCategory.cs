@@ -1,41 +1,38 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.AccountingSpace
+namespace Librebooks.Models.Entity.AccountingSpace;
+
+[Table(nameof(AccountCategory))]
+public class AccountCategory () : VersionedEntityBase()
 {
-    public class AccountCategory
-    {
-        public virtual string Id { get; set; }
-        public virtual string? Name { get; set; }
-        public virtual string? Description { get; set; }
-        public virtual string? ClassType { get; set; }
-        public virtual string? CashFlowTypeId { get; set; }
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
 
+    [Required, MaxLength(75)]
+    public virtual string? Name { get; set; }
 
-        public virtual ICollection<Account>? Accounts { get; set; }
-        public virtual AccountCashFlowType? CashFlowType { get; set; }
+    [MaxLength(255)]
+    public virtual string? Description { get; set; }
+    public virtual string? ClassType { get; set; }
+    public virtual int CashFlowTypeId { get; set; }
 
-        public AccountCategory ()
+    public virtual ICollection<Account>? Accounts { get; set; }
+    public virtual AccountCashFlowType? CashFlowType { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
+        => builder.Entity<AccountCategory>(options =>
         {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
+            options.ToTable(nameof(AccountCategory))
+                .HasKey(x => x.Id)
+                .IsClustered();
 
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<AccountCategory>(options =>
-            {
-                options.ToTable(nameof(AccountCategory))
-                    .HasKey(x => x.Id)
-                    .IsClustered();
-
-                options.HasMany(p => p.Accounts)
-                    .WithOne(p => p.Category)
-                    .HasForeignKey(p => p.CategoryId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
-    }
+            options.HasMany(p => p.Accounts)
+                .WithOne(p => p.Category)
+                .HasForeignKey(p => p.CategoryId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+        });
 }

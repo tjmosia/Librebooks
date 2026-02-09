@@ -1,34 +1,36 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.CustomerSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.CompanySpace
+namespace Librebooks.Models.Entity.CompanySpace;
+
+[Table(nameof(CompanySetup))]
+public class CompanySetup () : VersionedEntityBase()
 {
-    public class CompanySetup
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
+
+    [MaxLength(10)]
+    public virtual string? Prefix { get; set; }
+
+    [MaxLength(10)]
+    public virtual string? Suffix { get; set; }
+
+    public virtual int NextNumber { get; set; }
+
+    [MaxLength(12)]
+    public virtual string? NumberFormat { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? Id { get; set; }
-        public virtual string? Prefix { get; set; }
-        public virtual string? Suffix { get; set; }
-        public virtual long NextNumber { get; set; }
-        public virtual string? NumberFormat { get; set; }
-
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
-
-        public CompanySetup ()
-        {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<Customer>(options =>
-            {
-                options.ToTable(nameof(CompanySetup))
-                    .HasKey(x => x.Id)
-                    .IsClustered();
-            });
+        builder.Entity<Customer>(options =>
+           {
+               options.ToTable(nameof(CompanySetup))
+                   .HasKey(x => x.Id)
+                   .IsClustered();
+           });
     }
 }

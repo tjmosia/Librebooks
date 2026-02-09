@@ -52,13 +52,13 @@ namespace Librebooks.Models.Entity.SalesSpace
                     .IsClustered(false);
 
                 options.Property(p => p.Date)
-                    .HasColumnType(ColumnTypes.Date);
+                    .HasColumnType(ColumnTypes.DATE);
 
                 options.HasIndex(p => p.CompanyId)
                     .IsClustered();
 
                 options.Property(p => p.Amount)
-                    .HasColumnType(ColumnTypes.Monetary);
+                    .HasColumnType(ColumnTypes.MONETARY);
 
                 options.HasMany(p => p.AllocatedInvoices)
                     .WithOne(p => p.Receipt)

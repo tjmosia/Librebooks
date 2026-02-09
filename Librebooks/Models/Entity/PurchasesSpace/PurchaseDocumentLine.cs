@@ -21,7 +21,7 @@ namespace Librebooks.Models.Entity.PurchasesSpace
                     .IsClustered(true);
 
                 options.Property(p => p.Quantity)
-                    .HasColumnType(ColumnTypes.Number);
+                    .HasColumnType(ColumnTypes.NUMBER);
             });
     }
 }

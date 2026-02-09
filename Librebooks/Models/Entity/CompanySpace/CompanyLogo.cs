@@ -1,28 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.CompanySpace
+namespace Librebooks.Models.Entity.CompanySpace;
+
+[Table(nameof(CompanyLogo))]
+public class CompanyLogo
 {
-    public class CompanyLogo
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+    public virtual int CompanyId { get; set; }
+    public virtual int ImageId { get; set; }
+
+    public virtual CompanyImage? Image { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? CompanyId { get; set; }
-        public virtual string? ImageId { get; set; }
-
-        public virtual CompanyImage? Image { get; set; }
-
-        public CompanyLogo () { }
-
-        public CompanyLogo (string companyId, string imageId)
+        builder.Entity<CompanyLogo>(options =>
         {
-            CompanyId = companyId;
-            ImageId = imageId;
-        }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<CompanyLogo>(options =>
-            {
-                options.ToTable(nameof(CompanyLogo))
-                    .HasKey(p => p.CompanyId)
-                    .IsClustered();
-            });
+        });
     }
 }

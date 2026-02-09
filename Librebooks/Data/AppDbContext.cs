@@ -19,7 +19,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Librebooks.Data
 {
     public class AppDbContext :
-        IdentityDbContext<User, Role, string, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
+        IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
         public AppDbContext (DbContextOptions<AppDbContext> options)
             : base(options) { }

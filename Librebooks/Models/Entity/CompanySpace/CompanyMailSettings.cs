@@ -1,30 +1,36 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.CompanySpace
+namespace Librebooks.Models.Entity.CompanySpace;
+
+[Table(nameof(CompanyMailSettings))]
+public class CompanyMailSettings () : VersionedEntityBase()
 {
-    public class CompanyMailSettings
-    {
-        public virtual string? CompanyId { get; set; }
-        public virtual string? EmailAddress { get; set; }
-        public virtual string? Password { get; set; }
-        public virtual string? SmtpServerName { get; set; }
-        public virtual string? SmtpPort { get; set; }
+    public virtual int CompanyId { get; set; }
+    [Required]
 
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
+    [MaxLength(75)]
+    public virtual string? EmailAddress { get; set; }
 
-        public CompanyMailSettings ()
-            => RowVersion = Guid.NewGuid().ToString("N").ToUpper();
+    [Required]
+    [MaxLength(100)]
+    public virtual string? Password { get; set; }
 
-        public virtual Company? Company { get; set; }
+    [Required]
+    [MaxLength(255)]
+    public virtual string? SmtpServerName { get; set; }
 
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<CompanyMailSettings>(options =>
-            {
-                options.ToTable(nameof(CompanyMailSettings))
-                    .HasKey(p => p.CompanyId);
-            });
-    }
+    [Required, MaxLength(20)]
+    public virtual string? SmtpPort { get; set; }
+
+    public virtual Company? Company { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
+        => builder.Entity<CompanyMailSettings>(options =>
+        {
+            options.ToTable(nameof(CompanyMailSettings))
+                .HasKey(p => p.CompanyId);
+        });
 }

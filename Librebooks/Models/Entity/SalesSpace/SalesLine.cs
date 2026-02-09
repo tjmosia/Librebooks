@@ -42,13 +42,13 @@ namespace Librebooks.Models.Entity.SalesSpace
                     .IsClustered();
 
                 options.Property(p => p.Price)
-                    .HasColumnType(ColumnTypes.Monetary);
+                    .HasColumnType(ColumnTypes.MONETARY);
 
                 options.Property(p => p.TaxRate)
-                    .HasColumnType(ColumnTypes.Percentage);
+                    .HasColumnType(ColumnTypes.PERCENTATE);
 
                 options.Property(p => p.DiscountRate)
-                    .HasColumnType(ColumnTypes.Percentage);
+                    .HasColumnType(ColumnTypes.PERCENTATE);
 
                 options.HasMany(p => p.DocumentLines)
                     .WithOne(p => p.Line)

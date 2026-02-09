@@ -36,7 +36,7 @@ namespace Librebooks.Models.Entity.PurchasesSpace
                     .OnDelete(DeleteBehavior.Restrict);
 
                 options.Property(p => p.Amount)
-                    .HasColumnType(ColumnTypes.Monetary);
+                    .HasColumnType(ColumnTypes.MONETARY);
             });
     }
 }

@@ -1,38 +1,30 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.AccountingSpace
+namespace Librebooks.Models.Entity.AccountingSpace;
+
+public class AccountCashFlowType () : VersionedEntityBase()
 {
-    public class AccountCashFlowType
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
+
+    [Required, MaxLength(75)]
+    public virtual string? Name { get; set; }
+
+    [MaxLength(255)]
+    public virtual string? Description { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string Id { get; set; }
-        public virtual string? Name { get; set; }
-        public virtual string? Description { get; set; }
-
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
-
-        public AccountCashFlowType ()
+        builder.Entity<AccountCashFlowType>(options =>
         {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
-        public static void BuildModel (ModelBuilder builder)
-        {
-            builder.Entity<AccountCashFlowType>(options =>
-            {
-                options.ToTable(nameof(AccountCashFlowType))
-                    .HasKey(x => x.Id)
-                    .IsClustered();
-
-                options.HasMany<AccountCategory>()
-                    .WithOne(p => p.CashFlowType)
-                    .HasForeignKey(p => p.CashFlowTypeId)
-                        .IsRequired(true)
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
-        }
+            options.HasMany<AccountCategory>()
+                .WithOne(p => p.CashFlowType)
+                .HasForeignKey(p => p.CashFlowTypeId)
+                    .IsRequired(true)
+                .OnDelete(DeleteBehavior.Restrict);
+        });
     }
 }
