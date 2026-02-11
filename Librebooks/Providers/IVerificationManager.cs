@@ -8,6 +8,6 @@ namespace Librebooks.Providers
         Task<VerificationRequest?> AddAsync (VerificationRequest request);
         Task<VerificationRequest?> UpdateAsync (VerificationRequest request);
         Task<bool> DeleteAsync (VerificationRequest request);
-        Task<VerificationRequest?> VerifyAsync (string subject, string requestUri, string code);
+        Task<(Verifi)> VerifyAsync (string subject, string requestUri, string code);
     }
 }

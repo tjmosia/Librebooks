@@ -1,25 +1,35 @@
-﻿using Librebooks.Models.Entity.GeneralSpace;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+using Librebooks.Models.Entity.GeneralSpace;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.SupplierSpace
 {
+    [Table(nameof(SupplierContact))]
     public class SupplierContact
     {
-        public virtual string? ContactId { get; set; }
-        public virtual string? SupplierId { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public virtual int ContactId { get; set; }
+        public virtual int SupplierId { get; set; }
 
+        public virtual SupplierAccountsContact? AccountsContact { get; set; }
         public virtual Contact? Contact { get; set; }
 
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<SupplierContact>(options =>
+        public static void OnModelCreating (ModelBuilder builder)
+        {
+            builder.Entity<SupplierContact>(options =>
             {
-                options.ToTable(nameof(SupplierContact))
-                    .HasKey(p => p.ContactId)
-                    .IsClustered(false);
-
                 options.HasIndex(p => p.SupplierId)
                     .IsClustered();
+
+                options.HasOne(p => p.AccountsContact)
+                    .WithOne(p => p.SupplierContact)
+                    .HasForeignKey<SupplierContact>(p => p.ContactId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
             });
+        }
     }
 }

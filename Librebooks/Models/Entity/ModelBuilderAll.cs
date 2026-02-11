@@ -52,20 +52,21 @@ namespace Librebooks.Models.Entity
              ************************************************************************************************/
             SalesDocument.OnModelCreating(builder);
             SalesCredit.OnModelCreating(builder);
-            SalesDocumentLine.BuildModel(builder);
+            SalesDocumentLine.OnModelCreating(builder);
             SalesInvoice.OnModelCreating(builder);
-            SalesReceipt.BuildModel(builder);
-            SalesOrder.BuildModel(builder);
-            SalesOrderInvoice.BuildModel(builder);
-            SalesQuote.BuildModel(builder);
-            SalesQuoteOrder.BuildModel(builder);
-            SalesInvoiceReceipt.BuildModel(builder);
-            SalesLine.BuildModel(builder);
-            SalesDocumentCustomerDetails.BuildModel(builder);
+            SalesReceipt.OnModelCreating(builder);
+            SalesOrder.OnModelCreating(builder);
+            SalesOrderInvoice.OnModelCreating(builder);
+            SalesQuote.OnModelCreating(builder);
+            SalesQuoteOrder.OnModelCreating(builder);
+            SalesQuoteInvoice.OnModelCreating(builder);
+            SalesInvoiceReceipt.OnModelCreating(builder);
+            SalesLine.OnModelCreating(builder);
+            SalesDocumentCustomerDetails.OnModelCreating(builder);
             SalesDocumentCompanyDetails.OnModelCreating(builder);
-            SalesPerson.BuildModel(builder);
-            SalesInvoiceCredit.BuildModel(builder);
-            SalesDocumentNote.BuildModel(builder);
+            SalesPerson.OnModelCreating(builder);
+            SalesInvoiceCredit.OnModelCreating(builder);
+            SalesDocumentNote.OnModelCreating(builder);
 
 
             /************************************************************************************************
@@ -88,7 +89,7 @@ namespace Librebooks.Models.Entity
             Currency.OnModelCreating(builder);
             DateFormat.OnModelCreating(builder);
             TaxType.OnModelCreating(builder);
-            ShippingMethod.BuildModel(builder);
+            ShippingMethod.OnModelCreating(builder);
             ShippingTerm.OnModelCreating(builder);
             PaymentMethod.OnModelCreating(builder);
             CompanySetup.OnModelCreating(builder);
@@ -98,12 +99,12 @@ namespace Librebooks.Models.Entity
              * Customer Space
              ************************************************************************************************/
             Customer.OnModelCreating(builder);
-            CustomerCategory.BuildModel(builder);
+            CustomerCategory.OnModelCreating(builder);
             CustomerNote.OnModelCreating(builder);
             CustomerContact.BuildModel(builder);
             CustomerAccountsContact.OnModelCreating(builder);
             CustomerWriteOff.OnModelCreating(builder);
-            CustomerAdjustment.BuildModel(builder);
+            CustomerAdjustment.OnModelCreating(builder);
             CustomerSetup.OnModelCreating(builder);
 
             /************************************************************************************************
@@ -118,30 +119,31 @@ namespace Librebooks.Models.Entity
             /************************************************************************************************
              * Supplier Space
              ************************************************************************************************/
-            Supplier.BuildModel(builder);
-            SupplierNote.BuildModel(builder);
-            SupplierAdjustment.BuildModel(builder);
-            SupplierContact.BuildModel(builder);
+            Supplier.OnModelCreating(builder);
+            SupplierNote.OnModelCreating(builder);
+            SupplierAdjustment.OnModelCreating(builder);
+            SupplierContact.OnModelCreating(builder);
             SupplierAccountsContact.BuildModel(builder);
-            SupplierCategory.BuildModel(builder);
-            SupplierSetup.BuildModel(builder);
+            SupplierCategory.OnModelCreating(builder);
+            SupplierSetup.OnModelCreating(builder);
 
             /************************************************************************************************
              * Purchasing Space
              ************************************************************************************************/
-            PurchaseDocument.BuildModel(builder);
-            PurchaseDocumentLine.BuildModel(builder);
-            PurchaseInvoice.BuildModel(builder);
-            PurchaseOrder.BuildModel(builder);
-            PurchaseOrderInvoice.BuildModel(builder);
-            PurchaseReceipt.BuildModel(builder);
+            PurchaseDocument.OnModelCreating(builder);
+            PurchaseDocumentLine.OnModelCreating(builder);
+            PurchaseInvoice.OnModelCreating(builder);
+            PurchaseOrder.OnModelCreating(builder);
+            PurchaseOrderInvoice.OnModelCreating(builder);
+            PurchaseReceipt.OnModelCreating(builder);
             PurchaseInvoiceReceipt.BuildModel(builder);
             PurchaseReturn.BuildModel(builder);
-            PurchaseLine.BuildModel(builder);
-            PurchaseBuyer.BuildModel(builder);
+            PurchaseLine.OnModelCreating(builder);
+            PurchaseBuyer.OnModelCreating(builder);
             PurchaseInvoiceReturn.BuildModel(builder);
-            PurchaseDocumentNote.BuildModel(builder);
-            PurchaseDocumentSupplierDetails.BuildModel(builder);
+            PurchaseDocumentNote.OnModelCreating(builder);
+            PurchaseDocumentSupplierDetails.OnModelCreating(builder);
+            PurchaseRequestForQuote.OnModelCreating(builder);
 
             /************************************************************************************************
              * Banking Space

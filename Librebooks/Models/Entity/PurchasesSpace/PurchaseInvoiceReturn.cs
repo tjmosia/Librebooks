@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.PurchasesSpace
 {
+    [Table(nameof(PurchaseInvoiceReturn))]
     public class PurchaseInvoiceReturn
     {
         public virtual string? ReturnId { get; set; }

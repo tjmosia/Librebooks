@@ -24,11 +24,7 @@ public class BankAccountCategory () : VersionedEntityBase()
     {
         builder.Entity<BankAccountCategory>(options =>
         {
-            options.HasMany<BankAccount>()
-                .WithOne(p => p.Category)
-                .HasForeignKey(p => p.CategoryId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+
         });
     }
 }

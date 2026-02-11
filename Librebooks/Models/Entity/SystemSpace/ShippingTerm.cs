@@ -28,7 +28,6 @@ public class ShippingTerm () : VersionedEntityBase()
     {
         builder.Entity<ShippingTerm>(options =>
         {
-
             options.HasMany<SalesDocument>()
                 .WithOne(p => p.ShippingTerm)
                 .HasForeignKey(p => p.ShippingTermId)

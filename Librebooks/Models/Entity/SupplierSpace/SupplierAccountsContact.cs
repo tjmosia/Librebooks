@@ -1,7 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.SupplierSpace
 {
+    [Table(nameof(SupplierAccountsContact))]
     public class SupplierAccountsContact
     {
         public virtual string? SupplierId { get; set; }

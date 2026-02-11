@@ -46,6 +46,11 @@ public class ItemAdjustment () : VersionedEntityBase()
             options.HasIndex(p => new { p.CompanyId, p.ItemId })
                 .IsClustered();
 
+            options.HasOne(p => p.Company)
+                .WithMany()
+                .HasForeignKey(p => p.CompanyId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         });
     }
 }

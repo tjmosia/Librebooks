@@ -1,26 +1,27 @@
-﻿using Microsoft.EntityFrameworkCore;
-
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Core.Types;
+using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.SalesSpace
+namespace Librebooks.Models.Entity.SalesSpace;
+
+[Table(nameof(SalesInvoiceReceipt))]
+[PrimaryKey(nameof(InvoiceId), nameof(ReceiptId))]
+public class SalesInvoiceReceipt
 {
-    public class SalesInvoiceReceipt
+    public virtual int InvoiceId { get; set; }
+    public virtual int ReceiptId { get; set; }
+
+    [Column(TypeName = ColumnTypes.MONETARY)]
+    public virtual decimal Amount { get; set; }
+
+    public virtual SalesInvoice? Invoice { get; set; }
+    public virtual SalesReceipt? Receipt { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? InvoiceId { get; set; }
-        public virtual string? ReceiptId { get; set; }
-        public virtual decimal Amount { get; set; }
+        builder.Entity<SalesInvoiceReceipt>(options =>
+        {
 
-        public virtual SalesInvoice? Invoice { get; set; }
-        public virtual SalesReceipt? Receipt { get; set; }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<SalesInvoiceReceipt>(options =>
-            {
-                options.ToTable(nameof(SalesInvoiceReceipt))
-                    .HasKey(p => new { p.InvoiceId, p.ReceiptId });
-
-                options.Property(p => p.Amount)
-                    .HasColumnType(ColumnTypes.MONETARY);
-            });
+        });
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Extensions.Models;
+using Librebooks.Models.Entity.CompanySpace;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.InventorySpace;
@@ -23,9 +24,11 @@ public class ItemSetup () : VersionedEntityBase()
     {
         builder.Entity<ItemSetup>(options =>
         {
-            options.ToTable(nameof(ItemSetup))
-                .HasKey(p => p.CompanyId)
-                .IsClustered(false);
+            options.HasOne<Company>()
+                .WithOne()
+                .HasForeignKey<ItemSetup>(p => p.CompanyId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         });
     }
 }

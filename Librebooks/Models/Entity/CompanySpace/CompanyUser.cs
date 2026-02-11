@@ -26,6 +26,12 @@ namespace Librebooks.Models.Entity.CompanySpace
                        .IsUnique()
                        .IsClustered();
 
+                   options.HasOne(p => p.Company)
+                       .WithMany()
+                       .HasForeignKey(p => p.CompanyId)
+                           .IsRequired()
+                       .OnDelete(DeleteBehavior.Restrict);
+
                    options.HasOne<SalesPerson>()
                        .WithOne(p => p.CompanyUser)
                        .HasForeignKey<SalesPerson>(p => p.CompanyUserId)

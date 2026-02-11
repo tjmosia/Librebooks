@@ -62,10 +62,11 @@ namespace Librebooks.Data
         public DbSet<SalesInvoiceReceipt>? SalesInvoiceReceipt { get; set; }
         public DbSet<SalesOrderInvoice>? SalesOrderInvoice { get; set; }
         public DbSet<SalesQuote>? SalesQuote { get; set; }
+        public DbSet<SalesQuoteInvoice>? SalesQuoteInvoice { get; set; }
+        public DbSet<SalesQuoteOrder>? SalesQuoteOrder { get; set; }
         public DbSet<SalesCredit>? SalesCredit { get; set; }
         public DbSet<SalesReceipt>? SalesReceipt { get; set; }
         public DbSet<SalesLine>? SalesLine { get; set; }
-        public DbSet<SalesQuoteOrder>? SalesQuoteOrder { get; set; }
         public DbSet<SalesDocumentCustomerDetails>? SalesDocumentCustomerDetails { get; set; }
         public DbSet<SalesDocumentCompanyDetails>? SalesDocumentCompanyDetails { get; set; }
 
@@ -142,6 +143,7 @@ namespace Librebooks.Data
         public DbSet<PurchaseOrderInvoice>? PurchaseOrderInvoice { get; set; }
         public DbSet<PurchaseInvoiceReceipt>? PurchaseInvoiceReceipt { get; set; }
         public DbSet<PurchaseDocumentSupplierDetails>? PurchaseDocumentSupplierDetails { get; set; }
+        public DbSet<PurchaseRequestForQuote>? PurchaseRequestForQuote { get; set; }
 
         /************************************************************************************************
          * GENERAL SPACE

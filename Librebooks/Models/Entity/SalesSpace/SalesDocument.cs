@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Librebooks.Core.Types;
 using Librebooks.Extensions.Models;
-using Librebooks.Models.Entity.CompanySpace;
 using Librebooks.Models.Entity.DocumentSpace;
 using Librebooks.Models.Entity.IdentitySpace;
 using Librebooks.Models.Entity.SystemSpace;
@@ -16,6 +14,8 @@ public class SalesDocument () : VersionedEntityBase()
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public virtual int Id { get; set; }
+    public virtual DateOnly Date { get; set; }
+    public virtual DateOnly DueDate { get; set; }
 
     [Required, MaxLength(50)]
     public virtual string? Title { get; set; }
@@ -28,8 +28,6 @@ public class SalesDocument () : VersionedEntityBase()
 
     public virtual int CustomerDetailsId { get; set; }
     public virtual int CompanyDetailsId { get; set; }
-    public virtual DateOnly Date { get; set; }
-    public virtual DateOnly DueDate { get; set; }
 
     [MaxLength(255)]
     public virtual string? Message { get; set; }
@@ -40,7 +38,6 @@ public class SalesDocument () : VersionedEntityBase()
     public virtual bool TaxExempt { get; set; }
     public virtual int CurrencyId { get; set; }
     public virtual string? SalesPersonId { get; set; }
-    public virtual int CompanyId { get; set; }
     public virtual int? ShippingTermId { get; set; }
     public virtual int? ShippingMethodId { get; set; }
     public virtual int CustomerId { get; set; }
@@ -49,7 +46,6 @@ public class SalesDocument () : VersionedEntityBase()
     public virtual bool Printed { get; set; }
     public virtual int? CreatorId { get; set; }
 
-    public virtual CompanyImage? Logo { get; set; }
     public virtual Currency? Currency { get; set; }
     public virtual DocumentStatus? Status { get; set; }
     public virtual SalesPerson? SalesPerson { get; set; }
@@ -64,20 +60,6 @@ public class SalesDocument () : VersionedEntityBase()
     public static void OnModelCreating (ModelBuilder builder)
         => builder.Entity<SalesDocument>(options =>
         {
-            options.ToTable(nameof(SalesDocument))
-                .HasKey(e => e.Id)
-                .IsClustered(false);
-
-            options.HasIndex(p => new { p.CompanyId, p.Number })
-                .IsUnique()
-                .IsClustered();
-
-            options.Property(p => p.Date)
-                .HasColumnType(ColumnTypes.DATE);
-
-            options.Property(p => p.DueDate)
-                .HasColumnType(ColumnTypes.DATE);
-
             options.HasMany(p => p.Lines)
                 .WithOne(p => p.Document)
                 .HasForeignKey(p => p.DocumentId)
@@ -95,5 +77,11 @@ public class SalesDocument () : VersionedEntityBase()
                 .HasForeignKey(p => p.DocumentId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
+
+            options.HasOne(p => p.Status)
+                .WithMany()
+                .HasForeignKey(p => p.StatusId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         });
 }

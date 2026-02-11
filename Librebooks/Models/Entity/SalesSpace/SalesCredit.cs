@@ -35,5 +35,11 @@ public class SalesCredit
                 .HasForeignKey(p => p.CreditId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
+
+            options.HasOne(p => p.Company)
+                .WithMany()
+                .HasForeignKey(p => p.CompanyId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         });
 }

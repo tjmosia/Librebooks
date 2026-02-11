@@ -1,21 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.SalesSpace
+namespace Librebooks.Models.Entity.SalesSpace;
+
+[Table(nameof(SalesInvoiceCredit))]
+[PrimaryKey(nameof(InvoiceId), nameof(CreditId))]
+public class SalesInvoiceCredit
 {
-    public class SalesInvoiceCredit
+    public virtual int InvoiceId { get; set; }
+    public virtual int CreditId { get; set; }
+
+    public virtual SalesCredit? Credit { get; set; }
+    public virtual SalesInvoice? Invoice { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? InvoiceId { get; set; }
-        public virtual string? CreditId { get; set; }
-        public virtual string? Comment { get; set; }
-
-        public virtual SalesCredit? Credit { get; set; }
-        public virtual SalesInvoice? Invoice { get; set; }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<SalesInvoiceCredit>(options =>
-            {
-                options.ToTable(nameof(SalesInvoiceCredit))
-                    .HasKey(x => new { x.InvoiceId, x.CreditId });
-            });
+        builder.Entity<SalesInvoiceCredit>(options =>
+        {
+            options.ToTable(nameof(SalesInvoiceCredit))
+                .HasKey(x => new { x.InvoiceId, x.CreditId });
+        });
     }
 }

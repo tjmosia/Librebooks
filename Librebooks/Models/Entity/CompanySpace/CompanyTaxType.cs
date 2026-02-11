@@ -11,16 +11,22 @@ using Microsoft.EntityFrameworkCore;
 namespace Librebooks.Models.Entity.CompanySpace
 {
     [Table(nameof(CompanyTaxType))]
-    public class CompanyTaxType
+    public class CompanyTaxType ()
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public virtual int Id { get; set; }
         public virtual int CompanyId { get; set; }
         public virtual int TaxTypeId { get; set; }
 
-        public virtual Company? Company { get; set; }
+        public CompanyTaxType (int companyId, int taxTypeId)
+            : this()
+        {
+            CompanyId = companyId;
+            TaxTypeId = taxTypeId;
+        }
+
         public virtual TaxType? TaxType { get; set; }
-        public virtual CompanyDefaultTaxType? CompanySalesTaxType { get; set; }
+        public virtual CompanyDefaultTaxType? CompanyDefaultTaxType { get; set; }
 
         public static void BuildModel (ModelBuilder builder)
             => builder.Entity<CompanyTaxType>(options =>
@@ -29,6 +35,12 @@ namespace Librebooks.Models.Entity.CompanySpace
                 options.HasIndex(p => new { p.CompanyId, p.TaxTypeId })
                     .IsUnique()
                     .IsClustered();
+
+                options.HasOne<Company>()
+                    .WithMany()
+                    .HasForeignKey(p => p.CompanyId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 options.HasOne(p => p.TaxType)
                     .WithOne()
@@ -66,11 +78,11 @@ namespace Librebooks.Models.Entity.CompanySpace
                         .IsRequired(false)
                     .OnDelete(DeleteBehavior.SetNull);
 
-                options.HasOne(p => p.CompanySalesTaxType)
-                .WithOne(p => p.CompanyTaxType)
-                .HasForeignKey<CompanyDefaultTaxType>(p => p.CompanyTaxTypeId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.NoAction);
+                options.HasOne(p => p.CompanyDefaultTaxType)
+                    .WithOne(p => p.CompanyTaxType)
+                    .HasForeignKey<CompanyDefaultTaxType>(p => p.CompanyTaxTypeId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.NoAction);
             });
     }
 }

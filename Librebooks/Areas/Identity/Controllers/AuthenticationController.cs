@@ -28,8 +28,7 @@ namespace Librebooks.Areas.Identity.Controllers
         private readonly JwtParams jwtParameters = jwtParameters.Value;
         private readonly IConfiguration config = config;
 
-        [HttpPost]
-        [Route("")]
+        [HttpPost("")]
         public async Task<IActionResult> FindUserAsync ([FromBody] UsernameModel input)
         {
             if (!ModelState.IsValid)
@@ -43,8 +42,7 @@ namespace Librebooks.Areas.Identity.Controllers
                 return Ok(FindUserDto.Create(user));
         }
 
-        [HttpPost]
-        [Route("verify-email")]
+        [HttpPost("verify-email")]
         public IActionResult VerifyEmail ([FromBody] VerifyModel input)
         {
             if (!ModelState.IsValid)
@@ -54,8 +52,7 @@ namespace Librebooks.Areas.Identity.Controllers
                 ? Ok(TransactionResult.Success) : Ok(TransactionResult.Failure());
         }
 
-        [HttpPost]
-        [Route("send-verification-code")]
+        [HttpPost("send-verification-code")]
         public async Task<IActionResult> SendVerificationCodeAsync ([FromBody] SendVerificationModel model)
         {
             if (!ModelState.IsValid)
@@ -75,8 +72,7 @@ namespace Librebooks.Areas.Identity.Controllers
             return Ok(TransactionResult<SendVerificationDto>.Success(new SendVerificationDto(CodeHashString)));
         }
 
-        [HttpPost]
-        [Route("login")]
+        [HttpPost("login")]
         public async Task<IActionResult> LoginAsync ([FromBody] LoginModel input)
         {
             if (!ModelState.IsValid)
@@ -96,7 +92,7 @@ namespace Librebooks.Areas.Identity.Controllers
 
             if (result.Succeeded)
             {
-                user.DateLastLoggedIn = DateTime.Now;
+                user.DateLastLoggedIn = DateOnly.FromDateTime(DateTime.Now);
                 _ = await userManager.UpdateAsync(user);
 
                 var nameClaim = (await userManager.GetClaimsAsync(user))
@@ -117,8 +113,7 @@ namespace Librebooks.Areas.Identity.Controllers
             }
         }
 
-        [HttpPost]
-        [Route("register")]
+        [HttpPost("register")]
         public async Task<IActionResult> RegisterAsync ([FromBody] RegisterModel input)
         {
             if (!ModelState.IsValid)
@@ -137,8 +132,8 @@ namespace Librebooks.Areas.Identity.Controllers
                 LastName = input.LastName,
                 NormalizedEmail = userManager.NormalizeEmail(input.Email),
                 NormalizedUserName = userManager.NormalizeName(input.Email),
-                DateLastLoggedIn = DateTime.Now,
-                DateRegistered = DateTime.Now,
+                DateLastLoggedIn = DateOnly.FromDateTime(DateTime.Now),
+                DateRegistered = DateOnly.FromDateTime(DateTime.Now),
                 EmailConfirmed = false
             };
 
@@ -149,7 +144,7 @@ namespace Librebooks.Areas.Identity.Controllers
                 logger!.LogInformation("User created with email {email}", user.Email);
                 user = await userManager.FindByEmailAsync(user.Email);
 
-                user!.DateLastLoggedIn = DateTime.Now;
+                user!.DateLastLoggedIn = DateOnly.FromDateTime(DateTime.Now);
                 _ = await userManager.UpdateAsync(user);
                 _ = await userManager.AddClaimAsync(user, new Claim(ClaimTypes.Name, user.Email!));
 
@@ -180,8 +175,7 @@ namespace Librebooks.Areas.Identity.Controllers
             }
         }
 
-        [HttpPost]
-        [Route("reset-password")]
+        [HttpPost("reset-password")]
         public async Task<IActionResult> ResetPasswordAsync ([FromBody] ResetPasswordModel input)
         {
             if (!ModelState.IsValid)

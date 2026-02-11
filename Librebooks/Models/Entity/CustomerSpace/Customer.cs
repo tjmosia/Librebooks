@@ -49,7 +49,6 @@ public class Customer () : VersionedEntityBase()
     public virtual string? Website { get; set; }
 
     public virtual PaymentTerm? PaymentTerm { get; set; }
-    public virtual Company? Company { get; set; }
     public virtual CustomerCategory? Category { get; set; }
     public virtual ICollection<SalesInvoice>? Invoices { get; set; }
     public virtual ICollection<SalesQuote>? Quotes { get; set; }
@@ -92,30 +91,6 @@ public class Customer () : VersionedEntityBase()
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
-            options.HasMany(p => p.Orders)
-                .WithOne()
-                .HasForeignKey(p => p.CustomerId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-
-            options.HasMany(p => p.Invoices)
-                .WithOne()
-                .HasForeignKey(p => p.CustomerId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-
-            options.HasMany(p => p.Credits)
-                .WithOne()
-                .HasForeignKey(p => p.CustomerId)
-                    .IsRequired(false)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            options.HasMany(p => p.Receipts)
-                .WithOne()
-                .HasForeignKey(p => p.CustomerId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-
             options.HasMany(p => p.ContactPeople)
                 .WithOne()
                 .HasForeignKey(p => p.CustomerId)
@@ -139,6 +114,13 @@ public class Customer () : VersionedEntityBase()
                 .HasForeignKey<Customer>(p => p.ShippingMethodId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
+
+            options.HasOne<Company>()
+                .WithMany()
+                .HasForeignKey(p => p.CompanyId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
         });
     }
 }

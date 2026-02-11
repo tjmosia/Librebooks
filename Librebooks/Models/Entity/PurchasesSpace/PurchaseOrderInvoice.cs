@@ -1,20 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.PurchasesSpace
 {
+    [Table(nameof(PurchaseOrderInvoice))]
     public class PurchaseOrderInvoice
     {
-        public virtual string? OrderId { get; set; }
+        public virtual int OrderId { get; set; }
+        public virtual int InvoiceId { get; set; }
+
         public virtual PurchaseOrder? Order { get; set; }
-        public virtual string? InvoiceId { get; set; }
         public virtual PurchaseInvoice? Invoice { get; set; }
 
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<PurchaseOrderInvoice>(options =>
+        public static void OnModelCreating (ModelBuilder builder)
+        {
+            builder.Entity<PurchaseOrderInvoice>(options =>
             {
-                options.ToTable(nameof(PurchaseOrderInvoice))
-                    .HasKey(p => new { p.OrderId, p.InvoiceId })
+                options.HasKey(p => new { p.OrderId, p.InvoiceId })
                     .IsClustered();
             });
+        }
     }
 }

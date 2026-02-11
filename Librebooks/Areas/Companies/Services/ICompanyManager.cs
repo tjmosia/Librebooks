@@ -15,9 +15,9 @@ namespace Librebooks.Areas.Companies.Services
         /********************************************************************
          ** COMPANY GET TRANSACTIONS
          ********************************************************************/
-        Task<Company[]> FindAllByUserAsync (string userId);
-        Task<Company?> FindByIdAsync (string companyId);
-        Task<Company?> FindByNumberAsync (string companyNumber);
+        Task<Company[]> FindAllByUserAsync (int userId);
+        Task<Company?> FindByIdAsync (int companyId);
+        Task<Company?> FindByNumberAsync (int companyNumber);
         Task<CompanyRegionalSettings?> GetRegionalSettingsAsync (Company company);
         Task<TaxType?> GetSalesTaxTypeAsync (Company company);
         Task<CompanyMailSettings?> GetMailSettingsAsync (Company company);
@@ -25,10 +25,10 @@ namespace Librebooks.Areas.Companies.Services
         Task<IList<TaxType>> GetTaxTypesAsync (Company company);
         Task<IList<BankAccount>> GetBankAccountsAsync (Company company);
         Task<BankAccount?> GetDefaultBankAccountAsync (Company company);
-        Task<TaxType?> FindTaxTypeByIdAsync (Company company, string id);
-        Task<BankAccount?> FindBankAccountByIdAsync (Company company, string id);
-        Task<Contact?> FindSalesPersonByIdAsync (Company company, string id);
-        Task<Contact?> FindSalesPersonByUserIdAsync (Company company, string userId);
+        Task<TaxType?> FindTaxTypeByIdAsync (Company company, int id);
+        Task<BankAccount?> FindBankAccountByIdAsync (Company company, int id);
+        Task<Contact?> FindSalesPersonByIdAsync (Company company, int id);
+        Task<Contact?> FindSalesPersonByUserIdAsync (Company company, int userId);
 
         /********************************************************************
          ** COMPANY CREATE TRANSACTIONS

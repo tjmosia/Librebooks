@@ -16,23 +16,23 @@ public class AccountCategory () : VersionedEntityBase()
 
     [MaxLength(255)]
     public virtual string? Description { get; set; }
+
+    [MaxLength(75)]
     public virtual string? ClassType { get; set; }
+
     public virtual int CashFlowTypeId { get; set; }
 
-    public virtual ICollection<Account>? Accounts { get; set; }
     public virtual AccountCashFlowType? CashFlowType { get; set; }
 
     public static void OnModelCreating (ModelBuilder builder)
-        => builder.Entity<AccountCategory>(options =>
+    {
+        builder.Entity<AccountCategory>(options =>
         {
-            options.ToTable(nameof(AccountCategory))
-                .HasKey(x => x.Id)
-                .IsClustered();
-
-            options.HasMany(p => p.Accounts)
-                .WithOne(p => p.Category)
-                .HasForeignKey(p => p.CategoryId)
+            options.HasOne(p => p.CashFlowType)
+                .WithMany()
+                .HasForeignKey(p => p.CashFlowTypeId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
         });
+    }
 }

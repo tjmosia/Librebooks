@@ -13,10 +13,10 @@ namespace Librebooks.Providers
 
         public async Task<VerificationRequest?> AddAsync (VerificationRequest request)
         {
-            request.Subject = request.Subject!.ToLower();
-            request.Subject = request.RequestUrl!.ToLower();
+            request.Email = request.Email!.ToLower();
+            request.Email = request.RequestUrl!.ToLower();
 
-            var code = GenerateAsync(request.Subject, request.RequestUrl, GenerateRandomCode());
+            var code = GenerateAsync(request.Email, request.RequestUrl, GenerateRandomCode());
             request.HashString = code.HashString;
 
             return await store.CreateAsync(request);

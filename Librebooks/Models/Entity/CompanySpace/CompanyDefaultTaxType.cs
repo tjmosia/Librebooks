@@ -12,13 +12,16 @@ public class CompanyDefaultTaxType
     public virtual int CompanyTaxTypeId { get; set; }
 
     public virtual CompanyTaxType? CompanyTaxType { get; set; }
-    public virtual Company? Company { get; set; }
 
     public static void OnModelCreating (ModelBuilder builder)
     {
         builder.Entity<CompanyDefaultTaxType>(options =>
-           {
-
-           });
+        {
+            options.HasOne<Company>()
+                .WithOne()
+                .HasForeignKey<CompanyDefaultTaxType>(p => p.CompanyId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+        });
     }
 }

@@ -1,70 +1,74 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Core.Types;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.BankingSpace;
 using Librebooks.Models.Entity.CompanySpace;
+using Librebooks.Models.Entity.CustomerSpace;
 using Librebooks.Models.Entity.SystemSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.SalesSpace
+namespace Librebooks.Models.Entity.SalesSpace;
+
+[Table(nameof(SalesReceipt))]
+public class SalesReceipt () : VersionedEntityBase()
 {
-    public class SalesReceipt
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
+    public virtual DateOnly Date { get; set; }
+
+    [MaxLength(50)]
+    public virtual string? Number { get; set; }
+
+    [MaxLength(50)]
+    public virtual string? Reference { get; set; }
+
+    [Column(TypeName = ColumnTypes.MONETARY)]
+    public virtual decimal Amount { get; set; }
+
+    [MaxLength(255)]
+    public virtual string? Message { get; set; }
+
+    [MaxLength(255)]
+    public virtual string? Comments { get; set; }
+
+    public virtual bool Archived { get; set; }
+    public virtual bool Reconciled { get; set; }
+    public virtual bool Recorded { get; set; }
+    public virtual int BankAccountId { get; set; }
+    public virtual int CompanyId { get; set; }
+    public virtual int CustomerId { get; set; }
+    public virtual int PaymentMethodId { get; set; }
+
+    public virtual BankAccount? BankAccount { get; set; }
+    public virtual PaymentMethod? PaymentMethod { get; set; }
+    public virtual ICollection<SalesInvoiceReceipt>? AllocatedInvoices { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? Id { get; set; }
-        public virtual DateTime Date { get; set; }
-        public virtual string? CustomerDetailsId { get; set; }
-        public virtual string? Reference { get; set; }
-        public virtual decimal Amount { get; set; }
-        public virtual string? Message { get; set; }
-        public virtual string? Comments { get; set; }
-        public virtual bool Archived { get; set; }
-        public virtual bool Reconciled { get; set; }
-        public virtual bool Recorded { get; set; }
-        public virtual string? BankAccountId { get; set; }
-        public virtual string? CompanyId { get; set; }
-        public virtual string? CustomerId { get; set; }
-        public virtual string? PaymentMethodId { get; set; }
-        public virtual string? LogoId { get; set; }
+        builder.Entity<SalesReceipt>(options =>
+          {
+              options.HasIndex(p => new { p.CompanyId, p.Id })
+                  .IsClustered();
 
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
+              options.HasMany(p => p.AllocatedInvoices)
+                  .WithOne(p => p.Receipt)
+                  .HasForeignKey(p => p.ReceiptId)
+                      .IsRequired()
+                  .OnDelete(DeleteBehavior.Restrict);
 
-        public virtual CompanyImage? Logo { get; set; }
-        public virtual Company? Company { get; set; }
-        public virtual SalesDocumentCustomerDetails? CustomerDetails { get; set; }
-        public virtual SalesDocumentCompanyDetails? CompanyDetails { get; set; }
-        public virtual BankAccount? BankAccount { get; set; }
-        public virtual PaymentMethod? PaymentMethod { get; set; }
-        public virtual ICollection<SalesInvoiceReceipt>? AllocatedInvoices { get; set; }
+              options.HasOne<Company>()
+                  .WithMany()
+                  .HasForeignKey(p => p.CompanyId)
+                  .IsRequired()
+                  .OnDelete(DeleteBehavior.Restrict);
 
-        public SalesReceipt ()
-        {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<SalesReceipt>(options =>
-            {
-                options.ToTable(nameof(SalesReceipt))
-                    .HasKey(p => p.Id)
-                    .IsClustered(false);
-
-                options.Property(p => p.Date)
-                    .HasColumnType(ColumnTypes.DATE);
-
-                options.HasIndex(p => p.CompanyId)
-                    .IsClustered();
-
-                options.Property(p => p.Amount)
-                    .HasColumnType(ColumnTypes.MONETARY);
-
-                options.HasMany(p => p.AllocatedInvoices)
-                    .WithOne(p => p.Receipt)
-                    .HasForeignKey(p => p.ReceiptId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
+              options.HasOne<Customer>()
+                  .WithMany()
+                  .HasForeignKey(p => p.CustomerId)
+                      .IsRequired(true)
+                  .OnDelete(DeleteBehavior.Restrict);
+          });
     }
 }

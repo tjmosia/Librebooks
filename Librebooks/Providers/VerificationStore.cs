@@ -9,10 +9,10 @@ namespace Librebooks.Providers
     {
         private readonly AppDbContext context = context;
 
-        public async Task<VerificationRequest?> FindAsync (string subject, string requestUri)
+        public async Task<VerificationRequest?> FindAsync (string email, string reason)
         {
             return await context.VerificationRequest!
-                .Where(p => p.Subject == subject && p.RequestUrl == requestUri)
+                .Where(p => p.Email == email && p.Reason == reason)
                 .FirstOrDefaultAsync();
         }
 
@@ -47,7 +47,7 @@ namespace Librebooks.Providers
 
         public async Task<VerificationRequest?> CreateAsync (VerificationRequest request)
         {
-            var oldRequest = await FindAsync(request.Subject!, request.RequestUrl!);
+            var oldRequest = await FindAsync(request.Email!, request.Reason!);
 
             if (oldRequest != null)
                 await DeleteAsync(oldRequest);

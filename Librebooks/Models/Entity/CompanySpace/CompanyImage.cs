@@ -50,6 +50,13 @@ public class CompanyImage () : VersionedEntityBase()
                 .HasForeignKey(p => p.LogoId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
+
+            options.HasOne<Company>()
+                .WithMany()
+                .HasForeignKey(p => p.CompanyId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
         });
     }
 }

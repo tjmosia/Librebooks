@@ -1,22 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.SalesSpace
+namespace Librebooks.Models.Entity.SalesSpace;
+
+[Table(nameof(SalesQuoteOrder))]
+[PrimaryKey(nameof(QuoteId), nameof(OrderId))]
+public class SalesQuoteOrder
 {
-    public class SalesQuoteOrder
+    public virtual int QuoteId { get; set; }
+    public virtual int OrderId { get; set; }
+
+    public virtual SalesQuote? Quote { get; set; }
+    public virtual SalesOrder? Order { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? QuoteId { get; set; }
-        public virtual string? OrderId { get; set; }
-
-        public virtual SalesQuote? Quote { get; set; }
-        public virtual SalesOrder? Order { get; set; }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<SalesQuoteOrder>(options =>
-            {
-                options.ToTable(nameof(SalesQuoteOrder))
-                    .HasKey(p => new { p.QuoteId, p.OrderId })
-                    .IsClustered();
-            });
-
+        builder.Entity<SalesQuoteOrder>(options =>
+        {
+        });
     }
+
 }

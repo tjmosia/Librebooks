@@ -4,17 +4,14 @@ using Librebooks.CoreLib.Operations;
 using Librebooks.Data;
 using Librebooks.Models.Entity.BankingSpace;
 using Librebooks.Models.Entity.CompanySpace;
+using Librebooks.Models.Entity.CustomerSpace;
 using Librebooks.Models.Entity.DocumentSpace;
 using Librebooks.Models.Entity.GeneralSpace;
 using Librebooks.Models.Entity.IdentitySpace;
-using Librebooks.Models.Entity.SalesSpace;
-using Librebooks.Models.Entity.SystemSpace;
-
-using Librebooks.Areas.Companies.Services;
-using Librebooks.Models.Entity.CustomerSpace;
 using Librebooks.Models.Entity.InventorySpace;
+using Librebooks.Models.Entity.SalesSpace;
 using Librebooks.Models.Entity.SupplierSpace;
-
+using Librebooks.Models.Entity.SystemSpace;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Areas.Companies.Services
@@ -36,31 +33,31 @@ namespace Librebooks.Areas.Companies.Services
                 .Where(p => p.UniqueNumber == companyNumber)
                 .FirstOrDefaultAsync();
 
-        public async Task<CompanyRegionalSettings?> FindRegionalSettingsAsync (string companyId)
+        public async Task<CompanyRegionalSettings?> FindRegionalSettingsAsync (int companyId)
             => await context!.CompanyRegionalSettings!
                 .FindAsync(companyId);
 
-        public async Task<CompanyLogo?> FindLogoAsync (string companyId)
+        public async Task<CompanyLogo?> FindLogoAsync (int companyId)
             => await context!.CompanyLogo!
                 .Where(p => p.CompanyId == companyId)
                 .Include(p => p.Image)
                 .FirstOrDefaultAsync();
 
-        public async Task<IList<TaxType>> FindTaxTypesAsync (string companyId)
+        public async Task<IList<TaxType>> FindTaxTypesAsync (int companyId)
             => await context!.CompanyTaxType!
                 .Where(p => p.CompanyId == companyId)
                 .Include(p => p.TaxType)
                 .Select(p => p.TaxType!)
                 .ToListAsync();
 
-        public async Task<TaxType?> FindTaxTypeByIdAsync (string companyId, string taxTypeId)
+        public async Task<TaxType?> FindTaxTypeByIdAsync (int companyId, string taxTypeId)
             => await context!.CompanyTaxType!
                 .Where(p => p.CompanyId == companyId && p.TaxTypeId == taxTypeId)
                 .Include(p => p.TaxType)
                 .Select(p => p.TaxType)
                 .FirstOrDefaultAsync();
 
-        public async Task<TaxType?> FindDefaultTaxTypeAsync (string companyId)
+        public async Task<TaxType?> FindDefaultTaxTypeAsync (int companyId)
             => await context!.CompanyDefaultTaxType!
                 .Where(p => p.CompanyId == companyId)
                 .Include(p => p.CompanyTaxType)
@@ -68,42 +65,42 @@ namespace Librebooks.Areas.Companies.Services
                 .Select(p => p.CompanyTaxType!.TaxType)
                 .FirstOrDefaultAsync();
 
-        public async Task<CompanyMailSettings?> FindMailSettingsAsync (string companyId)
+        public async Task<CompanyMailSettings?> FindMailSettingsAsync (int companyId)
             => await context!.CompanyMailSettings!
                 .FindAsync(companyId);
 
-        public async Task<BankAccount?> FindDefaultBankAccountAsync (string companyId)
+        public async Task<BankAccount?> FindDefaultBankAccountAsync (int companyId)
          => await context!.CompanyDefaultBankAccount!
                 .Where(p => p.CompanyId == companyId)
                 .Include(p => p.BankAccount)
                 .Select(p => p.BankAccount)
                 .FirstOrDefaultAsync();
 
-        public async Task<BankAccount?> FindBankAccountByIdAsync (string companyId, string bankAccountId)
+        public async Task<BankAccount?> FindBankAccountByIdAsync (int companyId, int bankAccountId)
             => await context!.BankAccount!
                 .Where(p => p.CompanyId == companyId && bankAccountId == p.Id)
                 .FirstOrDefaultAsync();
 
-        public async Task<IList<BankAccount>> FindBankAccountsAsync (string companyId)
+        public async Task<IList<BankAccount>> FindBankAccountsAsync (int companyId)
             => await context!.BankAccount!
                 .Where(p => p.CompanyId == companyId)
                 .ToListAsync();
 
-        public async Task<Contact?> FindSalesPersonByIdAsync (string companyId, string salesPersonId)
+        public async Task<Contact?> FindSalesPersonByIdAsync (int companyId, int salesPersonId)
             => await context!.SalesPerson!
                 .Where(p => p.CompanyId == companyId && p.ContactId == salesPersonId)
                 .Include(p => p.Contact)
                 .Select(p => p.Contact)
                 .FirstOrDefaultAsync();
 
-        public async Task<Contact?> FindSalesPersonByUserIdAsync (string companyId, string userId)
+        public async Task<Contact?> FindSalesPersonByUserIdAsync (int companyId, int userId)
             => await context!.SalesPerson!
                 .Where(p => p.CompanyId == companyId && p.CompanyUserId == userId)
                 .Include(p => p.Contact)
                 .Select(p => p.Contact)
                 .FirstOrDefaultAsync();
 
-        public async Task<IList<User>> FindUsersAsync (string companyId)
+        public async Task<IList<User>> FindUsersAsync (int companyId)
             => await context!.CompanyUser!
                 .Where(p => p.CompanyId == companyId)
                 .Include(p => p.User)

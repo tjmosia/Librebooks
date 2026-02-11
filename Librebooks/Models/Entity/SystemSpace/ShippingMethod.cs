@@ -23,7 +23,7 @@ namespace Librebooks.Models.Entity.SystemSpace
         [MaxLength(255)]
         public virtual string? Description { get; set; }
 
-        public static void BuildModel (ModelBuilder builder)
+        public static void OnModelCreating (ModelBuilder builder)
             => builder.Entity<ShippingMethod>(options =>
             {
                 options.ToTable(nameof(ShippingMethod))

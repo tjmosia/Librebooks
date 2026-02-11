@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Core.Types;
 using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.CompanySpace;
-
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.AccountingSpace;
@@ -52,6 +51,31 @@ public class Journal () : VersionedEntityBase()
                 .HasForeignKey(p => p.JournalId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
+
+            options.HasOne<Company>()
+                .WithMany()
+                .HasForeignKey(p => p.CompanyId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            options.HasOne(p => p.TaxType)
+                .WithMany()
+                .HasForeignKey(p => p.TaxTypeId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            options.HasOne(p => p.DebitAccount)
+                .WithMany()
+                .HasForeignKey(p => p.DebitAccountId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            options.HasOne(p => p.CreditAccount)
+                .WithMany()
+                .HasForeignKey(p => p.CreditAccountId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
         });
     }
 }

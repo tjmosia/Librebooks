@@ -62,6 +62,12 @@ public class Item () : VersionedEntityBase()
                 .HasForeignKey(p => p.ItemId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
+
+            options.HasOne(p => p.Company)
+                .WithMany()
+                .HasForeignKey(p => p.CompanyId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         });
     }
 }

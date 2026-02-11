@@ -5,10 +5,10 @@ using Librebooks.Models.Entity.CompanySpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.SalesSpace;
+namespace Librebooks.Models.Entity.PurchasesSpace;
 
-[Table(nameof(SalesDocumentCompanyDetails))]
-public class SalesDocumentCompanyDetails () : VersionedEntityBase()
+[Table(nameof(PurchaseDocumentCompanyDetails))]
+public class PurchaseDocumentCompanyDetails () : VersionedEntityBase()
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public virtual int Id { get; set; }
@@ -33,14 +33,15 @@ public class SalesDocumentCompanyDetails () : VersionedEntityBase()
     public virtual CompanyImage? Logo { get; set; }
 
     public static void OnModelCreating (ModelBuilder builder)
-        => builder.Entity<SalesDocumentCompanyDetails>(options =>
+    {
+        builder.Entity<PurchaseDocumentCompanyDetails>(options =>
         {
             options.HasIndex(p => new { p.CompanyId, p.Id })
                 .IsClustered();
 
             options.HasOne<Company>()
                 .WithOne()
-                .HasForeignKey<SalesDocumentCompanyDetails>(p => p.CompanyId)
+                .HasForeignKey<PurchaseDocumentCompanyDetails>(p => p.CompanyId)
                     .IsRequired(false)
                 .OnDelete(DeleteBehavior.Restrict);
 
@@ -49,11 +50,6 @@ public class SalesDocumentCompanyDetails () : VersionedEntityBase()
                 .HasForeignKey(p => p.LogoId)
                     .IsRequired(false)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            options.HasMany<SalesDocument>()
-                .WithOne(p => p.CompanyDetails)
-                .HasForeignKey(propa => propa.CompanyDetailsId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
         });
+    }
 }

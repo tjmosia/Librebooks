@@ -1,60 +1,61 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 using Librebooks.Core.Types;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.CompanySpace;
-
+using Librebooks.Models.Entity.InventorySpace;
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.PurchasesSpace
+namespace Librebooks.Models.Entity.PurchasesSpace;
+
+[Table(nameof(PurchaseLine))]
+public class PurchaseLine () : VersionedEntityBase()
 {
-    public class PurchaseLine
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
+    public virtual bool IsItemType { get; set; }
+    public virtual string? Code { get; set; }
+    public virtual int? AccountId { get; set; }
+
+    [MaxLength(255)]
+    public virtual string? Description { get; set; }
+
+    [Required, MaxLength(20)]
+    public virtual string? Unit { get; set; }
+
+    [Column(TypeName = ColumnTypes.MONETARY)]
+    public virtual decimal Price { get; set; }
+
+    [Column(TypeName = ColumnTypes.PERCENTATE)]
+    public virtual decimal DiscountRate { get; set; }
+
+    [Column(TypeName = ColumnTypes.PERCENTATE)]
+    public virtual decimal TaxRate { get; set; }
+
+    public virtual int TaxTypeId { get; set; }
+    public virtual int DocumentId { get; set; }
+
+    [MaxLength(255)]
+    public virtual string? Comment { get; set; }
+
+    public virtual ICollection<PurchaseDocumentLine>? DocumentLines { get; set; }
+    public virtual CompanyTaxType? TaxType { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? Id { get; set; }
-        public virtual bool IsItemType { get; set; }
-        public virtual string? ItemCode { get; set; }
-        public virtual string? AccountId { get; set; }
-        public virtual string? Description { get; set; }
-        public virtual string? Unit { get; set; }
-        public virtual decimal Price { get; set; }
-        public virtual decimal DiscountRate { get; set; }
-        public virtual decimal TaxRate { get; set; }
-        public virtual string? TaxTypeId { get; set; }
-        public virtual string? DocumentId { get; set; }
-        public virtual string? Comment { get; set; }
+        builder.Entity<PurchaseLine>(options =>
+           {
+               options.HasMany(p => p.DocumentLines)
+                   .WithOne(p => p.Line)
+                   .HasForeignKey(p => p.LineId)
+                       .IsRequired()
+                   .OnDelete(DeleteBehavior.Restrict);
 
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
-
-        public virtual ICollection<PurchaseDocumentLine>? DocumentLines { get; set; }
-        public virtual CompanyTaxType? TaxType { get; set; }
-
-        public PurchaseLine ()
-        {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<PurchaseLine>(options =>
-            {
-                options.ToTable(nameof(PurchaseLine))
-                    .HasKey(p => p.Id)
-                    .IsClustered(true);
-
-                options.Property(p => p.Price)
-                    .HasColumnType(ColumnTypes.MONETARY);
-
-                options.Property(p => p.TaxRate)
-                    .HasColumnType(ColumnTypes.PERCENTATE);
-
-                options.Property(p => p.DiscountRate)
-                    .HasColumnType(ColumnTypes.PERCENTATE);
-
-                options.HasMany(p => p.DocumentLines)
-                    .WithOne(p => p.Line)
-                    .HasForeignKey(p => p.LineId)
-                        .IsRequired()
+               options.HasOne<Item>()
+                    .WithMany()
+                    .HasPrincipalKey(i => i.Code)
                     .OnDelete(DeleteBehavior.Restrict);
-            });
+           });
     }
 }

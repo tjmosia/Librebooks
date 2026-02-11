@@ -1,9 +1,11 @@
-﻿using Librebooks.Models.Entity.CompanySpace;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Models.Entity.CompanySpace;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.PurchasesSpace
 {
+    [Table(nameof(PurchaseReturn))]
     public class PurchaseReturn
     {
         public virtual string? DocumentId { get; set; }
@@ -34,6 +36,12 @@ namespace Librebooks.Models.Entity.PurchasesSpace
                 options.HasMany(p => p.Invoices)
                     .WithOne(p => p.Return)
                     .HasForeignKey(p => p.ReturnId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasOne<Company>()
+                    .WithMany()
+                    .HasForeignKey(p => p.CompanyId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
             });

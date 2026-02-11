@@ -1,42 +1,63 @@
-﻿using Librebooks.Models.Entity.CompanySpace;
-
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Models.Entity.CompanySpace;
+using Librebooks.Models.Entity.CustomerSpace;
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.SalesSpace
+namespace Librebooks.Models.Entity.SalesSpace;
+
+[Table(nameof(SalesQuote))]
+public class SalesQuote
 {
-    public class SalesQuote
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int DocumentId { get; set; }
+    public virtual int CustomerId { get; set; }
+    public virtual int CompanyId { get; set; }
+
+    public virtual SalesDocument? Document { get; set; }
+
+    public virtual ICollection<SalesQuoteOrder>? Orders { get; set; }
+    public virtual ICollection<SalesQuoteInvoice>? Invoices { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string? CustomerId { get; set; }
-        public virtual string? DocumentId { get; set; }
-        public virtual string? CompanyId { get; set; }
+        builder.Entity<SalesQuote>(options =>
+        {
+            options.HasIndex(p => new { p.CompanyId, p.CustomerId })
+                .IsClustered()
+                .IsUnique();
 
-        public virtual SalesDocument? Document { get; set; }
-        public virtual Company? Company { get; set; }
+            options.HasOne(p => p.Document)
+                .WithOne()
+                .HasForeignKey<SalesQuote>(p => p.DocumentId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
 
-        public virtual ICollection<SalesQuoteOrder>? Orders { get; set; }
+            options.HasMany(p => p.Orders)
+                .WithOne(p => p.Quote)
+                .HasForeignKey(p => p.QuoteId)
+                    .IsRequired(true)
+                .OnDelete(DeleteBehavior.Restrict);
 
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<SalesQuote>(options =>
-            {
-                options.ToTable(nameof(SalesQuote))
-                    .HasKey(p => p.DocumentId)
-                    .IsClustered(false);
+            options.HasMany(p => p.Invoices)
+                .WithOne(p => p.Quote)
+                .HasForeignKey(p => p.QuoteId)
+                    .IsRequired(true)
+                .OnDelete(DeleteBehavior.Restrict);
 
-                options.HasIndex(p => new { p.CompanyId, p.CustomerId })
-                    .IsClustered()
-                    .IsUnique();
+            options.HasOne<Company>()
+                .WithMany()
+                .HasForeignKey(p => p.CompanyId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
 
-                options.HasOne(p => p.Document)
-                    .WithOne()
-                    .HasForeignKey<SalesQuote>(p => p.DocumentId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+            options.HasOne<Customer>()
+                .WithMany()
+                .HasForeignKey(p => p.CustomerId)
+                    .IsRequired(true)
+                .OnDelete(DeleteBehavior.Restrict);
 
-                options.HasMany(p => p.Orders)
-                    .WithOne(p => p.Quote)
-                    .HasForeignKey(p => p.QuoteId)
-                        .IsRequired(true)
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
+
+        });
     }
 }

@@ -1,64 +1,56 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 using Librebooks.Core.Types;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.BankingSpace;
 using Librebooks.Models.Entity.CompanySpace;
+using Librebooks.Models.Entity.SupplierSpace;
 using Librebooks.Models.Entity.SystemSpace;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.PurchasesSpace
 {
-    public class PurchaseReceipt
+    [Table(nameof(PurchaseReceipt))]
+    public class PurchaseReceipt () : VersionedEntityBase()
     {
-        public virtual string? Id { get; set; }
-        public virtual DateTime Date { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+        public virtual DateOnly Date { get; set; }
+
+        [MaxLength(50), Required]
         public virtual string? Number { get; set; }
-        public virtual string? SupplierDetailsId { get; set; }
+
+        [MaxLength(50)]
         public virtual string? Reference { get; set; }
+
+        [MaxLength(255)]
         public virtual string? Description { get; set; }
+
+        [MaxLength(255)]
         public virtual string? Comments { get; set; }
+
+        [Column(TypeName = ColumnTypes.MONETARY)]
         public virtual decimal Amount { get; set; }
+
         public virtual bool Reconciled { get; set; }
         public virtual bool Recorded { get; set; }
-        public virtual string? SupplierId { get; set; }
-        public virtual string? CompanyId { get; set; }
-        public virtual string? BankAccountId { get; set; }
-        public virtual string? PaymentMethodId { get; set; }
-        public virtual string? LogoId { get; set; }
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
+        public virtual int SupplierId { get; set; }
+        public virtual int CompanyId { get; set; }
+        public virtual int BankAccountId { get; set; }
+        public virtual int PaymentMethodId { get; set; }
 
-        public virtual CompanyImage? Logo { get; set; }
         public virtual PaymentMethod? PaymentMethod { get; set; }
         public virtual Company? Company { get; set; }
+
         public virtual BankAccount? BankAccount { get; set; }
-        public virtual PurchaseDocumentSupplierDetails? SupplierDetails { get; set; }
         public virtual ICollection<PurchaseInvoiceReceipt>? AllocatedInvoices { get; set; }
 
-        public PurchaseReceipt ()
+        public static void OnModelCreating (ModelBuilder builder)
         {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<PurchaseReceipt>(options =>
+            builder.Entity<PurchaseReceipt>(options =>
             {
-                options.ToTable(nameof(PurchaseReceipt))
-                    .HasKey(x => x.Id)
-                    .IsClustered(false);
-
-                options.HasIndex(p => new { p.CompanyId, p.SupplierId })
-                    .IsClustered()
-                    .IsUnique();
-
-                options.Property(p => p.Date)
-                    .HasColumnType(ColumnTypes.DATE);
-
-                options.Property(p => p.Amount)
-                    .HasColumnType(ColumnTypes.MONETARY);
-
                 options.HasOne(p => p.PaymentMethod)
                     .WithMany()
                     .HasForeignKey(p => p.PaymentMethodId)
@@ -70,6 +62,19 @@ namespace Librebooks.Models.Entity.PurchasesSpace
                     .HasForeignKey(p => p.ReceiptId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasOne<Supplier>()
+                    .WithMany()
+                    .HasForeignKey(p => p.SupplierId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasOne<Company>()
+                    .WithMany()
+                    .HasForeignKey(p => p.CompanyId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
             });
+        }
     }
 }

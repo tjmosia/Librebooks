@@ -20,11 +20,7 @@ public class AccountCashFlowType () : VersionedEntityBase()
     {
         builder.Entity<AccountCashFlowType>(options =>
         {
-            options.HasMany<AccountCategory>()
-                .WithOne(p => p.CashFlowType)
-                .HasForeignKey(p => p.CashFlowTypeId)
-                    .IsRequired(true)
-                .OnDelete(DeleteBehavior.Restrict);
+
         });
     }
 }

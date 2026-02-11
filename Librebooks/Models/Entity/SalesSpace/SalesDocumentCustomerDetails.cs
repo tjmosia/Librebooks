@@ -1,65 +1,64 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Models.Entity.CustomerSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Librebooks.Models.Entity.SalesSpace
+namespace Librebooks.Models.Entity.SalesSpace;
+
+[Table(nameof(SalesDocumentCustomerDetails))]
+public class SalesDocumentCustomerDetails
 {
-    public class SalesDocumentCustomerDetails
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
+    public virtual int CustomerId { get; set; }
+
+    [Required, MaxLength(100)]
+    public virtual string? CustomerName { get; set; }
+
+    [Required, MaxLength(155)]
+    public virtual string? BillingAddress { get; set; }
+
+    [Required, MaxLength(105)]
+    public virtual string? ShippingAddress { get; set; }
+
+    [MaxLength(10)]
+    public virtual string? VATNumber { get; set; }
+
+    public virtual DateTime DateCreated { get; set; }
+    public virtual bool Active { get; set; }
+    public virtual Customer? Customer { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
     {
-        public virtual string Id { get; set; }
-        public virtual string? CustomerId { get; set; }
-        public virtual string? CustomerName { get; set; }
-        public virtual string? BillingAddress { get; set; }
-        public virtual string? ShippingAddress { get; set; }
-        public virtual string? VATNumber { get; set; }
-        public virtual DateTime DateCreated { get; set; }
-        public virtual bool Active { get; set; }
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
+        builder.Entity<SalesDocumentCustomerDetails>(options =>
+           {
+               options.HasIndex(p => p.CustomerId)
+                   .IsClustered();
 
-        public virtual Customer? Customer { get; set; }
+               options.HasOne<Customer>()
+                   .WithOne()
+                   .HasForeignKey<SalesDocumentCustomerDetails>(p => p.CustomerId)
+                       .IsRequired(false)
+                   .OnDelete(DeleteBehavior.SetNull);
 
-        public SalesDocumentCustomerDetails ()
-        {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
+               options.HasMany<SalesDocument>()
+                   .WithOne(p => p.CustomerDetails)
+                   .HasForeignKey(propa => propa.CustomerDetailsId)
+                       .IsRequired()
+                   .OnDelete(DeleteBehavior.Restrict);
 
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<SalesDocumentCustomerDetails>(options =>
-            {
-                options.ToTable(nameof(SalesDocumentCustomerDetails))
-                    .HasKey(x => x.Id)
-                    .IsClustered(false);
+               options.HasOne(p => p.Customer)
+                   .WithOne()
+                   .HasForeignKey<SalesDocumentCustomerDetails>(p => p.CustomerId)
+                       .IsRequired(false)
+                   .OnDelete(DeleteBehavior.SetNull);
 
-                options.HasIndex(p => p.CustomerId)
-                    .IsClustered();
-
-                options.HasOne<Customer>()
-                    .WithOne()
-                    .HasForeignKey<SalesDocumentCustomerDetails>(p => p.CustomerId)
-                        .IsRequired(false)
-                    .OnDelete(DeleteBehavior.SetNull);
-
-                options.HasMany<SalesDocument>()
-                    .WithOne(p => p.CustomerDetails)
-                    .HasForeignKey(propa => propa.CustomerDetailsId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-
-                options.HasOne(p => p.Customer)
-                    .WithOne()
-                    .HasForeignKey<SalesDocumentCustomerDetails>(p => p.CustomerId)
-                        .IsRequired(false)
-                    .OnDelete(DeleteBehavior.SetNull);
-
-                options.HasMany<SalesReceipt>()
-                    .WithOne(p => p.CustomerDetails)
-                    .HasForeignKey(p => p.CustomerDetailsId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
-            });
+               options.HasMany<SalesReceipt>()
+                   .WithOne(p => p.CustomerDetails)
+                   .HasForeignKey(p => p.CustomerDetailsId)
+                       .IsRequired()
+                   .OnDelete(DeleteBehavior.Cascade);
+           });
     }
 }

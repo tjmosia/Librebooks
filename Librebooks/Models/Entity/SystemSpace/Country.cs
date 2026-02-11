@@ -18,6 +18,9 @@ namespace Librebooks.Models.Entity.SystemSpace
         [MaxLength(75), Required]
         public virtual string? Name { get; set; }
 
+        [MaxLength(15)]
+        public virtual string? DialingCode { get; set; }
+
         public static void OnModelCreating (ModelBuilder builder)
         {
             builder.Entity<Country>(options =>

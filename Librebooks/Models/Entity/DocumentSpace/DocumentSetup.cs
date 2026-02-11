@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Extensions.Models;
+using Librebooks.Models.Entity.CompanySpace;
+using Librebooks.Models.Entity.CustomerSpace;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.DocumentSpace
@@ -49,6 +51,12 @@ namespace Librebooks.Models.Entity.DocumentSpace
                 options.HasIndex(p => new { p.CompanyId, p.Id })
                     .IsUnique()
                     .IsClustered();
+
+                options.HasOne<Company>()
+                    .WithOne()
+                    .HasForeignKey<CustomerSetup>(p => p.CompanyId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
             });
     }
 }

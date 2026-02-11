@@ -46,5 +46,11 @@ public class ItemCategory
                 .HasForeignKey(p => p.CategoryId)
                     .IsRequired(false)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            options.HasOne(p => p.Company)
+                .WithMany()
+                .HasForeignKey(p => p.CompanyId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         });
 }

@@ -51,7 +51,7 @@ namespace Librebooks.Areas.Identity.Controllers
             if (!request.Verified)
                 return Ok(TransactionResult.Failure(TransactionError.Create("Code", "Invalid code provided.")));
 
-            var user = await userManager.FindByNameAsync(request.Subject!);
+            var user = await userManager.FindByNameAsync(request.Email!);
 
             if (user == null)
             {

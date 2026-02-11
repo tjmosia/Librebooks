@@ -1,22 +1,24 @@
-﻿using Librebooks.Models.Entity.AccountingSpace;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Models.Entity.AccountingSpace;
 using Librebooks.Models.Entity.CompanySpace;
-
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.SupplierSpace
 {
+    [Table(nameof(SupplierAdjustment))]
     public class SupplierAdjustment
     {
-        public virtual string? Id { get; set; }
-        public virtual string? JournalId { get; set; }
-        public virtual string? CompanyId { get; set; }
-        public virtual string? SupplierId { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+        public virtual int JournalId { get; set; }
+        public virtual int CompanyId { get; set; }
+        public virtual int SupplierId { get; set; }
 
-        public virtual Company? Company { get; set; }
         public virtual Journal? Journal { get; set; }
         public virtual Supplier? Supplier { get; set; }
 
-        public static void BuildModel (ModelBuilder builder)
+        public static void OnModelCreating (ModelBuilder builder)
         {
             builder.Entity<SupplierAdjustment>(options =>
             {
@@ -31,6 +33,12 @@ namespace Librebooks.Models.Entity.SupplierSpace
                     .WithOne()
                     .HasForeignKey<SupplierAdjustment>(p => p.JournalId)
                         .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasOne<Company>()
+                    .WithMany()
+                    .HasForeignKey(p => p.CompanyId)
+                    .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
             });
         }

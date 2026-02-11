@@ -49,6 +49,12 @@ public class CompanyRegionalSettings () : VersionedEntityBase()
                 .HasForeignKey<CompanyRegionalSettings>(p => p.CurrencyId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
+
+            options.HasOne<Company>()
+                .WithOne()
+                .HasForeignKey<CompanyRegionalSettings>(p => p.CompanyId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         });
     }
 }

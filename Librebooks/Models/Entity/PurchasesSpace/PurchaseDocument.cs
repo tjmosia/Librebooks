@@ -1,59 +1,48 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
-using Librebooks.Core.Types;
-using Librebooks.Models.Entity.CompanySpace;
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.DocumentSpace;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.PurchasesSpace
 {
-    public class PurchaseDocument
+    [Table(nameof(PurchaseDocument))]
+    public class PurchaseDocument () : VersionedEntityBase()
     {
-        public virtual string Id { get; set; }
-        public virtual DateTime Date { get; set; }
-        public virtual DateTime? DueDate { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+        public virtual DateOnly Date { get; set; }
+        public virtual DateOnly? DueDate { get; set; }
+
+        [MaxLength(50)]
         public virtual string? Number { get; set; }
+
+        [MaxLength(50)]
         public virtual string? SuppplierReference { get; set; }
-        public virtual string? SupplierDetailsId { get; set; }
+
+        [MaxLength(255)]
         public virtual string? Message { get; set; }
+
+        [MaxLength(500)]
         public virtual string? Footer { get; set; }
+
         public virtual string? Currency { get; set; }
-        public virtual string? CompanyId { get; set; }
-        public virtual bool IsDraft { get; set; }
         public virtual bool Printed { get; set; }
-        public virtual string? StatusId { get; set; }
-        public virtual string? LogoId { get; set; }
+        public virtual int? SupplierDetailsId { get; set; }
+        public virtual int CompanyDetailsId { get; set; }
+        public virtual int StatusId { get; set; }
 
-        [ConcurrencyCheck]
-        public virtual string RowVersion { get; set; }
-
-        public virtual CompanyImage? Logo { get; set; }
         public virtual DocumentStatus? Status { get; set; }
         public virtual ICollection<PurchaseDocumentLine>? Lines { get; set; }
         public virtual ICollection<PurchaseDocumentNote>? Notes { get; set; }
         public virtual PurchaseDocumentSupplierDetails? SupplierDetails { get; set; }
+        public virtual PurchaseDocumentCompanyDetails? CompanyDetails { get; set; }
 
-        public PurchaseDocument ()
+        public static void OnModelCreating (ModelBuilder builder)
         {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
-            RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-        }
-
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<PurchaseDocument>(options =>
+            builder.Entity<PurchaseDocument>(options =>
             {
-                options.ToTable(nameof(PurchaseDocument))
-                    .HasKey(e => e.Id)
-                    .IsClustered(false);
-
-                options.Property(p => p.Date)
-                    .HasColumnType(ColumnTypes.DATE);
-
-                options.HasIndex(p => new { p.CompanyId, p.Number })
-                    .IsUnique()
-                    .IsClustered();
-
                 options.HasMany(p => p.Lines)
                     .WithOne(p => p.Document)
                     .HasForeignKey(p => p.DocumentId)
@@ -66,11 +55,19 @@ namespace Librebooks.Models.Entity.PurchasesSpace
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Cascade);
 
-                options.Property(p => p.Date)
-                    .HasColumnType(ColumnTypes.DATE);
+                options.HasOne(p => p.Status)
+                    .WithMany()
+                    .HasForeignKey(p => p.StatusId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
 
-                options.Property(p => p.DueDate)
-                    .HasColumnType(ColumnTypes.DATE);
+                options.HasOne(p => p.SupplierDetails)
+                    .WithMany()
+                    .HasForeignKey(p => p.SupplierDetailsId)
+                        .IsRequired(false)
+                    .OnDelete(DeleteBehavior.Restrict);
+
             });
+        }
     }
 }

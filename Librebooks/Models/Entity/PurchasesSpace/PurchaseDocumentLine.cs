@@ -1,19 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
-
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Core.Types;
+using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.PurchasesSpace
 {
+    [Table(nameof(PurchaseDocumentLine))]
     public class PurchaseDocumentLine
     {
-        public virtual string? DocumentId { get; set; }
-        public virtual string? LineId { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public virtual int DocumentId { get; set; }
+        public virtual int LineId { get; set; }
         public virtual decimal Quantity { get; set; }
 
         public virtual PurchaseLine? Line { get; set; }
         public virtual PurchaseDocument? Document { get; set; }
 
-        public static void BuildModel (ModelBuilder builder)
+        public static void OnModelCreating (ModelBuilder builder)
             => builder.Entity<PurchaseDocumentLine>(options =>
             {
                 options.ToTable(nameof(PurchaseDocumentLine))

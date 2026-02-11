@@ -14,7 +14,7 @@ public class VerificationRequest : VersionedEntityBase
 
     [Required]
     [MaxLength(75)]
-    public virtual string? Subject { get; set; }
+    public virtual string? Email { get; set; }
 
     [Required]
     [MaxLength(50)]
@@ -40,7 +40,7 @@ public class VerificationRequest : VersionedEntityBase
     public VerificationRequest (string subject, string reason)
         : this()
     {
-        Subject = subject;
+        Email = subject;
         Reason = reason;
     }
 

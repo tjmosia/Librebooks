@@ -19,6 +19,7 @@ public class Account () : VersionedEntityBase()
 
     [Column(TypeName = ColumnTypes.MONETARY)]
     public virtual decimal Balance { get; set; }
+
     public virtual int TaxTypeId { get; set; }
     [MaxLength(255)]
     public virtual string? Description { get; set; }
@@ -29,12 +30,9 @@ public class Account () : VersionedEntityBase()
     public virtual int? CategoryId { get; set; }
 
     public virtual Account? ParentAccount { get; set; }
-    public virtual Company? Company { get; set; }
     public virtual AccountCategory? Category { get; set; }
     public virtual CompanyTaxType? TaxType { get; set; }
 
-    public virtual ICollection<Journal>? DebitHistory { get; set; }
-    public virtual ICollection<Journal>? CreditHistory { get; set; }
     public virtual ICollection<Account>? SubAccounts { get; set; }
 
     public static void OnModelCreating (ModelBuilder builder)
@@ -43,25 +41,28 @@ public class Account () : VersionedEntityBase()
             options.HasIndex(p => new { p.CompanyId, p.CategoryId })
                 .IsClustered();
 
-            options.Property(p => p.Balance)
-                .HasColumnType(ColumnTypes.MONETARY);
-
             options.HasMany(p => p.SubAccounts)
                 .WithOne(p => p.ParentAccount)
                 .HasForeignKey(p => p.ParentAccountId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
-            options.HasMany(p => p.DebitHistory)
-                .WithOne(p => p.DebitAccount)
-                .HasForeignKey(p => p.DebitAccountId)
+            options.HasOne(p => p.Category)
+                .WithMany()
+                .HasForeignKey(p => p.CategoryId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
-            options.HasMany(p => p.CreditHistory)
-                .WithOne(p => p.CreditAccount)
-                .HasForeignKey(p => p.CreditAccountId)
+            options.HasOne<Company>()
+                .WithMany()
+                .HasForeignKey(p => p.CompanyId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
+
+            options.HasOne(p => p.TaxType)
+               .WithMany()
+               .HasForeignKey(p => p.TaxTypeId)
+                   .IsRequired()
+               .OnDelete(DeleteBehavior.Restrict);
         });
 }

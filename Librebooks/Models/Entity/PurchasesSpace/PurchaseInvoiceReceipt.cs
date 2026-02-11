@@ -1,42 +1,34 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 using Librebooks.Core.Types;
-
+using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.PurchasesSpace
 {
-    public class PurchaseInvoiceReceipt
+    [Table(nameof(PurchaseInvoiceReceipt))]
+    public class PurchaseInvoiceReceipt () : VersionedEntityBase()
     {
-        public virtual string? ReceiptId { get; set; }
-        public virtual string? InvoiceId { get; set; }
-        public virtual decimal Amount { get; set; }
-        public virtual string? Comment { get; set; }
+        public virtual int ReceiptId { get; set; }
+        public virtual int InvoiceId { get; set; }
 
-        [ConcurrencyCheck]
-        public virtual string? RowVersion { get; set; }
+        [Column(TypeName = ColumnTypes.MONETARY)]
+        public virtual decimal Amount { get; set; }
+
+        [MaxLength(255)]
+        public virtual string? Comment { get; set; }
 
         public virtual PurchaseReceipt? Receipt { get; set; }
         public virtual PurchaseInvoice? Invoice { get; set; }
 
-        public PurchaseInvoiceReceipt ()
-            => RowVersion = Guid.NewGuid().ToString("N").ToUpper();
-
         public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<PurchaseInvoiceReceipt>(options =>
+        {
+            builder.Entity<PurchaseInvoiceReceipt>(options =>
             {
-                options.ToTable(nameof(PurchaseInvoiceReceipt))
-                    .HasKey(x => new { x.ReceiptId, x.InvoiceId })
+                options.HasKey(x => new { x.ReceiptId, x.InvoiceId })
                     .IsClustered();
-
-                options.HasOne<PurchaseInvoice>()
-                    .WithOne()
-                    .HasForeignKey<PurchaseInvoiceReceipt>(p => p.InvoiceId)
-                        .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-
-                options.Property(p => p.Amount)
-                    .HasColumnType(ColumnTypes.MONETARY);
             });
+        }
     }
 }

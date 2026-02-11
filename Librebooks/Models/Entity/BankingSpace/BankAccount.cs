@@ -71,6 +71,13 @@ public class BankAccount () : VersionedEntityBase()
                 .HasForeignKey(p => p.BankAccountId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
+
+            options.HasOne(p => p.Category)
+                .WithMany()
+                .HasForeignKey(p => p.CategoryId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
         });
     }
 }

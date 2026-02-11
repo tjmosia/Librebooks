@@ -1,29 +1,30 @@
-﻿using Librebooks.Models.Entity.CompanySpace;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Librebooks.Models.Entity.CompanySpace;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.PurchasesSpace
 {
+    [Table(nameof(PurchaseInvoice))]
     public class PurchaseInvoice
     {
-        public virtual string? DocumentId { get; set; }
-        public virtual string? CompanyId { get; set; }
-        public virtual string? SupplierId { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public virtual int DocumentId { get; set; }
+        public virtual int CompanyId { get; set; }
+        public virtual int SupplierId { get; set; }
 
         public virtual PurchaseDocument? Document { get; set; }
         public virtual Company? Company { get; set; }
-        public virtual ICollection<PurchaseOrderInvoice>? Orders { get; set; }
+        public virtual PurchaseOrderInvoice? Order { get; set; }
         public virtual ICollection<PurchaseInvoiceReturn>? Returns { get; set; }
         public virtual ICollection<PurchaseInvoiceReceipt>? Receipts { get; set; }
 
-        public static void BuildModel (ModelBuilder builder)
-            => builder.Entity<PurchaseInvoice>(options =>
+        public static void OnModelCreating (ModelBuilder builder)
+        {
+            builder.Entity<PurchaseInvoice>(options =>
             {
-                options.ToTable(nameof(PurchaseInvoice))
-                    .HasKey(p => p.DocumentId)
-                    .IsClustered(false);
-
-                options.HasIndex(p => new { p.CompanyId, p.SupplierId })
+                options.HasIndex(p => new { p.CompanyId, p.SupplierId, p.DocumentId })
                     .IsClustered()
                     .IsUnique();
 
@@ -33,9 +34,9 @@ namespace Librebooks.Models.Entity.PurchasesSpace
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Cascade);
 
-                options.HasMany(p => p.Orders)
+                options.HasOne(p => p.Order)
                     .WithOne(p => p.Invoice)
-                    .HasForeignKey(p => p.InvoiceId)
+                    .HasForeignKey<PurchaseOrderInvoice>(p => p.InvoiceId)
                         .IsRequired(true)
                     .OnDelete(DeleteBehavior.Restrict);
 
@@ -50,6 +51,13 @@ namespace Librebooks.Models.Entity.PurchasesSpace
                     .HasForeignKey(p => p.InvoiceId)
                         .IsRequired(true)
                     .OnDelete(DeleteBehavior.Restrict);
+
+                options.HasOne<Company>()
+                    .WithMany()
+                    .HasForeignKey(p => p.CompanyId)
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
             });
+        }
     }
 }
