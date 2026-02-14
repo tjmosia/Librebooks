@@ -61,7 +61,7 @@ namespace Librebooks.Areas.Companies.Controllers
                 PhysicalAddress = input.PhysicalAddress,
                 PostalAddress = input.PostalAddress,
                 PhoneNumber = input.TelephoneNumber,
-                EmailAddress = input.EmailAddress
+                EmailAddress = input.Email
             };
 
             return Ok();

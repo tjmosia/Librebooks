@@ -12,7 +12,7 @@ namespace Librebooks.Areas.Admin.Services
         CountryStore countries,
         CurrencyStore currencies,
         DateFormatStore dateFormats,
-        SystemCompanyNumberStore companyNumber,
+        CompanyNumberStore companyNumber,
         PaymentMethodStore paymentMethods,
         PaymentTermStore paymentTerms,
         TaxTypeStore taxTypes,
@@ -24,7 +24,7 @@ namespace Librebooks.Areas.Admin.Services
         public readonly CountryStore Countries = countries;
         public readonly CurrencyStore Currencies = currencies;
         public readonly DateFormatStore DateFormats = dateFormats;
-        public readonly SystemCompanyNumberStore CompanyNumber = companyNumber;
+        public readonly CompanyNumberStore CompanyNumber = companyNumber;
         public readonly PaymentMethodStore PaymentMethods = paymentMethods;
         public readonly PaymentTermStore PaymentTerms = paymentTerms;
         public readonly TaxTypeStore TaxTypes = taxTypes;

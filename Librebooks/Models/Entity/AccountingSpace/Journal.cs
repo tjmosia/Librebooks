@@ -10,72 +10,72 @@ namespace Librebooks.Models.Entity.AccountingSpace;
 [Table(nameof(Journal))]
 public class Journal () : VersionedEntityBase()
 {
-    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public virtual int Id { get; set; }
+	[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+	public virtual int Id { get; set; }
 
-    [Column(ColumnTypes.DATETIME)]
-    public virtual DateTime CreatedAt { get; set; }
+	[Column(ColumnTypes.DATETIME)]
+	public virtual DateTime CreatedAt { get; set; }
 
-    [MaxLength(75)]
-    public virtual string? Reference { get; set; }
+	[MaxLength(75)]
+	public virtual string? Reference { get; set; }
 
-    [MaxLength(255)]
-    public virtual string? Description { get; set; }
-    public virtual int DebitAccountId { get; set; }
-    public virtual int CreditAccountId { get; set; }
+	[MaxLength(255)]
+	public virtual string? Description { get; set; }
+	public virtual int DebitAccountId { get; set; }
+	public virtual int CreditAccountId { get; set; }
 
-    [Column(TypeName = ColumnTypes.MONETARY)]
-    public virtual decimal Amount { get; set; }
+	[Column(TypeName = ColumnTypes.MONETARY)]
+	public virtual decimal Amount { get; set; }
 
-    [Column(TypeName = ColumnTypes.PERCENTATE)]
-    public virtual decimal TaxRate { get; set; }
-    public virtual bool Posted { get; set; }
-    public virtual int TaxTypeId { get; set; }
-    public virtual int CompanyId { get; set; }
+	[Column(TypeName = ColumnTypes.PERCENTATE)]
+	public virtual decimal TaxRate { get; set; }
+	public virtual bool Posted { get; set; }
+	public virtual int TaxTypeId { get; set; }
+	public virtual int CompanyId { get; set; }
 
-    public virtual Company? Company { get; set; }
-    public virtual CompanyTaxType? TaxType { get; set; }
-    public virtual Account? DebitAccount { get; set; }
-    public virtual Account? CreditAccount { get; set; }
-    public virtual ICollection<JournalNote>? Notes { get; set; }
+	public virtual Company? Company { get; set; }
+	public virtual CompanyTaxType? TaxType { get; set; }
+	public virtual Account? DebitAccount { get; set; }
+	public virtual Account? CreditAccount { get; set; }
+	public virtual ICollection<JournalNote>? Notes { get; set; }
 
-    public static void OnModelCreating (ModelBuilder builder)
-    {
-        builder.Entity<Journal>(options =>
-        {
-            options.HasIndex(p => new { p.CompanyId, p.Id })
-                .IsClustered();
+	public static void OnModelCreating (ModelBuilder builder)
+	{
+		builder.Entity<Journal>(options =>
+		{
+			options.HasIndex(p => new { p.CompanyId, p.Id })
+				.IsClustered();
 
-            options.HasMany(p => p.Notes)
-                .WithOne()
-                .HasForeignKey(p => p.JournalId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+			options.HasMany(p => p.Notes)
+				.WithOne()
+				.HasForeignKey(p => p.JournalId)
+					.IsRequired()
+				.OnDelete(DeleteBehavior.Restrict);
 
-            options.HasOne<Company>()
-                .WithMany()
-                .HasForeignKey(p => p.CompanyId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+			options.HasOne(p => p.Company)
+				.WithMany()
+				.HasForeignKey(p => p.CompanyId)
+					.IsRequired()
+				.OnDelete(DeleteBehavior.Restrict);
 
-            options.HasOne(p => p.TaxType)
-                .WithMany()
-                .HasForeignKey(p => p.TaxTypeId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+			options.HasOne(p => p.TaxType)
+				.WithMany()
+				.HasForeignKey(p => p.TaxTypeId)
+					.IsRequired()
+				.OnDelete(DeleteBehavior.Restrict);
 
-            options.HasOne(p => p.DebitAccount)
-                .WithMany()
-                .HasForeignKey(p => p.DebitAccountId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+			options.HasOne(p => p.DebitAccount)
+				.WithMany()
+				.HasForeignKey(p => p.DebitAccountId)
+					.IsRequired()
+				.OnDelete(DeleteBehavior.Restrict);
 
-            options.HasOne(p => p.CreditAccount)
-                .WithMany()
-                .HasForeignKey(p => p.CreditAccountId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+			options.HasOne(p => p.CreditAccount)
+				.WithMany()
+				.HasForeignKey(p => p.CreditAccountId)
+					.IsRequired()
+				.OnDelete(DeleteBehavior.Restrict);
 
-        });
-    }
+		});
+	}
 }

@@ -85,7 +85,7 @@ namespace Librebooks.Areas.Identity.Controllers
                 user.PhoneNumber,
                 user.Birthday,
                 user.Gender,
-                DateRegistered = DateOnly.FromDateTime(user.DateRegistered),
+                user.DateRegistered,
                 user.Photo
             });
         }
@@ -278,7 +278,7 @@ namespace Librebooks.Areas.Identity.Controllers
             user.Email,
             user.Birthday,
             user.Gender,
-            DateRegistered = DateOnly.FromDateTime(user.DateRegistered),
+            user.DateRegistered,
         };
 
         private void SetAuthenticationCookie (HttpContext context, string token, DateTimeOffset expires)

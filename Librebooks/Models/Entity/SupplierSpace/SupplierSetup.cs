@@ -9,7 +9,7 @@ namespace Librebooks.Models.Entity.SupplierSpace
     [Table(nameof(SupplierSetup))]
     public class SupplierSetup () : VersionedEntityBase()
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
         public virtual int CompanyId { get; set; }
 
         [MaxLength(50)]

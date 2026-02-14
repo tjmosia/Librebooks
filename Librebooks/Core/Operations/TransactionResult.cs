@@ -1,4 +1,5 @@
-﻿namespace Librebooks.CoreLib.Operations
+﻿
+namespace Librebooks.CoreLib.Operations
 {
     /// <summary>
     /// Returns a summary result of a transaction associated with <typeparamref name="TModel"/>.
@@ -23,6 +24,11 @@
 
         public static TransactionResult<TModel> Failure (params TransactionError[] errors)
             => new TransactionResult<TModel>(false, errors, null);
+
+        internal void Deconstruct (out object Confirmed, out object Request)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     /// <summary>

@@ -12,16 +12,13 @@ public class VerificationRequest : VersionedEntityBase
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public virtual int Id { get; set; }
 
-    [Required]
-    [MaxLength(75)]
+    [Required, MaxLength(75)]
     public virtual string? Email { get; set; }
 
-    [Required]
-    [MaxLength(50)]
+    [Required, MaxLength(50)]
     public virtual string? Reason { get; set; }
 
-    [Required]
-    [MaxLength(155)]
+    [Required, MaxLength(155)]
     public virtual string? HashString { get; set; }
 
     [Column(TypeName = ColumnTypes.DATETIME)]

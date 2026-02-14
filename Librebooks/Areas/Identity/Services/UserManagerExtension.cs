@@ -91,7 +91,7 @@ namespace Librebooks.Areas.Identity.Services
         public async Task<IdentityResult> GenerateRefreshTokenAsync (User user)
         {
             var salt = BCrypt.Net.BCrypt.GenerateSalt();
-            var token = BCrypt.Net.BCrypt.HashPassword(user.Id, salt);
+            var token = BCrypt.Net.BCrypt.HashPassword(user.UserName, salt);
             user.RefreshSecurityStamp = salt;
             user.RefreshLoginHash = token;
             return await UpdateAsync(user);

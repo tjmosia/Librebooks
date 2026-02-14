@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 using Librebooks.Extensions.Models;
-using Librebooks.Models.Entity.PurchasesSpace;
-using Librebooks.Models.Entity.SalesSpace;
+using Librebooks.Models.Entity.DocumentSpace;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -15,39 +15,22 @@ public class CompanyImage () : VersionedEntityBase()
     public virtual int Id { get; set; }
     public virtual int CompanyId { get; set; }
     public virtual DateOnly DateCreated { get; set; }
+
     public virtual byte[]? Data { get; set; }
+
+    public void SetDateCreated (DateTime date)
+        => DateCreated = DateOnly.FromDateTime(date);
 
     public static void OnModelCreating (ModelBuilder builder)
     {
         builder.Entity<CompanyImage>(options =>
         {
+            options.HasIndex(p => new { p.CompanyId, p.Id })
+                .IsClustered();
+
             options.HasOne<CompanyLogo>()
                 .WithOne(p => p.Image)
                 .HasForeignKey<CompanyLogo>(p => p.ImageId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-
-            options.HasMany<SalesDocument>()
-                .WithOne(p => p.Logo)
-                .HasForeignKey(p => p.LogoId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-
-            options.HasMany<SalesReceipt>()
-                .WithOne(p => p.Logo)
-                .HasForeignKey(p => p.LogoId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-
-            options.HasMany<PurchaseDocument>()
-                .WithOne(p => p.Logo)
-                .HasForeignKey(p => p.LogoId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-
-            options.HasMany<PurchaseReceipt>()
-                .WithOne(p => p.Logo)
-                .HasForeignKey(p => p.LogoId)
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
@@ -57,6 +40,11 @@ public class CompanyImage () : VersionedEntityBase()
                     .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
+            options.HasMany<DocumentCompanyInfo>()
+                .WithOne(p => p.Logo)
+                .HasForeignKey(p => p.LogoId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         });
     }
 }

@@ -11,7 +11,7 @@ namespace Librebooks.Areas.Inventory.Services
         public ItemStore (AppDbContext context, ILogger<ItemStore> logger, DbErrorDescriber errorDescriber)
         : base(context, logger, errorDescriber) { }
 
-        public async Task<Item?> CreateAsync (string companyId, Item item)
+        public async Task<Item?> CreateAsync (int companyId, Item item)
         {
             item.CompanyId = companyId;
             var result = await context!.Item!.AddAsync(item);
@@ -26,52 +26,52 @@ namespace Librebooks.Areas.Inventory.Services
             return result.Entity;
         }
 
-        public async Task<Item?> FindByIdAsync (string companyId, string itemId)
+        public async Task<Item?> FindByIdAsync (int companyId, int itemId, CancellationToken cancellationToken = default)
         {
             return await context!.Item!.Where(p => p.Id == itemId)
                 .Include(p => p.Inventory)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(cancellationToken);
         }
 
-        public async Task<IList<ItemAdjustment>> FindAdjustmentsByItemIdAsync (string companyId, string itemId)
+        public async Task<IList<ItemAdjustment>> FindAdjustmentsByItemIdAsync (int companyId, int itemId, CancellationToken cancellationToken = default)
         {
             return await context!.ItemAdjustment!
                 .Where(p => p.ItemId == itemId && p.CompanyId == companyId)
                 .Include(p => p.Item)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
         }
 
-        public async Task<IList<ItemAdjustment>> FindAdjustmentsAsync (string companyId)
+        public async Task<IList<ItemAdjustment>> FindAdjustmentsAsync (int companyId, CancellationToken cancellationToken = default)
         {
             return await context!.ItemAdjustment!
                 .Where(p => p.CompanyId == companyId)
                 .Include(p => p.Item)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
         }
 
-        public async Task<ItemAdjustment?> FindAdjustmentByIdAsync (string companyId, string adjustmentId)
+        public async Task<ItemAdjustment?> FindAdjustmentByIdAsync (int companyId, int adjustmentId, CancellationToken cancellationToken = default)
         {
             return await context!.ItemAdjustment!
                 .Where(p => p.Id == adjustmentId && p.CompanyId == companyId)
                 .Include(p => p.Item)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(cancellationToken);
         }
 
-        public async Task<Item?> FindByCodeAsync (string companyId, string itemCode)
+        public async Task<Item?> FindByCodeAsync (int companyId, string itemCode, CancellationToken cancellationToken = default)
         {
             return await context!.Item!
                 .Where(p => p.Code == itemCode && p.CompanyId == companyId)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(cancellationToken);
         }
 
-        public async Task<IList<Item>> FindAllAsync (string companyId)
+        public async Task<IList<Item>> FindAllAsync (int companyId, CancellationToken cancellationToken = default)
         {
             return await context!.Item!
                 .Where(p => p.CompanyId == companyId)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
         }
 
-        public async Task<ItemAdjustment?> CreateAdjustmentAsync (string companyId, ItemAdjustment adjustment)
+        public async Task<ItemAdjustment?> CreateAdjustmentAsync (int companyId, ItemAdjustment adjustment)
         {
             adjustment.CompanyId = companyId;
             var result = await context!.ItemAdjustment!.AddAsync(adjustment);
@@ -79,7 +79,7 @@ namespace Librebooks.Areas.Inventory.Services
             return result.Entity;
         }
 
-        public async Task DeleteItemAsync (string companyId, Item item)
+        public async Task DeleteItemAsync (int companyId, Item item)
         {
             var adjustments = await FindAdjustmentsByItemIdAsync(companyId, item.Id!);
             if (adjustments.Count > 0)

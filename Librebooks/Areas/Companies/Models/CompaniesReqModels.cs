@@ -24,15 +24,15 @@ namespace Librebooks.Areas.Companies.Models
             [Required(ErrorMessage = $"Telephone is required")]
             public virtual string? TelephoneNumber { get; set; }
 
-            [Required(ErrorMessage = $"{nameof(BusinessSector)} is required")]
-            public virtual string? EmailAddress { get; set; }
+            [Required(ErrorMessage = $"{nameof(Email)} is required")]
+            public virtual string? Email { get; set; }
 
             public virtual string? FaxNumber { get; set; }
 
             public virtual string? YearsInBusiness { get; set; }
-            [Required(ErrorMessage = $"{nameof(BusinessSector)} is required")]
 
-            public virtual string? BusinessSector { get; set; }
+            [Required(ErrorMessage = $"{nameof(BusinessSector)} is required")]
+            public virtual int BusinessSector { get; set; }
 
             public virtual string? Logo { get; set; }
         }

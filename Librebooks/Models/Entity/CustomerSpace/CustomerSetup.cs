@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Extensions.Models;
+using Librebooks.Models.Entity.CompanySpace;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.CustomerSpace;
@@ -8,7 +9,7 @@ namespace Librebooks.Models.Entity.CustomerSpace;
 [Table(nameof(CustomerSetup))]
 public class CustomerSetup () : VersionedEntityBase()
 {
-    [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+    [Key]
     public virtual int CompanyId { get; set; }
 
     [MaxLength(20)]
@@ -23,9 +24,11 @@ public class CustomerSetup () : VersionedEntityBase()
     {
         builder.Entity<CustomerSetup>(options =>
         {
-            options.ToTable(nameof(CustomerSetup))
-                .HasKey(p => p.CompanyId)
-                .IsClustered();
+            options.HasOne<Company>()
+                .WithOne()
+                .HasForeignKey<CustomerSetup>(p => p.CompanyId)
+                    .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         });
     }
 }

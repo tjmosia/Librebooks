@@ -25,7 +25,7 @@ namespace Librebooks.Areas.Admin.Services.SubStores
             return result.Entity;
         }
 
-        public async Task<DateFormat?> FindByIdAsync (string id)
+        public async Task<DateFormat?> FindByIdAsync (int id)
             => await context!.DateFormat!.FindAsync(id);
 
         public async Task DeleteAsync (params DateFormat[] dateFormats)

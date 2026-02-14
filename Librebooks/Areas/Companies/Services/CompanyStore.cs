@@ -12,6 +12,7 @@ using Librebooks.Models.Entity.InventorySpace;
 using Librebooks.Models.Entity.SalesSpace;
 using Librebooks.Models.Entity.SupplierSpace;
 using Librebooks.Models.Entity.SystemSpace;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Areas.Companies.Services
@@ -24,7 +25,7 @@ namespace Librebooks.Areas.Companies.Services
         /***********************************************************************************************************************************
          ****** SELECT TRANSACTIONS
          ***********************************************************************************************************************************/
-        public async Task<Company?> FindByIdAsync (string? companyId)
+        public async Task<Company?> FindByIdAsync (int companyId)
             => await context!.Company!
                 .FindAsync(companyId);
 
@@ -33,7 +34,7 @@ namespace Librebooks.Areas.Companies.Services
                 .Where(p => p.UniqueNumber == companyNumber)
                 .FirstOrDefaultAsync();
 
-        public async Task<CompanyRegionalSettings?> FindRegionalSettingsAsync (int companyId)
+        public async Task<CompanyRegionalSetup?> FindRegionalSettingsAsync (int companyId)
             => await context!.CompanyRegionalSettings!
                 .FindAsync(companyId);
 
@@ -50,7 +51,7 @@ namespace Librebooks.Areas.Companies.Services
                 .Select(p => p.TaxType!)
                 .ToListAsync();
 
-        public async Task<TaxType?> FindTaxTypeByIdAsync (int companyId, string taxTypeId)
+        public async Task<TaxType?> FindTaxTypeByIdAsync (int companyId, int taxTypeId)
             => await context!.CompanyTaxType!
                 .Where(p => p.CompanyId == companyId && p.TaxTypeId == taxTypeId)
                 .Include(p => p.TaxType)
@@ -65,7 +66,7 @@ namespace Librebooks.Areas.Companies.Services
                 .Select(p => p.CompanyTaxType!.TaxType)
                 .FirstOrDefaultAsync();
 
-        public async Task<CompanyMailSettings?> FindMailSettingsAsync (int companyId)
+        public async Task<CompanyMailSetup?> FindMailSettingsAsync (int companyId)
             => await context!.CompanyMailSettings!
                 .FindAsync(companyId);
 
@@ -216,18 +217,18 @@ namespace Librebooks.Areas.Companies.Services
         /***********************************************************************************************************************************
          ****** UPDATE TRANSACTIONS
          ***********************************************************************************************************************************/
-        public async Task<TransactionResult<CompanyRegionalSettings>> UpdateRegionalSettingsAsync (CompanyRegionalSettings regionalSettings)
+        public async Task<TransactionResult<CompanyRegionalSetup>> UpdateRegionalSettingsAsync (CompanyRegionalSetup regionalSettings)
         {
             try
             {
                 var result = context!.CompanyRegionalSettings!.Update(regionalSettings);
                 await context.SaveChangesAsync();
-                return TransactionResult<CompanyRegionalSettings>.Success(result.Entity);
+                return TransactionResult<CompanyRegionalSetup>.Success(result.Entity);
             }
             catch (Exception ex)
             {
                 logger!.LogError("***DB Error occured with Exception while trying to update CompanyRegionalSettings:*** \n\n{message}", ex.Message);
-                return TransactionResult<CompanyRegionalSettings>.Failure();
+                return TransactionResult<CompanyRegionalSetup>.Failure();
             }
         }
 
@@ -288,7 +289,7 @@ namespace Librebooks.Areas.Companies.Services
             }
         }
 
-        public async Task<TransactionResult> UpdateMailSettingsAsync (CompanyMailSettings companyMailSettings)
+        public async Task<TransactionResult> UpdateMailSettingsAsync (CompanyMailSetup companyMailSettings)
         {
             try
             {

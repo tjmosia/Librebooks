@@ -3,11 +3,9 @@ using Librebooks.CoreLib.Operations;
 using Librebooks.Data;
 using Librebooks.Models.Entity.BankingSpace;
 using Librebooks.Models.Entity.CompanySpace;
-using Librebooks.Models.Entity.CustomerSpace;
 using Librebooks.Models.Entity.GeneralSpace;
 using Librebooks.Models.Entity.IdentitySpace;
 using Librebooks.Models.Entity.SalesSpace;
-using Librebooks.Models.Entity.SupplierSpace;
 using Librebooks.Models.Entity.SystemSpace;
 
 using Microsoft.EntityFrameworkCore;
@@ -33,26 +31,26 @@ namespace Librebooks.Areas.Companies.Services
          ** COMPANY GET TRANSACTIONS
          ********************************************************************/
 
-        public async Task<Company[]> FindAllByUserAsync (string userId)
+        public async Task<Company[]> FindAllByUserAsync (int userId)
         => await context.CompanyUser!
                 .Where(p => p.UserId == userId)
                 .Include(p => p.Company)
                 .Select(p => p.Company!)
                 .ToArrayAsync();
 
-        public async Task<Company?> FindByIdAsync (string id)
+        public async Task<Company?> FindByIdAsync (int id)
            => await store.FindByIdAsync(id);
 
         public async Task<Company?> FindByNumberAsync (string number)
             => await store.FindByNumberAsync(number);
 
-        public async Task<CompanyRegionalSettings?> GetRegionalSettingsAsync (Company company)
+        public async Task<CompanyRegionalSetup?> GetRegionalSettingsAsync (Company company)
             => await store.FindRegionalSettingsAsync(company.Id!);
 
         public async Task<TaxType?> GetSalesTaxTypeAsync (Company company)
             => await store.FindDefaultTaxTypeAsync(company.Id!);
 
-        public async Task<CompanyMailSettings?> GetMailSettingsAsync (Company company)
+        public async Task<CompanyMailSetup?> GetMailSettingsAsync (Company company)
             => await store.FindMailSettingsAsync(company.Id!);
 
         public async Task<IList<User>> GetUsersAsync (Company company)
@@ -64,49 +62,27 @@ namespace Librebooks.Areas.Companies.Services
         public async Task<IList<BankAccount>> GetBankAccountsAsync (Company company)
             => await store.FindBankAccountsAsync(company.Id!);
 
-        public async Task<TaxType?> FindTaxTypeByIdAsync (Company company, string taxTypeId)
+        public async Task<TaxType?> FindTaxTypeByIdAsync (Company company, int taxTypeId)
             => await store.FindTaxTypeByIdAsync(company.Id!, taxTypeId);
 
-        public async Task<Contact?> FindSalesPersonByIdAsync (Company company, string salesPersonId)
+        public async Task<Contact?> FindSalesPersonByIdAsync (Company company, int salesPersonId)
             => await store.FindSalesPersonByIdAsync(company.Id!, salesPersonId);
 
-        public async Task<Contact?> FindSalesPersonByUserIdAsync (Company company, string userId)
+        public async Task<Contact?> FindSalesPersonByUserIdAsync (Company company, int userId)
             => await store.FindSalesPersonByUserIdAsync(company.Id!, userId);
 
         public async Task<BankAccount?> GetDefaultBankAccountAsync (Company company)
             => await store.FindDefaultBankAccountAsync(company.Id!);
 
-        public async Task<BankAccount?> FindBankAccountByIdAsync (Company company, string bankAccountId)
+        public async Task<BankAccount?> FindBankAccountByIdAsync (Company company, int bankAccountId)
             => await store.FindBankAccountByIdAsync(company.Id!, bankAccountId);
-
 
         /********************************************************************
          ** COMPANY CREATE TRANSACTIONS
          ********************************************************************/
-        public async Task<TransactionResult<Company>> CreateAsync (Company company,
-            User user,
-            CompanyRegionalSettings regionalSettings,
-            TaxType[] taxTypes,
-            TaxType defaultTaxType,
-            CustomerSetup customerSetup,
-            SupplierSetup supplierSetup)
+        public async Task<TransactionResult<Company>> CreateAsync (Company company)
         {
-            var currentCompany = await store.FindByIdAsync(company.Id);
-
-            if (currentCompany != null)
-                return TransactionResult<Company>.Failure(errorDescriber.DuplicateKey());
-
-            var newCompany = CompanyBuilder
-                .Begin(company)
-                .AddUser(user)
-                .AddRegionalSettings(regionalSettings)
-                .AddTaxTypes(taxTypes)
-                .AddDefaultTaxType(defaultTaxType)
-                .AddCustomerSetup(customerSetup)
-                .AddSupplerSetup(supplierSetup)
-                .Build();
-
-            return await store.CreateAsync(newCompany);
+            return await store.CreateAsync(company);
         }
 
         public async Task<TransactionResult> AddUserAsync (Company company, User user, bool isSalesPerson = false)
@@ -198,12 +174,12 @@ namespace Librebooks.Areas.Companies.Services
             throw new NotImplementedException();
         }
 
-        public Task<TransactionResult<CompanyRegionalSettings>> UpdateRegionalSettingsAsync (CompanyRegionalSettings regionalSettings)
+        public Task<TransactionResult<CompanyRegionalSetup>> UpdateRegionalSettingsAsync (CompanyRegionalSetup regionalSettings)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TransactionResult<CompanyMailSettings>> UpdateMailSettingsAsync (CompanyMailSettings mailSettings)
+        public Task<TransactionResult<CompanyMailSetup>> UpdateMailSettingsAsync (CompanyMailSetup mailSettings)
         {
             throw new NotImplementedException();
         }

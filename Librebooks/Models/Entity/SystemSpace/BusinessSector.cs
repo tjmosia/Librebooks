@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.CompanySpace;
 
@@ -9,7 +10,7 @@ namespace Librebooks.Models.Entity.SystemSpace
 {
     [Table(nameof(BusinessSector))]
     [Index(nameof(Name), IsUnique = true)]
-    public class BusinessSector : VersionedEntityBase
+    public class BusinessSector () : VersionedEntityBase()
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key]
         public virtual int Id { get; set; }
@@ -20,15 +21,20 @@ namespace Librebooks.Models.Entity.SystemSpace
 
         public virtual ICollection<Company>? Companies { get; set; }
 
-        public static void BuildModel (ModelBuilder builder)
+        public BusinessSector (string name) : this()
+        {
+            Name = name;
+        }
+
+        public static void OnModelCreating (ModelBuilder builder)
         {
             builder.Entity<BusinessSector>(options =>
             {
                 options.HasMany(p => p.Companies)
                     .WithOne(p => p.BusinessSector)
                     .HasForeignKey(p => p.BusinessSectorId)
-                        .IsRequired(false)
-                    .OnDelete(DeleteBehavior.SetNull);
+                        .IsRequired()
+                    .OnDelete(DeleteBehavior.Restrict);
             });
         }
     }

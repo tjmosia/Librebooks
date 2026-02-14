@@ -16,12 +16,12 @@ namespace Librebooks.Areas.Admin.Services.SubStores
                 .OrderBy(p => p.Name)
                 .ToListAsync();
 
-        public async Task<BusinessSector?> FindByIdAsync (string id)
+        public async Task<BusinessSector?> FindByIdAsync (int id)
             => await context!
                 .BusinessSector!
                 .FindAsync(id);
 
-        public async Task<IList<BusinessSector>> FindByIdsAsync (params string[] sectorIds)
+        public async Task<IList<BusinessSector>> FindByIdsAsync (params int[] sectorIds)
             => await context!
                 .BusinessSector!
                 .Where(p => sectorIds.Contains(p.Id))

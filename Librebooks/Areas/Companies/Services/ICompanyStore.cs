@@ -1,15 +1,14 @@
 ﻿using Librebooks.CoreLib.Operations;
 using Librebooks.Models.Entity.BankingSpace;
 using Librebooks.Models.Entity.CompanySpace;
+using Librebooks.Models.Entity.CustomerSpace;
 using Librebooks.Models.Entity.DocumentSpace;
 using Librebooks.Models.Entity.GeneralSpace;
 using Librebooks.Models.Entity.IdentitySpace;
-using Librebooks.Models.Entity.SalesSpace;
-using Librebooks.Models.Entity.SystemSpace;
-
-using Librebooks.Models.Entity.CustomerSpace;
 using Librebooks.Models.Entity.InventorySpace;
+using Librebooks.Models.Entity.SalesSpace;
 using Librebooks.Models.Entity.SupplierSpace;
+using Librebooks.Models.Entity.SystemSpace;
 
 namespace Librebooks.Areas.Companies.Services
 {
@@ -18,19 +17,19 @@ namespace Librebooks.Areas.Companies.Services
         /***********************************************************************************************************************************
          ****** SELECT TRANSACTIONS
          ***********************************************************************************************************************************/
-        Task<Company?> FindByIdAsync (string companyId);
+        Task<Company?> FindByIdAsync (int companyId);
         Task<Company?> FindByNumberAsync (string companyNumber);
-        Task<CompanyRegionalSettings?> FindRegionalSettingsAsync (string companyId);
-        Task<CompanyLogo?> FindLogoAsync (string companyId);
-        Task<IList<TaxType>> FindTaxTypesAsync (string companyId);
-        Task<TaxType?> FindTaxTypeByIdAsync (string companyId, string taxTypeId);
-        Task<TaxType?> FindDefaultTaxTypeAsync (string companyId);
-        Task<CompanyMailSettings?> FindMailSettingsAsync (string companyId);
-        Task<BankAccount?> FindDefaultBankAccountAsync (string companyId);
-        Task<BankAccount?> FindBankAccountByIdAsync (string companyId, string bankAccountId);
-        Task<Contact?> FindSalesPersonByIdAsync (string companyId, string salesPersonId);
-        Task<Contact?> FindSalesPersonByUserIdAsync (string companyId, string userId);
-        Task<IList<User>> FindUsersAsync (string companyId);
+        Task<CompanyRegionalSetup?> FindRegionalSettingsAsync (int companyId);
+        Task<CompanyLogo?> FindLogoAsync (int companyId);
+        Task<IList<TaxType>> FindTaxTypesAsync (int companyId);
+        Task<TaxType?> FindTaxTypeByIdAsync (int companyId, int taxTypeId);
+        Task<TaxType?> FindDefaultTaxTypeAsync (int companyId);
+        Task<CompanyMailSetup?> FindMailSettingsAsync (int companyId);
+        Task<BankAccount?> FindDefaultBankAccountAsync (int companyId);
+        Task<BankAccount?> FindBankAccountByIdAsync (int companyId, int bankAccountId);
+        Task<Contact?> FindSalesPersonByIdAsync (int companyId, int salesPersonId);
+        Task<Contact?> FindSalesPersonByUserIdAsync (int companyId, int userId);
+        Task<IList<User>> FindUsersAsync (int companyId);
 
         /***********************************************************************************************************************************
          ****** INSERT TRANSACTIONS
@@ -44,11 +43,11 @@ namespace Librebooks.Areas.Companies.Services
         /***********************************************************************************************************************************
          ****** UPDATE TRANSACTIONS
          ***********************************************************************************************************************************/
-        Task<TransactionResult<CompanyRegionalSettings>> UpdateRegionalSettingsAsync (CompanyRegionalSettings regionalSettings);
+        Task<TransactionResult<CompanyRegionalSetup>> UpdateRegionalSettingsAsync (CompanyRegionalSetup regionalSettings);
         Task<TransactionResult<CompanyDefaultBankAccount>> UpdateDefaultTaxTypeAsync (CompanyDefaultTaxType defaultTaxType);
         Task<TransactionResult<TaxType>> UpdateTaxTypeAsync (TaxType taxType);
         Task<TransactionResult<CompanyImage>> UpdateLogoAsync (CompanyImage companyImage);
-        Task<TransactionResult> UpdateMailSettingsAsync (CompanyMailSettings mailSettings);
+        Task<TransactionResult> UpdateMailSettingsAsync (CompanyMailSetup mailSettings);
         Task<TransactionResult<SupplierSetup>> UpdateSupplierSetupAsync (SupplierSetup supplierSetup);
         Task<TransactionResult<CustomerSetup>> UpdateCustomerSetupAsync (CustomerSetup customerSetup);
         Task<TransactionResult<ItemSetup>> UpdateItemSetupAsync (ItemSetup itemSetup);

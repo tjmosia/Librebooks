@@ -27,7 +27,7 @@ namespace Librebooks.Areas.Admin.Services.SubStores
             return result.Entity;
         }
 
-        public async Task<PaymentMethod?> FindByIdAsync (string id)
+        public async Task<PaymentMethod?> FindByIdAsync (int id)
             => await context!.PaymentMethod!.FindAsync(id);
 
         public async Task DeleteAsync (params PaymentMethod[] methods)

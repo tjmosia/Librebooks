@@ -1,4 +1,5 @@
 ﻿
+using Librebooks.CoreLib.Operations;
 using Librebooks.Models.Entity.GeneralSpace;
 
 namespace Librebooks.Providers
@@ -14,9 +15,10 @@ namespace Librebooks.Providers
         public async Task<VerificationRequest?> AddAsync (VerificationRequest request)
         {
             request.Email = request.Email!.ToLower();
-            request.Email = request.RequestUrl!.ToLower();
+            request.Reason = request.Reason!.ToUpper();
 
-            var code = GenerateAsync(request.Email, request.RequestUrl, GenerateRandomCode());
+            var code = GenerateAsync(request.Email, request.Reason, GenerateRandomCode());
+
             request.HashString = code.HashString;
 
             return await store.CreateAsync(request);
@@ -28,33 +30,33 @@ namespace Librebooks.Providers
         public async Task<bool> DeleteAsync (VerificationRequest request)
             => await store.DeleteAsync(request);
 
-        public async Task<VerificationRequest?> VerifyAsync (string subject, string requestUri, string code)
+        public async Task<TransactionResult<VerificationRequest>> VerifyAsync (string email, string reason, string code)
         {
-            var request = await GetAsync(subject, requestUri);
+            var request = await GetAsync(email, reason);
 
             if (request == null)
-                return null;
+                return TransactionResult<VerificationRequest>.Failure(TransactionError.Create("Email", "Invalid verification request."));
 
             request.Attempts += 1;
             request.RefreshConcurrencyToken();
 
-            var newCode = GenerateAsync(subject, requestUri, code);
+            var confirmed = BCrypt.Net.BCrypt.Verify(string.Concat(email, reason, code), request.HashString);
 
-            if (request.HashString!.Equals(newCode.HashString))
+            if (!confirmed)
             {
-                request.Confirm();
                 request = await store.UpdateAsync(request);
+                return TransactionResult<VerificationRequest>.Failure(TransactionError.Create("Code", "Code is invalid."));
             }
 
-            return request;
+            return TransactionResult<VerificationRequest>.Success(request);
         }
 
-        private (string Code, string HashString) GenerateAsync (string subject, string requestUri, string code)
+        private static (string Code, string HashString) GenerateAsync (string email, string reason, string code)
         {
-            return (code, BCrypt.Net.BCrypt.HashPassword(string.Concat(subject, requestUri, code)));
+            return (code, BCrypt.Net.BCrypt.HashPassword(string.Concat(email, reason, code)));
         }
 
-        private string GenerateRandomCode ()
+        private static string GenerateRandomCode ()
             => new Random().Next(100000, 999999).ToString("000000");
     }
 }

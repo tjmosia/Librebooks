@@ -27,7 +27,7 @@ namespace Librebooks.Areas.Admin.Services.SubStores
             return result.Entity;
         }
 
-        public async Task<PaymentTerm?> FindByIdAsync (string id)
+        public async Task<PaymentTerm?> FindByIdAsync (int id)
             => await context!.PaymentTerm!.FindAsync(id);
 
         public async Task DeleteAsync (params PaymentTerm[] terms)

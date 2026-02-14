@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 using Librebooks.Models.Entity.IdentitySpace;
 using Librebooks.Models.Entity.SalesSpace;
 
@@ -8,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Librebooks.Models.Entity.CompanySpace
 {
     [Table(nameof(CompanyUser))]
-    public class CompanyUser
+    public class CompanyUser ()
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public virtual int Id { get; set; }
@@ -17,6 +18,12 @@ namespace Librebooks.Models.Entity.CompanySpace
 
         public virtual Company? Company { get; set; }
         public virtual User? User { get; set; }
+
+        public CompanyUser (int companyId, int userId) : this()
+        {
+            CompanyId = companyId;
+            UserId = userId;
+        }
 
         public static void OnModelCreating (ModelBuilder builder)
         {

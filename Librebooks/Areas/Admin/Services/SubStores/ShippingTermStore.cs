@@ -25,7 +25,7 @@ namespace Librebooks.Areas.Admin.Services.SubStores
             return result.Entity;
         }
 
-        public async Task<ShippingTerm?> FindByIdAsync (string id)
+        public async Task<ShippingTerm?> FindByIdAsync (int id)
             => await context!.ShippingTerm!.FindAsync(id);
 
         public async Task<ShippingTerm?> FindByNameAsync (string name)

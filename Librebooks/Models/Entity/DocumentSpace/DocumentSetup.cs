@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.CompanySpace;
-using Librebooks.Models.Entity.CustomerSpace;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.DocumentSpace
@@ -54,7 +53,7 @@ namespace Librebooks.Models.Entity.DocumentSpace
 
                 options.HasOne<Company>()
                     .WithOne()
-                    .HasForeignKey<CustomerSetup>(p => p.CompanyId)
+                    .HasForeignKey<DocumentSetup>(p => p.CompanyId)
                         .IsRequired()
                     .OnDelete(DeleteBehavior.Cascade);
             });

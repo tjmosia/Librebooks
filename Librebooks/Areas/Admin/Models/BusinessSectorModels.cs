@@ -13,12 +13,12 @@ namespace Librebooks.Areas.Admin.Models.BusinessSectorModels
     public class BusinessSectorEditModel : BusinessSectorModel
     {
         [Required(ErrorMessage = "Sector id is required.")]
-        public string? Id { get; set; }
+        public int Id { get; set; }
     }
 
     public class BusinessSectorDTO
     {
-        public string? Id { get; set; }
+        public int Id { get; set; }
         public string? Name { get; set; }
 
         public static BusinessSectorDTO MapFromBusinessSector (BusinessSector sector)

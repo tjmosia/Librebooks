@@ -70,10 +70,10 @@ namespace Librebooks.Areas.Inventory.Services
         /***************************************************************************************************
          * GET FUNCTIONS
          ***************************************************************************************************/
-        public Task<Item?> GetItemByIdAsync (Company company, string itemId)
+        public Task<Item?> GetItemByIdAsync (Company company, int itemId)
             => store!.FindByIdAsync(company.Id!, itemId);
 
-        public async Task<ItemAdjustment?> GetAdjustmentByIdAsync (Company company, string adjustmentId)
+        public async Task<ItemAdjustment?> GetAdjustmentByIdAsync (Company company, int adjustmentId)
             => await store!.FindAdjustmentByIdAsync(company.Id!, adjustmentId);
 
         public async Task<Item?> GetItemByCodeAsync (Company company, string itemCode)

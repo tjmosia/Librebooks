@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Librebooks.Core.Types;
 using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.SalesSpace;
-
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.CustomerSpace;
@@ -11,40 +10,44 @@ namespace Librebooks.Models.Entity.CustomerSpace;
 [Table(nameof(CustomerWriteOff))]
 public class CustomerWriteOff () : VersionedEntityBase()
 {
-    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public virtual int Id { get; set; }
+	[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+	public virtual int Id { get; set; }
 
-    [MaxLength(100)]
-    public virtual string? CustomerName { get; set; }
+	[MaxLength(100)]
+	public virtual string? CustomerName { get; set; }
 
-    [MaxLength(50), Required]
-    public virtual string? Number { get; set; }
+	[MaxLength(50), Required]
+	public virtual string? Number { get; set; }
 
-    [MaxLength(50)]
-    public virtual string? Reference { get; set; }
+	[MaxLength(50)]
+	public virtual string? Reference { get; set; }
 
-    [Column(TypeName = ColumnTypes.MONETARY)]
-    public virtual decimal Amount { get; set; }
+	[Column(TypeName = ColumnTypes.MONETARY)]
+	public virtual decimal Amount { get; set; }
 
-    [MaxLength(255)]
-    public virtual string? Description { get; set; }
-    public virtual DateOnly Date { get; set; }
-    public virtual int CompanyId { get; set; }
-    public virtual int CustomerId { get; set; }
+	[MaxLength(255)]
+	public virtual string? Description { get; set; }
+	public virtual DateOnly Date { get; set; }
+	public virtual int CompanyId { get; set; }
+	public virtual int CustomerId { get; set; }
 
-    public virtual ICollection<SalesInvoice>? Invoices { get; set; }
-    public virtual ICollection<SalesQuote>? Quotes { get; set; }
-    public virtual ICollection<SalesInvoice>? SalesOrders { get; set; }
+	public virtual ICollection<SalesInvoiceWriteoff>? Invoices { get; set; }
 
-    public static void OnModelCreating (ModelBuilder builder)
-    {
-        builder.Entity<CustomerWriteOff>(options =>
-        {
-            options.HasIndex(p => new { p.CompanyId, p.CustomerId })
-                .IsClustered();
+	public static void OnModelCreating (ModelBuilder builder)
+	{
+		builder.Entity<CustomerWriteOff>(options =>
+		{
+			options.HasIndex(p => new { p.CompanyId, p.CustomerId })
+				.IsClustered();
 
-            options.HasIndex(p => new { p.CompanyId, p.Number })
-                .IsUnique();
-        });
-    }
+			options.HasIndex(p => new { p.CompanyId, p.Number })
+				.IsUnique();
+
+			options.HasMany(p => p.Invoices)
+				.WithOne(p => p.WriteOff)
+				.HasForeignKey(p => p.WriteOffId)
+					.IsRequired(false)
+				.OnDelete(DeleteBehavior.Restrict);
+		});
+	}
 }

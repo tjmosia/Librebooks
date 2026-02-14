@@ -7,64 +7,46 @@ using Librebooks.Providers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Librebooks.Areas.Identity.Controllers
+namespace Librebooks.Areas.Identity.Controllers;
+
+[Route("verifications")]
+[ApiController]
+[AllowAnonymous]
+public class VerificationController (IVerificationManager verificationManager, UserManagerExtension userManager) : ControllerBase
 {
-    [Route("verifications")]
-    [ApiController]
-    [AllowAnonymous]
-    public class VerificationController (IVerificationManager verificationManager, UserManagerExtension userManager) : ControllerBase
+    private readonly IVerificationManager verificationManager = verificationManager;
+    private readonly UserManagerExtension userManager = userManager;
+
+    [HttpPost]
+    [Route("send")]
+    public async Task<IActionResult> SendAsync ([FromBody] VerificationModels.SendRequestModel model)
     {
-        private readonly IVerificationManager verificationManager = verificationManager;
-        private readonly UserManagerExtension userManager = userManager;
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
 
-        [HttpPost]
-        [Route("send")]
-        public async Task<IActionResult> SendAsync ([FromBody] VerificationModels.SendRequestModel model)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+        var user = userManager.FindByNameAsync(model.Reason!);
 
-            var user = userManager.FindByNameAsync(model.RequestUri!);
+        if (user == null)
+            return Ok(TransactionResult.Failure(TransactionError.Create("Email", "INVALID")));
 
-            if (user == null)
-                return Ok(TransactionResult.Failure(TransactionError.Create("Email", "INVALID")));
+        var request = await verificationManager.AddAsync(new VerificationRequest(model.Email!, model.Reason!));
 
-            var request = await verificationManager.AddAsync(new VerificationRequest(model.Email!, model.RequestUri!));
+        return Ok(request != null ?
+            TransactionResult.Success :
+            TransactionResult.Failure(TransactionError.Create("Email", "Unable to send verification to your email.")));
+    }
 
-            return Ok(request != null ?
-                TransactionResult.Success :
-                TransactionResult.Failure(TransactionError.Create("Email", "Unable to send verification to your email.")));
-        }
+    [HttpPost("check")]
+    public async Task<IActionResult> VerifyAsync ([FromBody] VerificationModels.VerifyRequestModel model)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
 
-        [HttpPost]
-        [Route("check")]
-        public async Task<IActionResult> VerifyAsync ([FromBody] VerificationModels.VerifyRequestModel model)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+        var result = await verificationManager.VerifyAsync(model.Email!, model.Reason!, model.Code!);
 
-            var request = await verificationManager.VerifyAsync(model.Email!, model.RequestUri!, model.Code!);
+        if (!result.Succeeded && result.Errors.Any(p => p.Code == nameof(model.Email)))
+            return NotFound(result);
 
-            if (request == null)
-                return Ok(TransactionResult.Failure());
-
-            if (!request.Verified)
-                return Ok(TransactionResult.Failure(TransactionError.Create("Code", "Invalid code provided.")));
-
-            var user = await userManager.FindByNameAsync(request.Email!);
-
-            if (user == null)
-            {
-                return Ok(TransactionResult.Failure(TransactionError.Create("Email", "INVALID")));
-            }
-            else if (model.RequestUri!.Contains("register") || model.RequestUri.Contains("login"))
-            {
-                user.EmailConfirmed = true;
-                await userManager.UpdateAsync(user);
-                await verificationManager.DeleteAsync(request);
-            }
-
-            return Ok(TransactionResult.Success);
-        }
+        return Ok(TransactionResult.Success);
     }
 }

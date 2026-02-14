@@ -66,17 +66,17 @@ namespace Librebooks.Areas.Admin.Controllers
         {
             var sectors = await sysManager.GetBusinessSectorsAsync();
 
-            return (sectors.Count() > 0) ?
-                sectors.Select(p => new BusinessSectorDTO
+            return (sectors.Count > 0) ?
+                [..sectors.Select(p => new BusinessSectorDTO
                 {
                     Name = p.Name,
                     Id = p.Id
-                }).ToArray() : [];
+                })] : [];
         }
 
         [Route("{businessSectorId}")]
         [HttpGet]
-        public async Task<BusinessSectorDTO?> GetByIdAsync ([FromRoute] string businessSectorId)
+        public async Task<BusinessSectorDTO?> GetByIdAsync ([FromRoute] int businessSectorId)
         {
             var sector = await sysManager.FindBusinessSectorByIdAsync(businessSectorId);
             return sector != null ? BusinessSectorDTO.MapFromBusinessSector(sector) : null;
@@ -84,7 +84,7 @@ namespace Librebooks.Areas.Admin.Controllers
 
         [Route("delete")]
         [HttpPost]
-        public async Task<IActionResult> DeleteAsync ([FromBody] string[] businessSectorIds)
+        public async Task<IActionResult> DeleteAsync ([FromBody] int[] businessSectorIds)
         {
             var sectors = await sysManager.FindBusinessSectorsByIdsAsync(businessSectorIds);
 
