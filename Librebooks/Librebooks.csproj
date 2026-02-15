@@ -18,45 +18,38 @@
 
   <ItemGroup>
     <Compile Remove="Areas\Accounting\**" />
-    <Compile Remove="Areas\Companies\Data\**" />
     <Compile Remove="Areas\Inventory\Data\**" />
     <Compile Remove="Areas\Suppliers\Controllers\**" />
     <Compile Remove="Areas\Suppliers\Data\**" />
     <Compile Remove="Areas\Suppliers\Models\**" />
-    <Compile Remove="Areas\Admin\Data\**" />
     <Compile Remove="Extensions\Data\**" />
     <Compile Remove="Extensions\Identity\**" />
     <Content Remove="Areas\Accounting\**" />
-    <Content Remove="Areas\Companies\Data\**" />
     <Content Remove="Areas\Inventory\Data\**" />
     <Content Remove="Areas\Suppliers\Controllers\**" />
     <Content Remove="Areas\Suppliers\Data\**" />
     <Content Remove="Areas\Suppliers\Models\**" />
-    <Content Remove="Areas\Admin\Data\**" />
     <Content Remove="Extensions\Data\**" />
     <Content Remove="Extensions\Identity\**" />
     <EmbeddedResource Remove="Areas\Accounting\**" />
-    <EmbeddedResource Remove="Areas\Companies\Data\**" />
     <EmbeddedResource Remove="Areas\Inventory\Data\**" />
     <EmbeddedResource Remove="Areas\Suppliers\Controllers\**" />
     <EmbeddedResource Remove="Areas\Suppliers\Data\**" />
     <EmbeddedResource Remove="Areas\Suppliers\Models\**" />
-    <EmbeddedResource Remove="Areas\Admin\Data\**" />
     <EmbeddedResource Remove="Extensions\Data\**" />
     <EmbeddedResource Remove="Extensions\Identity\**" />
     <None Remove="Areas\Accounting\**" />
-    <None Remove="Areas\Companies\Data\**" />
     <None Remove="Areas\Inventory\Data\**" />
     <None Remove="Areas\Suppliers\Controllers\**" />
     <None Remove="Areas\Suppliers\Data\**" />
     <None Remove="Areas\Suppliers\Models\**" />
-    <None Remove="Areas\Admin\Data\**" />
     <None Remove="Extensions\Data\**" />
     <None Remove="Extensions\Identity\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="10.0.3" />
@@ -77,7 +70,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Providers\Managers\" />
+    <Folder Include="Areas\Identity\Models\Account\DataTransferObjects\" />
   </ItemGroup>
 
 </Project>

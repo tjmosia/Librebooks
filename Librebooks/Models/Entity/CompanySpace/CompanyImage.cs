@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.DocumentSpace;
 
@@ -11,40 +10,43 @@ namespace Librebooks.Models.Entity.CompanySpace;
 [Table(nameof(CompanyImage))]
 public class CompanyImage () : VersionedEntityBase()
 {
-    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public virtual int Id { get; set; }
-    public virtual int CompanyId { get; set; }
-    public virtual DateOnly DateCreated { get; set; }
+	[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+	public virtual int Id { get; set; }
+	public virtual int CompanyId { get; set; }
+	public virtual DateOnly DateCreated { get; set; }
 
-    public virtual byte[]? Data { get; set; }
+	public virtual byte[]? Data { get; set; }
 
-    public void SetDateCreated (DateTime date)
-        => DateCreated = DateOnly.FromDateTime(date);
+	[NotMapped]
+	public string? DataAsBase64 { get => (Data == null) ? null : Convert.ToBase64String(Data); }
 
-    public static void OnModelCreating (ModelBuilder builder)
-    {
-        builder.Entity<CompanyImage>(options =>
-        {
-            options.HasIndex(p => new { p.CompanyId, p.Id })
-                .IsClustered();
+	public void SetDateCreated (DateTime date)
+		=> DateCreated = DateOnly.FromDateTime(date);
 
-            options.HasOne<CompanyLogo>()
-                .WithOne(p => p.Image)
-                .HasForeignKey<CompanyLogo>(p => p.ImageId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+	public static void OnModelCreating (ModelBuilder builder)
+	{
+		builder.Entity<CompanyImage>(options =>
+		{
+			options.HasIndex(p => new { p.CompanyId, p.Id })
+				.IsClustered();
 
-            options.HasOne<Company>()
-                .WithMany()
-                .HasForeignKey(p => p.CompanyId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+			options.HasOne<CompanyLogo>()
+				.WithOne(p => p.Image)
+				.HasForeignKey<CompanyLogo>(p => p.ImageId)
+					.IsRequired()
+				.OnDelete(DeleteBehavior.Restrict);
 
-            options.HasMany<DocumentCompanyInfo>()
-                .WithOne(p => p.Logo)
-                .HasForeignKey(p => p.LogoId)
-                    .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-        });
-    }
+			options.HasOne<Company>()
+				.WithMany()
+				.HasForeignKey(p => p.CompanyId)
+					.IsRequired()
+				.OnDelete(DeleteBehavior.Restrict);
+
+			options.HasMany<DocumentCompanyInfo>()
+				.WithOne(p => p.Logo)
+				.HasForeignKey(p => p.LogoId)
+					.IsRequired()
+				.OnDelete(DeleteBehavior.Restrict);
+		});
+	}
 }

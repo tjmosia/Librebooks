@@ -1,70 +1,77 @@
 ﻿using Librebooks.Areas.Admin.Services;
+using Librebooks.Areas.Companies.Data;
 using Librebooks.Areas.Companies.Models;
 using Librebooks.Areas.Companies.Services;
 using Librebooks.Areas.Identity.Services;
 using Librebooks.Extensions.Mvc;
 using Librebooks.Models.Entity.CompanySpace;
-
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Librebooks.Areas.Companies.Controllers
+namespace Librebooks.Areas.Companies.Controllers;
+
+[Authorize]
+[ApiController]
+[Route("[controller]")]
+public class CompaniesController
+	(ISystemManager sysManager,
+	ICompanyManager companyManager,
+	UserManagerExtension userManager,
+	ICompanyStore companyStore)
+	: SessionControllerBase(userManager)
 {
-    [Authorize]
-    [ApiController]
-    [Route("companies")]
-    public class CompaniesController
-        (SystemManager sysManager, CompanyManager companyManager, UserManagerExtension userManager)
-        : SessionControllerBase(userManager)
-    {
-        private readonly SystemManager sysManager = sysManager;
-        private readonly CompanyManager companyManager = companyManager;
+	private readonly ISystemManager sysManager = sysManager;
+	private readonly ICompanyManager companyManager = companyManager;
+	private readonly ICompanyStore companyStore = companyStore;
 
-        [HttpGet]
-        [Route("")]
-        public async Task<IActionResult> GetAsync ()
-        {
-            var user = await userManager!.FindByNameAsync(User.Identity!.Name!);
+	[HttpGet]
+	[Route("")]
+	public async Task<IActionResult> GetAsync ()
+	{
+		var user = await userManager!.FindByNameAsync(User.Identity!.Name!);
 
-            if (user == null)
-                return Unauthorized();
-            var companies = await companyManager.FindAllByUserAsync(user!.Id);
+		if (user == null)
+			return Unauthorized();
 
-            return Ok(companies.Select(p => new
-            {
-                p.Id,
-                p.TradingName,
-                p.Logo
-            }));
-        }
+		var company = await companyStore.FindByUserIdAsync(user!.Id);
 
-        [HttpPost]
-        [Route("create")]
-        public async Task<IActionResult> CreateAsync ([FromBody] CompaniesReqModels.CreateModel input)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+		if (company == null)
+			return NotFound();
 
-            var businessSector = await sysManager.FindBusinessSectorByIdAsync(input.BusinessSector!);
+		return Ok(new CompanyDto(company));
+	}
 
-            if (businessSector == null)
-            {
-                ModelState.AddModelError(nameof(input.BusinessSector), "Invalid business sector provided.");
-                return BadRequest(ModelState);
-            }
+	[HttpPost]
+	[Route("create")]
+	public async Task<IActionResult> CreateAsync ([FromBody] CompaniesReqModels.CreateModel input)
+	{
+		if (!ModelState.IsValid)
+			return BadRequest(ModelState);
 
-            var company = new Company()
-            {
-                BusinessSectorId = businessSector.Id,
-                RegNumber = input.RegNumber,
-                FaxNumber = input.FaxNumber,
-                PhysicalAddress = input.PhysicalAddress,
-                PostalAddress = input.PostalAddress,
-                PhoneNumber = input.TelephoneNumber,
-                EmailAddress = input.Email
-            };
+		var businessSector = await sysManager.FindBusinessSectorByIdAsync(input.BusinessSector!);
 
-            return Ok();
-        }
-    }
+		if (businessSector == null)
+		{
+			ModelState.AddModelError(nameof(input.BusinessSector), "Invalid business sector provided.");
+			return BadRequest(ModelState);
+		}
+
+		var company = new Company()
+		{
+			BusinessSectorId = businessSector.Id,
+			RegNumber = input.RegNumber,
+			FaxNumber = input.FaxNumber,
+			PhysicalAddress = input.PhysicalAddress,
+			PostalAddress = input.PostalAddress,
+			PhoneNumber = input.TelephoneNumber,
+			EmailAddress = input.Email
+		};
+
+		return Ok();
+	}
+
+	private static void SetCompanyToSession (HttpContext context, int companyId)
+	{
+		context.Response.Cookies.Append(nameof(companyId), companyId.ToString());
+	}
 }

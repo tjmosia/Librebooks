@@ -1,9 +1,9 @@
 ﻿using Librebooks.Areas.Admin.Services;
 using Librebooks.Areas.Admin.Services.SubStores;
+using Librebooks.Areas.Companies.Services;
 using Librebooks.Areas.Inventory.Services;
 //using Librebooks.Areas.Accounting.Services;
 //using Librebooks.Areas.Customers.Services;
-using Librebooks.Areas.Suppliers.Services;
 using Librebooks.Core.EFCore;
 
 namespace Librebooks.Areas;
@@ -27,11 +27,8 @@ public static class AreaServices
 		services.AddScoped<TaxTypeStore>();
 		services.AddScoped<CompanyNumberStore>();
 		services.AddScoped<BusinessSectorStore>();
+		services.AddScoped<ICompanyStore, CompanyStore>();
+		services.AddScoped<ICompanyManager, CompanyManager>();
 
-		//services.AddScoped<ICustomerManager, CustomerManager>();
-		services.AddScoped<ISupplierManager, SupplierManager>();
-		services.AddScoped<IItemManager, ItemManager>();
-		services.AddScoped<ISystemManager, SystemManager>();
-		//services.AddScoped<IAccountingManager, AccountingManager>();
 	}
 }

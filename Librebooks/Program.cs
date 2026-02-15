@@ -4,7 +4,7 @@ using Librebooks.Core.EFCore;
 using Librebooks.Data;
 using Librebooks.Models.Entity.IdentitySpace;
 using Librebooks.Providers;
-
+using Librebooks.Providers.Managers;
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +22,7 @@ builder.Services.AddIdentityCore<User>
 		options.Password.RequiredUniqueChars = 6;
 		options.Password.RequireLowercase = true;
 		options.Password.RequireUppercase = true;
-		options.Password.RequireNonAlphanumeric = true;
+		options.Password.RequireNonAlphanumeric = false;
 		options.SignIn.RequireConfirmedEmail = true;
 		options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
 		options.Lockout.MaxFailedAccessAttempts = 5;
@@ -38,7 +38,6 @@ builder.Services.AddIdentityCore<User>
 
 JwtBearerProvider.Configure(builder);
 builder.Services.AddSingleton<IdentityErrorDescriberExtension>();
-AreaServices.ConfigureAll(builder.Services);
 builder.Services.AddSingleton<AppErrorDescriber>();
 
 builder.Services.AddCors(options =>
@@ -59,17 +58,15 @@ builder.Services.Configure<JsonOptions>(opts =>
 	opts.SerializerOptions.IncludeFields = true);
 
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
-
+AreaServices.ConfigureAll(builder.Services);
 builder.Services.AddScoped<VerificationStore>();
 builder.Services.AddScoped<IVerificationManager, VerificationManager>();
+builder.Services.AddSingleton<MailSender>();
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-	//_ = app.UseSwagger();
-	//_ = app.UseSwaggerUI();
 }
 
 app.UseCors("DevOrigin");

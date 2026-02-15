@@ -1,20 +1,25 @@
-import { Injectable } from '@angular/core';
+import {Injectable, signal} from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthLayoutService {
-  formTitle?: string;
-  formMessage?: string;
-
-  constructor(private authLayoutService: AuthLayoutService) {
-  }
+  private formTitle = signal<string>("");
+  private formMessage = signal<string>("");
 
   setFormTitle(title: string){
-    this.formTitle = title;
+    this.formTitle.set(title);
   }
 
   setFormMessage(message: string){
-    this.formMessage = message;
+    this.formMessage.set(message);
+  }
+
+  getFormMessage(){
+    return this.formMessage.asReadonly()();
+  }
+
+  getFormTitle(){
+    return this.formTitle.asReadonly()();
   }
 }

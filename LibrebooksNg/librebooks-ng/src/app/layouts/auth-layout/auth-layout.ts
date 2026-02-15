@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
+import {AuthLayoutService} from '../../services/auth/auth-layout-service';
 
 @Component({
   selector: 'app-auth-layout',
@@ -8,7 +9,11 @@ import {RouterOutlet} from '@angular/router';
   ],
   templateUrl: './auth-layout.html',
   styleUrl: './auth-layout.scss',
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class AuthLayout {
+  authLayoutService = inject(AuthLayoutService);
 
+  ngOnInit() {
+  }
 }

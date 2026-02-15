@@ -1,52 +1,56 @@
-﻿using Librebooks.Areas.Identity.Models;
+﻿using Librebooks.Areas.Identity.Models.Authentication.Models;
 using Librebooks.Areas.Identity.Services;
 using Librebooks.CoreLib.Operations;
 using Librebooks.Models.Entity.GeneralSpace;
-using Librebooks.Providers;
-
+using Librebooks.Providers.Managers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Librebooks.Areas.Identity.Controllers;
 
-[Route("verifications")]
+[Route("verification")]
 [ApiController]
 [AllowAnonymous]
-public class VerificationController (IVerificationManager verificationManager, UserManagerExtension userManager) : ControllerBase
+public class VerificationController (IVerificationManager verificationManager, UserManagerExtension userManager, ILogger<VerificationController> logger)
+	: ControllerBase
 {
-    private readonly IVerificationManager verificationManager = verificationManager;
-    private readonly UserManagerExtension userManager = userManager;
+	private readonly IVerificationManager verificationManager = verificationManager;
+	private readonly UserManagerExtension userManager = userManager;
+	private readonly ILogger<VerificationController> logger = logger;
 
-    [HttpPost]
-    [Route("send")]
-    public async Task<IActionResult> SendAsync ([FromBody] VerificationModels.SendRequestModel model)
-    {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
+	[HttpPost]
+	[Route("request")]
+	public async Task<IActionResult> SendAsync ([FromBody] VerificationModels.Create.Request model)
+	{
+		var validation = VerificationModels.Create.Validate(model);
 
-        var user = userManager.FindByNameAsync(model.Reason!);
+		if (!validation.IsValid)
+			return BadRequest(validation.Errors.Select(p => TransactionError.Create(p.PropertyName, p.ErrorMessage)));
 
-        if (user == null)
-            return Ok(TransactionResult.Failure(TransactionError.Create("Email", "INVALID")));
+		var (Request, Code) = await verificationManager.AddAsync(new VerificationRequest(model.Email!, model.Reason!));
 
-        var request = await verificationManager.AddAsync(new VerificationRequest(model.Email!, model.Reason!));
+		if (Request != null)
+		{
+			logger.LogInformation("A verification request for {Email} with reason {Reason} has been created. Token = {token}", model.Email, model.Reason, Code);
+			return Ok(TransactionResult.Success);
+		}
 
-        return Ok(request != null ?
-            TransactionResult.Success :
-            TransactionResult.Failure(TransactionError.Create("Email", "Unable to send verification to your email.")));
-    }
+		return Ok(TransactionResult.Failure(TransactionError.Create("Email", "Unable to send verification to your email.")));
+	}
 
-    [HttpPost("check")]
-    public async Task<IActionResult> VerifyAsync ([FromBody] VerificationModels.VerifyRequestModel model)
-    {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
+	[HttpPost("verify")]
+	public async Task<IActionResult> VerifyAsync ([FromBody] VerificationModels.Verify.Request model)
+	{
+		var validation = VerificationModels.Verify.Validate(model);
 
-        var result = await verificationManager.VerifyAsync(model.Email!, model.Reason!, model.Code!);
+		if (!validation.IsValid)
+			return BadRequest(validation.Errors.Select(p => TransactionError.Create(p.PropertyName, p.ErrorMessage)));
 
-        if (!result.Succeeded && result.Errors.Any(p => p.Code == nameof(model.Email)))
-            return NotFound(result);
+		var result = await verificationManager.VerifyAsync(model.Email!, model.Reason!, model.Code!);
 
-        return Ok(TransactionResult.Success);
-    }
+		if (!result.Succeeded)
+			return Ok(TransactionResult.Failure([.. result.Errors]));
+
+		return Ok(TransactionResult.Success);
+	}
 }

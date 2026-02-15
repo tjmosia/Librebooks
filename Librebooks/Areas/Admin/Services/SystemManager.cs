@@ -77,43 +77,6 @@ namespace Librebooks.Areas.Admin.Services
 			await cache.RemoveAsync(COMP_NUM_PREFIX);
 		}
 
-		/******************************************************************
-         * COUNTRY Store Manager Actions
-         ******************************************************************/
-
-		public async Task<Country?> FindCountryByCodeAsync (string countryCode)
-			=> await store.Countries.FindByCodeAsync(countryCode);
-
-		public async Task<IList<Country>> FindCountriesByCodesAsync (params string[] countryCodes)
-			=> await store.Countries.FindByCodesAsync(countryCodes);
-
-		public async Task<IList<Country>> GetCountriesAsync ()
-			=> await store.Countries.FindAllAsync();
-
-		public async Task<TransactionResult<Country>> AddCountryAsync (Country country)
-		{
-			country.Code = country.Code!.ToUpper();
-
-			var result = await store.Countries.CreateAsync(country);
-
-			if (result != null)
-				return TransactionResult<Country>.Success(result);
-			return TransactionResult<Country>.Failure();
-		}
-
-		public async Task<TransactionResult<Country>> UpdateCountryAsync (Country country)
-		{
-			var result = await store.Countries.UpdateAsync(country);
-
-			if (result != null)
-				return TransactionResult<Country>.Success(result);
-			else
-				return TransactionResult<Country>.Failure();
-		}
-
-		public async Task<TransactionResult> DeleteCountryAsync (params Country[] countries)
-			=> await store.Countries.DeleteAsync(countries) ? TransactionResult.Success : TransactionResult.Failure();
-
 
 		/******************************************************************
          * CURRENCY Store Manager Actions

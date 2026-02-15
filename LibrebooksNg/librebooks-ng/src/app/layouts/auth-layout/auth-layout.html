@@ -1,2 +1,10 @@
-<p>auth-layout works!</p>
-<router-outlet />
+
+<div class="auth-layout">
+  <div class="auth-content">
+    <div class="auth-form-wrapper">
+      <h1>{{authLayoutService.getFormTitle()}}</h1>
+      <p>{{authLayoutService.getFormMessage()}}</p>
+      <router-outlet />
+    </div>
+  </div>
+</div>

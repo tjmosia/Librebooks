@@ -1,156 +1,114 @@
-﻿using Librebooks.Areas.Admin.Models;
+﻿using Librebooks.Areas.Admin.Data;
+using Librebooks.Areas.Admin.Models;
 using Librebooks.Areas.Admin.Services;
 using Librebooks.CoreLib.Operations;
 using Librebooks.Models.Entity.SystemSpace;
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace Librebooks.Areas.Admin.Controllers
+namespace Librebooks.Areas.Admin.Controllers;
+
+[Route("countries")]
+[ApiController]
+public class CountriesController (ISystemManager systemManager, SystemStore sysStore, ILogger<CountriesController> logger)
+	: ControllerBase
 {
-    [Route("countries")]
-    [ApiController]
-    public class CountriesController (ISystemManager systemManager, ILogger<CountriesController> logger)
-        : ControllerBase
-    {
-        private readonly ISystemManager sysManager = systemManager;
-        private readonly ILogger<CountriesController> logger = logger;
+	private readonly ISystemManager sysManager = systemManager;
+	private readonly SystemStore sysStore = sysStore;
+	private readonly ILogger<CountriesController> logger = logger;
 
-        [HttpPost]
-        [Route("create")]
-        public async Task<IActionResult> CreateCountryAsync ([FromBody] CountryModel model)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+	[HttpPost]
+	[Route("create")]
+	public async Task<IActionResult> CreateCountryAsync ([FromBody] CountryModel.Create.Request model)
+	{
+		if (!ModelState.IsValid)
+			return BadRequest(ModelState);
 
-            var country = model.MapToCountry(new Country());
-            country.NormalizeCode();
+		var country = model.MapToCountry(new Country());
 
-            var result = await sysManager.AddCountryAsync(country);
+		country.NormalizeCode();
 
-            if (result.Succeeded)
-            {
-                return Ok(TransactionResult<CountryDTO>.Success(CountryDTO.MapFromCountry(result.Model!)));
-            }
-            else
-            {
-                logger.LogError("Error Occured at CreateCountryAsync Method: Country Code or Name provided already exists.");
-                ModelState.AddModelError("", "Country Code or Name provided already exists.");
-            }
+		var result = await sysStore.Countries.AddAsync(country);
 
-            return BadRequest(ModelState);
-        }
+		return BadRequest(result);
+	}
 
-        [HttpPost]
-        [Route("edit")]
-        public async Task<IActionResult> UpdateCountryAsync ([FromBody] CountryUpdateModel model)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+	[HttpPatch]
+	[Route("edit/{countryId}")]
+	public async Task<IActionResult> UpdateCountryAsync ([FromBody] CountryModel.Update.Request model, [FromRoute] int countryId)
+	{
+		if (!ModelState.IsValid)
+			return BadRequest(ModelState);
 
-            TransactionResult<CountryDTO>? transResult = TransactionResult<CountryDTO>.Failure(TransactionError.Create("", "Unable to update country. Please try again."));
+		var country = await sysStore.Countries.FindByIdAsync(countryId);
 
-            var country = await sysManager.FindCountryByCodeAsync(model.CurrentCode!);
+		if (country == null)
+			return NotFound();
 
-            if (string.IsNullOrEmpty(model.Code) || model.Code.Equals(model.CurrentCode, StringComparison.CurrentCultureIgnoreCase))
-            {
-                model.Code = model.CurrentCode;
+		if (country.Name!.Equals(model.Name, StringComparison.CurrentCultureIgnoreCase) &&
+			country.DialingCode!.Equals(model.DialingCode, StringComparison.CurrentCultureIgnoreCase) &&
+			country.Code!.Equals(model.Code, StringComparison.CurrentCultureIgnoreCase))
+		{
+			return Ok(TransactionResult<CountryDTO>.Success(new CountryDTO(country)));
+		}
+		var result = await sysStore.Countries.UpdateAsync(model.MapToCountry(country));
 
-                if (country != null)
-                {
-                    if (!country.Name!.Equals(model.Name, StringComparison.CurrentCultureIgnoreCase) ||
-                        !country.DialingCode!.Equals(model.DialingCode, StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        country.Name = model.Name;
-                        country.DialingCode = model.DialingCode;
-                        country.NormalizeCode();
+		if (result.Succeeded)
+			return Ok(TransactionResult<CountryDTO>.Success(new CountryDTO(result.Model!)));
+		else
+			return Ok(TransactionResult.Failure(result.Errors));
+	}
 
-                        var result = await sysManager.UpdateCountryAsync(country);
+	[HttpGet]
+	[Route("{countryId}")]
+	public async Task<IActionResult> GetCountryAsync ([FromRoute] int countryId)
+	{
+		var country = await sysStore.Countries.FindByIdAsync(countryId);
+		if (country == null)
+			return NotFound();
 
-                        if (result.Succeeded)
-                        {
-                            country = result.Model!;
-                            transResult = TransactionResult<CountryDTO>.Success(CountryDTO.MapFromCountry(country!));
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if (await sysManager.FindCountryByCodeAsync(model.Code.ToUpper()) != null)
-                {
-                    transResult = TransactionResult<CountryDTO>
-                        .Failure(TransactionError.Create(nameof(CountryModel.Code), "A country with the same cost already exits."));
-                }
-                else if (country != null)
-                {
-                    var deleteResult = await sysManager.DeleteCountryAsync(country);
+		return Ok(new CountryDTO(country));
+	}
 
-                    if (deleteResult.Succeeded)
-                    {
-                        var newCountry = model.MapToCountry(new Country());
-                        newCountry.NormalizeCode();
-                        var result = await sysManager.AddCountryAsync(newCountry);
+	[HttpGet]
+	[Route("")]
+	public async Task<IEnumerable<CountryDTO>> GetCountriesAsync (CancellationToken cancellationToken = default)
+	{
+		var countries = await sysStore.Countries.FindAllAsync(cancellationToken);
+		return countries.Any() ? countries.Select(p => new CountryDTO(p)).ToArray() : [];
+	}
 
-                        if (result.Succeeded)
-                            transResult = TransactionResult<CountryDTO>.Success(CountryDTO.MapFromCountry(result.Model!));
-                    }
-                }
-            }
+	[HttpDelete]
+	[Route("delete")]
+	public async Task<IActionResult> DeleteCountriesAsync ([FromBody] int[] countryIds)
+	{
+		var countries = await sysStore.Countries.FindAllByIdAsync(countryIds);
 
-            return Ok(transResult);
-        }
+		if (!countries.Any())
+			return Ok(TransactionResult.Success);
 
-        [HttpGet]
-        [Route("{code}")]
-        public async Task<CountryDTO?> GetCountryAsync ([FromRoute] string code)
-        {
-            var country = await sysManager.FindCountryByCodeAsync(code);
-            if (country == null)
-                return null;
+		var result = await sysStore.Countries.DeleteAsync([.. countries]);
 
-            return new CountryDTO
-            {
-                Code = country.Code,
-                Name = country.Name,
-                DialingCode = country.DialingCode
-            };
-        }
+		if (result.Succeeded)
+			return Ok(TransactionResult.Success);
+		else
+			return Ok(TransactionResult.Failure(TransactionError.Create("", "Unable to delete countries that are in use.")));
+	}
 
-        [HttpGet]
-        [Route("")]
-        public async Task<IEnumerable<CountryDTO>> GetCountriesAsync ()
-        {
-            var countries = await sysManager.GetCountriesAsync();
+	[HttpDelete]
+	[Route("delete/{id}")]
+	public async Task<IActionResult> DeleteCountryAsync ([FromRoute] int id)
+	{
+		var country = await sysStore.Countries.FindByIdAsync(id);
 
-            return countries.Count > 0 ? countries.Select(p => new CountryDTO
-            {
-                Name = p.Name,
-                Code = p.Code,
-                DialingCode = p.DialingCode
-            }).ToArray() : [];
-        }
+		if (country == null)
+			return NotFound();
 
-        [HttpPost]
-        [Route("delete")]
-        public async Task<IActionResult> DeleteCountryAsync ([FromBody] string[] countryCodes)
-        {
-            var countries = await sysManager.FindCountriesByCodesAsync(countryCodes);
+		var result = await sysStore.Countries.DeleteAsync(country!);
 
-            if (countries.Count > 0)
-            {
-
-                if ((await sysManager.DeleteCountryAsync([.. countries])).Succeeded)
-                {
-                    logger.LogInformation("Countries were successfully deleted.");
-                    return Ok(TransactionResult.Success);
-                }
-                else
-                    logger.LogError("Unable to delete countries.");
-            }
-            else
-                logger.LogError("No Countries were found to be deleted.");
-
-            return Ok(TransactionResult.Failure());
-        }
-    }
+		if (result.Succeeded)
+			return Ok(TransactionResult.Success);
+		else
+			return Ok(TransactionResult.Failure(TransactionError.Create("", "Country is currently in use.")));
+	}
 }

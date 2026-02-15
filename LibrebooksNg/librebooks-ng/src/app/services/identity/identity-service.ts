@@ -1,16 +1,21 @@
-import { Injectable } from '@angular/core';
+import {Injectable, signal} from '@angular/core';
 import {IUser} from './IUser';
 
 @Injectable({
   providedIn: 'root',
 })
 export class IdentityService {
-  private user?: IUser;
+  private user = signal<IUser | null>(null)
 
   isSignedIn(){
-    return !!this.user;
+    return !!this.user();
   }
+
   getUser(){
-    return this.user; 
+    return this.user;
+  }
+
+  setUser(user:IUser){
+    this.user.set(user);
   }
 }

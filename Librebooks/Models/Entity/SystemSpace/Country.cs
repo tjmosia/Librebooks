@@ -14,11 +14,11 @@ namespace Librebooks.Models.Entity.SystemSpace
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public virtual int Id { get; set; }
 
-		[MaxLength(3), Required]
-		public virtual string? Code { get; set; }
-
 		[MaxLength(75), Required]
 		public virtual string? Name { get; set; }
+
+		[MaxLength(3), Required]
+		public virtual string? Code { get; set; }
 
 		[MaxLength(15)]
 		public virtual string? DialingCode { get; set; }

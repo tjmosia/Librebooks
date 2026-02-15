@@ -1,0 +1,567 @@
+[
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AccountController",
+    "Method": "ChangeEmailAsync",
+    "RelativePath": "account/change-email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Librebooks.Areas.Identity.Models.AccountReqModels\u002BChangeEmailModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AccountController",
+    "Method": "ChangePasswordAsync",
+    "RelativePath": "account/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Librebooks.Areas.Identity.Models.AccountReqModels\u002BChangePasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AccountController",
+    "Method": "GetClaimsAsync",
+    "RelativePath": "account/claims",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AccountController",
+    "Method": "Logout",
+    "RelativePath": "account/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AccountController",
+    "Method": "UpdateUserPersonalInfoAsync",
+    "RelativePath": "account/personal-info/edit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Librebooks.Areas.Identity.Models.AccountReqModels\u002BUpdateUserPersonalInfoModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AccountController",
+    "Method": "GetProfileAsync",
+    "RelativePath": "account/profile",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AccountController",
+    "Method": "GetRolesAsync",
+    "RelativePath": "account/roles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AccountController",
+    "Method": "SendVerificationCodeAsync",
+    "RelativePath": "account/send-verification-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Librebooks.Areas.Identity.Models.AccountReqModels\u002BSendVerificationCodeModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Inventory.Controllers.InventoryController",
+    "Method": "CreateItemAsync",
+    "RelativePath": "api/Inventory/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AuthController",
+    "Method": "FindUserAsync",
+    "RelativePath": "Auth",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Librebooks.Areas.Identity.Models.Requests.AuthModels\u002BUsernameModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AuthController",
+    "Method": "ConfirmSignInAsync",
+    "RelativePath": "Auth/confirm-login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AuthController",
+    "Method": "LoginAsync",
+    "RelativePath": "Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Librebooks.Areas.Identity.Models.Requests.AuthModels\u002BLoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AuthController",
+    "Method": "RegisterAsync",
+    "RelativePath": "Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Librebooks.Areas.Identity.Models.Requests.AuthModels\u002BRegisterModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AuthController",
+    "Method": "ResetPasswordAsync",
+    "RelativePath": "Auth/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Librebooks.Areas.Identity.Models.Requests.AuthModels\u002BResetPasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AuthController",
+    "Method": "SendVerificationCodeAsync",
+    "RelativePath": "Auth/send-verification-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Librebooks.Areas.Identity.Models.Requests.AuthModels\u002BSendVerificationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.AuthController",
+    "Method": "VerifyEmail",
+    "RelativePath": "Auth/verify-email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Librebooks.Areas.Identity.Models.Requests.AuthModels\u002BVerifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Companies.Controllers.CompaniesController",
+    "Method": "GetAsync",
+    "RelativePath": "companies",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Companies.Controllers.CompaniesController",
+    "Method": "CreateAsync",
+    "RelativePath": "companies/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Librebooks.Areas.Companies.Models.CompaniesReqModels\u002BCreateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.CountriesController",
+    "Method": "GetCountriesAsync",
+    "RelativePath": "countries",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Librebooks.Areas.Admin.Models.CountryDTO, Librebooks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.CountriesController",
+    "Method": "GetCountryAsync",
+    "RelativePath": "countries/{code}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Librebooks.Areas.Admin.Models.CountryDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.CountriesController",
+    "Method": "CreateCountryAsync",
+    "RelativePath": "countries/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Librebooks.Areas.Admin.Models.CountryModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.CountriesController",
+    "Method": "DeleteCountryAsync",
+    "RelativePath": "countries/delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "countryCodes",
+        "Type": "System.String[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.CountriesController",
+    "Method": "UpdateCountryAsync",
+    "RelativePath": "countries/edit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Librebooks.Areas.Admin.Models.CountryUpdateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.BusinessSectorsController",
+    "Method": "GetAsync",
+    "RelativePath": "sectors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Librebooks.Areas.Admin.Models.BusinessSectorModels.BusinessSectorDTO[]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.BusinessSectorsController",
+    "Method": "GetByIdAsync",
+    "RelativePath": "sectors/{businessSectorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "businessSectorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Librebooks.Areas.Admin.Models.BusinessSectorModels.BusinessSectorDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.BusinessSectorsController",
+    "Method": "CreateAsync",
+    "RelativePath": "sectors/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Librebooks.Areas.Admin.Models.BusinessSectorModels.BusinessSectorModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.BusinessSectorsController",
+    "Method": "DeleteAsync",
+    "RelativePath": "sectors/delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "businessSectorIds",
+        "Type": "System.Int32[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.BusinessSectorsController",
+    "Method": "EditAsync",
+    "RelativePath": "sectors/edit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Librebooks.Areas.Admin.Models.BusinessSectorModels.BusinessSectorEditModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.TaxTypesController",
+    "Method": "GetAsync",
+    "RelativePath": "taxtypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Object, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.TaxTypesController",
+    "Method": "GetTaxTypeAsync",
+    "RelativePath": "taxtypes/{countryCode}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "countryCode",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Librebooks.Areas.Admin.Models.CountryDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.TaxTypesController",
+    "Method": "CreateAsync",
+    "RelativePath": "taxtypes/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Librebooks.Areas.Admin.Models.TaxTypeModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.TaxTypesController",
+    "Method": "DeleteCountryAsync",
+    "RelativePath": "taxtypes/delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "countryCodes",
+        "Type": "System.String[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Admin.Controllers.TaxTypesController",
+    "Method": "EditTaxTypeAsync",
+    "RelativePath": "taxtypes/edit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Librebooks.Areas.Admin.Models.TaxTypeModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.VerificationController",
+    "Method": "SendAsync",
+    "RelativePath": "verification/request",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Librebooks.Areas.Identity.Models.Requests.VerificationModels\u002BCreate\u002BCreateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Librebooks.Areas.Identity.Controllers.VerificationController",
+    "Method": "VerifyAsync",
+    "RelativePath": "verification/verify",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Librebooks.Areas.Identity.Models.Requests.VerificationModels\u002BVerify\u002BVerifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

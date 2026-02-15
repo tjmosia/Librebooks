@@ -1,9 +1,9 @@
 ﻿namespace Librebooks.Areas.Identity.Models
 {
-    public struct EmailVerificationTypes
-    {
-        public static string Registration = nameof(Registration).ToUpper();
-        public static string PasswordReset = nameof(PasswordReset).ToUpper();
-        public static string EmailChange = nameof(EmailChange).ToUpper();
-    }
+	public readonly struct EmailVerificationTypes
+	{
+		public const string Registration = "REGISTRATION";
+		public const string PasswordReset = "PASSWORD_RESET";
+		public const string EmailChange = "EMAIL_CHANGE";
+	}
 }
