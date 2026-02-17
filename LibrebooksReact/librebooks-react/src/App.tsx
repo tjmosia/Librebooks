@@ -18,7 +18,7 @@ function App() {
     removeUser: () => setUser(undefined)
   }
 
-  return (
+    return (
       <IdentityContext.Provider value={identityContext}>
         <FluentProvider theme={lightTheme}>
           <RouterProvider router={router} />
