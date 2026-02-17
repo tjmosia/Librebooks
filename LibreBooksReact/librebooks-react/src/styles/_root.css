@@ -1,0 +1,109 @@
+:root{
+
+    /*******************************************************************************************
+    * COLORS
+    *******************************************************************************************/
+    --colors-white: rgb(255, 255, 255);
+    /* Red */
+    --colors-red-light: rgb(255, 56, 60);
+    --colors-red-light-high-contrast: rgb(255, 66, 69);
+    --colors-red-dark: rgb(233, 21, 45);
+    --colors-red-dark-high-contrast: rgb(255, 97, 101);
+
+    /* Orange */
+    --colors-orange-light: rgb(255, 141, 40);
+    --colors-orange-light-high-contrast: rgb(255, 146, 48);
+    --colors-orange-dark: rgb(197, 83, 0);
+    --colors-orange-dark-high-contrast: rgb(255, 160, 86);
+
+    /* Yellow */
+    --colors-yellow-light: rgb(255, 204, 0);
+    --colors-yellow-light-high-contrast: rgb(255, 214, 0);
+    --colors-yellow-dark: rgb(161, 106, 0);
+    --colors-yellow-dark-high-contrast: rgb(254, 223, 67);
+
+    /* Green */
+    --colors-green-light: rgb(52, 199, 89);
+    --colors-green-light-high-contrast: rgb(48, 209, 88);
+    --colors-green-dark: rgb(0, 137, 50);
+    --colors-green-dark-high-contrast: rgb(74, 217, 104);
+
+    /* Mint */
+    --colors-mint-light: rgb(0, 200, 179);
+    --colors-mint-light-high-contrast: rgb(0, 218, 195);
+    --colors-mint-dark: rgb(0, 133, 117);
+    --colors-mint-dark-high-contrast: rgb(84, 223, 203);
+
+    /* Teal */
+    --colors-teal-light: rgb(0, 195, 208);
+    --colors-teal-light-high-contrast: rgb(0, 210, 224);
+    --colors-teal-dark: rgb(0, 129, 152);
+    --colors-teal-dark-high-contrast: rgb(59, 221, 236);
+
+    /* Cyan */
+    --colors-cyan-light: rgb(0, 192, 232);
+    --colors-cyan-light-high-contrast: rgb(60, 211, 254);
+    --colors-cyan-dark: rgb(0, 126, 174);
+    --colors-cyan-dark-high-contrast: rgb(109, 217, 255);
+
+    /* Blue */
+    --colors-blue-light: rgb(0, 136, 255);
+    --colors-blue-light-high-contrast: rgb(0, 145, 255);
+    --colors-blue-dark: rgb(30, 110, 244);
+    --colors-blue-dark-high-contrast: rgb(92, 184, 255);
+
+    /* Indigo */
+    --colors-indigo-light: rgb(97, 85, 245);
+    --colors-indigo-light-high-contrast: rgb(109, 124, 255);
+    --colors-indigo-dark: rgb(86, 74, 222);
+    --colors-indigo-dark-high-contrast: rgb(167, 170, 255);
+
+    /* Purple */
+    --colors-purple-light: rgb(203, 48, 224);
+    --colors-purple-light-high-contrast: rgb(219, 52, 242);
+    --colors-purple-dark: rgb(176, 47, 194);
+    --colors-purple-dark-high-contrast: rgb(234, 141, 255);
+
+    /* Pink */
+    --colors-pink-light: rgb(255, 45, 85);
+    --colors-pink-light-high-contrast: rgb(255, 55, 95);
+    --colors-pink-dark: rgb(231, 18, 77);
+    --colors-pink-dark-high-contrast: rgb(255, 138, 196);
+
+    /* Brown */
+    --colors-brown-light: rgb(172, 127, 94);
+    --colors-brown-light-high-contrast: rgb(183, 138, 102);
+    --colors-brown-dark: rgb(149, 109, 81);
+    --colors-brown-dark-high-contrast: rgb(219, 166, 121);
+
+    /* System greys */
+    --colors-grey-light: rgb(142, 142, 147);
+    --colors-grey-light-high-contrast: rgb(142, 142, 147);
+    --colors-grey-dark: rgb(108, 108, 112);
+    --colors-grey-dark-high-contrast: rgb(174, 174, 178);
+
+    --colors-grey2-light: rgb(174, 174, 178);
+    --colors-grey2-light-high-contrast: rgb(99, 99, 102);
+    --colors-grey2-dark: rgb(142, 142, 147);
+    --colors-grey2-dark-high-contrast: rgb(124, 124, 128);
+
+    --colors-grey3-light: rgb(199, 199, 204);
+    --colors-grey3-light-high-contrast: rgb(72, 72, 74);
+    --colors-grey3-dark: rgb(174, 174, 178);
+    --colors-grey3-dark-high-contrast: rgb(84, 84, 86);
+
+    --colors-grey4-light: rgb(209, 209, 214);
+    --colors-grey4-light-high-contrast: rgb(58, 58, 60);
+    --colors-grey4-dark: rgb(188, 188, 192);
+    --colors-grey4-dark-high-contrast: rgb(68, 68, 70);
+
+    --colors-grey5-light: rgb(229, 229, 234);
+    --colors-grey5-light-high-contrast: rgb(44, 44, 46);
+    --colors-grey5-dark: rgb(216, 216, 220);
+    --colors-grey5-dark-high-contrast: rgb(54, 54, 56);
+
+    --colors-grey6-light: rgb(242, 242, 247);
+    --colors-grey6-light-high-contrast: rgb(28, 28, 30);
+    --colors-grey6-dark: rgb(235, 235, 240);
+    --colors-grey6-dark-high-contrast: rgb(36, 36, 38);
+}

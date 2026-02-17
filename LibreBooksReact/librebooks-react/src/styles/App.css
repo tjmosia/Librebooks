@@ -1,0 +1,9 @@
+#root{
+  min-height: inherit;
+  width: 100%
+}
+#root .fui-FluentProvider{
+  min-height: inherit;
+  width: 100%;
+  background-color: var(--colors-grey5-light);
+}
