@@ -1,4 +1,5 @@
 export interface IFormField<T> {
     value?: T;
-    error?: string
+    errorMessage?: string,
+    erred?: boolean
 }

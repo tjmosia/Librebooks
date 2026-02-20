@@ -40,11 +40,19 @@ JwtBearerProvider.Configure(builder);
 builder.Services.AddSingleton<IdentityErrorDescriberExtension>();
 builder.Services.AddSingleton<AppErrorDescriber>();
 
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+	options.MinimumSameSitePolicy = SameSiteMode.None;
+	//options.HttpOnly = HttpOnlyPolicy.Always;
+	//options.Secure = CookieSecurePolicy.Always;
+	options.CheckConsentNeeded = context => true;
+});
+
 builder.Services.AddCors(options =>
 {
 	options.AddPolicy("DevOrigin", options =>
 	{
-		_ = options.WithOrigins("http://localhost:51570", "https://localhost:5262")
+		options.WithOrigins("https://localhost:5173")
 			.AllowCredentials()
 			.AllowAnyHeader()
 			.AllowAnyMethod();
@@ -65,13 +73,23 @@ builder.Services.AddSingleton<MailSender>();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-}
+if (app.Environment.IsDevelopment()) { }
 
+app.UseCookiePolicy();
 app.UseCors("DevOrigin");
 app.UseHttpsRedirection();
-app.UseDefaultFiles();
+
+app.Use(async (context, next) =>
+{
+	var token = context.Request.Cookies[JwtTokenKeys.AccessToken];
+
+	if (token != null)
+	{
+		context.Response.Headers.Authorization = $"Bearer {token}";
+		Console.Write(token);
+	}
+	await next.Invoke(context);
+});
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

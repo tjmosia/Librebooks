@@ -70,11 +70,10 @@ public class AuthController (UserManagerExtension userManager,
 				.FirstOrDefault(p => p.Type == ClaimTypes.Name);
 
 			var (Token, ExpiryDate) = signInManager.GenerateJsonWebToken(nameClaim!);
-			logger!.LogInformation($"Jwt Token: {Token}");
 			SetAuthenticationCookie(HttpContext, Token, ExpiryDate);
 
 			return Ok(TransactionResult<object>
-				.Success(signInManager!.GenerateUserSessionDTO(user)));
+				.Success(new LoginDto(user)));
 		}
 		else
 		{
@@ -99,7 +98,7 @@ public class AuthController (UserManagerExtension userManager,
 		var verifyEmail = await verificationManager.VerifyAsync(input.Email!, EmailVerificationTypes.Registration, input.Code!);
 
 		if (!verifyEmail.Succeeded)
-			return BadRequest(TransactionError.Create(nameof(input.Code), "Code is invalid."));
+			return Ok(TransactionResult.Failure([.. verifyEmail.Errors.Select(p => TransactionError.Create(nameof(input.Code), p.Description))]));
 
 		user = new User
 		{
@@ -120,17 +119,21 @@ public class AuthController (UserManagerExtension userManager,
 		if (createResult.Succeeded)
 		{
 			await verificationStore.DeleteAsync(verifyEmail.Model!);
-
 			user = await userManager.FindByEmailAsync(user.Email);
 
-			user!.DateLastLoggedIn = DateOnly.FromDateTime(DateTime.Now);
-			_ = await userManager.UpdateAsync(user);
-			_ = await userManager.AddClaimAsync(user, new Claim(ClaimTypes.Name, user.Email!));
+			if (user == null)
+				return Ok(TransactionResult.Failure(TransactionError.Create("", "Something went wrong. Please try again later.")));
+
+			await userManager.AddClaimAsync(user!, new Claim(ClaimTypes.Name, user!.Email!));
 
 			var nameClaim = (await userManager.GetClaimsAsync(user))
 				.FirstOrDefault(p => p.Type == ClaimTypes.Name);
 
-			return Ok(TransactionResult.Success);
+			var (Token, ExpiryDate) = signInManager!.GenerateJsonWebToken(nameClaim!);
+			SetAuthenticationCookie(HttpContext, Token, ExpiryDate);
+
+			return Ok(TransactionResult<object>
+				.Success(new LoginDto(user)));
 		}
 		else
 		{
@@ -145,10 +148,10 @@ public class AuthController (UserManagerExtension userManager,
 
 					if (error.Code.Contains("Password")
 						&& errors.FirstOrDefault(p => p.Code == nameof(input.Password)) == null)
-						errors.Add(new TransactionError(nameof(input.Email), IdentityErrorDescriptions.PasswordWeak));
+						errors.Add(new TransactionError(nameof(input.Password), IdentityErrorDescriptions.PasswordWeak));
 				}
 			else
-				errors.Add(new TransactionError(nameof(input.Email), "Unable to register user. Please try again."));
+				errors.Add(new TransactionError("", "Unable to register user. Please try again."));
 
 			return Ok(TransactionResult.Failure([.. errors]));
 		}
@@ -165,7 +168,7 @@ public class AuthController (UserManagerExtension userManager,
 		var verifyEmail = await verificationManager.VerifyAsync(input.Email!, EmailVerificationTypes.PasswordReset, input.Code!);
 
 		if (!verifyEmail.Succeeded)
-			return BadRequest(TransactionResult.Failure(verifyEmail.Errors));
+			return Ok(TransactionResult.Failure([.. verifyEmail.Errors.Select(p => TransactionError.Create(nameof(input.Code), p.Description))]));
 
 		var user = await userManager!.FindByEmailAsync(input.Email!);
 
@@ -175,13 +178,16 @@ public class AuthController (UserManagerExtension userManager,
 		var result = await userManager.CheckPasswordAsync(user, input.Password!);
 
 		if (result)
-			return Ok(TransactionResult.Failure(TransactionError.Create(nameof(input.Password), "Password matches your current password.")));
+			return Ok(TransactionResult.Failure(TransactionError.Create(nameof(input.Password), "You are already using this password.")));
 
 		var resetPasswordToken = await userManager.GeneratePasswordResetTokenAsync(user);
 		var resetPasswordResult = await userManager.ResetPasswordAsync(user, resetPasswordToken, input.Password!);
 
 		if (resetPasswordResult.Succeeded)
+		{
+			await verificationStore.DeleteAsync(verifyEmail.Model!);
 			return Ok(TransactionResult.Success);
+		}
 
 		foreach (var error in resetPasswordResult.Errors)
 			logger!.LogInformation("Model Error: Code: {code} - Message: {description}", error.Code, error.Description);
@@ -197,24 +203,43 @@ public class AuthController (UserManagerExtension userManager,
 		if (!string.IsNullOrEmpty(User!.Identity!.Name))
 		{
 			var user = await userManager!.FindByEmailAsync(User!.Identity!.Name);
+
 			if (user != null)
-				return Ok(TransactionResult<object>.Success(signInManager!.GenerateUserSessionDTO(user)));
+				return Ok(signInManager!.GenerateUserSessionDTO(user));
 		}
 
 		return Unauthorized();
 	}
 
-	private void SetAuthenticationCookie (HttpContext context, string token, DateTimeOffset expires)
+	[HttpPost]
+	[Authorize]
+	[Route("logout")]
+	public async Task<IActionResult> Logout ()
 	{
-		context.Response.Cookies.Append(JwtTokenKeys.AccessToken, token, new CookieOptions
+		HttpContext.Request.Headers.Authorization = "";
+		var accessTokenCookie = HttpContext.Request.Cookies[JwtTokenKeys.AccessToken];
+
+		if (accessTokenCookie != null)
+			HttpContext.Response.Cookies.Delete(JwtTokenKeys.AccessToken, GetCookieOptions());
+
+		return Ok();
+	}
+
+	private static void SetAuthenticationCookie (HttpContext context, string token, DateTimeOffset expires)
+	{
+		context.Response.Cookies.Append(JwtTokenKeys.AccessToken, token, GetCookieOptions());
+	}
+
+	private static CookieOptions GetCookieOptions ()
+	{
+		return new CookieOptions
 		{
 			HttpOnly = true,
-			Expires = expires,
 			IsEssential = true,
-			Secure = false,
-			SameSite = SameSiteMode.Strict,
+			Secure = true,
+			SameSite = SameSiteMode.None,
 			Domain = "localhost",
-			MaxAge = TimeSpan.FromMinutes(jwtParameters.ExpiryTimeInMinutes),
-		});
+			MaxAge = TimeSpan.FromDays(1),
+		};
 	}
 }

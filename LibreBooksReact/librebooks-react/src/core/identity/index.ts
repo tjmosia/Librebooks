@@ -1,1 +1,1 @@
-export {type IUser} from './types/user-type.ts'
+export { type IUser } from './types/user-type.ts'

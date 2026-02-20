@@ -1,28 +1,30 @@
-import {type Theme, createLightTheme, createDarkTheme, type BrandVariants} from '@fluentui/react-components'
+import { type Theme, createLightTheme, createDarkTheme, type BrandVariants } from '@fluentui/react-components'
 
 const myNewTheme: BrandVariants = {
-    10: "#020304",
-    20: "#11191C",
-    30: "#192A2F",
-    40: "#1E373F",
-    50: "#24444E",
-    60: "#29525F",
-    70: "#2D606F",
-    80: "#326E80",
-    90: "#367D92",
-    100: "#3B8CA4",
-    110: "#3F9CB7",
-    120: "#56AAC4",
-    130: "#75B7CD",
-    140: "#90C4D6",
-    150: "#AAD1DF",
-    160: "#C4DFE9"
+    10: "#020305",
+    20: "#111723",
+    30: "#16263D",
+    40: "#193253",
+    50: "#1B3F6A",
+    60: "#1B4C82",
+    70: "#18599B",
+    80: "#1267B4",
+    90: "#3174C2",
+    100: "#4F82C8",
+    110: "#6790CF",
+    120: "#7D9ED5",
+    130: "#92ACDC",
+    140: "#A6BAE2",
+    150: "#BAC9E9",
+    160: "#CDD8EF"
 };
 
 const lightTheme: Theme = {
     ...createLightTheme(myNewTheme),
     borderRadiusSmall: "0px",
-    borderRadiusMedium: "2px",
+    borderRadiusMedium: "1.5px",
+    borderRadiusCircular: "99999px",
+    fontFamilyBase: " 'Inter','Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif",
 };
 
 const darkTheme: Theme = {

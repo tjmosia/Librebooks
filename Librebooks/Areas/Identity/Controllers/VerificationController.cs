@@ -35,7 +35,7 @@ public class VerificationController (IVerificationManager verificationManager, U
 			return Ok(TransactionResult.Success);
 		}
 
-		return Ok(TransactionResult.Failure(TransactionError.Create("Email", "Unable to send verification to your email.")));
+		return Ok(TransactionResult.Failure(TransactionError.Create("", "Resend failed. Please try again later.")));
 	}
 
 	[HttpPost("verify")]

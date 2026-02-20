@@ -1,0 +1,68 @@
+.auth-layout {
+    width: 100%;
+    min-height: inherit;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.authLayout__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    flex-grow: 1;
+    padding: 1rem
+}
+
+.authForm-container {
+    width: 100%;
+    max-width: 320px;
+    margin: auto;
+    background-color: white;
+    border-radius: var(--borderRadius-md);
+    display: block;
+    border: 1px solid var(--colors-grey4-light);
+    overflow: hidden;
+}
+
+form .field {
+    display: block;
+    padding: 0.25rem 0 0.3rem;
+}
+
+.authForm__TitleBar {
+    height: 58px;
+    background-color: var(--colors-grey6-light);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid var(--colors-grey4-light);
+    padding: 0.25rem 0.5rem;
+}
+
+.authForm__message {
+    opacity: 0.5;
+}
+
+.authForm__title {
+    font-size: 14px;
+}
+
+.authForm--wrapper {
+    padding: 1rem 1.25rem;
+}
+
+.submit-button {
+    width: 100%;
+}
+
+.changeEmail-button {
+    width: 100%;
+}
+
+.password-hint {
+    padding: 0.5rem 0.5rem;
+}

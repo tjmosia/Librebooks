@@ -1,0 +1,29 @@
+.root-layout {
+    width: 100%;
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.rootLayout__footer {
+    width: 100%;
+    height: 28px;
+    margin-top: auto;
+    border-top: thin solid var(--colors-grey4-light);
+    text-align: center;
+    /* background-color: var(--colors-grey6-light); */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.footer-disclaimer {
+    opacity: 0.5;
+}
+
+.rootLayout__content {
+    width: 100%;
+    min-height: calc(100vh - 28px);
+}

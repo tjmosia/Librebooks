@@ -10,7 +10,6 @@ namespace Librebooks.Areas.Identity.Models.Authentication.Models
 			public string? Email { get; set; }
 			public string? Password { get; set; }
 			public string? Code { get; set; }
-			public string? Reason { get; set; }
 		}
 
 		public static ValidationResult Validate (Request request)
@@ -30,9 +29,6 @@ namespace Librebooks.Areas.Identity.Models.Authentication.Models
 
 				RuleFor(p => p.Code)
 					.NotEmpty().WithMessage("Code is required.");
-
-				RuleFor(p => p.Reason)
-					.NotEmpty().WithMessage("Reason is required.");
 			}
 		}
 	}

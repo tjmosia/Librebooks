@@ -36,21 +36,29 @@ namespace Librebooks.Providers.Managers
 		{
 			var request = await store.FindAsync(email, reason);
 
-			if (request == null)
-				return TransactionResult<VerificationRequest>.Failure(TransactionError.Create("", "Request a new verification code."));
-
-			var confirmed = BCrypt.Net.BCrypt.Verify(string.Concat(NormalizeEmail(email), NormalizeEmail(reason), code), request.HashString);
-			logger.LogInformation("Verification Result returned **********************************************************************");
-
-			if (!confirmed)
+			if (request != null)
 			{
-				request.Attempts += 1;
-				request.RefreshConcurrencyToken();
-				await store.UpdateAsync(request);
-				return TransactionResult<VerificationRequest>.Failure(TransactionError.Create("Code", "Code is invalid."));
+				var confirmed = BCrypt.Net.BCrypt.Verify(string.Concat(NormalizeEmail(email), NormalizeEmail(reason), code), request.HashString);
+				logger.LogInformation("Verification Result returned **********************************************************************");
+
+				if (!confirmed)
+				{
+					if (request.Attempts != request.MaxAttemptsAllowed)
+					{
+						request.Attempts += 1;
+						request.RefreshConcurrencyToken();
+						await store.UpdateAsync(request);
+						return TransactionResult<VerificationRequest>.Failure(TransactionError.Create("Code", "Code is invalid."));
+					}
+					await store.DeleteAsync(request);
+				}
+				else
+				{
+					return TransactionResult<VerificationRequest>.Success(request);
+				}
 			}
 
-			return TransactionResult<VerificationRequest>.Success(request);
+			return TransactionResult<VerificationRequest>.Failure(TransactionError.Create("", "Request a new verification code."));
 		}
 
 		private static string GenerateHashString (string email, string reason, string code)
