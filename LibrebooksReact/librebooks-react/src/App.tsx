@@ -17,7 +17,6 @@ function App() {
     setUser: (user: IUser) => setUser(user),
     removeUser: () => setUser(undefined)
   }
-
     return (
       <IdentityContext.Provider value={identityContext}>
         <FluentProvider theme={lightTheme}>

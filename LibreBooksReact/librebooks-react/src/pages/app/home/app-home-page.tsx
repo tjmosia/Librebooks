@@ -1,5 +1,5 @@
 
 
-export function HomePage() {
+export function AppHomePage() {
     return(<div>Home is Working.</div>)
 }

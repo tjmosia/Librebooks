@@ -25,7 +25,7 @@ public class CompaniesController
 	private readonly ICompanyStore companyStore = companyStore;
 
 	[HttpGet]
-	[Route("")]
+	[Route("current")]
 	public async Task<IActionResult> GetAsync ()
 	{
 		var user = await userManager!.FindByNameAsync(User.Identity!.Name!);
@@ -35,10 +35,16 @@ public class CompaniesController
 
 		var company = await companyStore.FindByUserIdAsync(user!.Id);
 
-		if (company == null)
-			return NotFound();
+		return company == null ? NotFound() : Ok(new CompanyDto(company));
+	}
 
-		return Ok(new CompanyDto(company));
+	[HttpGet]
+	[Route("{id}")]
+	public async Task<IActionResult> GetAsync ([FromRoute] int id)
+	{
+		var company = await companyStore.FindByIdAsync(id);
+
+		return company == null ? NotFound() : Ok(new CompanyDto(company));
 	}
 
 	[HttpPost]
