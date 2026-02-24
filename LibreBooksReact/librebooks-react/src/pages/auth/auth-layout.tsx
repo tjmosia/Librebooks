@@ -6,7 +6,7 @@ import { Caption1, MessageBar, ProgressBar, Subtitle2 } from "@fluentui/react-co
 import type { IUser } from "../../core/identity";
 import { AuthSessionVars } from "./auth-session-vars.ts";
 import { SessionData } from "../../utils";
-import { useIdentityService } from "../../hooks/use-identity-service.ts";
+import { useIdentityService } from "../../hooks";
 
 export function AuthLayout() {
     const [formTitle, setFormTitle] = useState<string>('');
@@ -14,9 +14,10 @@ export function AuthLayout() {
     const [loading, setLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string | undefined>(SessionData.getItem(AuthSessionVars.Email) ?? undefined);
     const [user, setUser] = useState<IUser | undefined>(SessionData.getItem(AuthSessionVars.User) ?? undefined);
-    const { logout, isSignedIn } = useIdentityService()
+    const { logout, isLoggedIn } = useIdentityService()
     const [rootMessage, setRootMessage] = useState<IAuthRootMessage | undefined>();
     const location = useLocation()
+
     const context: IAuthLayoutContext = {
         setFormTitle: (title) => setFormTitle(title),
         setFormMessage: (message) => setFormMessage(message),
@@ -30,7 +31,7 @@ export function AuthLayout() {
     }
 
     useEffect(() => {
-        if (isSignedIn())
+        if (isLoggedIn())
             logout()
 
         if (location.pathname === "/auth")

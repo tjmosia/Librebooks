@@ -5,6 +5,7 @@ using Librebooks.Areas.Identity.Models.Authentication.Models;
 using Librebooks.Areas.Identity.Services;
 using Librebooks.Core.Identity;
 using Librebooks.CoreLib.Operations;
+using Librebooks.Data;
 using Librebooks.Extensions.Mvc;
 using Librebooks.Models.Entity.IdentitySpace;
 using Librebooks.Providers;
@@ -21,12 +22,15 @@ public class AuthController (UserManagerExtension userManager,
 	SignInManagerExtension signInManager,
 	ILogger<SessionControllerBase> logger,
 	VerificationStore verificationStore,
-	IOptions<JwtParams> jwtParameters, IVerificationManager verificationManager)
+	IOptions<JwtParams> jwtParameters,
+	IVerificationManager verificationManager,
+	AppDbContext context)
 	: SessionControllerBase(userManager, signInManager, logger)
 {
 	private readonly JwtParams jwtParameters = jwtParameters.Value;
 	private readonly IVerificationManager verificationManager = verificationManager;
 	private readonly VerificationStore verificationStore = verificationStore;
+	private readonly AppDbContext context = context;
 
 	[HttpPost("")]
 	public async Task<IActionResult> FindUserAsync ([FromBody] UsernameModel.Request input)
@@ -72,8 +76,11 @@ public class AuthController (UserManagerExtension userManager,
 			var (Token, ExpiryDate) = signInManager.GenerateJsonWebToken(nameClaim!);
 			SetAuthenticationCookie(HttpContext, Token, ExpiryDate);
 
+			var claims = await userManager.GetClaimsAsync(user);
+			var roles = await userManager.GetUserRolesAsync(user);
+
 			return Ok(TransactionResult<object>
-				.Success(new LoginDto(user)));
+				.Success(new LoginDto(user, [.. roles], [.. claims])));
 		}
 		else
 		{
@@ -132,8 +139,11 @@ public class AuthController (UserManagerExtension userManager,
 			var (Token, ExpiryDate) = signInManager!.GenerateJsonWebToken(nameClaim!);
 			SetAuthenticationCookie(HttpContext, Token, ExpiryDate);
 
+			var claims = await userManager.GetClaimsAsync(user);
+			var roles = await userManager.GetUserRolesAsync(user);
+
 			return Ok(TransactionResult<object>
-				.Success(new LoginDto(user)));
+				.Success(new LoginDto(user, [.. roles], [.. claims])));
 		}
 		else
 		{
@@ -205,7 +215,12 @@ public class AuthController (UserManagerExtension userManager,
 			var user = await userManager!.FindByEmailAsync(User!.Identity!.Name);
 
 			if (user != null)
-				return Ok(signInManager!.GenerateUserSessionDTO(user));
+			{
+				var claims = await userManager.GetClaimsAsync(user);
+				var roles = await userManager.GetUserRolesAsync(user);
+
+				return Ok(new LoginDto(user, [.. roles], [.. claims]));
+			}
 		}
 
 		return Unauthorized();

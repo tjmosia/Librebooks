@@ -1,11 +1,18 @@
-﻿using Librebooks.Models.Entity.IdentitySpace;
+﻿using System.Security.Claims;
+using Librebooks.Models.Entity.IdentitySpace;
 
 namespace Librebooks.Areas.Identity.Data;
 
-public readonly struct LoginDto (User user)
+public readonly struct LoginDto (User user, UserRole[] userRoles, Claim[] claims)
 {
-	public readonly string? Email = user.Email;
-	public readonly string? FirstName = user.FirstName;
-	public readonly string? LastName = user.LastName;
-	public readonly string? Photo = user.GetPhotoAsBase64();
+	public readonly FindUserDto User = new(user);
+	public readonly object[] Roles = [..userRoles.Select(p => new {
+		p.Role?.Name,
+		p.AssociatedTo
+	})];
+
+	public readonly object[] Claims = [..claims.Select(p => new {
+		p.Type,
+		p.Value
+	})];
 }

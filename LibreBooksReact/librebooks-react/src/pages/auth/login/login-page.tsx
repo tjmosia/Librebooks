@@ -12,21 +12,21 @@ import { useNavigate } from "react-router";
 import { ajax, type AjaxError } from "rxjs/ajax";
 import type { IFormField } from "../../../core/forms";
 import type { ITransactionResult } from "../../../core/http";
-import type { IUser } from "../../../core/identity";
+import type { IClaimsPrincipal } from "../../../core/identity";
 import { useIdentityService } from "../../../hooks/use-identity-service.ts";
 import { serverData } from "../../../strings";
 import { SessionData } from "../../../utils/session-data-utils.ts";
-import { AuthLayoutContext } from "../auth-layout-contexts.ts";
-import './login-page.css';
 import { sendEmailVerificationCode } from "../auth-funcs.ts";
+import { AuthLayoutContext } from "../auth-layout-contexts.ts";
 import { AuthSessionVars } from "../auth-session-vars.ts";
+import './login-page.css';
 
 const initialPasswordField: IFormField<string> = {
     value: ""
 }
 
 export default function LoginPage() {
-    const { loading, setLoading, setFormTitle, setFormMessage, user, setRootMessage } = useContext(AuthLayoutContext)
+    const { loading, setLoading, setFormTitle, setFormMessage, user } = useContext(AuthLayoutContext)
     const [passwordField, setPasswordField] = useState(initialPasswordField)
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const [rootError, setRootError] = useState<string>("")
@@ -65,7 +65,7 @@ export default function LoginPage() {
 
         setLoading(true)
 
-        ajax<ITransactionResult<IUser>>({
+        ajax<ITransactionResult<IClaimsPrincipal>>({
             method: "POST",
             url: serverData.route("/auth/login"),
             body: JSON.stringify({
@@ -81,7 +81,6 @@ export default function LoginPage() {
                 const data = response.response
                 if (data.succeeded) {
                     login(data.model!)
-                    console.log(response)
                     SessionData.clear()
                     navigate("/app")
                 } else {
@@ -121,16 +120,13 @@ export default function LoginPage() {
         })
     }
 
-
     function onPasswordInputChange(e: ChangeEvent<HTMLInputElement>) {
         setPasswordField({
             value: e.target.value.replace(" ", "")
         })
     }
 
-    function returnToEntry() {
-        return navigate("/auth")
-    }
+    const returnToEntry = () => navigate("/auth")
 
     useEffect(() => {
         if (!user)
@@ -146,7 +142,7 @@ export default function LoginPage() {
     }, [rootError]);
 
     function handleResetPasswordButtonClick() {
-        sendEmailVerificationCode(user!.email!, setRootMessage, undefined, "/auth/reset-password", () => {
+        sendEmailVerificationCode(user!.email!, undefined, undefined, "/auth/reset-password", () => {
             SessionData.addItem(AuthSessionVars.NextUrl, "/auth/reset-password")
             navigate("/auth/reset-password")
         })
@@ -162,7 +158,6 @@ export default function LoginPage() {
                         </MessageBar>
                     </div>
                 }
-
                 <div className="field">
                     <Field validationState={passwordField.errorMessage ? "error" : "none"}
                         size="medium"

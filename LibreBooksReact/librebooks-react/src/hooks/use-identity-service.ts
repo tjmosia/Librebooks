@@ -1,17 +1,17 @@
 import { useContext } from "react"
-import { IdentityContext } from "../contexts/identity-context.ts"
-import { ajax, AjaxError } from "rxjs/ajax"
-import type { IUser } from "../core/identity/index.ts"
-import { serverData } from "../strings/serverData.ts"
+import { IdentityContext } from "../contexts/identity-context"
+import type { IClaim, IClaimsPrincipal, IRole, IUser } from "../core/identity"
+import { ajax, type AjaxError } from "rxjs/ajax"
+import { serverData } from "../strings"
 
-type onSuccessFunc = (response: IUser) => void
+type onSuccessFunc = (response: IClaimsPrincipal) => void
 type onFailureFunc = (error: AjaxError) => void
 
 export function useIdentityService() {
-    const { setUser, getUser, removeUser } = useContext(IdentityContext)
+    const { claimsPrincipal, setClaimsPrincipal } = useContext(IdentityContext)
 
     function confirmLogin(onSuccessHandler?: onSuccessFunc, onFailureHandler?: onFailureFunc) {
-        ajax<IUser>({
+        ajax<IClaimsPrincipal>({
             url: serverData.route("/auth/confirm-login"),
             method: "POST",
             headers: {
@@ -21,8 +21,7 @@ export function useIdentityService() {
         }).subscribe({
             next(response) {
                 if (response.status == 200) {
-                    setUser(response.response)
-                    console.log("User login confirmed:", response.response)
+                    setClaimsPrincipal(response.response)
                     if (onSuccessHandler)
                         onSuccessHandler(response.response)
                 }
@@ -45,7 +44,7 @@ export function useIdentityService() {
         }).subscribe({
             next(response) {
                 if (response.status == 200) {
-                    removeUser()
+                    setClaimsPrincipal(undefined)
                 }
             },
             error(error: AjaxError) {
@@ -55,10 +54,52 @@ export function useIdentityService() {
     }
 
     return {
-        user: getUser(),
-        isSignedIn: () => !!getUser(),
-        login: setUser,
+        isLoggedIn: () => !!claimsPrincipal,
         logout,
-        confirmLogin
+        login: (claimsPrincipal: IClaimsPrincipal) => setClaimsPrincipal(claimsPrincipal),
+        confirmServerLogin: confirmLogin,
+        getUser: () => claimsPrincipal?.user,
+        getRoles: () => claimsPrincipal?.roles,
+        getClaims: () => claimsPrincipal?.claims,
+        isInRole: (role: IRole) => {
+            claimsPrincipal?.roles.includes(role) ?? false
+        },
+        hasClaim: (claimType: string, claimValue?: string) => {
+            if (claimsPrincipal?.claims) {
+                return claimsPrincipal.claims.some(claim => {
+                    if (claim.type === claimType) {
+                        if (claimValue) {
+                            return claim.value === claimValue
+                        }
+                        return true
+                    }
+                    return false
+                })
+            }
+        },
+        updateUser: (user: IUser) => {
+            if (claimsPrincipal) {
+                setClaimsPrincipal({
+                    ...claimsPrincipal,
+                    user: user
+                })
+            }
+        },
+        setClaims: (claims: IClaim[]) => {
+            if (claimsPrincipal) {
+                setClaimsPrincipal({
+                    ...claimsPrincipal,
+                    claims: claims
+                })
+            }
+        },
+        setRoles: (roles: IRole[]) => {
+            if (claimsPrincipal) {
+                setClaimsPrincipal({
+                    ...claimsPrincipal,
+                    roles: roles
+                })
+            }
+        }
     }
 }

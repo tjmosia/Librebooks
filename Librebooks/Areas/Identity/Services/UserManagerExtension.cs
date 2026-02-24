@@ -75,6 +75,13 @@ public class UserManagerExtension : UserManager<User>
 		return false;
 	}
 
+	public async Task<IList<UserRole>> GetUserRolesAsync (User user)
+	{
+		return await Context.UserRoles.Where(p => p.UserId == user.Id)
+				.Include(p => p.Role)
+				.ToListAsync();
+	}
+
 	public async Task<IdentityResult> AddToRoleAsync (User user, string roleName, string associatedValue)
 	{
 		var role = await Context.Roles.Where(p => p.NormalizedName == NormalizeName(roleName))

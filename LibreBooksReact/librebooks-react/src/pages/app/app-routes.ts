@@ -1,14 +1,14 @@
-import type {RouteObject} from "react-router";
-import {AppLayout} from "./app-layout.tsx";
-import {AppHomePage} from "./home/app-home-page.tsx";
+import type { RouteObject } from "react-router";
+import { AppRootLayout } from "./app-root-layout.tsx";
+import { AppHomePage } from "./home/app-home-page.tsx";
 
-export const appRoutes : RouteObject = {
+export const appRoutes: RouteObject = {
     path: "app",
-    Component: AppLayout,
+    Component: AppRootLayout,
     children: [{
         index: true,
         Component: AppHomePage,
-    },{
+    }, {
         path: "home",
 
     }]

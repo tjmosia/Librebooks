@@ -1,21 +1,16 @@
-import type {IUser} from "../core/identity";
-import {createContext} from "react";
+import { createContext, type Dispatch, type SetStateAction } from "react";
+import type { IClaimsPrincipal } from "../core/identity";
 
 interface IIdentityContext {
-    getUser: () => IUser | undefined;
-    setUser: (user: IUser) => void;
-    removeUser: () => void;
+    claimsPrincipal?: IClaimsPrincipal,
+    setClaimsPrincipal: Dispatch<SetStateAction<IClaimsPrincipal | undefined>>
 }
 
 const IdentityContext = createContext<IIdentityContext>({
-    getUser: () => undefined,
-    setUser: () => {},
-    removeUser: () => {},
+    setClaimsPrincipal: () => { }
 })
-
-
 
 export {
     IdentityContext,
     type IIdentityContext
-}
+};
