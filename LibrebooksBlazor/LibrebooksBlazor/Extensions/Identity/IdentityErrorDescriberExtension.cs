@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace LibrebooksRazor.Extensions.Identity;
+namespace LibrebooksBlazor.Extensions.Identity;
 
 public class IdentityErrorDescriberExtension : IdentityErrorDescriber
 {

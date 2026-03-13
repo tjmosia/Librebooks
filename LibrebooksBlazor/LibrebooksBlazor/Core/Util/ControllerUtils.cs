@@ -1,4 +1,4 @@
-﻿namespace LibrebooksRazor.CoreLib.Util
+﻿namespace LibrebooksBlazor.CoreLib.Util
 {
     public abstract class ControllerUtils
     {

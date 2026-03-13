@@ -1,7 +1,7 @@
 using LibrebooksBlazor.Components;
-using LibrebooksRazor.Data;
-using LibrebooksRazor.Extensions.Identity;
-using LibrebooksRazor.Models.Entity.IdentitySpace;
+using LibrebooksBlazor.Data;
+using LibrebooksBlazor.Extensions.Identity;
+using LibrebooksBlazor.Models.Entity.IdentitySpace;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

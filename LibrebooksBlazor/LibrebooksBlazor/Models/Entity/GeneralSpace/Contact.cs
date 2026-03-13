@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Extensions.Models;
-using LibrebooksRazor.Models.Entity.CustomerSpace;
-using LibrebooksRazor.Models.Entity.PurchasesSpace;
-using LibrebooksRazor.Models.Entity.SalesSpace;
-using LibrebooksRazor.Models.Entity.SupplierSpace;
+using LibrebooksBlazor.Extensions.Models;
+using LibrebooksBlazor.Models.Entity.CustomerSpace;
+using LibrebooksBlazor.Models.Entity.PurchasesSpace;
+using LibrebooksBlazor.Models.Entity.SalesSpace;
+using LibrebooksBlazor.Models.Entity.SupplierSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.GeneralSpace
+namespace LibrebooksBlazor.Models.Entity.GeneralSpace
 {
 	[Table(nameof(Contact))]
 	public class Contact () : VersionedEntityBase()

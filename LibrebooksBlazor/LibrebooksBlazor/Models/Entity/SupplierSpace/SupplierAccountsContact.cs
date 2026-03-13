@@ -2,7 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.SupplierSpace
+namespace LibrebooksBlazor.Models.Entity.SupplierSpace
 {
 	[Table(nameof(SupplierAccountsContact))]
 	public class SupplierAccountsContact

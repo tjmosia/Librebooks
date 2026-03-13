@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using LibrebooksRazor.Models.Entity.IdentitySpace;
-using LibrebooksRazor.Models.Entity.SalesSpace;
+using LibrebooksBlazor.Models.Entity.IdentitySpace;
+using LibrebooksBlazor.Models.Entity.SalesSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.CompanySpace
+namespace LibrebooksBlazor.Models.Entity.CompanySpace
 {
     [Table(nameof(CompanyUser))]
     public class CompanyUser ()

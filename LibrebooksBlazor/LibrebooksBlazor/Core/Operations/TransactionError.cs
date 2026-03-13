@@ -1,8 +1,8 @@
-﻿using LibrebooksRazor.Core.EFCore;
+﻿using LibrebooksBlazor.Core.EFCore;
 
 using Microsoft.AspNetCore.Identity;
 
-namespace LibrebooksRazor.CoreLib.Operations
+namespace LibrebooksBlazor.CoreLib.Operations
 {
     public class TransactionError : IdentityError
     {

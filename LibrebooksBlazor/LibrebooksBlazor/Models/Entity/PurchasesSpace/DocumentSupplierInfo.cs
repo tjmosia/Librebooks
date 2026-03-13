@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Extensions.Models;
-using LibrebooksRazor.Models.Entity.SupplierSpace;
+using LibrebooksBlazor.Extensions.Models;
+using LibrebooksBlazor.Models.Entity.SupplierSpace;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.PurchasesSpace
+namespace LibrebooksBlazor.Models.Entity.PurchasesSpace
 {
     [Table(nameof(DocumentSupplierInfo))]
     public class DocumentSupplierInfo () : VersionedEntityBase()

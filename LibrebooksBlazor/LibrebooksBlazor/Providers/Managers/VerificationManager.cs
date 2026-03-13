@@ -1,7 +1,7 @@
-﻿using LibrebooksRazor.CoreLib.Operations;
-using LibrebooksRazor.Models.Entity.GeneralSpace;
+﻿using LibrebooksBlazor.CoreLib.Operations;
+using LibrebooksBlazor.Models.Entity.GeneralSpace;
 
-namespace LibrebooksRazor.Providers.Managers
+namespace LibrebooksBlazor.Providers.Managers
 {
 	public class VerificationManager (VerificationStore store, ILogger<VerificationManager> logger) : IVerificationManager
 	{

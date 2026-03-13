@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.SalesSpace;
+namespace LibrebooksBlazor.Models.Entity.SalesSpace;
 
 [Table(nameof(SalesInvoiceCredit))]
 [PrimaryKey(nameof(InvoiceId), nameof(CreditId))]

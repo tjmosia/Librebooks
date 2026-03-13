@@ -1,4 +1,4 @@
-﻿namespace LibrebooksRazor.Helpers;
+﻿namespace LibrebooksBlazor.Helpers;
 
 public readonly struct ContextKeys
 {

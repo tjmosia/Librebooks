@@ -1,6 +1,6 @@
-﻿using LibrebooksRazor.Data;
+﻿using LibrebooksBlazor.Data;
 
-namespace LibrebooksRazor.Providers.Stores
+namespace LibrebooksBlazor.Providers.Stores
 {
 	public abstract class StoreBase (AppDbContext context, ILogger<StoreBase>? logger = null)
 	{

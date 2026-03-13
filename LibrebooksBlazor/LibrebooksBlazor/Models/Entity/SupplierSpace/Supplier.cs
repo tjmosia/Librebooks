@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Core.Types;
-using LibrebooksRazor.Models.Entity.CompanySpace;
+using LibrebooksBlazor.Core.Types;
+using LibrebooksBlazor.Models.Entity.CompanySpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.SupplierSpace;
+namespace LibrebooksBlazor.Models.Entity.SupplierSpace;
 
 [Table(nameof(Supplier))]
 public class Supplier

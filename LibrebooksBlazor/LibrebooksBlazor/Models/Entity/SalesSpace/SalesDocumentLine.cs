@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Core.Types;
+using LibrebooksBlazor.Core.Types;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.SalesSpace;
+namespace LibrebooksBlazor.Models.Entity.SalesSpace;
 
 [Table(nameof(SalesDocumentLine))]
 public class SalesDocumentLine

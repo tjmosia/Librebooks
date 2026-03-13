@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Models.Entity.GeneralSpace;
+using LibrebooksBlazor.Models.Entity.GeneralSpace;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.SupplierSpace;
+namespace LibrebooksBlazor.Models.Entity.SupplierSpace;
 
 [Table(nameof(SupplierNote))]
 public class SupplierNote

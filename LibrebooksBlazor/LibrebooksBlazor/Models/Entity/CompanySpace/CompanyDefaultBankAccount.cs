@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Models.Entity.BankingSpace;
+using LibrebooksBlazor.Models.Entity.BankingSpace;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.CompanySpace;
+namespace LibrebooksBlazor.Models.Entity.CompanySpace;
 
 [Table(nameof(CompanyDefaultBankAccount))]
 public class CompanyDefaultBankAccount ()

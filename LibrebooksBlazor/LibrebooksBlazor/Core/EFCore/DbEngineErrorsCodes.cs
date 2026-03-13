@@ -1,4 +1,4 @@
-﻿namespace LibrebooksRazor.Core.EFCore
+﻿namespace LibrebooksBlazor.Core.EFCore
 {
     public struct DbEngineErrorsCodes
     {

@@ -1,10 +1,10 @@
-﻿using LibrebooksRazor.Models.Entity.IdentitySpace;
+﻿using LibrebooksBlazor.Models.Entity.IdentitySpace;
 
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 
-namespace LibrebooksRazor.Extensions.Identity;
+namespace LibrebooksBlazor.Extensions.Identity;
 
 public class SignInManagerExtension : SignInManager<User>
 {

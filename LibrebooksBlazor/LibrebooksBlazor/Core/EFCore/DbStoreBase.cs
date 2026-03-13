@@ -1,6 +1,6 @@
-using LibrebooksRazor.Data;
+using LibrebooksBlazor.Data;
 
-namespace LibrebooksRazor.Core.EFCore
+namespace LibrebooksBlazor.Core.EFCore
 {
 	public abstract class DbStoreBase
 		(AppDbContext context, ILogger<DbStoreBase>? logger = null, DbErrorDescriber? dbErrorDescriber = null)

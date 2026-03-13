@@ -1,9 +1,9 @@
-﻿using LibrebooksRazor.Data;
-using LibrebooksRazor.Models.Entity.GeneralSpace;
-using LibrebooksRazor.Providers.Stores;
+﻿using LibrebooksBlazor.Data;
+using LibrebooksBlazor.Models.Entity.GeneralSpace;
+using LibrebooksBlazor.Providers.Stores;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Providers;
+namespace LibrebooksBlazor.Providers;
 
 public class VerificationStore (AppDbContext context)
 	: StoreBase(context)

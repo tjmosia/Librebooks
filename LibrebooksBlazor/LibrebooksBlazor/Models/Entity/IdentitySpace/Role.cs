@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.IdentitySpace;
+namespace LibrebooksBlazor.Models.Entity.IdentitySpace;
 
 public class Role : IdentityRole<int>
 {

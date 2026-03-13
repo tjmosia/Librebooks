@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LibrebooksRazor.Extensions.Models
+namespace LibrebooksBlazor.Extensions.Models
 {
 	public abstract class VersionedEntityBase
 	{

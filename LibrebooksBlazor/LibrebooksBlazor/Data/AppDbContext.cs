@@ -1,21 +1,21 @@
-using LibrebooksRazor.Models.Entity;
-using LibrebooksRazor.Models.Entity.AccountingSpace;
-using LibrebooksRazor.Models.Entity.BankingSpace;
-using LibrebooksRazor.Models.Entity.CompanySpace;
-using LibrebooksRazor.Models.Entity.CustomerSpace;
-using LibrebooksRazor.Models.Entity.DocumentSpace;
-using LibrebooksRazor.Models.Entity.GeneralSpace;
-using LibrebooksRazor.Models.Entity.IdentitySpace;
-using LibrebooksRazor.Models.Entity.InventorySpace;
-using LibrebooksRazor.Models.Entity.PurchasesSpace;
-using LibrebooksRazor.Models.Entity.SalesSpace;
-using LibrebooksRazor.Models.Entity.SupplierSpace;
-using LibrebooksRazor.Models.Entity.SystemSpace;
+using LibrebooksBlazor.Models.Entity;
+using LibrebooksBlazor.Models.Entity.AccountingSpace;
+using LibrebooksBlazor.Models.Entity.BankingSpace;
+using LibrebooksBlazor.Models.Entity.CompanySpace;
+using LibrebooksBlazor.Models.Entity.CustomerSpace;
+using LibrebooksBlazor.Models.Entity.DocumentSpace;
+using LibrebooksBlazor.Models.Entity.GeneralSpace;
+using LibrebooksBlazor.Models.Entity.IdentitySpace;
+using LibrebooksBlazor.Models.Entity.InventorySpace;
+using LibrebooksBlazor.Models.Entity.PurchasesSpace;
+using LibrebooksBlazor.Models.Entity.SalesSpace;
+using LibrebooksBlazor.Models.Entity.SupplierSpace;
+using LibrebooksBlazor.Models.Entity.SystemSpace;
 
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Data;
+namespace LibrebooksBlazor.Data;
 
 public class AppDbContext :
 	IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>

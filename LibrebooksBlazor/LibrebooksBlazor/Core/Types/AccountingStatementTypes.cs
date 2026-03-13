@@ -1,4 +1,4 @@
-﻿namespace LibrebooksRazor.CoreLib.Types
+﻿namespace LibrebooksBlazor.CoreLib.Types
 {
     public class AccountingStatementTypes
     {

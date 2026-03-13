@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Models.Entity.CompanySpace;
+using LibrebooksBlazor.Models.Entity.CompanySpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.PurchasesSpace;
+namespace LibrebooksBlazor.Models.Entity.PurchasesSpace;
 
 [Table(nameof(PurchaseOrder))]
 public class PurchaseOrder

@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Models.Entity.AccountingSpace;
-using LibrebooksRazor.Models.Entity.CompanySpace;
+using LibrebooksBlazor.Models.Entity.AccountingSpace;
+using LibrebooksBlazor.Models.Entity.CompanySpace;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.SupplierSpace
+namespace LibrebooksBlazor.Models.Entity.SupplierSpace
 {
 	[Table(nameof(SupplierAdjustment))]
 	public class SupplierAdjustment

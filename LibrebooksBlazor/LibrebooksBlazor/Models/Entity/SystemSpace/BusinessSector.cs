@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using LibrebooksRazor.Extensions.Models;
-using LibrebooksRazor.Models.Entity.CompanySpace;
+using LibrebooksBlazor.Extensions.Models;
+using LibrebooksBlazor.Models.Entity.CompanySpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.SystemSpace
+namespace LibrebooksBlazor.Models.Entity.SystemSpace
 {
     [Table(nameof(BusinessSector))]
     [Index(nameof(Name), IsUnique = true)]

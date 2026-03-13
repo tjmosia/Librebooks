@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.PurchasesSpace;
+namespace LibrebooksBlazor.Models.Entity.PurchasesSpace;
 
 [Table(nameof(PurchaseRequestForQuote))]
 public class PurchaseRequestForQuote

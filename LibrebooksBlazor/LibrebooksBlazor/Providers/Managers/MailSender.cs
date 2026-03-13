@@ -1,4 +1,4 @@
-﻿namespace LibrebooksRazor.Providers.Managers;
+﻿namespace LibrebooksBlazor.Providers.Managers;
 
 public class MailSender : IMailSender
 {

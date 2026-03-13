@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Models.Entity.CompanySpace;
-using LibrebooksRazor.Models.Entity.CustomerSpace;
-using LibrebooksRazor.Models.Entity.GeneralSpace;
+using LibrebooksBlazor.Models.Entity.CompanySpace;
+using LibrebooksBlazor.Models.Entity.CustomerSpace;
+using LibrebooksBlazor.Models.Entity.GeneralSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.SalesSpace;
+namespace LibrebooksBlazor.Models.Entity.SalesSpace;
 
 [Table(nameof(SalesPerson))]
 public class SalesPerson

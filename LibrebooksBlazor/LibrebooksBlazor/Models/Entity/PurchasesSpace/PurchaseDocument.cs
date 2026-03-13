@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using LibrebooksRazor.Extensions.Models;
-using LibrebooksRazor.Models.Entity.DocumentSpace;
+using LibrebooksBlazor.Extensions.Models;
+using LibrebooksBlazor.Models.Entity.DocumentSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.PurchasesSpace;
+namespace LibrebooksBlazor.Models.Entity.PurchasesSpace;
 
 [Table(nameof(PurchaseDocument))]
 public class PurchaseDocument () : VersionedEntityBase()

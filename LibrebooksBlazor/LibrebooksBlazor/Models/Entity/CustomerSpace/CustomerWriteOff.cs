@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Core.Types;
-using LibrebooksRazor.Extensions.Models;
-using LibrebooksRazor.Models.Entity.SalesSpace;
+using LibrebooksBlazor.Core.Types;
+using LibrebooksBlazor.Extensions.Models;
+using LibrebooksBlazor.Models.Entity.SalesSpace;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.CustomerSpace;
+namespace LibrebooksBlazor.Models.Entity.CustomerSpace;
 
 [Table(nameof(CustomerWriteOff))]
 public class CustomerWriteOff () : VersionedEntityBase()

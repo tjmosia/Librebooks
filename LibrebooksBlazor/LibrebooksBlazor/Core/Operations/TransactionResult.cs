@@ -1,5 +1,5 @@
 ﻿
-namespace LibrebooksRazor.CoreLib.Operations
+namespace LibrebooksBlazor.CoreLib.Operations
 {
 	/// <summary>
 	/// Returns a summary result of a transaction associated with <typeparamref name="TModel"/>.

@@ -1,12 +1,12 @@
 ﻿using System.Security.Claims;
-using LibrebooksRazor.Data;
-using LibrebooksRazor.Models.Entity.IdentitySpace;
+using LibrebooksBlazor.Data;
+using LibrebooksBlazor.Models.Entity.IdentitySpace;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
-namespace LibrebooksRazor.Extensions.Identity;
+namespace LibrebooksBlazor.Extensions.Identity;
 
 public class UserManagerExtension (IUserStore<User> store,
 	IOptions<IdentityOptions> optionsAccessor,

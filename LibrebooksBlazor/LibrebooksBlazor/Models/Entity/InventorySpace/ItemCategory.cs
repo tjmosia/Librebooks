@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Models.Entity.CompanySpace;
+using LibrebooksBlazor.Models.Entity.CompanySpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.InventorySpace;
+namespace LibrebooksBlazor.Models.Entity.InventorySpace;
 
 [Table(nameof(ItemCategory))]
 public class ItemCategory

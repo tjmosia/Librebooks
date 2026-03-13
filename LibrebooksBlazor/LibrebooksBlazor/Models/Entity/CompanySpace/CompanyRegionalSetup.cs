@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using LibrebooksRazor.Extensions.Models;
-using LibrebooksRazor.Models.Entity.SystemSpace;
+using LibrebooksBlazor.Extensions.Models;
+using LibrebooksBlazor.Models.Entity.SystemSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.CompanySpace;
+namespace LibrebooksBlazor.Models.Entity.CompanySpace;
 
 [Table(nameof(CompanyRegionalSetup))]
 public class CompanyRegionalSetup () : VersionedEntityBase()

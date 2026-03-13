@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.CustomerSpace;
+namespace LibrebooksBlazor.Models.Entity.CustomerSpace;
 
 [Table(nameof(CustomerAccountsContact))]
 public class CustomerAccountsContact

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.InventorySpace;
+namespace LibrebooksBlazor.Models.Entity.InventorySpace;
 
 [Table(nameof(ItemInfo))]
 public class ItemInfo

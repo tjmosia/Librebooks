@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Core.Types;
-using LibrebooksRazor.Models.Entity.CompanySpace;
-using LibrebooksRazor.Models.Entity.SystemSpace;
+using LibrebooksBlazor.Core.Types;
+using LibrebooksBlazor.Models.Entity.CompanySpace;
+using LibrebooksBlazor.Models.Entity.SystemSpace;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.CustomerSpace;
+namespace LibrebooksBlazor.Models.Entity.CustomerSpace;
 
 [Table(nameof(CustomerAdjustment))]
 public class CustomerAdjustment

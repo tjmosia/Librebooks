@@ -1,6 +1,6 @@
-﻿using LibrebooksRazor.CoreLib.Operations;
+﻿using LibrebooksBlazor.CoreLib.Operations;
 
-namespace LibrebooksRazor.Core.EFCore
+namespace LibrebooksBlazor.Core.EFCore
 {
     public class DbError
     {

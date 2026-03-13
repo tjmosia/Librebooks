@@ -1,4 +1,4 @@
-﻿namespace LibrebooksRazor.Core.Types
+﻿namespace LibrebooksBlazor.Core.Types
 {
     public class EmailVerificationTypes
     {

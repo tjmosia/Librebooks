@@ -84,7 +84,7 @@
               "RelativeDocumentMoniker": "LibrebooksRazor\\appsettings.json",
               "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\appsettings.json",
               "RelativeToolTip": "LibrebooksRazor\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-03-12T21:06:07.237Z",
               "EditorCaption": ""
@@ -111,8 +111,7 @@
               "RelativeToolTip": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\LoginComponent.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-12T20:22:52.559Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-12T20:22:52.559Z"
             },
             {
               "$type": "Document",
@@ -124,8 +123,7 @@
               "RelativeToolTip": "LibrebooksRazor\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T20:22:36.147Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-12T20:22:36.147Z"
             },
             {
               "$type": "Document",
@@ -245,8 +243,7 @@
               "RelativeToolTip": "LibrebooksRazor\\libman.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-12T06:24:38.308Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-12T06:24:38.308Z"
             }
           ]
         }

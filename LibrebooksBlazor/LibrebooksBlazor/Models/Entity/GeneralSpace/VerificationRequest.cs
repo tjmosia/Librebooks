@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Core.Types;
-using LibrebooksRazor.Extensions.Models;
+using LibrebooksBlazor.Core.Types;
+using LibrebooksBlazor.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.GeneralSpace;
+namespace LibrebooksBlazor.Models.Entity.GeneralSpace;
 
 [Table(nameof(VerificationRequest))]
 public class VerificationRequest : VersionedEntityBase

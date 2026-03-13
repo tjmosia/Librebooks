@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Models.Entity.AccountingSpace;
-using LibrebooksRazor.Models.Entity.InventorySpace;
-using LibrebooksRazor.Models.Entity.PurchasesSpace;
-using LibrebooksRazor.Models.Entity.SalesSpace;
-using LibrebooksRazor.Models.Entity.SystemSpace;
+using LibrebooksBlazor.Models.Entity.AccountingSpace;
+using LibrebooksBlazor.Models.Entity.InventorySpace;
+using LibrebooksBlazor.Models.Entity.PurchasesSpace;
+using LibrebooksBlazor.Models.Entity.SalesSpace;
+using LibrebooksBlazor.Models.Entity.SystemSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.CompanySpace
+namespace LibrebooksBlazor.Models.Entity.CompanySpace
 {
     [Table(nameof(CompanyTaxType))]
     public class CompanyTaxType ()

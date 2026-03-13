@@ -1,16 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using LibrebooksRazor.Core.Types;
-using LibrebooksRazor.Extensions.Models;
-using LibrebooksRazor.Models.Entity.BankingSpace;
-using LibrebooksRazor.Models.Entity.CompanySpace;
-using LibrebooksRazor.Models.Entity.SupplierSpace;
-using LibrebooksRazor.Models.Entity.SystemSpace;
+using LibrebooksBlazor.Core.Types;
+using LibrebooksBlazor.Extensions.Models;
+using LibrebooksBlazor.Models.Entity.BankingSpace;
+using LibrebooksBlazor.Models.Entity.CompanySpace;
+using LibrebooksBlazor.Models.Entity.SupplierSpace;
+using LibrebooksBlazor.Models.Entity.SystemSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.PurchasesSpace
+namespace LibrebooksBlazor.Models.Entity.PurchasesSpace
 {
 	[Table(nameof(PurchaseReceipt))]
 	public class PurchaseReceipt () : VersionedEntityBase()

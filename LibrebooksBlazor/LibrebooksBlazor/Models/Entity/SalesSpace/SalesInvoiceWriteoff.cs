@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Core.Types;
-using LibrebooksRazor.Extensions.Models;
-using LibrebooksRazor.Models.Entity.CustomerSpace;
+using LibrebooksBlazor.Core.Types;
+using LibrebooksBlazor.Extensions.Models;
+using LibrebooksBlazor.Models.Entity.CustomerSpace;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.SalesSpace;
+namespace LibrebooksBlazor.Models.Entity.SalesSpace;
 
 [Table(nameof(SalesInvoiceWriteoff))]
 public class SalesInvoiceWriteoff () : VersionedEntityBase()

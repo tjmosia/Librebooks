@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Extensions.Models;
+using LibrebooksBlazor.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.BankingSpace;
+namespace LibrebooksBlazor.Models.Entity.BankingSpace;
 
 [Table(nameof(BankAccountCategory))]
 public class BankAccountCategory () : VersionedEntityBase()

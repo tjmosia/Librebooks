@@ -1,4 +1,4 @@
-﻿
+﻿@import "/assets/libs/blueprintjs/core/lib/css/blueprint-design-tokens.css";
 .AuthLayout {
 	flex-grow: 1;
 	display: flex;
@@ -10,17 +10,24 @@
 	.AuthFormCard {
 		height: auto;
 		min-height: 200px;
-		max-width: 320px;
+		max-width: 300px;
 		width: 100%;
-		background-color: var(--ui-background);
+		/*background-color: var(--ui-background);*/
+		/*//border: thin solid var(--ui-surface-border-color-default);*/
+		/*border-radius: var(--ui-surface-border-radius);*/
+		overflow: hidden;
 
-		.AuthForm_TitleBar {
-			padding: 1rem;
-			background-color: var(--ui-gray-light-1);
+		.AuthFormCard_TitleBar {
+			padding: 0.75rem 1rem;
+			/*background-color: var(--ui-surface-layer-color-default);*/
+			/*border-bottom: thin solid var(--ui-surface-border-color-default);*/
+			width: 100%;
 		}
 
 		.AuthFormCard_Title {
 			font-size: 1rem;
+			margin: 0;
+			padding: 0;
 		}
 
 		.AuthFormCard_Content {

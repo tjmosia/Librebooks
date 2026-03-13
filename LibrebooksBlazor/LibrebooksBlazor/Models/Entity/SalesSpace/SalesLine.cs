@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Core.Types;
-using LibrebooksRazor.Extensions.Models;
-using LibrebooksRazor.Models.Entity.CompanySpace;
-using LibrebooksRazor.Models.Entity.InventorySpace;
+using LibrebooksBlazor.Core.Types;
+using LibrebooksBlazor.Extensions.Models;
+using LibrebooksBlazor.Models.Entity.CompanySpace;
+using LibrebooksBlazor.Models.Entity.InventorySpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.SalesSpace;
+namespace LibrebooksBlazor.Models.Entity.SalesSpace;
 
 [Table(nameof(SalesLine))]
 public class SalesLine () : VersionedEntityBase()

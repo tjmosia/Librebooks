@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace LibrebooksRazor.Migrations
+namespace LibrebooksBlazor.Migrations
 {
     /// <inheritdoc />
     public partial class M1 : Migration

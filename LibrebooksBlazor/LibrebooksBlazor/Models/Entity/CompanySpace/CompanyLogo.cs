@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.CompanySpace;
+namespace LibrebooksBlazor.Models.Entity.CompanySpace;
 
 [Table(nameof(CompanyLogo))]
 public class CompanyLogo ()

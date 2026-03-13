@@ -1,15 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using LibrebooksRazor.Extensions.Models;
-using LibrebooksRazor.Models.Entity.CompanySpace;
-using LibrebooksRazor.Models.Entity.PurchasesSpace;
-using LibrebooksRazor.Models.Entity.SalesSpace;
-using LibrebooksRazor.Models.Entity.SystemSpace;
+using LibrebooksBlazor.Extensions.Models;
+using LibrebooksBlazor.Models.Entity.CompanySpace;
+using LibrebooksBlazor.Models.Entity.PurchasesSpace;
+using LibrebooksBlazor.Models.Entity.SalesSpace;
+using LibrebooksBlazor.Models.Entity.SystemSpace;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.DocumentSpace;
+namespace LibrebooksBlazor.Models.Entity.DocumentSpace;
 
 [Table(nameof(DocumentCompanyInfo))]
 public class DocumentCompanyInfo () : VersionedEntityBase()

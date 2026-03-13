@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Extensions.Models;
+using LibrebooksBlazor.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.DocumentSpace
+namespace LibrebooksBlazor.Models.Entity.DocumentSpace
 {
     [Table(nameof(DocumentPrintTemplate))]
     public class DocumentPrintTemplate () : VersionedEntityBase()

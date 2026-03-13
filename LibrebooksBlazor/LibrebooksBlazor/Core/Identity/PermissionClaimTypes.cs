@@ -1,4 +1,4 @@
-﻿namespace LibrebooksRazor.Core.Identity;
+﻿namespace LibrebooksBlazor.Core.Identity;
 
 public readonly struct PermissionClaimTypes
 {

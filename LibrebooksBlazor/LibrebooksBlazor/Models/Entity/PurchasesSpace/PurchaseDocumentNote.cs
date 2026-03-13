@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Models.Entity.GeneralSpace;
+using LibrebooksBlazor.Models.Entity.GeneralSpace;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.PurchasesSpace
+namespace LibrebooksBlazor.Models.Entity.PurchasesSpace
 {
     [Table(nameof(PurchaseDocumentNote))]
     public class PurchaseDocumentNote

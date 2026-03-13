@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LibrebooksRazor.Core.Types;
-using LibrebooksRazor.Extensions.Models;
-using LibrebooksRazor.Models.Entity.CompanySpace;
+using LibrebooksBlazor.Core.Types;
+using LibrebooksBlazor.Extensions.Models;
+using LibrebooksBlazor.Models.Entity.CompanySpace;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibrebooksRazor.Models.Entity.AccountingSpace;
+namespace LibrebooksBlazor.Models.Entity.AccountingSpace;
 
 [Table(nameof(Journal))]
 public class Journal () : VersionedEntityBase()

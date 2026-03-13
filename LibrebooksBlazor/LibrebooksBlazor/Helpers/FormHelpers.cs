@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace LibrebooksRazor.Helpers;
+namespace LibrebooksBlazor.Helpers;
 
 public class FormHelpers
 {
