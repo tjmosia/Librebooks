@@ -52,7 +52,7 @@ public class CompanyRegionalSetup () : VersionedEntityBase()
 				.OnDelete(DeleteBehavior.Restrict);
 
 			options.HasOne(p => p.Company)
-				.WithOne()
+				.WithOne(p => p.RegionalSetup)
 				.HasForeignKey<CompanyRegionalSetup>(p => p.CompanyId)
 					.IsRequired()
 				.OnDelete(DeleteBehavior.Restrict);

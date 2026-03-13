@@ -1,0 +1,31 @@
+﻿#app-root {
+	width: 100%;
+	min-height: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.app-content {
+		width: 100%;
+		margin-bottom: auto;
+		height: auto;
+		flex-grow: 1;
+	}
+
+	.app-footer {
+		box-sizing: border-box;
+		width: 100%;
+		font-size: var(--fontSize-small);
+		margin-top: auto;
+		background-color: transparent;
+		border-top: var(--colors-bp-gray-light-2) solid 1px;
+		padding: 0.5rem;
+		display: flex;
+		text-align: center;
+		flex-direction: column;
+		justify-content: center;
+		align-content: center;
+		color: var(--colors-bp-gray-1);
+		
+	}
+}

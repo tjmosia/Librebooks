@@ -18,7 +18,8 @@ namespace Librebooks.Areas.Companies.Services
          ****** SELECT TRANSACTIONS
          ***********************************************************************************************************************************/
 		Task<Company?> FindByIdAsync (int companyId);
-		Task<Company?> FindByUserIdAsync (int userId);
+		Task<Company?> FindByIdAsync (int companyId, int userId);
+		Task<IList<Company?>> FindByUserIdAsync (int userId);
 		Task<Company?> FindByNumberAsync (string companyNumber);
 		Task<CompanyRegionalSetup?> FindRegionalSettingsAsync (int companyId);
 		Task<CompanyImage?> FindLogoAsync (int companyId);

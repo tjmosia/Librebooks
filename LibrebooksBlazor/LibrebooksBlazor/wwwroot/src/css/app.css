@@ -1,0 +1,72 @@
+﻿:root {
+	--fontSize-base: 16px;
+	--fontSize-small: 0.75rem;
+	--fontSize-regular: 0.875rem;
+	--fontSize-medium: 1rem;
+	--fontSize-large: 1.25rem;
+	/******************************************************************
+		COLORS
+	******************************************************************/
+	--colors-bp-gray-light-1: #D3D8DE;
+	--colors-bp-gray-light-2: #DCE0E5;
+	--colors-bp-gray-light-3: #E5E8EB;
+	--colors-bp-gray-light-4: #EDEFF2;
+	--colors-bp-gray-light-5: #F6F7F9;
+	--colors-bp-gray-dark-1: #1C2127;
+	--colors-bp-gray-dark-2: #252A31;
+	--colors-bp-gray-dark-3: #2F343C;
+	--colors-bp-gray-dark-4: #383E47;
+	--colors-bp-gray-dark-5: #404854;
+	--colors-bp-gray-1: #5F6B7C;
+	--colors-bp-gray-2: #738091;
+	--colors-bp-gray-3: #8F99A8;
+	--colors-bp-gray-4: #ABB3BF;
+	--colors-bp-gray-5: #C5CBD3;
+	--colors-bp-blue-1: #184A90;
+	--colors-bp-blue-2: #215DB0;
+	--colors-bp-blue-3: #2D72D2;
+	--colors-bp-blue-4: #4C90F0;
+	--colors-bp-blue-5: #8ABBFF;
+	--colors-bp-green-1: #165A36;
+	--colors-bp-green-2: #1C6E42;
+	--colors-bp-green-3: #238551;
+	--colors-bp-green-4: #32A467;
+	--colors-bp-green-5: #72CA9B;
+	--colors-bp-red-1: #8E292C;
+	--colors-bp-red-2: #AC2F33;
+	--colors-bp-red-3: #CD4246;
+	--colors-bp-red-4: #E76A6E;
+	--colors-bp-red-5: #FA999C;
+	--colors-bp-orange-1: #77450D;
+	--colors-bp-orange-2: #935610;
+	--colors-bp-orange-3: #C87619;
+	--colors-bp-orange-4: #EC9A3C;
+	--colors-bp-orange-5: #FBB360;
+	/******************************************************************
+		Borders
+	******************************************************************/
+	--borderRadius-xs: 2px;
+	--borderRadius-sm: 4px;
+	--borderRadius-md: 8px;
+	--borderRadius-lg: 16px;
+	--borderRadius-rounded: 9999px;
+	--borderRadius-default: var(--borderRadius-sm);
+}
+
+html {
+	font-size: 14px;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,blueprint-icons-16,sans-serif;
+	background-color: var(--colors-bp-gray-light-1);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	width: 100%;
+}
+
+* {
+	box-sizing: border-box;
+}
+

@@ -1,0 +1,45 @@
+﻿@inherits LayoutComponentBase
+@layout RootLayout
+@using Microsoft.AspNetCore.Authorization
+
+<CascadingValue Value="this">
+	@Email
+	<div class="AuthLayout">
+		<div class="AuthFormCard">
+			<div class="AuthForm_TitleBar">
+				<h1 class="AuthFormCard_Title">@FormTitle</h1>
+				@if(!string.IsNullOrEmpty(FormDescription))
+				{
+					<p class="AuthFormCard_Description">@FormDescription</p>
+				}
+			</div>
+			<div class="AuthFormCard_Content">
+				@Body
+			</div>
+		</div>
+	</div>
+</CascadingValue>
+
+@code {
+	private string? FormTitle { get; set; }
+	private string? FormDescription { get; set; }	
+	private string? Email { get; set; }
+
+	public void SetFormTitle (string title)
+	{
+		FormTitle = title;
+		StateHasChanged();
+	}
+
+	public void SetFormDescription (string description)
+	{
+		FormDescription = description;
+		StateHasChanged();
+	}
+
+	public void SetEmail (string email)
+	{
+		Email = email;
+		StateHasChanged();
+	}
+}

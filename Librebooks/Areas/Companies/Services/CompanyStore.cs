@@ -32,15 +32,24 @@ namespace Librebooks.Areas.Companies.Services
 				.Include(p => p.Logo)
 					.ThenInclude(p => p!.Image)
 				.FirstOrDefaultAsync();
+		public async Task<Company?> FindByIdAsync (int companyId, int userId)
+		{
+			return await context.CompanyUser!.Where(p => p.CompanyId == companyId && p.UserId == userId)
+				.Include(p => p.Company)
+				.ThenInclude(p => p!.Logo)
+					.ThenInclude(p => p!.Image)
+				.Select(p => p.Company)
+				.FirstOrDefaultAsync();
+		}
 
-		public async Task<Company?> FindByUserIdAsync (int userId)
+		public async Task<IList<Company?>> FindByUserIdAsync (int userId)
 		{
 			return await context.CompanyUser!.Where(p => p.UserId == userId)
 				.Include(p => p.Company)
 				.ThenInclude(p => p!.Logo)
 					.ThenInclude(p => p!.Image)
 				.Select(p => p.Company)
-				.FirstOrDefaultAsync();
+				.ToListAsync();
 		}
 
 		public async Task<Company?> FindByNumberAsync (string companyNumber)

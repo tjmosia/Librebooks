@@ -1,0 +1,22 @@
+﻿.RootLayout {
+	width: 100%;
+	min-height: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.RootContent {
+		width: 100%;
+		margin-bottom: auto;
+		height: auto;
+		flex-grow: 1;
+		display: flex;
+	}
+
+	.RootFooter {
+		padding: 0.25rem;
+		border-top: 1px solid var(--colors-bp-gray-5);
+		margin-top: auto;
+		text-align: center;
+	}
+}

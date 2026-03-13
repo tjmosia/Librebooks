@@ -342,6 +342,11 @@ namespace Librebooks.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("UniversalId")
+                        .IsRequired()
+                        .HasMaxLength(155)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("VATNumber")
                         .HasMaxLength(15)
                         .HasColumnType("TEXT");

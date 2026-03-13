@@ -10,7 +10,8 @@ type onFailureFunc = (error: AjaxError) => void
 export function useIdentityService() {
     const { claimsPrincipal, setClaimsPrincipal } = useContext(IdentityContext)
 
-    function confirmLogin(onSuccessHandler?: onSuccessFunc, onFailureHandler?: onFailureFunc) {
+    function confirmLogin({ next, error }:
+        { next?: onSuccessFunc, error?: onFailureFunc } = {}) {
         ajax<IClaimsPrincipal>({
             url: serverData.route("/auth/confirm-login"),
             method: "POST",
@@ -22,13 +23,13 @@ export function useIdentityService() {
             next(response) {
                 if (response.status == 200) {
                     setClaimsPrincipal(response.response)
-                    if (onSuccessHandler)
-                        onSuccessHandler(response.response)
+                    if (next)
+                        next(response.response)
                 }
             },
-            error(error: AjaxError) {
-                if (onFailureHandler)
-                    onFailureHandler(error)
+            error(err: AjaxError) {
+                if (error)
+                    error!(err)
             }
         })
     }

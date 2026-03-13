@@ -5,4 +5,9 @@ function lowerFirstLetter(str: string): string {
     return str.charAt(0).toLowerCase() + str.slice(1);
 }
 
-export { lowerFirstLetter }
+function pageWasReloaded(): boolean {
+    return (performance.getEntriesByType('navigation') as PerformanceNavigationTiming[]) // Explicitly cast to the specific type
+        .some(entry => entry.type === 'reload');
+}
+
+export { lowerFirstLetter, pageWasReloaded }

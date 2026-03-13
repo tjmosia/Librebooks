@@ -12,10 +12,12 @@ export function AuthenticatedRoute() {
             if (tried)
                 navigate("/auth");
             else {
-                confirmServerLogin(() => setTried(true), (error) => {
-                    () => setTried(true)
-                    if (error.status == 401 || error.status == 0)
-                        navigate("/auth")
+                confirmServerLogin({
+                    error: (error) => {
+                        () => setTried(true)
+                        if (error.status == 401 || error.status == 0)
+                            navigate("/auth")
+                    }
                 })
             }
         }

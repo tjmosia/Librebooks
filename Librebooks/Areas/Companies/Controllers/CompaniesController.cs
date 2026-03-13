@@ -3,6 +3,7 @@ using Librebooks.Areas.Companies.Data;
 using Librebooks.Areas.Companies.Models;
 using Librebooks.Areas.Companies.Services;
 using Librebooks.Areas.Identity.Services;
+using Librebooks.CoreLib.Operations;
 using Librebooks.Extensions.Mvc;
 using Librebooks.Models.Entity.CompanySpace;
 using Microsoft.AspNetCore.Authorization;
@@ -25,46 +26,31 @@ public class CompaniesController
 	private readonly ICompanyStore companyStore = companyStore;
 
 	[HttpGet]
-	[Route("current")]
-	public async Task<IActionResult> GetAsync ()
+	[Route("{id}")]
+	public async Task<IActionResult> GetAsync ([FromRoute] int id)
 	{
 		var user = await userManager!.FindByNameAsync(User.Identity!.Name!);
 
 		if (user == null)
 			return Unauthorized();
 
-		var company = await companyStore.FindByUserIdAsync(user!.Id);
-
-		return company == null ? NotFound() : Ok(new CompanyDto(company));
-	}
-
-	[HttpGet]
-	[Route("{id}")]
-	public async Task<IActionResult> GetAsync ([FromRoute] int id)
-	{
-		var company = await companyStore.FindByIdAsync(id);
+		var company = await companyStore.FindByIdAsync(id, user.Id);
 
 		return company == null ? NotFound() : Ok(new CompanyDto(company));
 	}
 
 	[HttpPost]
 	[Route("create")]
-	public async Task<IActionResult> CreateAsync ([FromBody] CompaniesReqModels.CreateModel input)
+	public async Task<IActionResult> CreateAsync ([FromBody] CompaniesModels.Request input)
 	{
-		if (!ModelState.IsValid)
-			return BadRequest(ModelState);
+		var validationResult = CompaniesModels.Validate(input);
 
-		var businessSector = await sysManager.FindBusinessSectorByIdAsync(input.BusinessSector!);
-
-		if (businessSector == null)
-		{
-			ModelState.AddModelError(nameof(input.BusinessSector), "Invalid business sector provided.");
-			return BadRequest(ModelState);
-		}
+		if (!validationResult.IsValid)
+			return BadRequest(TransactionResult.Failure([.. validationResult.Errors.Select(p => TransactionError.Create(p.PropertyName, p.ErrorMessage))]));
 
 		var company = new Company()
 		{
-			BusinessSectorId = businessSector.Id,
+			BusinessSectorId = input.BusinessSector,
 			RegNumber = input.RegNumber,
 			FaxNumber = input.FaxNumber,
 			PhysicalAddress = input.PhysicalAddress,

@@ -1,0 +1,55 @@
+﻿@page "/auth/register"
+@model LibrebooksRazor.Areas.Identity.Pages.Auth.RegisterModel
+@{
+	ViewData[AuthLayoutContextKeys.FormTitle] = "Create an Account";
+	ViewData[ContextKeys.PageTitle] = "Login or Register";
+}
+
+<form method="POST">
+	<div class="ui-form-group">
+		<label class="ui-label" asp-for="InputModel.Code"></label>
+		<div class="ui-input-group small">
+			<input class="ui-input" asp-for="InputModel.Code" />
+		</div>
+		<span asp-validation-for="InputModel.Code" class="ui-form-helper-text"></span>
+	</div>
+	<div class="form-field">
+		<span></span>
+		<button class="ui-button minimal small" asp-page-handler="Register">Resend Verification Code</button>
+	</div>
+	<div class="ui-divider"></div>
+	<div class="ui-form-group">
+		<label class="ui-label" asp-for="InputModel.FirstName"></label>
+		<div class="ui-input-group small">
+			<input class="ui-input" asp-for="InputModel.FirstName" />
+		</div>
+		<span asp-validation-for="InputModel.FirstName"></span>
+	</div>
+	<div class="ui-form-group">
+		<label class="ui-label" asp-for="InputModel.LastName"></label>
+		<div class="ui-input-group">
+			<input class="ui-input" asp-for="InputModel.LastName" />
+		</div>
+		<span asp-validation-for="InputModel.LastName"></span>
+	</div>
+	<div class="ui-form-group @FormHelpers.GetValidationStatus(ModelState, nameof(Model.InputModel.Password))">
+		<label class="ui-label" asp-for="InputModel.Password"></label>
+		<div class="ui-input-group small">
+			<input class="ui-input" asp-for="InputModel.Password" />
+		</div>
+		<span asp-validation-for="InputModel.Password" class="ui-form-helper-text"></span>
+	</div>
+	<div class="ui-form-group@FormHelpers.GetValidationStatus(ModelState, nameof(Model.InputModel.Password))">
+		<label class="ui-label" asp-for="InputModel.ConfirmPassword"></label>
+		<div class="ui-input-group small">
+			<input class="ui-input" asp-for="InputModel.ConfirmPassword" />
+		</div>
+		<span asp-validation-for="InputModel.ConfirmPassword"></span>
+	</div>
+	<div class="ui-form-group">
+		<button class="ui-button intent-primary fill" asp-page-handler="Register">Register</button>
+	</div>
+	<div class="ui-form-group">
+		<button class="ui-button minimal fill" asp-page-handler="ChangeEmail">ChangeEmail</button>
+	</div>
+</form>

@@ -1,0 +1,56 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using LibrebooksRazor.Core.Types;
+using LibrebooksRazor.Extensions.Models;
+using LibrebooksRazor.Models.Entity.CompanySpace;
+
+using Microsoft.EntityFrameworkCore;
+
+namespace LibrebooksRazor.Models.Entity.InventorySpace;
+
+[Table(nameof(ItemAdjustment))]
+public class ItemAdjustment () : VersionedEntityBase()
+{
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public virtual int Id { get; set; }
+    public virtual DateOnly Date { get; set; }
+
+    [Required, MaxLength(50)]
+    public virtual string? Reason { get; set; }
+
+    public virtual int ItemId { get; set; }
+
+    [Column(TypeName = ColumnTypes.NUMBER)]
+    public virtual decimal OldQuantityOnHand { get; set; }
+
+    [Column(TypeName = ColumnTypes.NUMBER)]
+    public virtual decimal QuantityOnHand { get; set; }
+
+    [Column(TypeName = ColumnTypes.MONETARY)]
+    public virtual decimal OldPrice { get; set; }
+
+    [Column(TypeName = ColumnTypes.MONETARY)]
+    public virtual decimal Price { get; set; }
+
+    public virtual int CompanyId { get; set; }
+
+    public virtual bool FromSales { get; set; }
+
+    public virtual Item? Item { get; set; }
+    public virtual Company? Company { get; set; }
+
+    public static void OnModelCreating (ModelBuilder builder)
+    {
+        builder.Entity<ItemAdjustment>(options =>
+        {
+            options.HasIndex(p => new { p.CompanyId, p.ItemId })
+                .IsClustered();
+
+            options.HasOne(p => p.Company)
+                .WithMany()
+                .HasForeignKey(p => p.CompanyId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+        });
+    }
+}

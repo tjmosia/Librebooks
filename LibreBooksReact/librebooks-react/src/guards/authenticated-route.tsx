@@ -1,25 +1,26 @@
 import { useIdentityService } from "../hooks";
 import { useNavigate, Outlet } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { pageWasReloaded } from "../utils";
 
 export function AuthenticatedRoute() {
     const { isLoggedIn, confirmServerLogin } = useIdentityService();
     const navigate = useNavigate();
-    const [tried, setTried] = useState(false)
 
     useEffect(() => {
         if (!isLoggedIn()) {
-            if (tried)
-                navigate("/auth");
-            else {
-                confirmServerLogin(() => setTried(true), (error) => {
-                    () => setTried(true)
-                    if (error.status == 401 || error.status == 0)
-                        navigate("/auth")
+            if (pageWasReloaded()) {
+                confirmServerLogin({
+                    error: (error) => {
+                        if (error.status == 401 || error.status == 0)
+                            navigate("/auth")
+                    }
                 })
+            } else {
+                navigate("/auth");
             }
         }
-    }, [tried]);
+    }, [isLoggedIn]);
 
     if (isLoggedIn())
         return <Outlet />;

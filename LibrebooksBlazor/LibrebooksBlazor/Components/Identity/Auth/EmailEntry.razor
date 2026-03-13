@@ -1,0 +1,63 @@
+﻿@page "/auth"
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Forms
+
+@inject NavigationManager NavigationManager
+<EditForm OnValidSubmit=@OnSubmitHandler Model=@Input FormName="EmailForm">
+	<DataAnnotationsValidator />
+
+	@foreach(var error in editContext!.GetValidationMessages())
+	{
+		<span>@error</span>
+	}
+
+	<div class="ui-form-group @(editContext!.GetValidationMessages().Any() ? "intent-danger" : "")">
+		<label class="ui-label" for="id_email">Email Address</label>
+		<div class="ui-input-group">
+			<InputText @bind-Value="Input!.Email" class="ui-input" id="id_email" />
+		</div>
+		<ValidationMessage For="@(() => Input!.Email)" class="ui-form-helper-text" />
+	</div>
+	<div class="ui-form-group">
+		<button class="ui-button intent-primary" type="submit">
+			<span class="ui-button-text">Continue</span>
+		</button>
+	</div>
+</EditForm>
+
+@code {
+	[SupplyParameterFromQuery]
+	public string? ReturnUrl { get; set; }
+
+	public EditContext? editContext;
+
+	[CascadingParameter]
+	public AuthLayout? AuthLayout { get; set; }
+
+	[SupplyParameterFromForm]
+	public Model? Input { get; set; }
+
+	public void OnSubmitHandler()
+	{
+		if (string.IsNullOrEmpty(ReturnUrl))
+		{
+			ReturnUrl = NavigationManager.BaseUri;
+		}
+
+		//NavigationManager.NavigateTo($"/auth/login?returnUrl={Uri.EscapeDataString(ReturnUrl)}");
+	}
+
+	protected override void OnInitialized()
+	{
+		AuthLayout?.SetFormTitle("Sign In or Sign Up");
+		Input = Input ?? new();
+		editContext = new EditContext(Input);
+		base.OnInitialized();
+	}
+
+	public class Model
+	{
+		[Required(ErrorMessage = "Email is required.")]
+		public string? Email { get; set; }
+	}
+}

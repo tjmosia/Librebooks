@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksBlazor\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DFCA2C12-00AB-E16E-77CD-94C3D82B4A6A}|LibrebooksBlazor\\LibrebooksBlazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksblazor\\librebooksblazor\\ui\\core\\button.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DFCA2C12-00AB-E16E-77CD-94C3D82B4A6A}|LibrebooksBlazor\\LibrebooksBlazor.csproj|solutionrelative:librebooksblazor\\ui\\core\\button.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DFCA2C12-00AB-E16E-77CD-94C3D82B4A6A}|LibrebooksBlazor\\LibrebooksBlazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksblazor\\librebooksblazor\\components\\identity\\auth\\emailentry.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DFCA2C12-00AB-E16E-77CD-94C3D82B4A6A}|LibrebooksBlazor\\LibrebooksBlazor.csproj|solutionrelative:librebooksblazor\\components\\identity\\auth\\emailentry.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DFCA2C12-00AB-E16E-77CD-94C3D82B4A6A}|LibrebooksBlazor\\LibrebooksBlazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksblazor\\librebooksblazor\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DFCA2C12-00AB-E16E-77CD-94C3D82B4A6A}|LibrebooksBlazor\\LibrebooksBlazor.csproj|solutionrelative:librebooksblazor\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Button.razor",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksBlazor\\LibrebooksBlazor\\UI\\Core\\Button.razor",
+              "RelativeDocumentMoniker": "LibrebooksBlazor\\UI\\Core\\Button.razor",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksBlazor\\LibrebooksBlazor\\UI\\Core\\Button.razor",
+              "RelativeToolTip": "LibrebooksBlazor\\UI\\Core\\Button.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-13T10:18:04.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksBlazor\\LibrebooksBlazor\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "LibrebooksBlazor\\Components\\_Imports.razor",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksBlazor\\LibrebooksBlazor\\Components\\_Imports.razor",
+              "RelativeToolTip": "LibrebooksBlazor\\Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-13T06:47:21.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmailEntry.razor",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksBlazor\\LibrebooksBlazor\\Components\\Identity\\Auth\\EmailEntry.razor",
+              "RelativeDocumentMoniker": "LibrebooksBlazor\\Components\\Identity\\Auth\\EmailEntry.razor",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksBlazor\\LibrebooksBlazor\\Components\\Identity\\Auth\\EmailEntry.razor",
+              "RelativeToolTip": "LibrebooksBlazor\\Components\\Identity\\Auth\\EmailEntry.razor",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAAB0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-13T06:38:49.022Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

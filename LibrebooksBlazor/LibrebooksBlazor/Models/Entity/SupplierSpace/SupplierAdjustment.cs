@@ -1,0 +1,41 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using LibrebooksRazor.Models.Entity.AccountingSpace;
+using LibrebooksRazor.Models.Entity.CompanySpace;
+using Microsoft.EntityFrameworkCore;
+
+namespace LibrebooksRazor.Models.Entity.SupplierSpace
+{
+	[Table(nameof(SupplierAdjustment))]
+	public class SupplierAdjustment
+	{
+		[Key]
+		public virtual int JournalId { get; set; }
+		public virtual int CompanyId { get; set; }
+		public virtual int SupplierId { get; set; }
+
+		public virtual Journal? Journal { get; set; }
+		public virtual Supplier? Supplier { get; set; }
+
+		public static void OnModelCreating (ModelBuilder builder)
+		{
+			builder.Entity<SupplierAdjustment>(options =>
+			{
+				options.HasIndex(p => new { p.CompanyId, p.SupplierId, p.JournalId })
+					.IsClustered();
+
+				options.HasOne(p => p.Journal)
+					.WithOne()
+					.HasForeignKey<SupplierAdjustment>(p => p.JournalId)
+						.IsRequired()
+					.OnDelete(DeleteBehavior.Restrict);
+
+				options.HasOne<Company>()
+					.WithMany()
+					.HasForeignKey(p => p.CompanyId)
+					.IsRequired()
+					.OnDelete(DeleteBehavior.Restrict);
+			});
+		}
+	}
+}

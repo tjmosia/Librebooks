@@ -1,0 +1,16 @@
+﻿.RootLayout {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	min-height: inherit;
+
+	.RootContent {
+		margin-bottom: auto;
+	}
+
+	.RootFooter {
+		padding: 0.5rem;
+		margin-top: auto;
+
+	}
+}
