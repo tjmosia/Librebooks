@@ -39,7 +39,7 @@
       "LibrebooksRazor/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.1.0",
-          "Microsoft.AspNetCore.App.Internal.Assets": "10.0.4",
+          "Microsoft.AspNetCore.App.Internal.Assets": "10.0.5",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "10.0.4",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.4",
           "Microsoft.AspNetCore.Identity.UI": "10.0.4",
@@ -3447,7 +3447,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.App.Internal.Assets/10.0.4": {
+      "Microsoft.AspNetCore.App.Internal.Assets/10.0.5": {
         "compileOnly": true
       },
       "Microsoft.CodeAnalysis.Analyzers/3.11.0": {
@@ -5455,12 +5455,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.App.Internal.Assets/10.0.4": {
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-M942X5Vy726SlvFBuoAC4cDczEMlPAFt1mmyFlrkw/QcpdVwVU0DkF4P9JabxX6eWNm9RvaYZHe25FN7oXoxpQ==",
-      "path": "microsoft.aspnetcore.app.internal.assets/10.0.4",
-      "hashPath": "microsoft.aspnetcore.app.internal.assets.10.0.4.nupkg.sha512"
+      "sha512": "sha512-Oxw9Ps1/nd6c/EMCAI13AeJFEqXezAvCEOshMjUWmL7LeGirHJNzytR2e/3jINYg0j2TmPvNUowGHf+gp8zDSQ==",
+      "path": "microsoft.aspnetcore.app.internal.assets/10.0.5",
+      "hashPath": "microsoft.aspnetcore.app.internal.assets.10.0.5.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.Analyzers/3.11.0": {
       "type": "package",

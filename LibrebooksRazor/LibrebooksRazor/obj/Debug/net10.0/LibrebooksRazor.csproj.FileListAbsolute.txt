@@ -3175,8 +3175,8 @@ C:\Users\TJmos\source\repos\Librebooks\LibrebooksRazor\LibrebooksRazor\obj\Debug
 C:\Users\TJmos\source\repos\Librebooks\LibrebooksRazor\LibrebooksRazor\obj\Debug\net10.0\compressed\u9dg3a8mup-{0}-fp18kaz053-fp18kaz053.gz
 C:\Users\TJmos\source\repos\Librebooks\LibrebooksRazor\LibrebooksRazor\obj\Debug\net10.0\compressed\9f826tph3y-{0}-r4gpuj45gi-r4gpuj45gi.gz
 C:\Users\TJmos\source\repos\Librebooks\LibrebooksRazor\LibrebooksRazor\obj\Debug\net10.0\compressed\xqcmes92wp-{0}-edaletu8pa-edaletu8pa.gz
-C:\Users\TJmos\source\repos\Librebooks\LibrebooksRazor\LibrebooksRazor\obj\Debug\net10.0\compressed\hh9a8niuu2-{0}-5y82u5y7o8-5y82u5y7o8.gz
 C:\Users\TJmos\source\repos\Librebooks\LibrebooksRazor\LibrebooksRazor\obj\Debug\net10.0\EmbeddedAttribute.cs
 C:\Users\TJmos\source\repos\Librebooks\LibrebooksRazor\LibrebooksRazor\obj\Debug\net10.0\ValidatableTypeAttribute.cs
-C:\Users\TJmos\source\repos\Librebooks\LibrebooksRazor\LibrebooksRazor\obj\Debug\net10.0\compressed\jc605glcxi-{0}-mgww215af1-mgww215af1.gz
-C:\Users\TJmos\source\repos\Librebooks\LibrebooksRazor\LibrebooksRazor\obj\Debug\net10.0\compressed\5p8ssr4r8g-{0}-dy8h75y8gn-dy8h75y8gn.gz
+C:\Users\TJmos\source\repos\Librebooks\LibrebooksRazor\LibrebooksRazor\obj\Debug\net10.0\compressed\hh9a8niuu2-{0}-n0jhn3dz5w-n0jhn3dz5w.gz
+C:\Users\TJmos\source\repos\Librebooks\LibrebooksRazor\LibrebooksRazor\obj\Debug\net10.0\compressed\jc605glcxi-{0}-b9228eflpl-b9228eflpl.gz
+C:\Users\TJmos\source\repos\Librebooks\LibrebooksRazor\LibrebooksRazor\obj\Debug\net10.0\compressed\5p8ssr4r8g-{0}-2tj1sjhksk-2tj1sjhksk.gz

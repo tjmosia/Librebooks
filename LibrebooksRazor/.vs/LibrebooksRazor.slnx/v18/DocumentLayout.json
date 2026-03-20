@@ -3,12 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\_authlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\_authlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\layouts\\_rootlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\layouts\\_rootlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\usernameentry.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\usernameentry.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\authfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\authfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\providers\\managers\\verificationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\providers\\managers\\verificationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\providers\\stores\\storebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\providers\\stores\\storebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\providers\\stores\\verificationstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\providers\\stores\\verificationstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\providers\\managers\\mailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\providers\\managers\\mailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\providers\\managers\\iverificationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\providers\\managers\\iverificationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\usernameentry.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\usernameentry.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\authemailverificationreasons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\authemailverificationreasons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\wwwroot\\assets\\libs\\blueprintjs\\core\\lib\\css\\blueprint.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\wwwroot\\assets\\libs\\blueprintjs\\core\\lib\\css\\blueprint.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\authsessionkeys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\authsessionkeys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\libman.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -19,36 +83,12 @@
       "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\logincomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\wwwroot\\assets\\libs\\blueprintjs\\core\\lib\\css\\blueprint.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\wwwroot\\assets\\libs\\blueprintjs\\core\\lib\\css\\blueprint.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\_authlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\_authlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\areas\\identity\\pages\\auth\\usernameentry.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|solutionrelative:librebooksrazor\\areas\\identity\\pages\\auth\\usernameentry.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{43D9693D-FB26-FBB8-3DFF-3EEC5F58DF71}|LibrebooksRazor\\LibrebooksRazor.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooksrazor\\librebooksrazor\\helpers\\formhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -66,7 +106,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 22,
           "Children": [
             {
               "$type": "Bookmark",
@@ -77,21 +117,153 @@
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\appsettings.json",
-              "RelativeDocumentMoniker": "LibrebooksRazor\\appsettings.json",
-              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\appsettings.json",
-              "RelativeToolTip": "LibrebooksRazor\\appsettings.json",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-12T21:06:07.237Z",
+              "DocumentIndex": 8,
+              "Title": "StoreBase.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Providers\\Stores\\StoreBase.cs",
+              "RelativeDocumentMoniker": "LibrebooksRazor\\Providers\\Stores\\StoreBase.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Providers\\Stores\\StoreBase.cs",
+              "RelativeToolTip": "LibrebooksRazor\\Providers\\Stores\\StoreBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T16:10:07.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "VerificationStore.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Providers\\Stores\\VerificationStore.cs",
+              "RelativeDocumentMoniker": "LibrebooksRazor\\Providers\\Stores\\VerificationStore.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Providers\\Stores\\VerificationStore.cs",
+              "RelativeToolTip": "LibrebooksRazor\\Providers\\Stores\\VerificationStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwYAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T16:09:50.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MailSender.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Providers\\Managers\\MailSender.cs",
+              "RelativeDocumentMoniker": "LibrebooksRazor\\Providers\\Managers\\MailSender.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Providers\\Managers\\MailSender.cs",
+              "RelativeToolTip": "LibrebooksRazor\\Providers\\Managers\\MailSender.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T16:09:47.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VerificationManager.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Providers\\Managers\\VerificationManager.cs",
+              "RelativeDocumentMoniker": "LibrebooksRazor\\Providers\\Managers\\VerificationManager.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Providers\\Managers\\VerificationManager.cs",
+              "RelativeToolTip": "LibrebooksRazor\\Providers\\Managers\\VerificationManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T16:07:07.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IVerificationManager.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Providers\\Managers\\IVerificationManager.cs",
+              "RelativeDocumentMoniker": "LibrebooksRazor\\Providers\\Managers\\IVerificationManager.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Providers\\Managers\\IVerificationManager.cs",
+              "RelativeToolTip": "LibrebooksRazor\\Providers\\Managers\\IVerificationManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T16:07:07.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AuthEmailVerificationReasons.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\AuthEmailVerificationReasons.cs",
+              "RelativeDocumentMoniker": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\AuthEmailVerificationReasons.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\AuthEmailVerificationReasons.cs",
+              "RelativeToolTip": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\AuthEmailVerificationReasons.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T16:03:50.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthFunctions.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\AuthFunctions.cs",
+              "RelativeDocumentMoniker": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\AuthFunctions.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\AuthFunctions.cs",
+              "RelativeToolTip": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\AuthFunctions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T15:56:14.619Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "UsernameEntry.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\UsernameEntry.cshtml.cs",
+              "RelativeDocumentMoniker": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\UsernameEntry.cshtml.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\UsernameEntry.cshtml.cs",
+              "RelativeToolTip": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\UsernameEntry.cshtml.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAowDQAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T14:52:46.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_RootLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Layouts\\_RootLayout.cshtml",
+              "RelativeDocumentMoniker": "LibrebooksRazor\\Layouts\\_RootLayout.cshtml",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Layouts\\_RootLayout.cshtml",
+              "RelativeToolTip": "LibrebooksRazor\\Layouts\\_RootLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-20T14:49:40.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AuthSessionKeys.cs",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\AuthSessionKeys.cs",
+              "RelativeDocumentMoniker": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\AuthSessionKeys.cs",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\AuthSessionKeys.cs",
+              "RelativeToolTip": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\AuthSessionKeys.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T15:18:59.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\appsettings.json",
+              "RelativeDocumentMoniker": "LibrebooksRazor\\appsettings.json",
+              "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\appsettings.json",
+              "RelativeToolTip": "LibrebooksRazor\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-12T21:06:07.237Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\Login.cshtml",
               "RelativeDocumentMoniker": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\Login.cshtml",
@@ -99,11 +271,12 @@
               "RelativeToolTip": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\Login.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-12T20:23:07.303Z"
+              "WhenOpened": "2026-03-12T20:23:07.303Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 19,
               "Title": "LoginComponent.razor",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\LoginComponent.razor",
               "RelativeDocumentMoniker": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\LoginComponent.razor",
@@ -115,19 +288,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Program.cs",
               "RelativeDocumentMoniker": "LibrebooksRazor\\Program.cs",
               "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Program.cs",
               "RelativeToolTip": "LibrebooksRazor\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T20:22:36.147Z"
+              "WhenOpened": "2026-03-12T20:22:36.147Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 20,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\_ViewStart.cshtml",
@@ -139,7 +313,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 21,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\_ViewImports.cshtml",
@@ -151,31 +325,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "_AuthLayout.cshtml",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\_AuthLayout.cshtml",
               "RelativeDocumentMoniker": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\_AuthLayout.cshtml",
               "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\_AuthLayout.cshtml",
               "RelativeToolTip": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\_AuthLayout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-12T13:41:50.03Z"
+              "WhenOpened": "2026-03-12T13:41:50.03Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "blueprint.css",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\wwwroot\\assets\\libs\\blueprintjs\\core\\lib\\css\\blueprint.css",
               "RelativeDocumentMoniker": "LibrebooksRazor\\wwwroot\\assets\\libs\\blueprintjs\\core\\lib\\css\\blueprint.css",
               "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\wwwroot\\assets\\libs\\blueprintjs\\core\\lib\\css\\blueprint.css",
               "RelativeToolTip": "LibrebooksRazor\\wwwroot\\assets\\libs\\blueprintjs\\core\\lib\\css\\blueprint.css",
-              "ViewState": "AgIAAGQCAAAAAAAAAAAewHMCAAApAAAAAAAAAA==",
+              "ViewState": "AgIAADcGAAAAAAAAAAAAAEEGAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-03-12T11:40:32.597Z"
+              "WhenOpened": "2026-03-12T11:40:32.597Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 22,
               "Title": "FormHelpers.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Helpers\\FormHelpers.cs",
               "RelativeDocumentMoniker": "LibrebooksRazor\\Helpers\\FormHelpers.cs",
@@ -187,31 +363,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "Register.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\Register.cshtml.cs",
               "RelativeDocumentMoniker": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\Register.cshtml.cs",
               "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\Register.cshtml.cs",
               "RelativeToolTip": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\Register.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAE4AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T07:32:03.508Z"
+              "WhenOpened": "2026-03-12T07:32:03.508Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\Register.cshtml",
               "RelativeDocumentMoniker": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\Register.cshtml",
               "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\Register.cshtml",
               "RelativeToolTip": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\Register.cshtml",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAADYAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-12T07:01:22.028Z"
+              "WhenOpened": "2026-03-12T07:01:22.028Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 23,
               "Title": "forms.css",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\wwwroot\\src\\css\\styles\\forms.css",
               "RelativeDocumentMoniker": "LibrebooksRazor\\wwwroot\\src\\css\\styles\\forms.css",
@@ -223,19 +401,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "UsernameEntry.cshtml",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\UsernameEntry.cshtml",
               "RelativeDocumentMoniker": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\UsernameEntry.cshtml",
               "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\UsernameEntry.cshtml",
               "RelativeToolTip": "LibrebooksRazor\\Areas\\Identity\\Pages\\Auth\\UsernameEntry.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-12T06:28:21.873Z"
+              "WhenOpened": "2026-03-12T06:28:21.873Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 18,
               "Title": "libman.json",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\LibrebooksRazor\\LibrebooksRazor\\libman.json",
               "RelativeDocumentMoniker": "LibrebooksRazor\\libman.json",

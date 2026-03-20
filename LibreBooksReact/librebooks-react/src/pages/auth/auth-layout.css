@@ -66,3 +66,11 @@ form .field {
 .password-hint {
     padding: 0.5rem 0.5rem;
 }
+
+.AuthCard {
+    width: 100%;
+    padding: 1rem;
+    overflow: auto;
+    overflow: visible;
+    max-width: 420px;
+}

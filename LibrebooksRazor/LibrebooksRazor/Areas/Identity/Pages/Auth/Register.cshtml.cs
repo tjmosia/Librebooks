@@ -1,18 +1,17 @@
 using System.ComponentModel.DataAnnotations;
+using LibrebooksRazor.Providers.Managers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LibrebooksRazor.Areas.Identity.Pages.Auth;
 
-public class RegisterModel : PageModel
+public class RegisterModel (IVerificationManager verificationManager, ILogger<RegisterModel> logger) : PageModel
 {
-	public RegisterModel ()
-	{
-		InputModel = new();
-	}
+	private readonly IVerificationManager verificationManager = verificationManager;
+	private readonly ILogger<RegisterModel> logger = logger;
 
 	[BindProperty]
-	public RegisterInputModel InputModel { get; set; }
+	public RegisterInputModel? InputModel { get; set; }
 
 	public IActionResult OnGet ()
 	{
@@ -27,12 +26,56 @@ public class RegisterModel : PageModel
 		return RedirectToPage("./UsernameEntry");
 	}
 
-	public IActionResult OnPostRegister ()
+	public async Task<IActionResult> OnPostRegister ()
 	{
+		var email = HttpContext.Session.GetString(AuthSessionKeys.Email);
+
+		if (string.IsNullOrEmpty(email))
+			return RedirectToPage("./UsernameEntry");
+
 		if (!ModelState.IsValid)
 			return Page();
 
-		return RedirectToPage("./Register");
+		var verificationResult = await verificationManager.VerifyAsync(email, AuthEmailVerificationReasons.Registration, InputModel!.Code!);
+
+		if (verified.Succeeded)
+
+			return RedirectToPage("./Register");
+	}
+
+	public async Task<IActionResult> OnPostResendVerificationCodeAsync ()
+	{
+		var email = HttpContext.Session.GetString(AuthSessionKeys.Email);
+
+		if (string.IsNullOrEmpty(email))
+			return RedirectToPage("./UsernameEntry");
+
+		if (!ModelState.IsValid)
+		{
+			var erred = false;
+
+			foreach (var modelState in ModelState)
+			{
+
+				if (modelState.Key != "InputModel.Code")
+				{
+					ModelState.Remove(modelState.Key);
+				}
+				else
+				{
+					erred = true;
+				}
+			}
+			if (erred)
+			{
+				return Page();
+			}
+		}
+
+		var request = await AuthFunctions.SendVerificationEmailAsync(verificationManager, email, AuthEmailVerificationReasons.Registration);
+		logger.LogInformation("User email verification sent to {email} with code {code}", email, request.code);
+
+		return Page();
 	}
 
 	public class RegisterInputModel

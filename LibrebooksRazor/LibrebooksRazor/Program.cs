@@ -2,6 +2,7 @@ using LibrebooksRazor.Data;
 using LibrebooksRazor.Extensions.Identity;
 using LibrebooksRazor.Models.Entity.IdentitySpace;
 using LibrebooksRazor.Providers.Managers;
+using LibrebooksRazor.Providers.Stores;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -49,7 +50,8 @@ builder.Services.AddSession(options =>
 	options.Cookie.HttpOnly = true;
 	options.Cookie.IsEssential = true;
 });
-
+builder.Services.AddScoped<VerificationStore>();
+builder.Services.AddScoped<IVerificationManager, VerificationManager>();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddSingleton<MailSender>();
 builder.Services.AddServerSideBlazor();

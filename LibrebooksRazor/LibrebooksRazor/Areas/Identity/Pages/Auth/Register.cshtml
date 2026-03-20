@@ -6,22 +6,11 @@
 }
 
 <form method="POST">
-	<div class="ui-form-group">
-		<label class="ui-label" asp-for="InputModel.Code"></label>
-		<div class="ui-input-group small">
-			<input class="ui-input" asp-for="InputModel.Code" />
-		</div>
-		<span asp-validation-for="InputModel.Code" class="ui-form-helper-text"></span>
-	</div>
-	<div class="form-field">
-		<span></span>
-		<button class="ui-button minimal small" asp-page-handler="Register">Resend Verification Code</button>
-	</div>
 	<div class="ui-divider"></div>
-	<div class="ui-form-group">
-		<label class="ui-label" asp-for="InputModel.FirstName"></label>
-		<div class="ui-input-group small">
-			<input class="ui-input" asp-for="InputModel.FirstName" />
+	<div class="border-gray-100 border-1 border-solid">
+		<label asp-for="InputModel.FirstName"></label>
+		<div class="">
+			<input class="border-none" asp-for="InputModel.FirstName" />
 		</div>
 		<span asp-validation-for="InputModel.FirstName"></span>
 	</div>
@@ -47,6 +36,16 @@
 		<span asp-validation-for="InputModel.ConfirmPassword"></span>
 	</div>
 	<div class="ui-form-group">
+		<label class="ui-label" asp-for="InputModel.Code"></label>
+		<div class="ui-input-group small">
+			<input class="ui-input" asp-for="InputModel.Code" />
+		</div>
+		<span>
+			<button class="ui-button minimal small" asp-page-handler="ResendVerificationCode">Resend Verification Code</button>
+		</span>
+		<span asp-validation-for="InputModel.Code" class="ui-form-helper-text"></span>
+	</div>
+	<div class="border-1">
 		<button class="ui-button intent-primary fill" asp-page-handler="Register">Register</button>
 	</div>
 	<div class="ui-form-group">

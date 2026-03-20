@@ -535,7 +535,7 @@ a > .dark .ui-running-text code{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -589,17 +589,17 @@ a > .dark .ui-running-text code{
   text-align:left;
 }
 .ui-button:not([class*=intent-]){
-  background-color:color-mix(in srgb, var(--intent-default-rest) 5%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 5%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 10%, transparent);
   color:var(--ui-typography-color-default-rest);
 }
 .ui-button:not([class*=intent-]):hover{
   background-clip:padding-box;
-  background-color:color-mix(in srgb, var(--intent-default-hover) 9%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-hover) 9%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-button:not([class*=intent-]):active, .ui-button:not([class*=intent-]).active{
-  background-color:color-mix(in srgb, var(--intent-default-active) 16%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-active) 16%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
@@ -608,14 +608,14 @@ a > .dark .ui-running-text code{
   }
 }
 .ui-button:not([class*=intent-]):disabled, .ui-button:not([class*=intent-]).disabled{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 20%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 20%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-disabled);
   cursor:not-allowed;
   outline:none;
 }
 .ui-button:not([class*=intent-]):disabled.active, .ui-button:not([class*=intent-]):disabled.active:hover, .ui-button:not([class*=intent-]).disabled.active, .ui-button:not([class*=intent-]).disabled.active:hover{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 28%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 28%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
   .ui-button:not([class*=intent-]){
@@ -623,26 +623,26 @@ a > .dark .ui-running-text code{
   }
 }
 .ui-button.intent-primary{
-  background-color:var(--intent-primary-rest);
+  background-color:var(--ui-intent-primary-rest);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 10%, transparent);
-  color:var(--intent-primary-foreground);
+  color:var(--ui-intent-primary-foreground);
 }
 .ui-button.intent-primary:hover, .ui-button.intent-primary:active, .ui-button.intent-primary.active{
-  color:var(--intent-primary-foreground);
+  color:var(--ui-intent-primary-foreground);
 }
 .ui-button.intent-primary:hover{
-  background-color:var(--intent-primary-hover);
+  background-color:var(--ui-intent-primary-hover);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-button.intent-primary:active, .ui-button.intent-primary.active{
-  background-color:var(--intent-primary-active);
+  background-color:var(--ui-intent-primary-active);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-button.intent-primary:disabled, .ui-button.intent-primary.disabled{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 50%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 50%, transparent);
   border-color:transparent;
   box-shadow:none;
-  color:color-mix(in oklch, var(--intent-primary-foreground) 60%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-foreground) 60%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
   .ui-button.intent-primary:disabled, .ui-button.intent-primary.disabled{
@@ -657,26 +657,26 @@ a > .dark .ui-running-text code{
   }
 }
 .ui-button.intent-success{
-  background-color:var(--intent-success-rest);
+  background-color:var(--ui-intent-success-rest);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 10%, transparent);
-  color:var(--intent-success-foreground);
+  color:var(--ui-intent-success-foreground);
 }
 .ui-button.intent-success:hover, .ui-button.intent-success:active, .ui-button.intent-success.active{
-  color:var(--intent-success-foreground);
+  color:var(--ui-intent-success-foreground);
 }
 .ui-button.intent-success:hover{
-  background-color:var(--intent-success-hover);
+  background-color:var(--ui-intent-success-hover);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-button.intent-success:active, .ui-button.intent-success.active{
-  background-color:var(--intent-success-active);
+  background-color:var(--ui-intent-success-active);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-button.intent-success:disabled, .ui-button.intent-success.disabled{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 50%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 50%, transparent);
   border-color:transparent;
   box-shadow:none;
-  color:color-mix(in oklch, var(--intent-success-foreground) 60%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-foreground) 60%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
   .ui-button.intent-success:disabled, .ui-button.intent-success.disabled{
@@ -693,24 +693,24 @@ a > .dark .ui-running-text code{
 .ui-button.intent-warning{
   background-color:var(--ui-button-warning-rest);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 10%, transparent);
-  color:var(--intent-warning-foreground);
+  color:var(--ui-intent-warning-foreground);
 }
 .ui-button.intent-warning:hover, .ui-button.intent-warning:active, .ui-button.intent-warning.active{
-  color:var(--intent-warning-foreground);
+  color:var(--ui-intent-warning-foreground);
 }
 .ui-button.intent-warning:hover{
-  background-color:var(--intent-warning-hover);
+  background-color:var(--ui-intent-warning-hover);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-button.intent-warning:active, .ui-button.intent-warning.active{
-  background-color:var(--intent-warning-active);
+  background-color:var(--ui-intent-warning-active);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-button.intent-warning:disabled, .ui-button.intent-warning.disabled{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 50%, transparent);
   border-color:transparent;
   box-shadow:none;
-  color:color-mix(in oklch, var(--intent-warning-foreground) 60%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-warning-foreground) 60%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
   .ui-button.intent-warning:disabled, .ui-button.intent-warning.disabled{
@@ -725,26 +725,26 @@ a > .dark .ui-running-text code{
   }
 }
 .ui-button.intent-danger{
-  background-color:var(--intent-danger-rest);
+  background-color:var(--ui-intent-danger-rest);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 10%, transparent);
-  color:var(--intent-danger-foreground);
+  color:var(--ui-intent-danger-foreground);
 }
 .ui-button.intent-danger:hover, .ui-button.intent-danger:active, .ui-button.intent-danger.active{
-  color:var(--intent-danger-foreground);
+  color:var(--ui-intent-danger-foreground);
 }
 .ui-button.intent-danger:hover{
-  background-color:var(--intent-danger-hover);
+  background-color:var(--ui-intent-danger-hover);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-button.intent-danger:active, .ui-button.intent-danger.active{
-  background-color:var(--intent-danger-active);
+  background-color:var(--ui-intent-danger-active);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-button.intent-danger:disabled, .ui-button.intent-danger.disabled{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 50%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 50%, transparent);
   border-color:transparent;
   box-shadow:none;
-  color:color-mix(in oklch, var(--intent-danger-foreground) 60%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-foreground) 60%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
   .ui-button.intent-danger:disabled, .ui-button.intent-danger.disabled{
@@ -759,26 +759,26 @@ a > .dark .ui-running-text code{
   }
 }
 .ui-button.intent-default{
-  background-color:var(--intent-default-rest);
+  background-color:var(--ui-intent-default-rest);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 10%, transparent);
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .ui-button.intent-default:hover, .ui-button.intent-default:active, .ui-button.intent-default.active{
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .ui-button.intent-default:hover{
-  background-color:var(--intent-default-hover);
+  background-color:var(--ui-intent-default-hover);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-button.intent-default:active, .ui-button.intent-default.active{
-  background-color:var(--intent-default-active);
+  background-color:var(--ui-intent-default-active);
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-button.intent-default:disabled, .ui-button.intent-default.disabled{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 50%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 50%, transparent);
   border-color:transparent;
   box-shadow:none;
-  color:color-mix(in oklch, var(--intent-default-foreground) 60%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-default-foreground) 60%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
   .ui-button.intent-default:disabled, .ui-button.intent-default.disabled{
@@ -793,7 +793,7 @@ a > .dark .ui-running-text code{
   }
 }
 .ui-button[class*=intent-] .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-primary-foreground);
+  stroke:var(--ui-intent-primary-foreground);
 }
 .ui-button.large::before,
 .ui-button.large > *, .large .ui-button::before,
@@ -853,32 +853,32 @@ a > .dark .ui-running-text code{
   margin:0 calc(-1 * (var(--ui-surface-spacing) * 7.5 - var(--ui-surface-spacing) * 4) * 0.5);
 }
 .dark .ui-button:not([class*=intent-]), [data-ui-color-scheme=dark] .ui-button:not([class*=intent-]){
-  background-color:color-mix(in srgb, var(--intent-default-rest) 40%, var(--ui-palette-black));
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 40%, var(--ui-palette-black));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-default) 50%, transparent), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .dark .ui-button:not([class*=intent-]):hover, .dark .ui-button:not([class*=intent-]):active, .dark .ui-button:not([class*=intent-]).active, [data-ui-color-scheme=dark] .ui-button:not([class*=intent-]):hover, [data-ui-color-scheme=dark] .ui-button:not([class*=intent-]):active, [data-ui-color-scheme=dark] .ui-button:not([class*=intent-]).active{
-  color:color-mix(in srgb, var(--intent-default-hover) 4%, var(--ui-palette-white));
+  color:color-mix(in srgb, var(--ui-intent-default-hover) 4%, var(--ui-palette-white));
 }
 .dark .ui-button:not([class*=intent-]):hover, [data-ui-color-scheme=dark] .ui-button:not([class*=intent-]):hover{
-  background-color:color-mix(in srgb, var(--intent-default-hover) 42%, var(--ui-palette-black));
+  background-color:color-mix(in srgb, var(--ui-intent-default-hover) 42%, var(--ui-palette-black));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-default) 50%, transparent), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 40%, transparent);
 }
 .dark .ui-button:not([class*=intent-]):active, .dark .ui-button:not([class*=intent-]).active, [data-ui-color-scheme=dark] .ui-button:not([class*=intent-]):active, [data-ui-color-scheme=dark] .ui-button:not([class*=intent-]).active{
-  background-color:color-mix(in srgb, var(--intent-default-active) 30%, var(--ui-palette-black));
+  background-color:color-mix(in srgb, var(--ui-intent-default-active) 30%, var(--ui-palette-black));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-default) 50%, transparent), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 40%, transparent);
 }
 .dark .ui-button:not([class*=intent-]):disabled, .dark .ui-button:not([class*=intent-]).disabled, [data-ui-color-scheme=dark] .ui-button:not([class*=intent-]):disabled, [data-ui-color-scheme=dark] .ui-button:not([class*=intent-]).disabled{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 4%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 4%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-disabled);
 }
 .dark .ui-button:not([class*=intent-]):disabled.active, .dark .ui-button:not([class*=intent-]).disabled.active, [data-ui-color-scheme=dark] .ui-button:not([class*=intent-]):disabled.active, [data-ui-color-scheme=dark] .ui-button:not([class*=intent-]).disabled.active{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 7%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 7%, transparent);
 }
 .dark .ui-button:not([class*=intent-]) .ui-button-spinner .ui-spinner-head, [data-ui-color-scheme=dark] .ui-button:not([class*=intent-]) .ui-button-spinner .ui-spinner-head{
-  background:color-mix(in srgb, var(--intent-default-rest) 20%, var(--ui-palette-black));
-  stroke:color-mix(in srgb, var(--intent-default-rest) 68%, var(--ui-palette-white));
+  background:color-mix(in srgb, var(--ui-intent-default-rest) 20%, var(--ui-palette-black));
+  stroke:color-mix(in srgb, var(--ui-intent-default-rest) 68%, var(--ui-palette-white));
 }
 .dark .ui-button:not([class*=intent-])[class*=ui-icon-]::before, [data-ui-color-scheme=dark] .ui-button:not([class*=intent-])[class*=ui-icon-]::before{
   color:var(--ui-typography-color-default-rest);
@@ -897,7 +897,7 @@ a > .dark .ui-running-text code{
 }
 .dark .ui-button[class*=intent-]:disabled, .dark .ui-button[class*=intent-].disabled, [data-ui-color-scheme=dark] .ui-button[class*=intent-]:disabled, [data-ui-color-scheme=dark] .ui-button[class*=intent-].disabled{
   box-shadow:none;
-  color:color-mix(in oklch, var(--intent-default-foreground) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-default-foreground) 30%, transparent);
 }
 .dark .ui-button[class*=intent-] .ui-button-spinner .ui-spinner-head, [data-ui-color-scheme=dark] .ui-button[class*=intent-] .ui-button-spinner .ui-spinner-head{
   stroke:var(--ui-typography-color-default-hover);
@@ -913,13 +913,13 @@ a > .dark .ui-running-text code{
   box-shadow:none;
 }
 .ui-button.minimal:hover{
-  background-color:color-mix(in srgb, var(--intent-default-hover) 8%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-hover) 8%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-rest);
   text-decoration:none;
 }
 .ui-button.minimal:active, .ui-button.minimal.active{
-  background-color:color-mix(in srgb, var(--intent-default-active) 16%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-active) 16%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-rest);
 }
@@ -929,23 +929,23 @@ a > .dark .ui-running-text code{
   cursor:not-allowed;
 }
 .ui-button.minimal:disabled.active, .ui-button.minimal:disabled:hover.active, .ui-button.minimal.disabled.active, .ui-button.minimal.disabled:hover.active{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 30%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 30%, transparent);
 }
 .dark .ui-button.minimal, [data-ui-color-scheme=dark] .ui-button.minimal{
   background:none;
   box-shadow:none;
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .dark .ui-button.minimal:hover, .dark .ui-button.minimal:active, .dark .ui-button.minimal.active, [data-ui-color-scheme=dark] .ui-button.minimal:hover, [data-ui-color-scheme=dark] .ui-button.minimal:active, [data-ui-color-scheme=dark] .ui-button.minimal.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .dark .ui-button.minimal:hover, [data-ui-color-scheme=dark] .ui-button.minimal:hover{
-  background-color:color-mix(in srgb, var(--intent-default-rest) 24%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 24%, transparent);
 }
 .dark .ui-button.minimal:active, .dark .ui-button.minimal.active, [data-ui-color-scheme=dark] .ui-button.minimal:active, [data-ui-color-scheme=dark] .ui-button.minimal.active{
-  background-color:color-mix(in srgb, var(--intent-default-rest) 49%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 49%, transparent);
 }
 .dark .ui-button.minimal:disabled, .dark .ui-button.minimal:disabled:hover, .dark .ui-button.minimal.disabled, .dark .ui-button.minimal.disabled:hover, [data-ui-color-scheme=dark] .ui-button.minimal:disabled, [data-ui-color-scheme=dark] .ui-button.minimal:disabled:hover, [data-ui-color-scheme=dark] .ui-button.minimal.disabled, [data-ui-color-scheme=dark] .ui-button.minimal.disabled:hover{
   background:none;
@@ -953,240 +953,240 @@ a > .dark .ui-running-text code{
   cursor:not-allowed;
 }
 .dark .ui-button.minimal:disabled.active, .dark .ui-button.minimal:disabled:hover.active, .dark .ui-button.minimal.disabled.active, .dark .ui-button.minimal.disabled:hover.active, [data-ui-color-scheme=dark] .ui-button.minimal:disabled.active, [data-ui-color-scheme=dark] .ui-button.minimal:disabled:hover.active, [data-ui-color-scheme=dark] .ui-button.minimal.disabled.active, [data-ui-color-scheme=dark] .ui-button.minimal.disabled:hover.active{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 30%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 30%, transparent);
 }
 .ui-button.minimal.intent-primary{
-  color:var(--intent-primary-hover);
+  color:var(--ui-intent-primary-hover);
 }
 .ui-button.minimal.intent-primary:hover, .ui-button.minimal.intent-primary:active, .ui-button.minimal.intent-primary.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-primary-hover);
+  color:var(--ui-intent-primary-hover);
 }
 .ui-button.minimal.intent-primary:hover{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 15%, transparent);
-  color:var(--intent-primary-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 15%, transparent);
+  color:var(--ui-intent-primary-hover);
 }
 .ui-button.minimal.intent-primary:active, .ui-button.minimal.intent-primary.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
-  color:var(--intent-primary-active);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
+  color:var(--ui-intent-primary-active);
 }
 .ui-button.minimal.intent-primary:disabled, .ui-button.minimal.intent-primary.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-primary-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-hover) 50%, transparent);
 }
 .ui-button.minimal.intent-primary:disabled.active, .ui-button.minimal.intent-primary.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
 }
 .ui-button.minimal.intent-primary .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-primary-hover);
+  stroke:var(--ui-intent-primary-hover);
 }
 .dark .ui-button.minimal.intent-primary, [data-ui-color-scheme=dark] .ui-button.minimal.intent-primary{
-  color:color-mix(in oklch, var(--intent-primary-rest) 51%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-primary-rest) 51%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-primary:hover, [data-ui-color-scheme=dark] .ui-button.minimal.intent-primary:hover{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-primary-hover) 51%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 20%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-hover) 51%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-primary:active, .dark .ui-button.minimal.intent-primary.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-primary:active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-primary.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-primary-active) 51%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-active) 51%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-primary:disabled, .dark .ui-button.minimal.intent-primary.disabled, [data-ui-color-scheme=dark] .ui-button.minimal.intent-primary:disabled, [data-ui-color-scheme=dark] .ui-button.minimal.intent-primary.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-primary-rest) 51%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-primary-rest) 51%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button.minimal.intent-primary:disabled.active, .dark .ui-button.minimal.intent-primary.disabled.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-primary:disabled.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-primary.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
 }
 .ui-button.minimal.intent-success{
-  color:var(--intent-success-hover);
+  color:var(--ui-intent-success-hover);
 }
 .ui-button.minimal.intent-success:hover, .ui-button.minimal.intent-success:active, .ui-button.minimal.intent-success.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-success-hover);
+  color:var(--ui-intent-success-hover);
 }
 .ui-button.minimal.intent-success:hover{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 15%, transparent);
-  color:var(--intent-success-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 15%, transparent);
+  color:var(--ui-intent-success-hover);
 }
 .ui-button.minimal.intent-success:active, .ui-button.minimal.intent-success.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
-  color:var(--intent-success-active);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
+  color:var(--ui-intent-success-active);
 }
 .ui-button.minimal.intent-success:disabled, .ui-button.minimal.intent-success.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-success-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-hover) 50%, transparent);
 }
 .ui-button.minimal.intent-success:disabled.active, .ui-button.minimal.intent-success.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
 }
 .ui-button.minimal.intent-success .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-success-hover);
+  stroke:var(--ui-intent-success-hover);
 }
 .dark .ui-button.minimal.intent-success, [data-ui-color-scheme=dark] .ui-button.minimal.intent-success{
-  color:color-mix(in oklch, var(--intent-success-rest) 54%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-success-rest) 54%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-success:hover, [data-ui-color-scheme=dark] .ui-button.minimal.intent-success:hover{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-success-hover) 54%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 20%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-hover) 54%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-success:active, .dark .ui-button.minimal.intent-success.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-success:active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-success.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-success-active) 54%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-active) 54%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-success:disabled, .dark .ui-button.minimal.intent-success.disabled, [data-ui-color-scheme=dark] .ui-button.minimal.intent-success:disabled, [data-ui-color-scheme=dark] .ui-button.minimal.intent-success.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-success-rest) 54%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-success-rest) 54%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button.minimal.intent-success:disabled.active, .dark .ui-button.minimal.intent-success.disabled.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-success:disabled.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-success.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
 }
 .ui-button.minimal.intent-warning{
-  color:var(--intent-warning-hover);
+  color:var(--ui-intent-warning-hover);
 }
 .ui-button.minimal.intent-warning:hover, .ui-button.minimal.intent-warning:active, .ui-button.minimal.intent-warning.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-warning-hover);
+  color:var(--ui-intent-warning-hover);
 }
 .ui-button.minimal.intent-warning:hover{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 15%, transparent);
-  color:var(--intent-warning-hover);
+  color:var(--ui-intent-warning-hover);
 }
 .ui-button.minimal.intent-warning:active, .ui-button.minimal.intent-warning.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
-  color:var(--intent-warning-active);
+  color:var(--ui-intent-warning-active);
 }
 .ui-button.minimal.intent-warning:disabled, .ui-button.minimal.intent-warning.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-warning-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-warning-hover) 50%, transparent);
 }
 .ui-button.minimal.intent-warning:disabled.active, .ui-button.minimal.intent-warning.disabled.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
 }
 .ui-button.minimal.intent-warning .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-warning-hover);
+  stroke:var(--ui-intent-warning-hover);
 }
 .dark .ui-button.minimal.intent-warning, [data-ui-color-scheme=dark] .ui-button.minimal.intent-warning{
-  color:color-mix(in oklch, var(--intent-warning-rest) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-warning-rest) 53%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-warning:hover, [data-ui-color-scheme=dark] .ui-button.minimal.intent-warning:hover{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-warning-hover) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-warning-hover) 53%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-warning:active, .dark .ui-button.minimal.intent-warning.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-warning:active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-warning.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-warning-active) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-warning-active) 53%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-warning:disabled, .dark .ui-button.minimal.intent-warning.disabled, [data-ui-color-scheme=dark] .ui-button.minimal.intent-warning:disabled, [data-ui-color-scheme=dark] .ui-button.minimal.intent-warning.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-warning-rest) 53%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-warning-rest) 53%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button.minimal.intent-warning:disabled.active, .dark .ui-button.minimal.intent-warning.disabled.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-warning:disabled.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-warning.disabled.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
 }
 .ui-button.minimal.intent-danger{
-  color:var(--intent-danger-hover);
+  color:var(--ui-intent-danger-hover);
 }
 .ui-button.minimal.intent-danger:hover, .ui-button.minimal.intent-danger:active, .ui-button.minimal.intent-danger.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-danger-hover);
+  color:var(--ui-intent-danger-hover);
 }
 .ui-button.minimal.intent-danger:hover{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 15%, transparent);
-  color:var(--intent-danger-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 15%, transparent);
+  color:var(--ui-intent-danger-hover);
 }
 .ui-button.minimal.intent-danger:active, .ui-button.minimal.intent-danger.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
-  color:var(--intent-danger-active);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
+  color:var(--ui-intent-danger-active);
 }
 .ui-button.minimal.intent-danger:disabled, .ui-button.minimal.intent-danger.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-danger-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-hover) 50%, transparent);
 }
 .ui-button.minimal.intent-danger:disabled.active, .ui-button.minimal.intent-danger.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
 }
 .ui-button.minimal.intent-danger .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-danger-hover);
+  stroke:var(--ui-intent-danger-hover);
 }
 .dark .ui-button.minimal.intent-danger, [data-ui-color-scheme=dark] .ui-button.minimal.intent-danger{
-  color:color-mix(in oklch, var(--intent-danger-rest) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-danger-rest) 53%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-danger:hover, [data-ui-color-scheme=dark] .ui-button.minimal.intent-danger:hover{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-danger-hover) 53%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 20%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-hover) 53%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-danger:active, .dark .ui-button.minimal.intent-danger.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-danger:active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-danger.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-danger-active) 53%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-active) 53%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-danger:disabled, .dark .ui-button.minimal.intent-danger.disabled, [data-ui-color-scheme=dark] .ui-button.minimal.intent-danger:disabled, [data-ui-color-scheme=dark] .ui-button.minimal.intent-danger.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-danger-rest) 53%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-danger-rest) 53%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button.minimal.intent-danger:disabled.active, .dark .ui-button.minimal.intent-danger.disabled.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-danger:disabled.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-danger.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
 }
 .ui-button.minimal.intent-default{
-  color:var(--intent-default-hover);
+  color:var(--ui-intent-default-hover);
 }
 .ui-button.minimal.intent-default:hover, .ui-button.minimal.intent-default:active, .ui-button.minimal.intent-default.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-default-hover);
+  color:var(--ui-intent-default-hover);
 }
 .ui-button.minimal.intent-default:hover{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 15%, transparent);
-  color:var(--intent-default-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 15%, transparent);
+  color:var(--ui-intent-default-hover);
 }
 .ui-button.minimal.intent-default:active, .ui-button.minimal.intent-default.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
-  color:var(--intent-default-active);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
+  color:var(--ui-intent-default-active);
 }
 .ui-button.minimal.intent-default:disabled, .ui-button.minimal.intent-default.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-default-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-default-hover) 50%, transparent);
 }
 .ui-button.minimal.intent-default:disabled.active, .ui-button.minimal.intent-default.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
 }
 .ui-button.minimal.intent-default .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-default-hover);
+  stroke:var(--ui-intent-default-hover);
 }
 .dark .ui-button.minimal.intent-default, [data-ui-color-scheme=dark] .ui-button.minimal.intent-default{
-  color:color-mix(in srgb, var(--intent-default-rest) 46%, var(--ui-palette-white));
+  color:color-mix(in srgb, var(--ui-intent-default-rest) 46%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-default:hover, [data-ui-color-scheme=dark] .ui-button.minimal.intent-default:hover{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 20%, transparent);
-  color:color-mix(in srgb, var(--intent-default-hover) 46%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 20%, transparent);
+  color:color-mix(in srgb, var(--ui-intent-default-hover) 46%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-default:active, .dark .ui-button.minimal.intent-default.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-default:active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-default.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
-  color:color-mix(in srgb, var(--intent-default-active) 46%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
+  color:color-mix(in srgb, var(--ui-intent-default-active) 46%, var(--ui-palette-white));
 }
 .dark .ui-button.minimal.intent-default:disabled, .dark .ui-button.minimal.intent-default.disabled, [data-ui-color-scheme=dark] .ui-button.minimal.intent-default:disabled, [data-ui-color-scheme=dark] .ui-button.minimal.intent-default.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in srgb, var(--intent-default-rest) 46%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in srgb, var(--ui-intent-default-rest) 46%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button.minimal.intent-default:disabled.active, .dark .ui-button.minimal.intent-default.disabled.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-default:disabled.active, [data-ui-color-scheme=dark] .ui-button.minimal.intent-default.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
 }
 .ui-button.outlined{
   background:none;
   box-shadow:none;
 }
 .ui-button.outlined:hover{
-  background-color:color-mix(in srgb, var(--intent-default-hover) 8%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-hover) 8%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-rest);
   text-decoration:none;
 }
 .ui-button.outlined:active, .ui-button.outlined.active{
-  background-color:color-mix(in srgb, var(--intent-default-active) 16%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-active) 16%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-rest);
 }
@@ -1196,23 +1196,23 @@ a > .dark .ui-running-text code{
   cursor:not-allowed;
 }
 .ui-button.outlined:disabled.active, .ui-button.outlined:disabled:hover.active, .ui-button.outlined.disabled.active, .ui-button.outlined.disabled:hover.active{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 30%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 30%, transparent);
 }
 .dark .ui-button.outlined, [data-ui-color-scheme=dark] .ui-button.outlined{
   background:none;
   box-shadow:none;
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .dark .ui-button.outlined:hover, .dark .ui-button.outlined:active, .dark .ui-button.outlined.active, [data-ui-color-scheme=dark] .ui-button.outlined:hover, [data-ui-color-scheme=dark] .ui-button.outlined:active, [data-ui-color-scheme=dark] .ui-button.outlined.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .dark .ui-button.outlined:hover, [data-ui-color-scheme=dark] .ui-button.outlined:hover{
-  background-color:color-mix(in srgb, var(--intent-default-rest) 24%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 24%, transparent);
 }
 .dark .ui-button.outlined:active, .dark .ui-button.outlined.active, [data-ui-color-scheme=dark] .ui-button.outlined:active, [data-ui-color-scheme=dark] .ui-button.outlined.active{
-  background-color:color-mix(in srgb, var(--intent-default-rest) 49%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 49%, transparent);
 }
 .dark .ui-button.outlined:disabled, .dark .ui-button.outlined:disabled:hover, .dark .ui-button.outlined.disabled, .dark .ui-button.outlined.disabled:hover, [data-ui-color-scheme=dark] .ui-button.outlined:disabled, [data-ui-color-scheme=dark] .ui-button.outlined:disabled:hover, [data-ui-color-scheme=dark] .ui-button.outlined.disabled, [data-ui-color-scheme=dark] .ui-button.outlined.disabled:hover{
   background:none;
@@ -1220,227 +1220,227 @@ a > .dark .ui-running-text code{
   cursor:not-allowed;
 }
 .dark .ui-button.outlined:disabled.active, .dark .ui-button.outlined:disabled:hover.active, .dark .ui-button.outlined.disabled.active, .dark .ui-button.outlined.disabled:hover.active, [data-ui-color-scheme=dark] .ui-button.outlined:disabled.active, [data-ui-color-scheme=dark] .ui-button.outlined:disabled:hover.active, [data-ui-color-scheme=dark] .ui-button.outlined.disabled.active, [data-ui-color-scheme=dark] .ui-button.outlined.disabled:hover.active{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 30%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 30%, transparent);
 }
 .ui-button.outlined.intent-primary{
-  color:var(--intent-primary-hover);
+  color:var(--ui-intent-primary-hover);
 }
 .ui-button.outlined.intent-primary:hover, .ui-button.outlined.intent-primary:active, .ui-button.outlined.intent-primary.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-primary-hover);
+  color:var(--ui-intent-primary-hover);
 }
 .ui-button.outlined.intent-primary:hover{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 15%, transparent);
-  color:var(--intent-primary-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 15%, transparent);
+  color:var(--ui-intent-primary-hover);
 }
 .ui-button.outlined.intent-primary:active, .ui-button.outlined.intent-primary.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
-  color:var(--intent-primary-active);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
+  color:var(--ui-intent-primary-active);
 }
 .ui-button.outlined.intent-primary:disabled, .ui-button.outlined.intent-primary.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-primary-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-hover) 50%, transparent);
 }
 .ui-button.outlined.intent-primary:disabled.active, .ui-button.outlined.intent-primary.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
 }
 .ui-button.outlined.intent-primary .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-primary-hover);
+  stroke:var(--ui-intent-primary-hover);
 }
 .dark .ui-button.outlined.intent-primary, [data-ui-color-scheme=dark] .ui-button.outlined.intent-primary{
-  color:color-mix(in oklch, var(--intent-primary-rest) 51%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-primary-rest) 51%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-primary:hover, [data-ui-color-scheme=dark] .ui-button.outlined.intent-primary:hover{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-primary-hover) 51%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 20%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-hover) 51%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-primary:active, .dark .ui-button.outlined.intent-primary.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-primary:active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-primary.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-primary-active) 51%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-active) 51%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-primary:disabled, .dark .ui-button.outlined.intent-primary.disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-primary:disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-primary.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-primary-rest) 51%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-primary-rest) 51%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button.outlined.intent-primary:disabled.active, .dark .ui-button.outlined.intent-primary.disabled.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-primary:disabled.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-primary.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
 }
 .ui-button.outlined.intent-success{
-  color:var(--intent-success-hover);
+  color:var(--ui-intent-success-hover);
 }
 .ui-button.outlined.intent-success:hover, .ui-button.outlined.intent-success:active, .ui-button.outlined.intent-success.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-success-hover);
+  color:var(--ui-intent-success-hover);
 }
 .ui-button.outlined.intent-success:hover{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 15%, transparent);
-  color:var(--intent-success-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 15%, transparent);
+  color:var(--ui-intent-success-hover);
 }
 .ui-button.outlined.intent-success:active, .ui-button.outlined.intent-success.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
-  color:var(--intent-success-active);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
+  color:var(--ui-intent-success-active);
 }
 .ui-button.outlined.intent-success:disabled, .ui-button.outlined.intent-success.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-success-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-hover) 50%, transparent);
 }
 .ui-button.outlined.intent-success:disabled.active, .ui-button.outlined.intent-success.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
 }
 .ui-button.outlined.intent-success .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-success-hover);
+  stroke:var(--ui-intent-success-hover);
 }
 .dark .ui-button.outlined.intent-success, [data-ui-color-scheme=dark] .ui-button.outlined.intent-success{
-  color:color-mix(in oklch, var(--intent-success-rest) 54%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-success-rest) 54%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-success:hover, [data-ui-color-scheme=dark] .ui-button.outlined.intent-success:hover{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-success-hover) 54%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 20%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-hover) 54%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-success:active, .dark .ui-button.outlined.intent-success.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-success:active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-success.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-success-active) 54%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-active) 54%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-success:disabled, .dark .ui-button.outlined.intent-success.disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-success:disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-success.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-success-rest) 54%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-success-rest) 54%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button.outlined.intent-success:disabled.active, .dark .ui-button.outlined.intent-success.disabled.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-success:disabled.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-success.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
 }
 .ui-button.outlined.intent-warning{
-  color:var(--intent-warning-hover);
+  color:var(--ui-intent-warning-hover);
 }
 .ui-button.outlined.intent-warning:hover, .ui-button.outlined.intent-warning:active, .ui-button.outlined.intent-warning.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-warning-hover);
+  color:var(--ui-intent-warning-hover);
 }
 .ui-button.outlined.intent-warning:hover{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 15%, transparent);
-  color:var(--intent-warning-hover);
+  color:var(--ui-intent-warning-hover);
 }
 .ui-button.outlined.intent-warning:active, .ui-button.outlined.intent-warning.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
-  color:var(--intent-warning-active);
+  color:var(--ui-intent-warning-active);
 }
 .ui-button.outlined.intent-warning:disabled, .ui-button.outlined.intent-warning.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-warning-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-warning-hover) 50%, transparent);
 }
 .ui-button.outlined.intent-warning:disabled.active, .ui-button.outlined.intent-warning.disabled.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
 }
 .ui-button.outlined.intent-warning .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-warning-hover);
+  stroke:var(--ui-intent-warning-hover);
 }
 .dark .ui-button.outlined.intent-warning, [data-ui-color-scheme=dark] .ui-button.outlined.intent-warning{
-  color:color-mix(in oklch, var(--intent-warning-rest) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-warning-rest) 53%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-warning:hover, [data-ui-color-scheme=dark] .ui-button.outlined.intent-warning:hover{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-warning-hover) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-warning-hover) 53%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-warning:active, .dark .ui-button.outlined.intent-warning.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-warning:active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-warning.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-warning-active) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-warning-active) 53%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-warning:disabled, .dark .ui-button.outlined.intent-warning.disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-warning:disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-warning.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-warning-rest) 53%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-warning-rest) 53%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button.outlined.intent-warning:disabled.active, .dark .ui-button.outlined.intent-warning.disabled.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-warning:disabled.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-warning.disabled.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
 }
 .ui-button.outlined.intent-danger{
-  color:var(--intent-danger-hover);
+  color:var(--ui-intent-danger-hover);
 }
 .ui-button.outlined.intent-danger:hover, .ui-button.outlined.intent-danger:active, .ui-button.outlined.intent-danger.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-danger-hover);
+  color:var(--ui-intent-danger-hover);
 }
 .ui-button.outlined.intent-danger:hover{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 15%, transparent);
-  color:var(--intent-danger-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 15%, transparent);
+  color:var(--ui-intent-danger-hover);
 }
 .ui-button.outlined.intent-danger:active, .ui-button.outlined.intent-danger.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
-  color:var(--intent-danger-active);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
+  color:var(--ui-intent-danger-active);
 }
 .ui-button.outlined.intent-danger:disabled, .ui-button.outlined.intent-danger.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-danger-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-hover) 50%, transparent);
 }
 .ui-button.outlined.intent-danger:disabled.active, .ui-button.outlined.intent-danger.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
 }
 .ui-button.outlined.intent-danger .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-danger-hover);
+  stroke:var(--ui-intent-danger-hover);
 }
 .dark .ui-button.outlined.intent-danger, [data-ui-color-scheme=dark] .ui-button.outlined.intent-danger{
-  color:color-mix(in oklch, var(--intent-danger-rest) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-danger-rest) 53%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-danger:hover, [data-ui-color-scheme=dark] .ui-button.outlined.intent-danger:hover{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-danger-hover) 53%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 20%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-hover) 53%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-danger:active, .dark .ui-button.outlined.intent-danger.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-danger:active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-danger.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-danger-active) 53%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-active) 53%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-danger:disabled, .dark .ui-button.outlined.intent-danger.disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-danger:disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-danger.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-danger-rest) 53%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-danger-rest) 53%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button.outlined.intent-danger:disabled.active, .dark .ui-button.outlined.intent-danger.disabled.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-danger:disabled.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-danger.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
 }
 .ui-button.outlined.intent-default{
-  color:var(--intent-default-hover);
+  color:var(--ui-intent-default-hover);
 }
 .ui-button.outlined.intent-default:hover, .ui-button.outlined.intent-default:active, .ui-button.outlined.intent-default.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-default-hover);
+  color:var(--ui-intent-default-hover);
 }
 .ui-button.outlined.intent-default:hover{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 15%, transparent);
-  color:var(--intent-default-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 15%, transparent);
+  color:var(--ui-intent-default-hover);
 }
 .ui-button.outlined.intent-default:active, .ui-button.outlined.intent-default.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
-  color:var(--intent-default-active);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
+  color:var(--ui-intent-default-active);
 }
 .ui-button.outlined.intent-default:disabled, .ui-button.outlined.intent-default.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-default-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-default-hover) 50%, transparent);
 }
 .ui-button.outlined.intent-default:disabled.active, .ui-button.outlined.intent-default.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
 }
 .ui-button.outlined.intent-default .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-default-hover);
+  stroke:var(--ui-intent-default-hover);
 }
 .dark .ui-button.outlined.intent-default, [data-ui-color-scheme=dark] .ui-button.outlined.intent-default{
-  color:color-mix(in srgb, var(--intent-default-rest) 46%, var(--ui-palette-white));
+  color:color-mix(in srgb, var(--ui-intent-default-rest) 46%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-default:hover, [data-ui-color-scheme=dark] .ui-button.outlined.intent-default:hover{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 20%, transparent);
-  color:color-mix(in srgb, var(--intent-default-hover) 46%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 20%, transparent);
+  color:color-mix(in srgb, var(--ui-intent-default-hover) 46%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-default:active, .dark .ui-button.outlined.intent-default.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-default:active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-default.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
-  color:color-mix(in srgb, var(--intent-default-active) 46%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
+  color:color-mix(in srgb, var(--ui-intent-default-active) 46%, var(--ui-palette-white));
 }
 .dark .ui-button.outlined.intent-default:disabled, .dark .ui-button.outlined.intent-default.disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-default:disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-default.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in srgb, var(--intent-default-rest) 46%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in srgb, var(--ui-intent-default-rest) 46%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button.outlined.intent-default:disabled.active, .dark .ui-button.outlined.intent-default.disabled.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-default:disabled.active, [data-ui-color-scheme=dark] .ui-button.outlined.intent-default.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
 }
 .ui-button.outlined{
   border:var(--ui-surface-border-width) solid var(--ui-surface-border-color-strong);
@@ -1456,73 +1456,73 @@ a > .dark .ui-running-text code{
   border-color:var(--ui-surface-border-color-default);
 }
 .ui-button.outlined.intent-primary{
-  border-color:color-mix(in oklch, var(--intent-primary-hover) 60%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-primary-hover) 60%, transparent);
 }
 .ui-button.outlined.intent-primary:disabled, .ui-button.outlined.intent-primary.disabled{
-  border-color:color-mix(in oklch, var(--intent-primary-hover) 20%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-primary-hover) 20%, transparent);
 }
 .dark .ui-button.outlined.intent-primary, [data-ui-color-scheme=dark] .ui-button.outlined.intent-primary{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-primary-rest) 51%, var(--ui-palette-white)) 60%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-primary-rest) 51%, var(--ui-palette-white)) 60%, transparent);
 }
 .dark .ui-button.outlined.intent-primary:disabled, .dark .ui-button.outlined.intent-primary.disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-primary:disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-primary.disabled{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-primary-rest) 51%, var(--ui-palette-white)) 20%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-primary-rest) 51%, var(--ui-palette-white)) 20%, transparent);
 }
 .ui-button.outlined.intent-success{
-  border-color:color-mix(in oklch, var(--intent-success-hover) 60%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-success-hover) 60%, transparent);
 }
 .ui-button.outlined.intent-success:disabled, .ui-button.outlined.intent-success.disabled{
-  border-color:color-mix(in oklch, var(--intent-success-hover) 20%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-success-hover) 20%, transparent);
 }
 .dark .ui-button.outlined.intent-success, [data-ui-color-scheme=dark] .ui-button.outlined.intent-success{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-success-rest) 54%, var(--ui-palette-white)) 60%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-success-rest) 54%, var(--ui-palette-white)) 60%, transparent);
 }
 .dark .ui-button.outlined.intent-success:disabled, .dark .ui-button.outlined.intent-success.disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-success:disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-success.disabled{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-success-rest) 54%, var(--ui-palette-white)) 20%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-success-rest) 54%, var(--ui-palette-white)) 20%, transparent);
 }
 .ui-button.outlined.intent-warning{
-  border-color:color-mix(in oklch, var(--intent-warning-hover) 60%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-warning-hover) 60%, transparent);
 }
 .ui-button.outlined.intent-warning:disabled, .ui-button.outlined.intent-warning.disabled{
-  border-color:color-mix(in oklch, var(--intent-warning-hover) 20%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-warning-hover) 20%, transparent);
 }
 .dark .ui-button.outlined.intent-warning, [data-ui-color-scheme=dark] .ui-button.outlined.intent-warning{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-warning-rest) 53%, var(--ui-palette-white)) 60%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-warning-rest) 53%, var(--ui-palette-white)) 60%, transparent);
 }
 .dark .ui-button.outlined.intent-warning:disabled, .dark .ui-button.outlined.intent-warning.disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-warning:disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-warning.disabled{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-warning-rest) 53%, var(--ui-palette-white)) 20%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-warning-rest) 53%, var(--ui-palette-white)) 20%, transparent);
 }
 .ui-button.outlined.intent-danger{
-  border-color:color-mix(in oklch, var(--intent-danger-hover) 60%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-danger-hover) 60%, transparent);
 }
 .ui-button.outlined.intent-danger:disabled, .ui-button.outlined.intent-danger.disabled{
-  border-color:color-mix(in oklch, var(--intent-danger-hover) 20%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-danger-hover) 20%, transparent);
 }
 .dark .ui-button.outlined.intent-danger, [data-ui-color-scheme=dark] .ui-button.outlined.intent-danger{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-danger-rest) 53%, var(--ui-palette-white)) 60%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-danger-rest) 53%, var(--ui-palette-white)) 60%, transparent);
 }
 .dark .ui-button.outlined.intent-danger:disabled, .dark .ui-button.outlined.intent-danger.disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-danger:disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-danger.disabled{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-danger-rest) 53%, var(--ui-palette-white)) 20%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-danger-rest) 53%, var(--ui-palette-white)) 20%, transparent);
 }
 .ui-button.outlined.intent-default{
-  border-color:color-mix(in oklch, var(--intent-default-hover) 60%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-default-hover) 60%, transparent);
 }
 .ui-button.outlined.intent-default:disabled, .ui-button.outlined.intent-default.disabled{
-  border-color:color-mix(in oklch, var(--intent-default-hover) 20%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-default-hover) 20%, transparent);
 }
 .dark .ui-button.outlined.intent-default, [data-ui-color-scheme=dark] .ui-button.outlined.intent-default{
-  border-color:color-mix(in oklch, color-mix(in srgb, var(--intent-default-rest) 46%, var(--ui-palette-white)) 60%, transparent);
+  border-color:color-mix(in oklch, color-mix(in srgb, var(--ui-intent-default-rest) 46%, var(--ui-palette-white)) 60%, transparent);
 }
 .dark .ui-button.outlined.intent-default:disabled, .dark .ui-button.outlined.intent-default.disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-default:disabled, [data-ui-color-scheme=dark] .ui-button.outlined.intent-default.disabled{
-  border-color:color-mix(in oklch, color-mix(in srgb, var(--intent-default-rest) 46%, var(--ui-palette-white)) 20%, transparent);
+  border-color:color-mix(in oklch, color-mix(in srgb, var(--ui-intent-default-rest) 46%, var(--ui-palette-white)) 20%, transparent);
 }
 .ui-button.intent-warning:not(.disabled).ui-icon > svg{
-  fill:color-mix(in oklch, var(--intent-warning-foreground) 70%, transparent);
+  fill:color-mix(in oklch, var(--ui-intent-warning-foreground) 70%, transparent);
 }
 .ui-button.intent-warning:not(.disabled):not(.minimal):not(.outlined):hover{
-  background:color-mix(in oklch, var(--ui-button-warning-rest) 77%, var(--intent-warning-hover));
+  background:color-mix(in oklch, var(--ui-button-warning-rest) 77%, var(--ui-intent-warning-hover));
 }
 .ui-button.intent-warning:not(.disabled):not(.minimal):not(.outlined):active, .ui-button.intent-warning:not(.disabled):not(.minimal):not(.outlined).active{
-  background:color-mix(in oklch, var(--ui-button-warning-rest) 46%, var(--intent-warning-active));
+  background:color-mix(in oklch, var(--ui-button-warning-rest) 46%, var(--ui-intent-warning-active));
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
   .ui-button.intent-warning:not(.disabled):not(.minimal):not(.outlined):active, .ui-button.intent-warning:not(.disabled):not(.minimal):not(.outlined).active{
@@ -1530,19 +1530,19 @@ a > .dark .ui-running-text code{
   }
 }
 .ui-button.intent-warning:disabled, .ui-button.intent-warning.disabled{
-  background-color:color-mix(in oklch, var(--intent-warning-rest) 40%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-warning-rest) 40%, transparent);
 }
 .dark .ui-button.intent-warning:disabled, [data-ui-color-scheme=dark] .ui-button.intent-warning:disabled, .dark .ui-button.intent-warning.disabled, [data-ui-color-scheme=dark] .ui-button.intent-warning.disabled{
-  color:color-mix(in oklch, var(--intent-warning-foreground) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-warning-foreground) 50%, transparent);
 }
 .ui-button.intent-warning.minimal, .ui-button.intent-warning.outlined{
   background:none;
 }
 .ui-button.intent-warning.minimal:disabled, .ui-button.intent-warning.minimal.disabled, .ui-button.intent-warning.outlined:disabled, .ui-button.intent-warning.outlined.disabled{
-  color:color-mix(in oklch, var(--intent-warning-hover) 40%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-warning-hover) 40%, transparent);
 }
 .dark .ui-button.intent-warning.minimal:not(.disabled).ui-icon > svg, [data-ui-color-scheme=dark] .ui-button.intent-warning.minimal:not(.disabled).ui-icon > svg, .dark .ui-button.intent-warning.outlined:not(.disabled).ui-icon > svg, [data-ui-color-scheme=dark] .ui-button.intent-warning.outlined:not(.disabled).ui-icon > svg{
-  fill:color-mix(in oklch, var(--intent-warning-rest) 35%, transparent);
+  fill:color-mix(in oklch, var(--ui-intent-warning-rest) 35%, transparent);
 }
 
 a.ui-button{
@@ -1573,7 +1573,7 @@ a.ui-button.disabled{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -1584,7 +1584,7 @@ a.ui-button.disabled{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -1644,13 +1644,13 @@ a.ui-button.disabled{
   box-shadow:none;
 }
 .ui-button-group.minimal .ui-button:hover, .ui-button-group.outlined .ui-button:hover{
-  background-color:color-mix(in srgb, var(--intent-default-hover) 8%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-hover) 8%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-rest);
   text-decoration:none;
 }
 .ui-button-group.minimal .ui-button:active, .ui-button-group.minimal .ui-button.active, .ui-button-group.outlined .ui-button:active, .ui-button-group.outlined .ui-button.active{
-  background-color:color-mix(in srgb, var(--intent-default-active) 16%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-active) 16%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-rest);
 }
@@ -1660,23 +1660,23 @@ a.ui-button.disabled{
   cursor:not-allowed;
 }
 .ui-button-group.minimal .ui-button:disabled.active, .ui-button-group.minimal .ui-button:disabled:hover.active, .ui-button-group.minimal .ui-button.disabled.active, .ui-button-group.minimal .ui-button.disabled:hover.active, .ui-button-group.outlined .ui-button:disabled.active, .ui-button-group.outlined .ui-button:disabled:hover.active, .ui-button-group.outlined .ui-button.disabled.active, .ui-button-group.outlined .ui-button.disabled:hover.active{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 30%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 30%, transparent);
 }
 .dark .ui-button-group.minimal .ui-button, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button, .dark .ui-button-group.outlined .ui-button, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button{
   background:none;
   box-shadow:none;
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .dark .ui-button-group.minimal .ui-button:hover, .dark .ui-button-group.minimal .ui-button:active, .dark .ui-button-group.minimal .ui-button.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button:hover, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button:active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.active, .dark .ui-button-group.outlined .ui-button:hover, .dark .ui-button-group.outlined .ui-button:active, .dark .ui-button-group.outlined .ui-button.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button:hover, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button:active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .dark .ui-button-group.minimal .ui-button:hover, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button:hover, .dark .ui-button-group.outlined .ui-button:hover, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button:hover{
-  background-color:color-mix(in srgb, var(--intent-default-rest) 24%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 24%, transparent);
 }
 .dark .ui-button-group.minimal .ui-button:active, .dark .ui-button-group.minimal .ui-button.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button:active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.active, .dark .ui-button-group.outlined .ui-button:active, .dark .ui-button-group.outlined .ui-button.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button:active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.active{
-  background-color:color-mix(in srgb, var(--intent-default-rest) 49%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 49%, transparent);
 }
 .dark .ui-button-group.minimal .ui-button:disabled, .dark .ui-button-group.minimal .ui-button:disabled:hover, .dark .ui-button-group.minimal .ui-button.disabled, .dark .ui-button-group.minimal .ui-button.disabled:hover, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button:disabled, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button:disabled:hover, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.disabled, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.disabled:hover, .dark .ui-button-group.outlined .ui-button:disabled, .dark .ui-button-group.outlined .ui-button:disabled:hover, .dark .ui-button-group.outlined .ui-button.disabled, .dark .ui-button-group.outlined .ui-button.disabled:hover, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button:disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button:disabled:hover, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.disabled:hover{
   background:none;
@@ -1684,227 +1684,227 @@ a.ui-button.disabled{
   cursor:not-allowed;
 }
 .dark .ui-button-group.minimal .ui-button:disabled.active, .dark .ui-button-group.minimal .ui-button:disabled:hover.active, .dark .ui-button-group.minimal .ui-button.disabled.active, .dark .ui-button-group.minimal .ui-button.disabled:hover.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button:disabled.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button:disabled:hover.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.disabled.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.disabled:hover.active, .dark .ui-button-group.outlined .ui-button:disabled.active, .dark .ui-button-group.outlined .ui-button:disabled:hover.active, .dark .ui-button-group.outlined .ui-button.disabled.active, .dark .ui-button-group.outlined .ui-button.disabled:hover.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button:disabled.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button:disabled:hover.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.disabled.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.disabled:hover.active{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 30%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 30%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-primary, .ui-button-group.outlined .ui-button.intent-primary{
-  color:var(--intent-primary-hover);
+  color:var(--ui-intent-primary-hover);
 }
 .ui-button-group.minimal .ui-button.intent-primary:hover, .ui-button-group.minimal .ui-button.intent-primary:active, .ui-button-group.minimal .ui-button.intent-primary.active, .ui-button-group.outlined .ui-button.intent-primary:hover, .ui-button-group.outlined .ui-button.intent-primary:active, .ui-button-group.outlined .ui-button.intent-primary.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-primary-hover);
+  color:var(--ui-intent-primary-hover);
 }
 .ui-button-group.minimal .ui-button.intent-primary:hover, .ui-button-group.outlined .ui-button.intent-primary:hover{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 15%, transparent);
-  color:var(--intent-primary-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 15%, transparent);
+  color:var(--ui-intent-primary-hover);
 }
 .ui-button-group.minimal .ui-button.intent-primary:active, .ui-button-group.minimal .ui-button.intent-primary.active, .ui-button-group.outlined .ui-button.intent-primary:active, .ui-button-group.outlined .ui-button.intent-primary.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
-  color:var(--intent-primary-active);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
+  color:var(--ui-intent-primary-active);
 }
 .ui-button-group.minimal .ui-button.intent-primary:disabled, .ui-button-group.minimal .ui-button.intent-primary.disabled, .ui-button-group.outlined .ui-button.intent-primary:disabled, .ui-button-group.outlined .ui-button.intent-primary.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-primary-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-hover) 50%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-primary:disabled.active, .ui-button-group.minimal .ui-button.intent-primary.disabled.active, .ui-button-group.outlined .ui-button.intent-primary:disabled.active, .ui-button-group.outlined .ui-button.intent-primary.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-primary .ui-button-spinner .ui-spinner-head, .ui-button-group.outlined .ui-button.intent-primary .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-primary-hover);
+  stroke:var(--ui-intent-primary-hover);
 }
 .dark .ui-button-group.minimal .ui-button.intent-primary, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-primary, .dark .ui-button-group.outlined .ui-button.intent-primary, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-primary{
-  color:color-mix(in oklch, var(--intent-primary-rest) 51%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-primary-rest) 51%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-primary:hover, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-primary:hover, .dark .ui-button-group.outlined .ui-button.intent-primary:hover, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-primary:hover{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-primary-hover) 51%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 20%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-hover) 51%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-primary:active, .dark .ui-button-group.minimal .ui-button.intent-primary.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-primary:active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-primary.active, .dark .ui-button-group.outlined .ui-button.intent-primary:active, .dark .ui-button-group.outlined .ui-button.intent-primary.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-primary:active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-primary.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-primary-active) 51%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-active) 51%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-primary:disabled, .dark .ui-button-group.minimal .ui-button.intent-primary.disabled, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-primary:disabled, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-primary.disabled, .dark .ui-button-group.outlined .ui-button.intent-primary:disabled, .dark .ui-button-group.outlined .ui-button.intent-primary.disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-primary:disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-primary.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-primary-rest) 51%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-primary-rest) 51%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button-group.minimal .ui-button.intent-primary:disabled.active, .dark .ui-button-group.minimal .ui-button.intent-primary.disabled.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-primary:disabled.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-primary.disabled.active, .dark .ui-button-group.outlined .ui-button.intent-primary:disabled.active, .dark .ui-button-group.outlined .ui-button.intent-primary.disabled.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-primary:disabled.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-primary.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-success, .ui-button-group.outlined .ui-button.intent-success{
-  color:var(--intent-success-hover);
+  color:var(--ui-intent-success-hover);
 }
 .ui-button-group.minimal .ui-button.intent-success:hover, .ui-button-group.minimal .ui-button.intent-success:active, .ui-button-group.minimal .ui-button.intent-success.active, .ui-button-group.outlined .ui-button.intent-success:hover, .ui-button-group.outlined .ui-button.intent-success:active, .ui-button-group.outlined .ui-button.intent-success.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-success-hover);
+  color:var(--ui-intent-success-hover);
 }
 .ui-button-group.minimal .ui-button.intent-success:hover, .ui-button-group.outlined .ui-button.intent-success:hover{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 15%, transparent);
-  color:var(--intent-success-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 15%, transparent);
+  color:var(--ui-intent-success-hover);
 }
 .ui-button-group.minimal .ui-button.intent-success:active, .ui-button-group.minimal .ui-button.intent-success.active, .ui-button-group.outlined .ui-button.intent-success:active, .ui-button-group.outlined .ui-button.intent-success.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
-  color:var(--intent-success-active);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
+  color:var(--ui-intent-success-active);
 }
 .ui-button-group.minimal .ui-button.intent-success:disabled, .ui-button-group.minimal .ui-button.intent-success.disabled, .ui-button-group.outlined .ui-button.intent-success:disabled, .ui-button-group.outlined .ui-button.intent-success.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-success-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-hover) 50%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-success:disabled.active, .ui-button-group.minimal .ui-button.intent-success.disabled.active, .ui-button-group.outlined .ui-button.intent-success:disabled.active, .ui-button-group.outlined .ui-button.intent-success.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-success .ui-button-spinner .ui-spinner-head, .ui-button-group.outlined .ui-button.intent-success .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-success-hover);
+  stroke:var(--ui-intent-success-hover);
 }
 .dark .ui-button-group.minimal .ui-button.intent-success, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-success, .dark .ui-button-group.outlined .ui-button.intent-success, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-success{
-  color:color-mix(in oklch, var(--intent-success-rest) 54%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-success-rest) 54%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-success:hover, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-success:hover, .dark .ui-button-group.outlined .ui-button.intent-success:hover, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-success:hover{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-success-hover) 54%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 20%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-hover) 54%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-success:active, .dark .ui-button-group.minimal .ui-button.intent-success.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-success:active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-success.active, .dark .ui-button-group.outlined .ui-button.intent-success:active, .dark .ui-button-group.outlined .ui-button.intent-success.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-success:active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-success.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-success-active) 54%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-active) 54%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-success:disabled, .dark .ui-button-group.minimal .ui-button.intent-success.disabled, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-success:disabled, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-success.disabled, .dark .ui-button-group.outlined .ui-button.intent-success:disabled, .dark .ui-button-group.outlined .ui-button.intent-success.disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-success:disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-success.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-success-rest) 54%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-success-rest) 54%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button-group.minimal .ui-button.intent-success:disabled.active, .dark .ui-button-group.minimal .ui-button.intent-success.disabled.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-success:disabled.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-success.disabled.active, .dark .ui-button-group.outlined .ui-button.intent-success:disabled.active, .dark .ui-button-group.outlined .ui-button.intent-success.disabled.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-success:disabled.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-success.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-warning, .ui-button-group.outlined .ui-button.intent-warning{
-  color:var(--intent-warning-hover);
+  color:var(--ui-intent-warning-hover);
 }
 .ui-button-group.minimal .ui-button.intent-warning:hover, .ui-button-group.minimal .ui-button.intent-warning:active, .ui-button-group.minimal .ui-button.intent-warning.active, .ui-button-group.outlined .ui-button.intent-warning:hover, .ui-button-group.outlined .ui-button.intent-warning:active, .ui-button-group.outlined .ui-button.intent-warning.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-warning-hover);
+  color:var(--ui-intent-warning-hover);
 }
 .ui-button-group.minimal .ui-button.intent-warning:hover, .ui-button-group.outlined .ui-button.intent-warning:hover{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 15%, transparent);
-  color:var(--intent-warning-hover);
+  color:var(--ui-intent-warning-hover);
 }
 .ui-button-group.minimal .ui-button.intent-warning:active, .ui-button-group.minimal .ui-button.intent-warning.active, .ui-button-group.outlined .ui-button.intent-warning:active, .ui-button-group.outlined .ui-button.intent-warning.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
-  color:var(--intent-warning-active);
+  color:var(--ui-intent-warning-active);
 }
 .ui-button-group.minimal .ui-button.intent-warning:disabled, .ui-button-group.minimal .ui-button.intent-warning.disabled, .ui-button-group.outlined .ui-button.intent-warning:disabled, .ui-button-group.outlined .ui-button.intent-warning.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-warning-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-warning-hover) 50%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-warning:disabled.active, .ui-button-group.minimal .ui-button.intent-warning.disabled.active, .ui-button-group.outlined .ui-button.intent-warning:disabled.active, .ui-button-group.outlined .ui-button.intent-warning.disabled.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-warning .ui-button-spinner .ui-spinner-head, .ui-button-group.outlined .ui-button.intent-warning .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-warning-hover);
+  stroke:var(--ui-intent-warning-hover);
 }
 .dark .ui-button-group.minimal .ui-button.intent-warning, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-warning, .dark .ui-button-group.outlined .ui-button.intent-warning, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-warning{
-  color:color-mix(in oklch, var(--intent-warning-rest) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-warning-rest) 53%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-warning:hover, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-warning:hover, .dark .ui-button-group.outlined .ui-button.intent-warning:hover, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-warning:hover{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-warning-hover) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-warning-hover) 53%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-warning:active, .dark .ui-button-group.minimal .ui-button.intent-warning.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-warning:active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-warning.active, .dark .ui-button-group.outlined .ui-button.intent-warning:active, .dark .ui-button-group.outlined .ui-button.intent-warning.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-warning:active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-warning.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-warning-active) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-warning-active) 53%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-warning:disabled, .dark .ui-button-group.minimal .ui-button.intent-warning.disabled, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-warning:disabled, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-warning.disabled, .dark .ui-button-group.outlined .ui-button.intent-warning:disabled, .dark .ui-button-group.outlined .ui-button.intent-warning.disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-warning:disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-warning.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-warning-rest) 53%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-warning-rest) 53%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button-group.minimal .ui-button.intent-warning:disabled.active, .dark .ui-button-group.minimal .ui-button.intent-warning.disabled.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-warning:disabled.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-warning.disabled.active, .dark .ui-button-group.outlined .ui-button.intent-warning:disabled.active, .dark .ui-button-group.outlined .ui-button.intent-warning.disabled.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-warning:disabled.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-warning.disabled.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-danger, .ui-button-group.outlined .ui-button.intent-danger{
-  color:var(--intent-danger-hover);
+  color:var(--ui-intent-danger-hover);
 }
 .ui-button-group.minimal .ui-button.intent-danger:hover, .ui-button-group.minimal .ui-button.intent-danger:active, .ui-button-group.minimal .ui-button.intent-danger.active, .ui-button-group.outlined .ui-button.intent-danger:hover, .ui-button-group.outlined .ui-button.intent-danger:active, .ui-button-group.outlined .ui-button.intent-danger.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-danger-hover);
+  color:var(--ui-intent-danger-hover);
 }
 .ui-button-group.minimal .ui-button.intent-danger:hover, .ui-button-group.outlined .ui-button.intent-danger:hover{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 15%, transparent);
-  color:var(--intent-danger-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 15%, transparent);
+  color:var(--ui-intent-danger-hover);
 }
 .ui-button-group.minimal .ui-button.intent-danger:active, .ui-button-group.minimal .ui-button.intent-danger.active, .ui-button-group.outlined .ui-button.intent-danger:active, .ui-button-group.outlined .ui-button.intent-danger.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
-  color:var(--intent-danger-active);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
+  color:var(--ui-intent-danger-active);
 }
 .ui-button-group.minimal .ui-button.intent-danger:disabled, .ui-button-group.minimal .ui-button.intent-danger.disabled, .ui-button-group.outlined .ui-button.intent-danger:disabled, .ui-button-group.outlined .ui-button.intent-danger.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-danger-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-hover) 50%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-danger:disabled.active, .ui-button-group.minimal .ui-button.intent-danger.disabled.active, .ui-button-group.outlined .ui-button.intent-danger:disabled.active, .ui-button-group.outlined .ui-button.intent-danger.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-danger .ui-button-spinner .ui-spinner-head, .ui-button-group.outlined .ui-button.intent-danger .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-danger-hover);
+  stroke:var(--ui-intent-danger-hover);
 }
 .dark .ui-button-group.minimal .ui-button.intent-danger, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-danger, .dark .ui-button-group.outlined .ui-button.intent-danger, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-danger{
-  color:color-mix(in oklch, var(--intent-danger-rest) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-danger-rest) 53%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-danger:hover, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-danger:hover, .dark .ui-button-group.outlined .ui-button.intent-danger:hover, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-danger:hover{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-danger-hover) 53%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 20%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-hover) 53%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-danger:active, .dark .ui-button-group.minimal .ui-button.intent-danger.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-danger:active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-danger.active, .dark .ui-button-group.outlined .ui-button.intent-danger:active, .dark .ui-button-group.outlined .ui-button.intent-danger.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-danger:active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-danger.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-danger-active) 53%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-active) 53%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-danger:disabled, .dark .ui-button-group.minimal .ui-button.intent-danger.disabled, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-danger:disabled, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-danger.disabled, .dark .ui-button-group.outlined .ui-button.intent-danger:disabled, .dark .ui-button-group.outlined .ui-button.intent-danger.disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-danger:disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-danger.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-danger-rest) 53%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-danger-rest) 53%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button-group.minimal .ui-button.intent-danger:disabled.active, .dark .ui-button-group.minimal .ui-button.intent-danger.disabled.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-danger:disabled.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-danger.disabled.active, .dark .ui-button-group.outlined .ui-button.intent-danger:disabled.active, .dark .ui-button-group.outlined .ui-button.intent-danger.disabled.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-danger:disabled.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-danger.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-default, .ui-button-group.outlined .ui-button.intent-default{
-  color:var(--intent-default-hover);
+  color:var(--ui-intent-default-hover);
 }
 .ui-button-group.minimal .ui-button.intent-default:hover, .ui-button-group.minimal .ui-button.intent-default:active, .ui-button-group.minimal .ui-button.intent-default.active, .ui-button-group.outlined .ui-button.intent-default:hover, .ui-button-group.outlined .ui-button.intent-default:active, .ui-button-group.outlined .ui-button.intent-default.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-default-hover);
+  color:var(--ui-intent-default-hover);
 }
 .ui-button-group.minimal .ui-button.intent-default:hover, .ui-button-group.outlined .ui-button.intent-default:hover{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 15%, transparent);
-  color:var(--intent-default-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 15%, transparent);
+  color:var(--ui-intent-default-hover);
 }
 .ui-button-group.minimal .ui-button.intent-default:active, .ui-button-group.minimal .ui-button.intent-default.active, .ui-button-group.outlined .ui-button.intent-default:active, .ui-button-group.outlined .ui-button.intent-default.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
-  color:var(--intent-default-active);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
+  color:var(--ui-intent-default-active);
 }
 .ui-button-group.minimal .ui-button.intent-default:disabled, .ui-button-group.minimal .ui-button.intent-default.disabled, .ui-button-group.outlined .ui-button.intent-default:disabled, .ui-button-group.outlined .ui-button.intent-default.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-default-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-default-hover) 50%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-default:disabled.active, .ui-button-group.minimal .ui-button.intent-default.disabled.active, .ui-button-group.outlined .ui-button.intent-default:disabled.active, .ui-button-group.outlined .ui-button.intent-default.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
 }
 .ui-button-group.minimal .ui-button.intent-default .ui-button-spinner .ui-spinner-head, .ui-button-group.outlined .ui-button.intent-default .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-default-hover);
+  stroke:var(--ui-intent-default-hover);
 }
 .dark .ui-button-group.minimal .ui-button.intent-default, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-default, .dark .ui-button-group.outlined .ui-button.intent-default, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-default{
-  color:color-mix(in srgb, var(--intent-default-rest) 46%, var(--ui-palette-white));
+  color:color-mix(in srgb, var(--ui-intent-default-rest) 46%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-default:hover, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-default:hover, .dark .ui-button-group.outlined .ui-button.intent-default:hover, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-default:hover{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 20%, transparent);
-  color:color-mix(in srgb, var(--intent-default-hover) 46%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 20%, transparent);
+  color:color-mix(in srgb, var(--ui-intent-default-hover) 46%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-default:active, .dark .ui-button-group.minimal .ui-button.intent-default.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-default:active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-default.active, .dark .ui-button-group.outlined .ui-button.intent-default:active, .dark .ui-button-group.outlined .ui-button.intent-default.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-default:active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-default.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
-  color:color-mix(in srgb, var(--intent-default-active) 46%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
+  color:color-mix(in srgb, var(--ui-intent-default-active) 46%, var(--ui-palette-white));
 }
 .dark .ui-button-group.minimal .ui-button.intent-default:disabled, .dark .ui-button-group.minimal .ui-button.intent-default.disabled, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-default:disabled, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-default.disabled, .dark .ui-button-group.outlined .ui-button.intent-default:disabled, .dark .ui-button-group.outlined .ui-button.intent-default.disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-default:disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-default.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in srgb, var(--intent-default-rest) 46%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in srgb, var(--ui-intent-default-rest) 46%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-button-group.minimal .ui-button.intent-default:disabled.active, .dark .ui-button-group.minimal .ui-button.intent-default.disabled.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-default:disabled.active, [data-ui-color-scheme=dark] .ui-button-group.minimal .ui-button.intent-default.disabled.active, .dark .ui-button-group.outlined .ui-button.intent-default:disabled.active, .dark .ui-button-group.outlined .ui-button.intent-default.disabled.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-default:disabled.active, [data-ui-color-scheme=dark] .ui-button-group.outlined .ui-button.intent-default.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
   .ui-button-group.minimal:not(:first-child), .ui-button-group.outlined:not(:first-child){
@@ -1932,64 +1932,64 @@ a.ui-button.disabled{
   border-color:var(--ui-surface-border-color-default);
 }
 .ui-button-group.outlined > .ui-button.intent-primary{
-  border-color:color-mix(in oklch, var(--intent-primary-hover) 60%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-primary-hover) 60%, transparent);
 }
 .ui-button-group.outlined > .ui-button.intent-primary:disabled, .ui-button-group.outlined > .ui-button.intent-primary.disabled{
-  border-color:color-mix(in oklch, var(--intent-primary-hover) 20%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-primary-hover) 20%, transparent);
 }
 .dark .ui-button-group.outlined > .ui-button.intent-primary, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-primary{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-primary-rest) 51%, var(--ui-palette-white)) 60%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-primary-rest) 51%, var(--ui-palette-white)) 60%, transparent);
 }
 .dark .ui-button-group.outlined > .ui-button.intent-primary:disabled, .dark .ui-button-group.outlined > .ui-button.intent-primary.disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-primary:disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-primary.disabled{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-primary-rest) 51%, var(--ui-palette-white)) 20%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-primary-rest) 51%, var(--ui-palette-white)) 20%, transparent);
 }
 .ui-button-group.outlined > .ui-button.intent-success{
-  border-color:color-mix(in oklch, var(--intent-success-hover) 60%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-success-hover) 60%, transparent);
 }
 .ui-button-group.outlined > .ui-button.intent-success:disabled, .ui-button-group.outlined > .ui-button.intent-success.disabled{
-  border-color:color-mix(in oklch, var(--intent-success-hover) 20%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-success-hover) 20%, transparent);
 }
 .dark .ui-button-group.outlined > .ui-button.intent-success, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-success{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-success-rest) 54%, var(--ui-palette-white)) 60%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-success-rest) 54%, var(--ui-palette-white)) 60%, transparent);
 }
 .dark .ui-button-group.outlined > .ui-button.intent-success:disabled, .dark .ui-button-group.outlined > .ui-button.intent-success.disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-success:disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-success.disabled{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-success-rest) 54%, var(--ui-palette-white)) 20%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-success-rest) 54%, var(--ui-palette-white)) 20%, transparent);
 }
 .ui-button-group.outlined > .ui-button.intent-warning{
-  border-color:color-mix(in oklch, var(--intent-warning-hover) 60%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-warning-hover) 60%, transparent);
 }
 .ui-button-group.outlined > .ui-button.intent-warning:disabled, .ui-button-group.outlined > .ui-button.intent-warning.disabled{
-  border-color:color-mix(in oklch, var(--intent-warning-hover) 20%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-warning-hover) 20%, transparent);
 }
 .dark .ui-button-group.outlined > .ui-button.intent-warning, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-warning{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-warning-rest) 53%, var(--ui-palette-white)) 60%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-warning-rest) 53%, var(--ui-palette-white)) 60%, transparent);
 }
 .dark .ui-button-group.outlined > .ui-button.intent-warning:disabled, .dark .ui-button-group.outlined > .ui-button.intent-warning.disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-warning:disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-warning.disabled{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-warning-rest) 53%, var(--ui-palette-white)) 20%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-warning-rest) 53%, var(--ui-palette-white)) 20%, transparent);
 }
 .ui-button-group.outlined > .ui-button.intent-danger{
-  border-color:color-mix(in oklch, var(--intent-danger-hover) 60%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-danger-hover) 60%, transparent);
 }
 .ui-button-group.outlined > .ui-button.intent-danger:disabled, .ui-button-group.outlined > .ui-button.intent-danger.disabled{
-  border-color:color-mix(in oklch, var(--intent-danger-hover) 20%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-danger-hover) 20%, transparent);
 }
 .dark .ui-button-group.outlined > .ui-button.intent-danger, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-danger{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-danger-rest) 53%, var(--ui-palette-white)) 60%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-danger-rest) 53%, var(--ui-palette-white)) 60%, transparent);
 }
 .dark .ui-button-group.outlined > .ui-button.intent-danger:disabled, .dark .ui-button-group.outlined > .ui-button.intent-danger.disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-danger:disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-danger.disabled{
-  border-color:color-mix(in oklch, color-mix(in oklch, var(--intent-danger-rest) 53%, var(--ui-palette-white)) 20%, transparent);
+  border-color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-danger-rest) 53%, var(--ui-palette-white)) 20%, transparent);
 }
 .ui-button-group.outlined > .ui-button.intent-default{
-  border-color:color-mix(in oklch, var(--intent-default-hover) 60%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-default-hover) 60%, transparent);
 }
 .ui-button-group.outlined > .ui-button.intent-default:disabled, .ui-button-group.outlined > .ui-button.intent-default.disabled{
-  border-color:color-mix(in oklch, var(--intent-default-hover) 20%, transparent);
+  border-color:color-mix(in oklch, var(--ui-intent-default-hover) 20%, transparent);
 }
 .dark .ui-button-group.outlined > .ui-button.intent-default, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-default{
-  border-color:color-mix(in oklch, color-mix(in srgb, var(--intent-default-rest) 46%, var(--ui-palette-white)) 60%, transparent);
+  border-color:color-mix(in oklch, color-mix(in srgb, var(--ui-intent-default-rest) 46%, var(--ui-palette-white)) 60%, transparent);
 }
 .dark .ui-button-group.outlined > .ui-button.intent-default:disabled, .dark .ui-button-group.outlined > .ui-button.intent-default.disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-default:disabled, [data-ui-color-scheme=dark] .ui-button-group.outlined > .ui-button.intent-default.disabled{
-  border-color:color-mix(in oklch, color-mix(in srgb, var(--intent-default-rest) 46%, var(--ui-palette-white)) 20%, transparent);
+  border-color:color-mix(in oklch, color-mix(in srgb, var(--ui-intent-default-rest) 46%, var(--ui-palette-white)) 20%, transparent);
 }
 .ui-button-group.outlined:not(.ui-vertical) > .ui-button:not(:last-child){
   border-right:none;
@@ -2973,7 +2973,7 @@ a.ui-button.disabled{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -3321,7 +3321,7 @@ a.ui-button.disabled{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -3332,7 +3332,7 @@ a.ui-button.disabled{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -3343,7 +3343,7 @@ a.ui-button.disabled{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -3506,7 +3506,7 @@ a.ui-button.disabled{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -4059,7 +4059,7 @@ a.ui-button.disabled{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -4091,7 +4091,7 @@ a.ui-button.disabled{
   color:rgba(95, 107, 124, 0.6);
 }
 .ui-file-input input:disabled + .ui-file-upload-input::after, .ui-file-input input.disabled + .ui-file-upload-input::after{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 20%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 20%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-disabled);
   cursor:not-allowed;
@@ -4103,7 +4103,7 @@ a.ui-button.disabled{
   color:rgba(171, 179, 191, 0.6);
 }
 .dark .ui-file-input input:disabled + .ui-file-upload-input::after, .dark .ui-file-input input.disabled + .ui-file-upload-input::after{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 4%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 4%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-disabled);
 }
@@ -4216,7 +4216,7 @@ a.ui-button.disabled{
           user-select:none;
 }
 .ui-file-upload-input::after{
-  background-color:color-mix(in srgb, var(--intent-default-rest) 5%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 5%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 10%, transparent);
   color:var(--ui-typography-color-default-rest);
   min-height:1.5rem;
@@ -4237,11 +4237,11 @@ a.ui-button.disabled{
 }
 .ui-file-upload-input:hover::after{
   background-clip:padding-box;
-  background-color:color-mix(in srgb, var(--intent-default-hover) 9%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-hover) 9%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-file-upload-input:active::after{
-  background-color:color-mix(in srgb, var(--intent-default-active) 16%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-active) 16%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
@@ -4319,16 +4319,16 @@ a.ui-button.disabled{
   color:rgba(171, 179, 191, 0.6);
 }
 .dark .ui-file-upload-input::after{
-  background-color:color-mix(in srgb, var(--intent-default-rest) 40%, var(--ui-palette-black));
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 40%, var(--ui-palette-black));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-default) 50%, transparent), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .dark .ui-file-upload-input:hover::after{
-  background-color:color-mix(in srgb, var(--intent-default-hover) 42%, var(--ui-palette-black));
+  background-color:color-mix(in srgb, var(--ui-intent-default-hover) 42%, var(--ui-palette-black));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-default) 50%, transparent), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 40%, transparent);
 }
 .dark .ui-file-upload-input:active::after{
-  background-color:color-mix(in srgb, var(--intent-default-active) 30%, var(--ui-palette-black));
+  background-color:color-mix(in srgb, var(--ui-intent-default-active) 30%, var(--ui-palette-black));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-default) 50%, transparent), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 40%, transparent);
 }
 .ui-file-upload-input::after{
@@ -4341,7 +4341,7 @@ a.ui-button.disabled{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -4441,7 +4441,7 @@ a.ui-button.disabled{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -5062,7 +5062,7 @@ label.ui-label:not(.ui-inline) .ui-popover-target{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -5089,7 +5089,7 @@ form{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -5131,20 +5131,20 @@ form{
   padding:var(--ui-surface-spacing) calc(var(--ui-surface-spacing) * 2);
   text-align:left;
   vertical-align:middle;
-  background-color:color-mix(in srgb, var(--intent-default-rest) 5%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 5%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 10%, transparent);
   color:var(--ui-typography-color-default-rest);
 }
 .ui-html-select select:hover,
 .ui-select select:hover{
   background-clip:padding-box;
-  background-color:color-mix(in srgb, var(--intent-default-hover) 9%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-hover) 9%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-html-select select:active,
 .ui-select select:active, .ui-html-select select.active,
 .ui-select select.active{
-  background-color:color-mix(in srgb, var(--intent-default-active) 16%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-active) 16%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
@@ -5157,7 +5157,7 @@ form{
 .ui-html-select select:disabled,
 .ui-select select:disabled, .ui-html-select select.disabled,
 .ui-select select.disabled{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 20%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 20%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-disabled);
   cursor:not-allowed;
@@ -5166,7 +5166,7 @@ form{
 .ui-html-select select:disabled.active,
 .ui-select select:disabled.active, .ui-html-select select.disabled.active,
 .ui-select select.disabled.active{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 28%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 28%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
   .ui-html-select select,
@@ -5191,7 +5191,7 @@ form{
 }
 .ui-html-select.minimal select:hover,
 .ui-select.minimal select:hover{
-  background-color:color-mix(in srgb, var(--intent-default-hover) 8%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-hover) 8%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-rest);
   text-decoration:none;
@@ -5199,7 +5199,7 @@ form{
 .ui-html-select.minimal select:active,
 .ui-select.minimal select:active, .ui-html-select.minimal select.active,
 .ui-select.minimal select.active{
-  background-color:color-mix(in srgb, var(--intent-default-active) 16%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-active) 16%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-rest);
 }
@@ -5213,7 +5213,7 @@ form{
 .ui-html-select.minimal select:disabled.active,
 .ui-select.minimal select:disabled.active, .ui-html-select.minimal select.disabled.active,
 .ui-select.minimal select.disabled.active{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 30%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 30%, transparent);
 }
 .dark .ui-html-select.minimal select, .ui-html-select.minimal .dark select,
 .dark .ui-select.minimal select,
@@ -5222,7 +5222,7 @@ form{
 .ui-select.minimal [data-ui-color-scheme=dark] select{
   background:none;
   box-shadow:none;
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .dark .ui-html-select.minimal select:hover, .ui-html-select.minimal .dark select:hover,
 .dark .ui-select.minimal select:hover,
@@ -5239,14 +5239,14 @@ form{
 .ui-select.minimal [data-ui-color-scheme=dark] select.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .dark .ui-html-select.minimal select:hover, .ui-html-select.minimal .dark select:hover,
 .dark .ui-select.minimal select:hover,
 .ui-select.minimal .dark select:hover, [data-ui-color-scheme=dark] .ui-html-select.minimal select:hover, .ui-html-select.minimal [data-ui-color-scheme=dark] select:hover,
 [data-ui-color-scheme=dark] .ui-select.minimal select:hover,
 .ui-select.minimal [data-ui-color-scheme=dark] select:hover{
-  background-color:color-mix(in srgb, var(--intent-default-rest) 24%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 24%, transparent);
 }
 .dark .ui-html-select.minimal select:active, .ui-html-select.minimal .dark select:active,
 .dark .ui-select.minimal select:active,
@@ -5257,7 +5257,7 @@ form{
 .ui-select.minimal [data-ui-color-scheme=dark] select:active, [data-ui-color-scheme=dark] .ui-html-select.minimal select.active, .ui-html-select.minimal [data-ui-color-scheme=dark] select.active,
 [data-ui-color-scheme=dark] .ui-select.minimal select.active,
 .ui-select.minimal [data-ui-color-scheme=dark] select.active{
-  background-color:color-mix(in srgb, var(--intent-default-rest) 49%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 49%, transparent);
 }
 .dark .ui-html-select.minimal select:disabled, .ui-html-select.minimal .dark select:disabled,
 .dark .ui-select.minimal select:disabled,
@@ -5281,11 +5281,11 @@ form{
 .ui-select.minimal [data-ui-color-scheme=dark] select:disabled.active, [data-ui-color-scheme=dark] .ui-html-select.minimal select.disabled.active, .ui-html-select.minimal [data-ui-color-scheme=dark] select.disabled.active,
 [data-ui-color-scheme=dark] .ui-select.minimal select.disabled.active,
 .ui-select.minimal [data-ui-color-scheme=dark] select.disabled.active{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 30%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 30%, transparent);
 }
 .ui-html-select.minimal select.intent-primary,
 .ui-select.minimal select.intent-primary{
-  color:var(--intent-primary-hover);
+  color:var(--ui-intent-primary-hover);
 }
 .ui-html-select.minimal select.intent-primary:hover,
 .ui-select.minimal select.intent-primary:hover, .ui-html-select.minimal select.intent-primary:active,
@@ -5293,48 +5293,48 @@ form{
 .ui-select.minimal select.intent-primary.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-primary-hover);
+  color:var(--ui-intent-primary-hover);
 }
 .ui-html-select.minimal select.intent-primary:hover,
 .ui-select.minimal select.intent-primary:hover{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 15%, transparent);
-  color:var(--intent-primary-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 15%, transparent);
+  color:var(--ui-intent-primary-hover);
 }
 .ui-html-select.minimal select.intent-primary:active,
 .ui-select.minimal select.intent-primary:active, .ui-html-select.minimal select.intent-primary.active,
 .ui-select.minimal select.intent-primary.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
-  color:var(--intent-primary-active);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
+  color:var(--ui-intent-primary-active);
 }
 .ui-html-select.minimal select.intent-primary:disabled,
 .ui-select.minimal select.intent-primary:disabled, .ui-html-select.minimal select.intent-primary.disabled,
 .ui-select.minimal select.intent-primary.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-primary-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-hover) 50%, transparent);
 }
 .ui-html-select.minimal select.intent-primary:disabled.active,
 .ui-select.minimal select.intent-primary:disabled.active, .ui-html-select.minimal select.intent-primary.disabled.active,
 .ui-select.minimal select.intent-primary.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
 }
 .ui-html-select.minimal select.intent-primary .ui-button-spinner .ui-spinner-head,
 .ui-select.minimal select.intent-primary .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-primary-hover);
+  stroke:var(--ui-intent-primary-hover);
 }
 .dark .ui-html-select.minimal select.intent-primary, .ui-html-select.minimal .dark select.intent-primary,
 .dark .ui-select.minimal select.intent-primary,
 .ui-select.minimal .dark select.intent-primary, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-primary, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-primary,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-primary,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-primary{
-  color:color-mix(in oklch, var(--intent-primary-rest) 51%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-primary-rest) 51%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-primary:hover, .ui-html-select.minimal .dark select.intent-primary:hover,
 .dark .ui-select.minimal select.intent-primary:hover,
 .ui-select.minimal .dark select.intent-primary:hover, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-primary:hover, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-primary:hover,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-primary:hover,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-primary:hover{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-primary-hover) 51%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 20%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-hover) 51%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-primary:active, .ui-html-select.minimal .dark select.intent-primary:active,
 .dark .ui-select.minimal select.intent-primary:active,
@@ -5345,8 +5345,8 @@ form{
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-primary:active, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-primary.active, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-primary.active,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-primary.active,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-primary.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-primary-active) 51%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-primary-active) 51%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-primary:disabled, .ui-html-select.minimal .dark select.intent-primary:disabled,
 .dark .ui-select.minimal select.intent-primary:disabled,
@@ -5358,7 +5358,7 @@ form{
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-primary.disabled,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-primary.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-primary-rest) 51%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-primary-rest) 51%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-html-select.minimal select.intent-primary:disabled.active, .ui-html-select.minimal .dark select.intent-primary:disabled.active,
 .dark .ui-select.minimal select.intent-primary:disabled.active,
@@ -5369,11 +5369,11 @@ form{
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-primary:disabled.active, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-primary.disabled.active, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-primary.disabled.active,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-primary.disabled.active,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-primary.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-primary-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-primary-rest) 30%, transparent);
 }
 .ui-html-select.minimal select.intent-success,
 .ui-select.minimal select.intent-success{
-  color:var(--intent-success-hover);
+  color:var(--ui-intent-success-hover);
 }
 .ui-html-select.minimal select.intent-success:hover,
 .ui-select.minimal select.intent-success:hover, .ui-html-select.minimal select.intent-success:active,
@@ -5381,48 +5381,48 @@ form{
 .ui-select.minimal select.intent-success.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-success-hover);
+  color:var(--ui-intent-success-hover);
 }
 .ui-html-select.minimal select.intent-success:hover,
 .ui-select.minimal select.intent-success:hover{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 15%, transparent);
-  color:var(--intent-success-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 15%, transparent);
+  color:var(--ui-intent-success-hover);
 }
 .ui-html-select.minimal select.intent-success:active,
 .ui-select.minimal select.intent-success:active, .ui-html-select.minimal select.intent-success.active,
 .ui-select.minimal select.intent-success.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
-  color:var(--intent-success-active);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
+  color:var(--ui-intent-success-active);
 }
 .ui-html-select.minimal select.intent-success:disabled,
 .ui-select.minimal select.intent-success:disabled, .ui-html-select.minimal select.intent-success.disabled,
 .ui-select.minimal select.intent-success.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-success-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-hover) 50%, transparent);
 }
 .ui-html-select.minimal select.intent-success:disabled.active,
 .ui-select.minimal select.intent-success:disabled.active, .ui-html-select.minimal select.intent-success.disabled.active,
 .ui-select.minimal select.intent-success.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
 }
 .ui-html-select.minimal select.intent-success .ui-button-spinner .ui-spinner-head,
 .ui-select.minimal select.intent-success .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-success-hover);
+  stroke:var(--ui-intent-success-hover);
 }
 .dark .ui-html-select.minimal select.intent-success, .ui-html-select.minimal .dark select.intent-success,
 .dark .ui-select.minimal select.intent-success,
 .ui-select.minimal .dark select.intent-success, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-success, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-success,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-success,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-success{
-  color:color-mix(in oklch, var(--intent-success-rest) 54%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-success-rest) 54%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-success:hover, .ui-html-select.minimal .dark select.intent-success:hover,
 .dark .ui-select.minimal select.intent-success:hover,
 .ui-select.minimal .dark select.intent-success:hover, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-success:hover, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-success:hover,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-success:hover,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-success:hover{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-success-hover) 54%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 20%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-hover) 54%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-success:active, .ui-html-select.minimal .dark select.intent-success:active,
 .dark .ui-select.minimal select.intent-success:active,
@@ -5433,8 +5433,8 @@ form{
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-success:active, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-success.active, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-success.active,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-success.active,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-success.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-success-active) 54%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-success-active) 54%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-success:disabled, .ui-html-select.minimal .dark select.intent-success:disabled,
 .dark .ui-select.minimal select.intent-success:disabled,
@@ -5446,7 +5446,7 @@ form{
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-success.disabled,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-success.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-success-rest) 54%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-success-rest) 54%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-html-select.minimal select.intent-success:disabled.active, .ui-html-select.minimal .dark select.intent-success:disabled.active,
 .dark .ui-select.minimal select.intent-success:disabled.active,
@@ -5457,11 +5457,11 @@ form{
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-success:disabled.active, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-success.disabled.active, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-success.disabled.active,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-success.disabled.active,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-success.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-success-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-success-rest) 30%, transparent);
 }
 .ui-html-select.minimal select.intent-warning,
 .ui-select.minimal select.intent-warning{
-  color:var(--intent-warning-hover);
+  color:var(--ui-intent-warning-hover);
 }
 .ui-html-select.minimal select.intent-warning:hover,
 .ui-select.minimal select.intent-warning:hover, .ui-html-select.minimal select.intent-warning:active,
@@ -5469,24 +5469,24 @@ form{
 .ui-select.minimal select.intent-warning.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-warning-hover);
+  color:var(--ui-intent-warning-hover);
 }
 .ui-html-select.minimal select.intent-warning:hover,
 .ui-select.minimal select.intent-warning:hover{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 15%, transparent);
-  color:var(--intent-warning-hover);
+  color:var(--ui-intent-warning-hover);
 }
 .ui-html-select.minimal select.intent-warning:active,
 .ui-select.minimal select.intent-warning:active, .ui-html-select.minimal select.intent-warning.active,
 .ui-select.minimal select.intent-warning.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
-  color:var(--intent-warning-active);
+  color:var(--ui-intent-warning-active);
 }
 .ui-html-select.minimal select.intent-warning:disabled,
 .ui-select.minimal select.intent-warning:disabled, .ui-html-select.minimal select.intent-warning.disabled,
 .ui-select.minimal select.intent-warning.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-warning-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-warning-hover) 50%, transparent);
 }
 .ui-html-select.minimal select.intent-warning:disabled.active,
 .ui-select.minimal select.intent-warning:disabled.active, .ui-html-select.minimal select.intent-warning.disabled.active,
@@ -5495,14 +5495,14 @@ form{
 }
 .ui-html-select.minimal select.intent-warning .ui-button-spinner .ui-spinner-head,
 .ui-select.minimal select.intent-warning .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-warning-hover);
+  stroke:var(--ui-intent-warning-hover);
 }
 .dark .ui-html-select.minimal select.intent-warning, .ui-html-select.minimal .dark select.intent-warning,
 .dark .ui-select.minimal select.intent-warning,
 .ui-select.minimal .dark select.intent-warning, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-warning, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-warning,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-warning,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-warning{
-  color:color-mix(in oklch, var(--intent-warning-rest) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-warning-rest) 53%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-warning:hover, .ui-html-select.minimal .dark select.intent-warning:hover,
 .dark .ui-select.minimal select.intent-warning:hover,
@@ -5510,7 +5510,7 @@ form{
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-warning:hover,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-warning:hover{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-warning-hover) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-warning-hover) 53%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-warning:active, .ui-html-select.minimal .dark select.intent-warning:active,
 .dark .ui-select.minimal select.intent-warning:active,
@@ -5522,7 +5522,7 @@ form{
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-warning.active,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-warning.active{
   background-color:color-mix(in oklch, var(--ui-button-warning-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-warning-active) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-warning-active) 53%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-warning:disabled, .ui-html-select.minimal .dark select.intent-warning:disabled,
 .dark .ui-select.minimal select.intent-warning:disabled,
@@ -5534,7 +5534,7 @@ form{
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-warning.disabled,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-warning.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-warning-rest) 53%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-warning-rest) 53%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-html-select.minimal select.intent-warning:disabled.active, .ui-html-select.minimal .dark select.intent-warning:disabled.active,
 .dark .ui-select.minimal select.intent-warning:disabled.active,
@@ -5549,7 +5549,7 @@ form{
 }
 .ui-html-select.minimal select.intent-danger,
 .ui-select.minimal select.intent-danger{
-  color:var(--intent-danger-hover);
+  color:var(--ui-intent-danger-hover);
 }
 .ui-html-select.minimal select.intent-danger:hover,
 .ui-select.minimal select.intent-danger:hover, .ui-html-select.minimal select.intent-danger:active,
@@ -5557,48 +5557,48 @@ form{
 .ui-select.minimal select.intent-danger.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-danger-hover);
+  color:var(--ui-intent-danger-hover);
 }
 .ui-html-select.minimal select.intent-danger:hover,
 .ui-select.minimal select.intent-danger:hover{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 15%, transparent);
-  color:var(--intent-danger-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 15%, transparent);
+  color:var(--ui-intent-danger-hover);
 }
 .ui-html-select.minimal select.intent-danger:active,
 .ui-select.minimal select.intent-danger:active, .ui-html-select.minimal select.intent-danger.active,
 .ui-select.minimal select.intent-danger.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
-  color:var(--intent-danger-active);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
+  color:var(--ui-intent-danger-active);
 }
 .ui-html-select.minimal select.intent-danger:disabled,
 .ui-select.minimal select.intent-danger:disabled, .ui-html-select.minimal select.intent-danger.disabled,
 .ui-select.minimal select.intent-danger.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-danger-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-hover) 50%, transparent);
 }
 .ui-html-select.minimal select.intent-danger:disabled.active,
 .ui-select.minimal select.intent-danger:disabled.active, .ui-html-select.minimal select.intent-danger.disabled.active,
 .ui-select.minimal select.intent-danger.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
 }
 .ui-html-select.minimal select.intent-danger .ui-button-spinner .ui-spinner-head,
 .ui-select.minimal select.intent-danger .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-danger-hover);
+  stroke:var(--ui-intent-danger-hover);
 }
 .dark .ui-html-select.minimal select.intent-danger, .ui-html-select.minimal .dark select.intent-danger,
 .dark .ui-select.minimal select.intent-danger,
 .ui-select.minimal .dark select.intent-danger, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-danger, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-danger,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-danger,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-danger{
-  color:color-mix(in oklch, var(--intent-danger-rest) 53%, var(--ui-palette-white));
+  color:color-mix(in oklch, var(--ui-intent-danger-rest) 53%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-danger:hover, .ui-html-select.minimal .dark select.intent-danger:hover,
 .dark .ui-select.minimal select.intent-danger:hover,
 .ui-select.minimal .dark select.intent-danger:hover, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-danger:hover, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-danger:hover,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-danger:hover,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-danger:hover{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 20%, transparent);
-  color:color-mix(in oklch, var(--intent-danger-hover) 53%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 20%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-hover) 53%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-danger:active, .ui-html-select.minimal .dark select.intent-danger:active,
 .dark .ui-select.minimal select.intent-danger:active,
@@ -5609,8 +5609,8 @@ form{
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-danger:active, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-danger.active, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-danger.active,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-danger.active,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-danger.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
-  color:color-mix(in oklch, var(--intent-danger-active) 53%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-danger-active) 53%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-danger:disabled, .ui-html-select.minimal .dark select.intent-danger:disabled,
 .dark .ui-select.minimal select.intent-danger:disabled,
@@ -5622,7 +5622,7 @@ form{
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-danger.disabled,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-danger.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in oklch, var(--intent-danger-rest) 53%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in oklch, var(--ui-intent-danger-rest) 53%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-html-select.minimal select.intent-danger:disabled.active, .ui-html-select.minimal .dark select.intent-danger:disabled.active,
 .dark .ui-select.minimal select.intent-danger:disabled.active,
@@ -5633,11 +5633,11 @@ form{
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-danger:disabled.active, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-danger.disabled.active, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-danger.disabled.active,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-danger.disabled.active,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-danger.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-danger-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-danger-rest) 30%, transparent);
 }
 .ui-html-select.minimal select.intent-default,
 .ui-select.minimal select.intent-default{
-  color:var(--intent-default-hover);
+  color:var(--ui-intent-default-hover);
 }
 .ui-html-select.minimal select.intent-default:hover,
 .ui-select.minimal select.intent-default:hover, .ui-html-select.minimal select.intent-default:active,
@@ -5645,48 +5645,48 @@ form{
 .ui-select.minimal select.intent-default.active{
   background:none;
   box-shadow:none;
-  color:var(--intent-default-hover);
+  color:var(--ui-intent-default-hover);
 }
 .ui-html-select.minimal select.intent-default:hover,
 .ui-select.minimal select.intent-default:hover{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 15%, transparent);
-  color:var(--intent-default-hover);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 15%, transparent);
+  color:var(--ui-intent-default-hover);
 }
 .ui-html-select.minimal select.intent-default:active,
 .ui-select.minimal select.intent-default:active, .ui-html-select.minimal select.intent-default.active,
 .ui-select.minimal select.intent-default.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
-  color:var(--intent-default-active);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
+  color:var(--ui-intent-default-active);
 }
 .ui-html-select.minimal select.intent-default:disabled,
 .ui-select.minimal select.intent-default:disabled, .ui-html-select.minimal select.intent-default.disabled,
 .ui-select.minimal select.intent-default.disabled{
   background:none;
-  color:color-mix(in oklch, var(--intent-default-hover) 50%, transparent);
+  color:color-mix(in oklch, var(--ui-intent-default-hover) 50%, transparent);
 }
 .ui-html-select.minimal select.intent-default:disabled.active,
 .ui-select.minimal select.intent-default:disabled.active, .ui-html-select.minimal select.intent-default.disabled.active,
 .ui-select.minimal select.intent-default.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
 }
 .ui-html-select.minimal select.intent-default .ui-button-spinner .ui-spinner-head,
 .ui-select.minimal select.intent-default .ui-button-spinner .ui-spinner-head{
-  stroke:var(--intent-default-hover);
+  stroke:var(--ui-intent-default-hover);
 }
 .dark .ui-html-select.minimal select.intent-default, .ui-html-select.minimal .dark select.intent-default,
 .dark .ui-select.minimal select.intent-default,
 .ui-select.minimal .dark select.intent-default, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-default, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-default,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-default,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-default{
-  color:color-mix(in srgb, var(--intent-default-rest) 46%, var(--ui-palette-white));
+  color:color-mix(in srgb, var(--ui-intent-default-rest) 46%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-default:hover, .ui-html-select.minimal .dark select.intent-default:hover,
 .dark .ui-select.minimal select.intent-default:hover,
 .ui-select.minimal .dark select.intent-default:hover, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-default:hover, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-default:hover,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-default:hover,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-default:hover{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 20%, transparent);
-  color:color-mix(in srgb, var(--intent-default-hover) 46%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 20%, transparent);
+  color:color-mix(in srgb, var(--ui-intent-default-hover) 46%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-default:active, .ui-html-select.minimal .dark select.intent-default:active,
 .dark .ui-select.minimal select.intent-default:active,
@@ -5697,8 +5697,8 @@ form{
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-default:active, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-default.active, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-default.active,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-default.active,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-default.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
-  color:color-mix(in srgb, var(--intent-default-active) 46%, var(--ui-palette-white));
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
+  color:color-mix(in srgb, var(--ui-intent-default-active) 46%, var(--ui-palette-white));
 }
 .dark .ui-html-select.minimal select.intent-default:disabled, .ui-html-select.minimal .dark select.intent-default:disabled,
 .dark .ui-select.minimal select.intent-default:disabled,
@@ -5710,7 +5710,7 @@ form{
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-default.disabled,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-default.disabled{
   background:none;
-  color:color-mix(in oklch, color-mix(in srgb, var(--intent-default-rest) 46%, var(--ui-palette-white)) 50%, transparent);
+  color:color-mix(in oklch, color-mix(in srgb, var(--ui-intent-default-rest) 46%, var(--ui-palette-white)) 50%, transparent);
 }
 .dark .ui-html-select.minimal select.intent-default:disabled.active, .ui-html-select.minimal .dark select.intent-default:disabled.active,
 .dark .ui-select.minimal select.intent-default:disabled.active,
@@ -5721,7 +5721,7 @@ form{
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-default:disabled.active, [data-ui-color-scheme=dark] .ui-html-select.minimal select.intent-default.disabled.active, .ui-html-select.minimal [data-ui-color-scheme=dark] select.intent-default.disabled.active,
 [data-ui-color-scheme=dark] .ui-select.minimal select.intent-default.disabled.active,
 .ui-select.minimal [data-ui-color-scheme=dark] select.intent-default.disabled.active{
-  background-color:color-mix(in oklch, var(--intent-default-rest) 30%, transparent);
+  background-color:color-mix(in oklch, var(--ui-intent-default-rest) 30%, transparent);
 }
 
 .ui-html-select.large select,
@@ -5733,43 +5733,43 @@ form{
 
 .dark .ui-html-select select,
 .dark .ui-select select{
-  background-color:color-mix(in srgb, var(--intent-default-rest) 40%, var(--ui-palette-black));
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 40%, var(--ui-palette-black));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-default) 50%, transparent), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
-  color:var(--intent-default-foreground);
+  color:var(--ui-intent-default-foreground);
 }
 .dark .ui-html-select select:hover,
 .dark .ui-select select:hover, .dark .ui-html-select select:active,
 .dark .ui-select select:active, .dark .ui-html-select select.active,
 .dark .ui-select select.active{
-  color:color-mix(in srgb, var(--intent-default-hover) 4%, var(--ui-palette-white));
+  color:color-mix(in srgb, var(--ui-intent-default-hover) 4%, var(--ui-palette-white));
 }
 .dark .ui-html-select select:hover,
 .dark .ui-select select:hover{
-  background-color:color-mix(in srgb, var(--intent-default-hover) 42%, var(--ui-palette-black));
+  background-color:color-mix(in srgb, var(--ui-intent-default-hover) 42%, var(--ui-palette-black));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-default) 50%, transparent), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 40%, transparent);
 }
 .dark .ui-html-select select:active,
 .dark .ui-select select:active, .dark .ui-html-select select.active,
 .dark .ui-select select.active{
-  background-color:color-mix(in srgb, var(--intent-default-active) 30%, var(--ui-palette-black));
+  background-color:color-mix(in srgb, var(--ui-intent-default-active) 30%, var(--ui-palette-black));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-default) 50%, transparent), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 40%, transparent);
 }
 .dark .ui-html-select select:disabled,
 .dark .ui-select select:disabled, .dark .ui-html-select select.disabled,
 .dark .ui-select select.disabled{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 4%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 4%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-disabled);
 }
 .dark .ui-html-select select:disabled.active,
 .dark .ui-select select:disabled.active, .dark .ui-html-select select.disabled.active,
 .dark .ui-select select.disabled.active{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 7%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 7%, transparent);
 }
 .dark .ui-html-select select .ui-button-spinner .ui-spinner-head,
 .dark .ui-select select .ui-button-spinner .ui-spinner-head{
-  background:color-mix(in srgb, var(--intent-default-rest) 20%, var(--ui-palette-black));
-  stroke:color-mix(in srgb, var(--intent-default-rest) 68%, var(--ui-palette-white));
+  background:color-mix(in srgb, var(--ui-intent-default-rest) 20%, var(--ui-palette-black));
+  stroke:color-mix(in srgb, var(--ui-intent-default-rest) 68%, var(--ui-palette-white));
 }
 
 .ui-html-select select:disabled,
@@ -7160,7 +7160,7 @@ body.ui-overlay-open{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -7939,7 +7939,7 @@ a > .dark .ui-tooltip .ui-running-text code{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }
@@ -8008,17 +8008,17 @@ a > .dark .ui-tooltip .ui-running-text code{
 }
 
 .ui-slider-handle{
-  background-color:color-mix(in srgb, var(--intent-default-rest) 5%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-rest) 5%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 10%, transparent);
   color:var(--ui-typography-color-default-rest);
 }
 .ui-slider-handle:hover{
   background-clip:padding-box;
-  background-color:color-mix(in srgb, var(--intent-default-hover) 9%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-hover) 9%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 .ui-slider-handle:active, .ui-slider-handle.active{
-  background-color:color-mix(in srgb, var(--intent-default-active) 16%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-active) 16%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
@@ -8027,14 +8027,14 @@ a > .dark .ui-tooltip .ui-running-text code{
   }
 }
 .ui-slider-handle:disabled, .ui-slider-handle.disabled{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 20%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 20%, transparent);
   box-shadow:none;
   color:var(--ui-typography-color-default-disabled);
   cursor:not-allowed;
   outline:none;
 }
 .ui-slider-handle:disabled.active, .ui-slider-handle:disabled.active:hover, .ui-slider-handle.disabled.active, .ui-slider-handle.disabled.active:hover{
-  background-color:color-mix(in srgb, var(--intent-default-disabled) 28%, transparent);
+  background-color:color-mix(in srgb, var(--ui-intent-default-disabled) 28%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
   .ui-slider-handle{
@@ -8056,14 +8056,14 @@ a > .dark .ui-tooltip .ui-running-text code{
 }
 .ui-slider-handle:hover{
   background-clip:padding-box;
-  background-color:color-mix(in srgb, var(--intent-default-hover) 9%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-hover) 9%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
   box-shadow:0 0 0 1px rgba(17, 20, 24, 0.5), 0 1px 2px rgba(17, 20, 24, 0.6);
   cursor:grab;
   z-index:2;
 }
 .ui-slider-handle.active{
-  background-color:color-mix(in srgb, var(--intent-default-active) 16%, var(--ui-palette-white));
+  background-color:color-mix(in srgb, var(--ui-intent-default-active) 16%, var(--ui-palette-white));
   box-shadow:inset 0 0 0 var(--ui-surface-border-width) color-mix(in oklch, var(--ui-surface-border-color-strong) 90%, var(--ui-palette-black)), 0 1px 2px color-mix(in oklch, var(--ui-palette-black) 20%, transparent);
 }
 @media (forced-colors: active) and (prefers-color-scheme: dark){
@@ -9239,7 +9239,7 @@ a > .dark .ui-tooltip .ui-running-text code{
 @supports (color: oklch(from var(--any-color) l c h)){
   :root{
     --ui-button-warning-rest:oklch(
-      from var(--intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
+      from var(--ui-intent-warning-rest) calc(l + 0.177) calc(c - 0.01) calc(h + 6.26)
     );
   }
 }

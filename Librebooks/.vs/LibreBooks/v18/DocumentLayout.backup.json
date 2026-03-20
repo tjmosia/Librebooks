@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooks\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooks\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -47,10 +51,6 @@
       "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:models\\entity\\companyspace\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooks\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|c:\\users\\tjmos\\source\\repos\\librebooks\\librebooks\\areas\\companies\\services\\icompanystore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A44FA4F9-E783-40E1-928D-A107B1226F7A}|Librebooks.csproj|solutionrelative:areas\\companies\\services\\icompanystore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -78,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -89,8 +89,12 @@
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "UserManagerExtension.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Identity\\Services\\UserManagerExtension.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Services\\UserManagerExtension.cs",
@@ -98,12 +102,11 @@
               "RelativeToolTip": "Areas\\Identity\\Services\\UserManagerExtension.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T17:40:22.625Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-11T17:40:22.625Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "SignInManagerExtension.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Identity\\Services\\SignInManagerExtension.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Services\\SignInManagerExtension.cs",
@@ -111,12 +114,11 @@
               "RelativeToolTip": "Areas\\Identity\\Services\\SignInManagerExtension.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T17:40:19.657Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-11T17:40:19.657Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "IdentityErrorDescriberExtension.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Identity\\Services\\IdentityErrorDescriberExtension.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Services\\IdentityErrorDescriberExtension.cs",
@@ -124,12 +126,11 @@
               "RelativeToolTip": "Areas\\Identity\\Services\\IdentityErrorDescriberExtension.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T17:40:12.691Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-11T17:40:12.691Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AuthorizeApiAttribute.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Identity\\Services\\AuthorizeApiAttribute.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Services\\AuthorizeApiAttribute.cs",
@@ -137,12 +138,11 @@
               "RelativeToolTip": "Areas\\Identity\\Services\\AuthorizeApiAttribute.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T17:40:05.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-11T17:40:05.604Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "AuthenticationServiceExtension.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Identity\\Services\\AuthenticationServiceExtension.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Services\\AuthenticationServiceExtension.cs",
@@ -150,25 +150,23 @@
               "RelativeToolTip": "Areas\\Identity\\Services\\AuthenticationServiceExtension.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T17:40:02.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-11T17:40:02.85Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAAAEYAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T15:09:43.816Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-11T15:09:43.816Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "CompanyDto.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Companies\\Data\\CompanyDto.cs",
               "RelativeDocumentMoniker": "Areas\\Companies\\Data\\CompanyDto.cs",
@@ -180,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CompaniesModels.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Companies\\Models\\CompaniesModels.cs",
               "RelativeDocumentMoniker": "Areas\\Companies\\Models\\CompaniesModels.cs",
@@ -192,15 +190,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-08T15:44:45.95Z"
+              "WhenOpened": "2026-03-08T15:44:45.95Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -228,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Company.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Models\\Entity\\CompanySpace\\Company.cs",
               "RelativeDocumentMoniker": "Models\\Entity\\CompanySpace\\Company.cs",
@@ -252,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "CompaniesController.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Companies\\Controllers\\CompaniesController.cs",
               "RelativeDocumentMoniker": "Areas\\Companies\\Controllers\\CompaniesController.cs",
@@ -260,12 +259,11 @@
               "RelativeToolTip": "Areas\\Companies\\Controllers\\CompaniesController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T21:04:15.964Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T21:04:15.964Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\TJmos\\source\\repos\\Librebooks\\Librebooks\\Areas\\Identity\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Controllers\\AuthController.cs",
@@ -273,8 +271,7 @@
               "RelativeToolTip": "Areas\\Identity\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAI4AAAAAAAAAAAAAAFgAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T20:40:55.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T20:40:55.01Z"
             },
             {
               "$type": "Document",

@@ -8,10 +8,9 @@
 <form class="authForm--entry" method="POST">
 	<div class="ui-form-group @FormHelpers.GetValidationStatus(ModelState, nameof(Model.Email))">
 		<label asp-for="Email" class="ui-label">Email Address</label>
-		<div class="ui-input-group">
+		<div>
 			<input asp-for="Email"
-					aria-label="Email address input"
-					class="ui-input" />
+					aria-label="Email address input" />
 		</div>
 		<span class="ui-form-helper-text intent-danger" asp-validation-for="Email"></span>
 	</div>

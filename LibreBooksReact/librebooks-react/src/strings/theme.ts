@@ -22,7 +22,7 @@ const myNewTheme: BrandVariants = {
 const lightTheme: Theme = {
     ...createLightTheme(myNewTheme),
     borderRadiusSmall: "0px",
-    borderRadiusMedium: "1.5px",
+    borderRadiusMedium: "4px",
     borderRadiusCircular: "99999px",
     fontFamilyBase: " 'Inter','Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif",
 };
