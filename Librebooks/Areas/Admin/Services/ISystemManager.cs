@@ -72,13 +72,13 @@ namespace Librebooks.Areas.Admin.Services
 		Task<TransactionResult<ShippingTerm>> UpdateShippingTermAsync (ShippingTerm shippingTerm);
 
 		/******************************************************************
-         * TaxType Store Manager Actions
+         * tax Store Manager Actions
          ******************************************************************/
-		Task<TransactionResult<TaxType>> AddTaxTypeAsync (TaxType taxType);
-		Task<TransactionResult> DeleteTaxTypeAsync (params TaxType[] taxType);
-		Task<TaxType?> FindTaxTypeByIdAsync (int id);
-		Task<TransactionResult<TaxType>> UpdateTaxTypeAsync (TaxType taxType);
-		Task<IList<TaxType>> GetTaxTypesAsync ();
+		Task<TransactionResult<Tax>> AddTaxAsync (Tax tax);
+		Task<TransactionResult> DeleteTaxesAsync (params Tax[] tax);
+		Task<Tax?> FindTaxByIdAsync (int id);
+		Task<TransactionResult<Tax>> UpdateTaxAsync (Tax tax);
+		Task<IList<Tax>> GetTaxesAsync ();
 
 		/******************************************************************
          * SYSTEM_COMPANY_NUMBER Store Manager Actions

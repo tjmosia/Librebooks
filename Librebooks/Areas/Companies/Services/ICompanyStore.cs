@@ -23,9 +23,9 @@ namespace Librebooks.Areas.Companies.Services
 		Task<Company?> FindByNumberAsync (string companyNumber);
 		Task<CompanyRegionalSetup?> FindRegionalSettingsAsync (int companyId);
 		Task<CompanyImage?> FindLogoAsync (int companyId);
-		Task<IList<TaxType>> FindTaxTypesAsync (int companyId);
-		Task<TaxType?> FindTaxTypeByIdAsync (int companyId, int taxTypeId);
-		Task<TaxType?> FindDefaultTaxTypeAsync (int companyId);
+		Task<IList<Tax>> FindTaxTypesAsync (int companyId);
+		Task<Tax?> FindTaxTypeByIdAsync (int companyId, int taxTypeId);
+		Task<Tax?> FindDefaultTaxTypeAsync (int companyId);
 		Task<CompanyMailSetup?> FindMailSettingsAsync (int companyId);
 		Task<BankAccount?> FindDefaultBankAccountAsync (int companyId);
 		Task<BankAccount?> FindBankAccountByIdAsync (int companyId, int bankAccountId);
@@ -37,7 +37,7 @@ namespace Librebooks.Areas.Companies.Services
          ****** INSERT TRANSACTIONS
          ***********************************************************************************************************************************/
 		Task<TransactionResult<Company>> CreateAsync (Company company);
-		Task<TransactionResult<TaxType>> CreateTaxTypeAsync (Company company, TaxType taxType);
+		Task<TransactionResult<Tax>> CreateTaxTypeAsync (Company company, Tax taxType);
 		Task<TransactionResult<Contact>> CreateSalesPersonAsync (Company company, Contact contact);
 		Task<TransactionResult<BankAccount>> CreateBankAccountAsync (Company company, BankAccount bankAccount);
 		Task<TransactionResult<CompanyImage>> CreateLogoAsync (Company company, CompanyImage image);
@@ -47,7 +47,7 @@ namespace Librebooks.Areas.Companies.Services
          ***********************************************************************************************************************************/
 		Task<TransactionResult<CompanyRegionalSetup>> UpdateRegionalSettingsAsync (CompanyRegionalSetup regionalSettings);
 		Task<TransactionResult<CompanyDefaultBankAccount>> UpdateDefaultTaxTypeAsync (CompanyDefaultTaxType defaultTaxType);
-		Task<TransactionResult<TaxType>> UpdateTaxTypeAsync (TaxType taxType);
+		Task<TransactionResult<Tax>> UpdateTaxTypeAsync (Tax taxType);
 		Task<TransactionResult<CompanyImage>> UpdateLogoAsync (CompanyImage companyImage);
 		Task<TransactionResult> UpdateMailSettingsAsync (CompanyMailSetup mailSettings);
 		Task<TransactionResult<SupplierSetup>> UpdateSupplierSetupAsync (SupplierSetup supplierSetup);
@@ -61,7 +61,7 @@ namespace Librebooks.Areas.Companies.Services
          ***********************************************************************************************************************************/
 		Task<TransactionResult> DeleteSalesPersonAsync (SalesPerson salesPerson);
 		Task<TransactionResult> DeleteAsync (Company company);
-		Task<TransactionResult> DeleteTaxTypeAsync (CompanyTaxType companyTaxType);
+		Task<TransactionResult> DeleteTaxTypeAsync (CompanyTax companyTaxType);
 		Task<TransactionResult> DeleteBankAccountAsync (BankAccount bankAccount);
 		Task<TransactionResult> DeleteLogoAsync (CompanyLogo companyLogo);
 	}

@@ -37,7 +37,7 @@ public class CustomerAdjustment
     public virtual int CustomerId { get; set; }
 
     public virtual Customer? Customer { get; set; }
-    public virtual TaxType? TaxType { get; set; }
+    public virtual Tax? TaxType { get; set; }
 
     public static void OnModelCreating (ModelBuilder builder)
     {

@@ -27,7 +27,7 @@ public class CompanyDefaultBankAccount ()
 		builder.Entity<CompanyDefaultBankAccount>(options =>
 		   {
 			   options.HasOne(p => p.Company)
-				.WithOne()
+				.WithOne(p => p.DefaultTaxType)
 				.HasForeignKey<CompanyDefaultBankAccount>(p => p.CompanyId)
 					.IsRequired()
 				.OnDelete(DeleteBehavior.Restrict);

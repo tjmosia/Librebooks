@@ -30,11 +30,11 @@ public class Journal () : VersionedEntityBase()
 	[Column(TypeName = ColumnTypes.PERCENTATE)]
 	public virtual decimal TaxRate { get; set; }
 	public virtual bool Posted { get; set; }
-	public virtual int TaxTypeId { get; set; }
+	public virtual int TaxId { get; set; }
 	public virtual int CompanyId { get; set; }
 
 	public virtual Company? Company { get; set; }
-	public virtual CompanyTaxType? TaxType { get; set; }
+	public virtual CompanyTax? Tax { get; set; }
 	public virtual Account? DebitAccount { get; set; }
 	public virtual Account? CreditAccount { get; set; }
 	public virtual ICollection<JournalNote>? Notes { get; set; }
@@ -58,9 +58,9 @@ public class Journal () : VersionedEntityBase()
 					.IsRequired()
 				.OnDelete(DeleteBehavior.Restrict);
 
-			options.HasOne(p => p.TaxType)
+			options.HasOne(p => p.Tax)
 				.WithMany()
-				.HasForeignKey(p => p.TaxTypeId)
+				.HasForeignKey(p => p.TaxId)
 					.IsRequired()
 				.OnDelete(DeleteBehavior.Restrict);
 

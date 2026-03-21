@@ -25,14 +25,14 @@ public class Item () : VersionedEntityBase()
 	public virtual bool Physical { get; set; }
 
 	public virtual int? CategoryId { get; set; }
-	public virtual int TaxTypeId { get; set; }
+	public virtual int TaxId { get; set; }
 	public virtual int CompanyId { get; set; }
 	public virtual int Active { get; set; }
 
 	public virtual Company? Company { get; set; }
 	public virtual ItemCategory? Category { get; set; }
 	public virtual ItemInventory? Inventory { get; set; }
-	public virtual CompanyTaxType? TaxType { get; set; }
+	public virtual CompanyTax? TaxType { get; set; }
 	public virtual ICollection<ItemAdjustment>? StockAdjustments { get; set; }
 	public virtual ICollection<ItemPriceAdjustment>? PriceAdjustments { get; set; }
 	public virtual ICollection<ItemInfo>? Info { get; set; }

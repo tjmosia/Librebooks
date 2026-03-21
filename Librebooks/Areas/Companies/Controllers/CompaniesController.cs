@@ -1,4 +1,5 @@
-﻿using Librebooks.Areas.Admin.Services;
+﻿using System.Text;
+using Librebooks.Areas.Admin.Services;
 using Librebooks.Areas.Companies.Data;
 using Librebooks.Areas.Companies.Models;
 using Librebooks.Areas.Companies.Services;
@@ -36,7 +37,7 @@ public class CompaniesController
 
 		var company = await companyStore.FindByIdAsync(id, user.Id);
 
-		return company == null ? NotFound() : Ok(new CompanyDto(company));
+		return company == null ? NotFound() : Ok(new CompanySummaryDto(company));
 	}
 
 	[HttpPost]
@@ -48,6 +49,8 @@ public class CompaniesController
 		if (!validationResult.IsValid)
 			return BadRequest(TransactionResult.Failure([.. validationResult.Errors.Select(p => TransactionError.Create(p.PropertyName, p.ErrorMessage))]));
 
+		var taxTypes = await sysManager.GetTaxesAsync();
+
 		var company = new Company()
 		{
 			BusinessSectorId = input.BusinessSector,
@@ -56,10 +59,42 @@ public class CompaniesController
 			PhysicalAddress = input.PhysicalAddress,
 			PostalAddress = input.PostalAddress,
 			PhoneNumber = input.TelephoneNumber,
-			EmailAddress = input.Email
+			EmailAddress = input.Email,
+			VATNumber = input.VATNumber,
+			TradingName = input.TradingName,
+			RegionalSetup = new()
+			{
+				CurrencyId = input.CurrencyId,
+				CountryId = input.CountryId,
+				DateFormatId = input.DateFormatId,
+				DecimalMark = ".",
+				RoundToNearest = 2,
+				ThousandsSeperator = " "
+			}
 		};
 
-		return Ok();
+		if (input.Logo != null)
+		{
+			company.Logo = new CompanyLogo
+			{
+				Image = new CompanyImage
+				{
+					Data = Encoding.UTF8.GetBytes(input.Logo)
+				}
+			};
+		}
+
+		var result = await companyStore.CreateAsync(company);
+
+		if (result.Succeeded)
+		{
+
+			return Created();
+		}
+		else
+		{
+			return Ok(TransactionResult.Failure([.. result.Errors.Select(p => TransactionError.Create(p.Code, p.Description))]));
+		}
 	}
 
 	private static void SetCompanyToSession (HttpContext context, int companyId)

@@ -24,7 +24,7 @@ public static class AreaServices
 		services.AddScoped<PaymentTermStore>();
 		services.AddScoped<ShippingTermStore>();
 		services.AddScoped<ShippingMethodStore>();
-		services.AddScoped<TaxTypeStore>();
+		services.AddScoped<TaxStore>();
 		services.AddScoped<CompanyNumberStore>();
 		services.AddScoped<BusinessSectorStore>();
 		services.AddScoped<ICompanyStore, CompanyStore>();

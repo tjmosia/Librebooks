@@ -49,7 +49,7 @@ public class Supplier
 	public virtual int TaxTypeId { get; set; }
 
 	public virtual SupplierCategory? Category { get; set; }
-	public virtual CompanyTaxType? TaxType { get; set; }
+	public virtual CompanyTax? TaxType { get; set; }
 
 	public virtual ICollection<SupplierAdjustment>? Adjustments { get; set; }
 	public virtual ICollection<SupplierContact>? Contacts { get; set; }

@@ -80,7 +80,7 @@ namespace Librebooks.Models.Entity
 			CompanyMailSetup.OnModelCreating(builder);
 			CompanyRegionalSetup.OnModelCreating(builder);
 			CompanySetup.OnModelCreating(builder);
-			CompanyTaxType.BuildModel(builder);
+			CompanyTax.BuildModel(builder);
 			CompanyUser.OnModelCreating(builder);
 
 			/************************************************************************************************
@@ -89,7 +89,7 @@ namespace Librebooks.Models.Entity
 			Country.OnModelCreating(builder);
 			Currency.OnModelCreating(builder);
 			DateFormat.OnModelCreating(builder);
-			TaxType.OnModelCreating(builder);
+			Tax.OnModelCreating(builder);
 			ShippingMethod.OnModelCreating(builder);
 			ShippingTerm.OnModelCreating(builder);
 			PaymentMethod.OnModelCreating(builder);

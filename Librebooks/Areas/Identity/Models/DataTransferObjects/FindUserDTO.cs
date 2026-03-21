@@ -1,5 +1,4 @@
 ﻿using Librebooks.Models.Entity.IdentitySpace;
-
 namespace Librebooks.Areas.Identity.Models.DataTransferObjects;
 
 public readonly struct FindUserDTO (User user)

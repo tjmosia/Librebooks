@@ -57,6 +57,8 @@ public class Company : VersionedEntityBase
 	public virtual BusinessSector? BusinessSector { get; set; }
 	public virtual CompanyLogo? Logo { get; set; }
 	public virtual CompanyRegionalSetup? RegionalSetup { get; set; }
+	public virtual ICollection<CompanyTax>? Taxes { get; set; }
+	public virtual CompanyDefaultTaxType? DefaultTaxType { get; set; }
 
 	public Company () : base()
 	{

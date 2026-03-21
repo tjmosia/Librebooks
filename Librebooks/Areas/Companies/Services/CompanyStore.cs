@@ -70,21 +70,21 @@ namespace Librebooks.Areas.Companies.Services
 				.Select(p => p.Image)
 				.FirstOrDefaultAsync();
 
-		public async Task<IList<TaxType>> FindTaxTypesAsync (int companyId)
+		public async Task<IList<Tax>> FindTaxTypesAsync (int companyId)
 			=> await context!.CompanyTaxType!
 				.Where(p => p.CompanyId == companyId)
 				.Include(p => p.TaxType)
 				.Select(p => p.TaxType!)
 				.ToListAsync();
 
-		public async Task<TaxType?> FindTaxTypeByIdAsync (int companyId, int taxTypeId)
+		public async Task<Tax?> FindTaxTypeByIdAsync (int companyId, int taxTypeId)
 			=> await context!.CompanyTaxType!
 				.Where(p => p.CompanyId == companyId && p.TaxTypeId == taxTypeId)
 				.Include(p => p.TaxType)
 				.Select(p => p.TaxType)
 				.FirstOrDefaultAsync();
 
-		public async Task<TaxType?> FindDefaultTaxTypeAsync (int companyId)
+		public async Task<Tax?> FindDefaultTaxTypeAsync (int companyId)
 			=> await context!.CompanyDefaultTaxType!
 				.Where(p => p.CompanyId == companyId)
 				.Include(p => p.CompanyTaxType)
@@ -152,20 +152,20 @@ namespace Librebooks.Areas.Companies.Services
 			}
 		}
 
-		public async Task<TransactionResult<TaxType>> CreateTaxTypeAsync (Company company, TaxType taxType)
+		public async Task<TransactionResult<Tax>> CreateTaxTypeAsync (Company company, Tax taxType)
 		{
 			try
 			{
 				var result = await context.TaxType!.AddAsync(taxType);
-				await context.CompanyTaxType!.AddAsync(new CompanyTaxType(company.Id, taxType.Id));
+				await context.CompanyTaxType!.AddAsync(new CompanyTax(company.Id, taxType.Id));
 				await context.SaveChangesAsync();
 
-				return TransactionResult<TaxType>.Success(result.Entity);
+				return TransactionResult<Tax>.Success(result.Entity);
 			}
 			catch (Exception ex)
 			{
 				logger!.LogError("***DB Error occured with Exception while creating Company TaxType:*** \n\n{message}", ex.Message);
-				return TransactionResult<TaxType>.Failure();
+				return TransactionResult<Tax>.Failure();
 			}
 		}
 
@@ -272,18 +272,18 @@ namespace Librebooks.Areas.Companies.Services
 			}
 		}
 
-		public async Task<TransactionResult<TaxType>> UpdateTaxTypeAsync (TaxType taxType)
+		public async Task<TransactionResult<Tax>> UpdateTaxTypeAsync (Tax taxType)
 		{
 			try
 			{
 				var result = context!.TaxType!.Update(taxType);
 				await context.SaveChangesAsync();
-				return TransactionResult<TaxType>.Success(result.Entity);
+				return TransactionResult<Tax>.Success(result.Entity);
 			}
 			catch (Exception ex)
 			{
 				logger!.LogError("***DB Error occurred with Exception while trying to update CompanyDefaultTaxType:*** \n\n{message}", ex.Message);
-				return TransactionResult<TaxType>.Failure();
+				return TransactionResult<Tax>.Failure();
 			}
 		}
 
@@ -436,7 +436,7 @@ namespace Librebooks.Areas.Companies.Services
 			return TransactionResult.Success;
 		}
 
-		public async Task<TransactionResult> DeleteTaxTypeAsync (CompanyTaxType companyTaxType)
+		public async Task<TransactionResult> DeleteTaxTypeAsync (CompanyTax companyTaxType)
 		{
 			ArgumentNullException.ThrowIfNull(companyTaxType.TaxType, nameof(companyTaxType.TaxType));
 

@@ -273,36 +273,36 @@ namespace Librebooks.Areas.Admin.Services
 		/******************************************************************
          * TAX_TYPES Store Manager Actions
          ******************************************************************/
-		public async Task<TransactionResult<TaxType>> AddTaxTypeAsync (TaxType taxType)
+		public async Task<TransactionResult<Tax>> AddTaxAsync (Tax tax)
 		{
-			var result = await store.TaxTypes.CreateAsync(taxType);
+			var result = await store.TaxTypes.CreateAsync(tax);
 
 			if (result != null)
-				return TransactionResult<TaxType>.Success(result);
+				return TransactionResult<Tax>.Success(result);
 
-			return TransactionResult<TaxType>.Failure();
+			return TransactionResult<Tax>.Failure();
 		}
 
-		public async Task<TransactionResult> DeleteTaxTypeAsync (params TaxType[] taxType)
+		public async Task<TransactionResult> DeleteTaxesAsync (params Tax[] tax)
 		{
-			await store.TaxTypes.DeleteAsync(taxType);
+			await store.TaxTypes.DeleteAsync(tax);
 			return TransactionResult.Success;
 		}
 
-		public async Task<TaxType?> FindTaxTypeByIdAsync (int id)
+		public async Task<Tax?> FindTaxByIdAsync (int id)
 			=> await store.TaxTypes.FindByIdAsync(id);
 
-		public async Task<TransactionResult<TaxType>> UpdateTaxTypeAsync (TaxType taxType)
+		public async Task<TransactionResult<Tax>> UpdateTaxAsync (Tax tax)
 		{
-			var result = await store.TaxTypes.UpdateAsync(taxType);
+			var result = await store.TaxTypes.UpdateAsync(tax);
 
 			if (result != null)
-				return TransactionResult<TaxType>.Success(result);
+				return TransactionResult<Tax>.Success(result);
 
-			return TransactionResult<TaxType>.Failure();
+			return TransactionResult<Tax>.Failure();
 		}
 
-		public async Task<IList<TaxType>> GetTaxTypesAsync ()
+		public async Task<IList<Tax>> GetTaxesAsync ()
 		{
 			return await store.TaxTypes.FindAllAsync();
 		}

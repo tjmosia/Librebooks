@@ -21,6 +21,7 @@ public class CompaniesModels
 		public virtual string? Logo { get; set; }
 		public virtual int CurrencyId { get; set; }
 		public virtual int CountryId { get; set; }
+		public virtual int DateFormatId { get; set; }
 	}
 
 	public static ValidationResult Validate (Request request)
