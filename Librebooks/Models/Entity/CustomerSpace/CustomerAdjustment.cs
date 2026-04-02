@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Librebooks.Core.Types;
+using Librebooks.Core.Constants;
 using Librebooks.Models.Entity.CompanySpace;
 using Librebooks.Models.Entity.SystemSpace;
 using Microsoft.EntityFrameworkCore;

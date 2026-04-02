@@ -4,18 +4,18 @@ namespace Librebooks.Core.EFCore
 {
     public class AppErrorDescriber
     {
-        public TransactionError DuplicateKey (string errorMessage = "")
+        public Error DuplicateKey (string errorMessage = "")
         {
-            return new TransactionError
+            return new Error
             {
                 Code = nameof(DuplicateKey),
                 Description = errorMessage
             };
         }
 
-        public TransactionError DuplicateIndex (string errorMessage = "")
+        public Error DuplicateIndex (string errorMessage = "")
         {
-            return new TransactionError
+            return new Error
             {
                 Code = nameof(DuplicateIndex),
                 Description = errorMessage

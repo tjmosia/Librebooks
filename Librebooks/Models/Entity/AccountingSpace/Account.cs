@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Librebooks.Core.Types;
+using Librebooks.Core.Constants;
 using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.CompanySpace;
 
@@ -21,13 +21,14 @@ public class Account () : VersionedEntityBase()
 	public virtual decimal Balance { get; set; }
 
 	public virtual int TaxId { get; set; }
-	[MaxLength(255)]
+
+	[MaxLength(255), Required]
 	public virtual string? Description { get; set; }
 	public virtual int? ParentAccountId { get; set; }
 	public virtual bool Active { get; set; }
 	public virtual bool System { get; set; }
 	public virtual int? CompanyId { get; set; }
-	public virtual int? CategoryId { get; set; }
+	public virtual int CategoryId { get; set; }
 
 	public virtual Account? ParentAccount { get; set; }
 	public virtual AccountCategory? Category { get; set; }
@@ -54,7 +55,7 @@ public class Account () : VersionedEntityBase()
 				.OnDelete(DeleteBehavior.Restrict);
 
 			options.HasOne<Company>()
-				.WithMany()
+				.WithMany(p => p.ChartOfAccounts)
 				.HasForeignKey(p => p.CompanyId)
 					.IsRequired()
 				.OnDelete(DeleteBehavior.Restrict);

@@ -17,52 +17,51 @@ namespace Librebooks.Areas.Companies.Services
 		/***********************************************************************************************************************************
          ****** SELECT TRANSACTIONS
          ***********************************************************************************************************************************/
-		Task<Company?> FindByIdAsync (int companyId);
-		Task<Company?> FindByIdAsync (int companyId, int userId);
-		Task<IList<Company?>> FindByUserIdAsync (int userId);
-		Task<Company?> FindByNumberAsync (string companyNumber);
-		Task<CompanyRegionalSetup?> FindRegionalSettingsAsync (int companyId);
-		Task<CompanyImage?> FindLogoAsync (int companyId);
-		Task<IList<Tax>> FindTaxTypesAsync (int companyId);
-		Task<Tax?> FindTaxTypeByIdAsync (int companyId, int taxTypeId);
-		Task<Tax?> FindDefaultTaxTypeAsync (int companyId);
-		Task<CompanyMailSetup?> FindMailSettingsAsync (int companyId);
-		Task<BankAccount?> FindDefaultBankAccountAsync (int companyId);
-		Task<BankAccount?> FindBankAccountByIdAsync (int companyId, int bankAccountId);
-		Task<Contact?> FindSalesPersonByIdAsync (int companyId, int salesPersonId);
-		Task<Contact?> FindSalesPersonByUserIdAsync (int companyId, int userId);
-		Task<IList<User>> FindUsersAsync (int companyId);
+		Task<Company?> FindByIdAsync (int companyId, CancellationToken cancellationToken = default);
+		Task<Company?> FindByIdAsync (int companyId, int userId, CancellationToken cancellationToken = default);
+		Task<IList<Company?>> FindByUserIdAsync (int userId, CancellationToken cancellationToken = default);
+		Task<CompanyRegionalSetup?> FindRegionalSettingsAsync (int companyId, CancellationToken cancellationToken = default);
+		Task<CompanyImage?> FindLogoAsync (int companyId, CancellationToken cancellationToken = default);
+		Task<IList<Tax>> FindTaxTypesAsync (int companyId, CancellationToken cancellationToken = default);
+		Task<Tax?> FindTaxByIdAsync (int companyId, int taxTypeId, CancellationToken cancellationToken = default);
+		Task<Tax?> FindDefaultTaxAsync (int companyId, CancellationToken cancellationToken = default);
+		Task<CompanyMailSetup?> FindMailSettingsAsync (int companyId, CancellationToken cancellationToken = default);
+		Task<BankAccount?> FindDefaultBankAccountAsync (int companyId, CancellationToken cancellationToken = default);
+		Task<BankAccount?> FindBankAccountByIdAsync (int companyId, int bankAccountId, CancellationToken cancellationToken = default);
+		Task<Contact?> FindSalesPersonByIdAsync (int companyId, int salesPersonId, CancellationToken cancellationToken = default);
+		Task<Contact?> FindSalesPersonByUserIdAsync (int companyId, int userId, CancellationToken cancellationToken = default);
+		Task<IList<User>> FindUsersAsync (int companyId, CancellationToken cancellationToken = default);
 
 		/***********************************************************************************************************************************
          ****** INSERT TRANSACTIONS
          ***********************************************************************************************************************************/
-		Task<TransactionResult<Company>> CreateAsync (Company company);
-		Task<TransactionResult<Tax>> CreateTaxTypeAsync (Company company, Tax taxType);
-		Task<TransactionResult<Contact>> CreateSalesPersonAsync (Company company, Contact contact);
-		Task<TransactionResult<BankAccount>> CreateBankAccountAsync (Company company, BankAccount bankAccount);
-		Task<TransactionResult<CompanyImage>> CreateLogoAsync (Company company, CompanyImage image);
+		Task<Result<Tax>> CreateTaxTypeAsync (Company company, Tax taxType);
+		Task<Result<Contact>> CreateSalesPersonAsync (Company company, Contact contact);
+		Task<Result<BankAccount>> CreateBankAccountAsync (Company company, BankAccount bankAccount);
+		Task<Result<CompanyImage>> CreateLogoAsync (Company company, CompanyImage image);
+		Task<Result<Company>> CreateAsync (Company company);
 
 		/***********************************************************************************************************************************
          ****** UPDATE TRANSACTIONS
          ***********************************************************************************************************************************/
-		Task<TransactionResult<CompanyRegionalSetup>> UpdateRegionalSettingsAsync (CompanyRegionalSetup regionalSettings);
-		Task<TransactionResult<CompanyDefaultBankAccount>> UpdateDefaultTaxTypeAsync (CompanyDefaultTaxType defaultTaxType);
-		Task<TransactionResult<Tax>> UpdateTaxTypeAsync (Tax taxType);
-		Task<TransactionResult<CompanyImage>> UpdateLogoAsync (CompanyImage companyImage);
-		Task<TransactionResult> UpdateMailSettingsAsync (CompanyMailSetup mailSettings);
-		Task<TransactionResult<SupplierSetup>> UpdateSupplierSetupAsync (SupplierSetup supplierSetup);
-		Task<TransactionResult<CustomerSetup>> UpdateCustomerSetupAsync (CustomerSetup customerSetup);
-		Task<TransactionResult<ItemSetup>> UpdateItemSetupAsync (ItemSetup itemSetup);
-		Task<TransactionResult<DocumentSetup>> UpdateDocumentSetupAsync (DocumentSetup documentSetup);
-		Task<TransactionResult<BankAccount>> UpdateBankAccountAsync (BankAccount bankAccount);
+		Task<Result<CompanyRegionalSetup>> UpdateRegionalSettingsAsync (CompanyRegionalSetup regionalSettings, CancellationToken cancellationToken = default);
+		Task<Result<Tax>> UpdateTaxAsync (Tax tax, CancellationToken cancellationToken = default);
+		Task<Result<CompanyImage>> UpdateLogoAsync (CompanyImage companyImage, CancellationToken cancellationToken = default);
+		Task<Result> UpdateMailSettingsAsync (CompanyMailSetup mailSettings, CancellationToken cancellationToken = default);
+		Task<Result<SupplierSetup>> UpdateSupplierSetupAsync (SupplierSetup supplierSetup, CancellationToken cancellationToken = default);
+		Task<Result<CustomerSetup>> UpdateCustomerSetupAsync (CustomerSetup customerSetup, CancellationToken cancellationToken = default);
+		Task<Result<ItemSetup>> UpdateItemSetupAsync (ItemSetup itemSetup, CancellationToken cancellationToken = default);
+		Task<Result<DocumentSetup>> UpdateDocumentSetupAsync (DocumentSetup documentSetup, CancellationToken cancellationToken = default);
+		Task<Result<BankAccount>> UpdateBankAccountAsync (BankAccount bankAccount, CancellationToken cancellationToken = default);
+		Task<Result<Company>> UpdateAsync (Company company, CancellationToken cancellation = default);
 
 		/***********************************************************************************************************************************
          ****** DELETE TRANSACTIONS
          ***********************************************************************************************************************************/
-		Task<TransactionResult> DeleteSalesPersonAsync (SalesPerson salesPerson);
-		Task<TransactionResult> DeleteAsync (Company company);
-		Task<TransactionResult> DeleteTaxTypeAsync (CompanyTax companyTaxType);
-		Task<TransactionResult> DeleteBankAccountAsync (BankAccount bankAccount);
-		Task<TransactionResult> DeleteLogoAsync (CompanyLogo companyLogo);
+		Task<Result> DeleteSalesPersonAsync (SalesPerson salesPerson);
+		Task<Result> DeleteAsync (Company company);
+		Task<Result> DeleteTaxTypeAsync (CompanyTax companyTaxType);
+		Task<Result> DeleteBankAccountAsync (BankAccount bankAccount);
+		Task<Result> DeleteLogoAsync (CompanyLogo companyLogo);
 	}
 }

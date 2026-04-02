@@ -17,7 +17,7 @@ public class CompaniesModels
 		public virtual string? TelephoneNumber { get; set; }
 		public virtual string? Email { get; set; }
 		public virtual string? FaxNumber { get; set; }
-		public virtual int BusinessSector { get; set; }
+		public virtual int BusinessSectorId { get; set; }
 		public virtual string? Logo { get; set; }
 		public virtual int CurrencyId { get; set; }
 		public virtual int CountryId { get; set; }
@@ -73,7 +73,7 @@ public class CompaniesModels
 				.GreaterThan(0)
 				.WithMessage("Country is required.");
 
-			RuleFor(x => x.BusinessSector)
+			RuleFor(x => x.BusinessSectorId)
 				.GreaterThan(0)
 				.WithMessage("Business sector is required.");
 		}

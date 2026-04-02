@@ -2,6 +2,10 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 using Librebooks.Extensions.Models;
+using Librebooks.Models.Entity.AccountingSpace;
+using Librebooks.Models.Entity.CustomerSpace;
+using Librebooks.Models.Entity.DocumentSpace;
+using Librebooks.Models.Entity.SupplierSpace;
 using Librebooks.Models.Entity.SystemSpace;
 
 using Microsoft.EntityFrameworkCore;
@@ -14,11 +18,8 @@ public class Company : VersionedEntityBase
 	[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 	public virtual int Id { get; set; }
 
-	[MaxLength(50)]
-	public virtual string? UniqueNumber { get; set; }
-
 	[MaxLength(155)]
-	public virtual string UniversalId { get; set; }
+	public virtual string SecurityId { get; set; }
 
 	[Required]
 	[MaxLength(100)]
@@ -58,11 +59,15 @@ public class Company : VersionedEntityBase
 	public virtual CompanyLogo? Logo { get; set; }
 	public virtual CompanyRegionalSetup? RegionalSetup { get; set; }
 	public virtual ICollection<CompanyTax>? Taxes { get; set; }
-	public virtual CompanyDefaultTaxType? DefaultTaxType { get; set; }
+	public virtual CustomerSetup? CustomerSetup { get; set; }
+	public virtual SupplierSetup? SupplierSetup { get; set; }
+	public virtual ICollection<CompanyUser>? Users { get; set; }
+	public virtual ICollection<DocumentSetup>? DocumentSetups { get; set; }
+	public virtual ICollection<Account>? ChartOfAccounts { get; set; }
 
 	public Company () : base()
 	{
-		UniversalId = Guid.NewGuid().ToString("N").ToUpper();
+		SecurityId = Guid.NewGuid().ToString("N").ToUpper();
 	}
 
 	public static void OnModelCreating (ModelBuilder builder)

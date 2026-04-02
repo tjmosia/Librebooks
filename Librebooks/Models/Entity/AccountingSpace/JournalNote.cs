@@ -11,7 +11,7 @@ public class JournalNote
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
     public virtual int NoteId { get; set; }
-    public virtual int JournalId { get; set; }
+    public virtual int JournalEntryId { get; set; }
 
     public virtual Note? Note { get; set; }
 
@@ -19,7 +19,7 @@ public class JournalNote
     {
         builder.Entity<JournalNote>(options =>
         {
-            options.HasIndex(p => new { p.JournalId, p.NoteId })
+            options.HasIndex(p => new { p.JournalEntryId, p.NoteId })
                 .IsClustered();
         });
     }

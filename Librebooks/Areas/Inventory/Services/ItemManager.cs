@@ -19,38 +19,38 @@ namespace Librebooks.Areas.Inventory.Services
         /***************************************************************************************************
          * ADD FUNCTIONS
          ***************************************************************************************************/
-        public async Task<TransactionResult<Item>> AddItemAsync (Company company, Item item)
+        public async Task<Result<Item>> AddItemAsync (Company company, Item item)
         {
             var result = await store!.CreateAsync(company.Id!, item);
 
             if (result != null)
-                return TransactionResult<Item>.Success(result);
+                return Result<Item>.Success(result);
 
-            return TransactionResult<Item>.Failure();
+            return Result<Item>.Failure();
         }
 
-        public async Task<TransactionResult<ItemAdjustment>> AddAdjustmentAsync (Company company, ItemAdjustment adjustment)
+        public async Task<Result<ItemAdjustment>> AddAdjustmentAsync (Company company, ItemAdjustment adjustment)
         {
             // DO TRY-CATCH
             var result = await store!.CreateAdjustmentAsync(company.Id!, adjustment);
 
             if (result != null)
-                return TransactionResult<ItemAdjustment>.Success(result);
+                return Result<ItemAdjustment>.Success(result);
 
-            return TransactionResult<ItemAdjustment>.Failure();
+            return Result<ItemAdjustment>.Failure();
         }
 
         /***************************************************************************************************
          * UPDATE FUNCTIONS
          ***************************************************************************************************/
-        public async Task<TransactionResult<Item>> UpdateItemAsync (Item item)
+        public async Task<Result<Item>> UpdateItemAsync (Item item)
         {
             // DO TRY-CATCH
             var result = await store!.UpdateAsync(item);
 
             if (result != null)
-                return TransactionResult<Item>.Success(result);
-            return TransactionResult<Item>.Failure();
+                return Result<Item>.Success(result);
+            return Result<Item>.Failure();
         }
 
         /***************************************************************************************************
@@ -59,12 +59,12 @@ namespace Librebooks.Areas.Inventory.Services
          * 
          * 
          ***************************************************************************************************/
-        public async Task<TransactionResult> DeleteItemAsync (Company company, Item item)
+        public async Task<Result> DeleteItemAsync (Company company, Item item)
         {
             // DO TRY-CATCH
             await store!.DeleteItemAsync(company.Id!, item);
 
-            return TransactionResult.Success;
+            return Result.Success;
         }
 
         /***************************************************************************************************

@@ -308,3 +308,4 @@ C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net10.0\Librebooks.p
 C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net10.0\Librebooks.genruntimeconfig.cache
 C:\Users\TJmos\source\repos\Librebooks\Librebooks\obj\Debug\net10.0\ref\Librebooks.dll
 C:\Users\TJmos\source\repos\Librebooks\Librebooks\bin\Debug\net10.0\FluentValidation.dll
+C:\Users\TJmos\source\repos\Librebooks\Librebooks\bin\Debug\net10.0\Areas\Companies\Controllers\CompaniesTestData.json

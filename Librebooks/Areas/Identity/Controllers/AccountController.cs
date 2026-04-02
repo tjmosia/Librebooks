@@ -109,7 +109,7 @@ public class AccountController (
 
 			await userManager.UpdateAsync(user);
 
-			return Ok(TransactionResult<object>.Success(GenerateUserSessionDto(user)));
+			return Ok(Result<object>.Success(GenerateUserSessionDto(user)));
 		}
 		catch (Exception ex)
 		{
@@ -133,16 +133,16 @@ public class AccountController (
 		var modelState = ChangeEmailModel.Validate(model);
 
 		if (!modelState.IsValid)
-			return BadRequest(modelState.Errors.Select(p => TransactionError.Create(p.PropertyName, p.ErrorMessage)));
+			return BadRequest(modelState.Errors.Select(p => Error.Create(p.PropertyName, p.ErrorMessage)));
 
 		if (User.Identity!.Name!.Equals(model.Email!, StringComparison.OrdinalIgnoreCase))
-			return Ok(TransactionResult.Failure(
-				TransactionError.Create(nameof(model.Email), "You're already using this email.")));
+			return Ok(Result.Failure(
+				Error.Create(nameof(model.Email), "You're already using this email.")));
 
 		var _user = await userManager!.FindByEmailAsync(model.Email!);
 		if (_user != null)
-			return Ok(TransactionResult.Failure(
-				TransactionError.Create(nameof(model.Email), "This email is already in use.")));
+			return Ok(Result.Failure(
+				Error.Create(nameof(model.Email), "This email is already in use.")));
 
 
 		var user = await userManager!.FindByEmailAsync(User.Identity!.Name!);
@@ -178,11 +178,11 @@ public class AccountController (
 				RemoveAuthenticationCookie(HttpContext);
 				SetAuthenticationCookie(HttpContext, Token, ExpiryDateTime);
 
-				return Ok(TransactionResult.Success);
+				return Ok(Result.Success);
 			}
 
-			return Ok(TransactionResult.Failure(
-				TransactionError.Create(nameof(model.Email),
+			return Ok(Result.Failure(
+				Error.Create(nameof(model.Email),
 				result.Errors.FirstOrDefault()?.Description ?? "Unable to change email. Please try again.")
 			));
 		}
@@ -199,7 +199,7 @@ public class AccountController (
 	{
 		var modelState = ChangePasswordModel.Validate(input);
 		if (!modelState.IsValid)
-			return BadRequest(modelState.Errors.Select(p => TransactionError.Create(p.PropertyName, p.ErrorMessage)));
+			return BadRequest(modelState.Errors.Select(p => Error.Create(p.PropertyName, p.ErrorMessage)));
 
 		var user = await userManager!.FindByEmailAsync(User.Identity!.Name!);
 
@@ -210,32 +210,32 @@ public class AccountController (
 		}
 
 		if (input.Password == input.OldPassword)
-			return Ok(TransactionResult.Failure(
-				TransactionError.Create(nameof(input.Password), "Use a different password.")));
+			return Ok(Result.Failure(
+				Error.Create(nameof(input.Password), "Use a different password.")));
 
 		if (!await userManager.CheckPasswordAsync(user, input.OldPassword!))
-			return Ok(TransactionResult.Failure(
-				TransactionError.Create(nameof(input.OldPassword), "Incorrect password.")));
+			return Ok(Result.Failure(
+				Error.Create(nameof(input.OldPassword), "Incorrect password.")));
 
 		var result = await userManager.ChangePasswordAsync(user, input.OldPassword!, input.Password!);
 
-		TransactionResult transactionResult = TransactionResult.Success;
+		Result transactionResult = Result.Success;
 
 		if (transactionResult.Succeeded)
 			return Ok(transactionResult);
 
-		TransactionError? resultError = TransactionError.Create(nameof(input.Password), "Password doesn't meet requirements.");
+		Error? resultError = Error.Create(nameof(input.Password), "Password doesn't meet requirements.");
 
 		foreach (var error in result.Errors)
 		{
 			if (error.Code == nameof(userManager.ErrorDescriber.PasswordMismatch))
 			{
-				resultError = TransactionError.Create(nameof(input.OldPassword), "Incorrect password.");
+				resultError = Error.Create(nameof(input.OldPassword), "Incorrect password.");
 				break;
 			}
 		}
 
-		return Ok(TransactionResult.Failure(resultError));
+		return Ok(Result.Failure(resultError));
 	}
 
 	private static object GenerateUserSessionDto (User user)

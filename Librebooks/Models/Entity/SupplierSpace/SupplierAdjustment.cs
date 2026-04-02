@@ -10,23 +10,23 @@ namespace Librebooks.Models.Entity.SupplierSpace
 	public class SupplierAdjustment
 	{
 		[Key]
-		public virtual int JournalId { get; set; }
+		public virtual int JournalEntryId { get; set; }
 		public virtual int CompanyId { get; set; }
 		public virtual int SupplierId { get; set; }
 
-		public virtual Journal? Journal { get; set; }
+		public virtual JournalEntry? JournalEntry { get; set; }
 		public virtual Supplier? Supplier { get; set; }
 
 		public static void OnModelCreating (ModelBuilder builder)
 		{
 			builder.Entity<SupplierAdjustment>(options =>
 			{
-				options.HasIndex(p => new { p.CompanyId, p.SupplierId, p.JournalId })
+				options.HasIndex(p => new { p.CompanyId, p.SupplierId, p.JournalEntryId })
 					.IsClustered();
 
-				options.HasOne(p => p.Journal)
+				options.HasOne(p => p.JournalEntry)
 					.WithOne()
-					.HasForeignKey<SupplierAdjustment>(p => p.JournalId)
+					.HasForeignKey<SupplierAdjustment>(p => p.JournalEntryId)
 						.IsRequired()
 					.OnDelete(DeleteBehavior.Restrict);
 

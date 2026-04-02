@@ -9,8 +9,8 @@ namespace Librebooks.Areas.Inventory.Services
         /***************************************************************************************************
          * ADD FUNCTIONS
          ***************************************************************************************************/
-        Task<TransactionResult<ItemAdjustment>> AddAdjustmentAsync (Company company, ItemAdjustment item);
-        Task<TransactionResult<Item>> AddItemAsync (Company company, Item item);
+        Task<Result<ItemAdjustment>> AddAdjustmentAsync (Company company, ItemAdjustment item);
+        Task<Result<Item>> AddItemAsync (Company company, Item item);
 
         /***************************************************************************************************
          * GET FUNCTIONS
@@ -24,11 +24,11 @@ namespace Librebooks.Areas.Inventory.Services
         /***************************************************************************************************
          * DELETE FUNCTIONS
          ***************************************************************************************************/
-        Task<TransactionResult> DeleteItemAsync (Company company, Item item);
+        Task<Result> DeleteItemAsync (Company company, Item item);
 
         /***************************************************************************************************
          * UPDATE FUNCTIONS
          ***************************************************************************************************/
-        Task<TransactionResult<Item>> UpdateItemAsync (Item item);
+        Task<Result<Item>> UpdateItemAsync (Item item);
     }
 }

@@ -1,0 +1,21 @@
+{
+	/* CREATE COMPANY TEST DATA */
+	"legalName": "Motocoil South Africa (Pty) Ltd",
+	"BusinessSectorId": "1",
+	"regNumber": "2020/252530/17",
+	"faxNumber": "+27861153658",
+	"physicalAddress": "2225 Brakpan Road, Boksburg East Industrial, Boksburg, 1459",
+	"postalAddress": "2225 Brakpan Road, Boksburg East Industrial, Boksburg, 1459",
+	"phoneNumber": "+27737748589",
+	"emailAddress": "",
+	"vATNumber": "input.VATNumber",
+	"tradingName": "Motocoil Electric Motors",
+	"regionalSetup": {
+		"CurrencyId" :		1,
+		"CountryId" :		1,
+		"DateFormatId" :		1,
+		"DecimalMark" :		".",
+		"RoundToNearest" :		2,
+		"ThousandsSeperator" : " "
+	}
+}

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Librebooks.Core.Types;
+using Librebooks.Core.Constants;
 using Librebooks.Extensions.Models;
 using Librebooks.Models.Entity.CompanySpace;
 using Librebooks.Models.Entity.PurchasesSpace;
@@ -43,7 +43,7 @@ public class BankAccount () : VersionedEntityBase()
 	public virtual BankAccountCategory? Category { get; set; }
 	public virtual Company? Company { get; set; }
 	public virtual PaymentMethod? PaymentMethod { get; set; }
-	public virtual CompanyDefaultBankAccount? DefaultBankAccount { get; set; }
+	public virtual CompanyBankAccount? DefaultBankAccount { get; set; }
 	public virtual ICollection<SalesReceipt>? SalesReceipts { get; set; }
 	public virtual ICollection<PurchaseReceipt>? PurchaseReceipts { get; set; }
 
@@ -56,7 +56,7 @@ public class BankAccount () : VersionedEntityBase()
 
 			options.HasOne(p => p.DefaultBankAccount)
 				.WithOne(p => p.BankAccount)
-				.HasForeignKey<CompanyDefaultBankAccount>(p => p.BankAccountId)
+				.HasForeignKey<CompanyBankAccount>(p => p.BankAccountId)
 					.IsRequired()
 				.OnDelete(DeleteBehavior.Restrict);
 

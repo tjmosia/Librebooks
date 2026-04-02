@@ -10,7 +10,7 @@ public class VerificationStore (AppDbContext context)
 {
 	public async Task<VerificationRequest?> FindAsync (string email, string reason, CancellationToken cancellationToken = default)
 	{
-		return await context.VerificationRequest!
+		return await context.VerificationRequests!
 			.Where(p => p.Email == email && p.Reason == reason)
 			.FirstOrDefaultAsync(cancellationToken);
 	}
@@ -19,7 +19,7 @@ public class VerificationStore (AppDbContext context)
 	{
 		try
 		{
-			var result = context.VerificationRequest!.Update(request);
+			var result = context.VerificationRequests!.Update(request);
 			await context.SaveChangesAsync();
 
 			return result.Entity;
@@ -34,7 +34,7 @@ public class VerificationStore (AppDbContext context)
 	{
 		try
 		{
-			context.VerificationRequest!.Remove(request);
+			context.VerificationRequests!.Remove(request);
 			await context.SaveChangesAsync();
 			return true;
 		}
@@ -53,7 +53,7 @@ public class VerificationStore (AppDbContext context)
 
 		try
 		{
-			var result = await context.VerificationRequest!.AddAsync(request);
+			var result = await context.VerificationRequests!.AddAsync(request);
 			await context.SaveChangesAsync();
 			return result.Entity;
 		}

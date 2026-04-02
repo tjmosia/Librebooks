@@ -42,7 +42,7 @@ public class CompanyImage () : VersionedEntityBase()
 					.IsRequired()
 				.OnDelete(DeleteBehavior.Restrict);
 
-			options.HasMany<DocumentCompanyInfo>()
+			options.HasMany<DocumentCompanyDetail>()
 				.WithOne(p => p.Logo)
 				.HasForeignKey(p => p.LogoId)
 					.IsRequired()

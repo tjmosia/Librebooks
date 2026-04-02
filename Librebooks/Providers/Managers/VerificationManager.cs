@@ -32,7 +32,7 @@ namespace Librebooks.Providers.Managers
 		/**********************************************************************************************************************
 		 *	VerifyAsync
 		 *********************************************************************************************************************/
-		public async Task<TransactionResult<VerificationRequest>> VerifyAsync (string email, string reason, string code)
+		public async Task<Result<VerificationRequest>> VerifyAsync (string email, string reason, string code)
 		{
 			var request = await store.FindAsync(email, reason);
 
@@ -48,17 +48,17 @@ namespace Librebooks.Providers.Managers
 						request.Attempts += 1;
 						request.RefreshConcurrencyToken();
 						await store.UpdateAsync(request);
-						return TransactionResult<VerificationRequest>.Failure(TransactionError.Create("Code", "Code is invalid."));
+						return Result<VerificationRequest>.Failure(Error.Create("Code", "Code is invalid."));
 					}
 					await store.DeleteAsync(request);
 				}
 				else
 				{
-					return TransactionResult<VerificationRequest>.Success(request);
+					return Result<VerificationRequest>.Success(request);
 				}
 			}
 
-			return TransactionResult<VerificationRequest>.Failure(TransactionError.Create("", "Request a new verification code."));
+			return Result<VerificationRequest>.Failure(Error.Create("", "Request a new verification code."));
 		}
 
 		private static string GenerateHashString (string email, string reason, string code)

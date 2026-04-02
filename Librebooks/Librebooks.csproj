@@ -71,6 +71,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Models\Account\DataTransferObjects\" />
+    <Folder Include="Test-Data\" />
   </ItemGroup>
 
 </Project>

@@ -52,16 +52,16 @@ public class AuthController (UserManagerExtension userManager,
 		var validation = LoginModel.Validate(input);
 
 		if (!validation.IsValid)
-			return BadRequest(validation.Errors.Select(p => TransactionError.Create(p.PropertyName, p.ErrorMessage)));
+			return BadRequest(validation.Errors.Select(p => Error.Create(p.PropertyName, p.ErrorMessage)));
 
 		var user = await userManager!.FindByEmailAsync(input.Email!);
 
 		if (user == null)
-			return Ok(TransactionResult.Failure(TransactionError.Create(nameof(input.Email),
+			return Ok(Result.Failure(Error.Create(nameof(input.Email),
 					IdentityErrorDescriptions.InvalidEmail)));
 
 		if (!user.EmailConfirmed)
-			return Ok(TransactionResult.Failure(TransactionError.Create("Unverified", "true")));
+			return Ok(Result.Failure(Error.Create("Unverified", "true")));
 
 		var result = await signInManager!.CheckPasswordSignInAsync(user, input.Password!, false);
 
@@ -79,12 +79,12 @@ public class AuthController (UserManagerExtension userManager,
 			var claims = await userManager.GetClaimsAsync(user);
 			var roles = await userManager.GetUserRolesAsync(user);
 
-			return Ok(TransactionResult<object>
+			return Ok(Result<object>
 				.Success(new LoginDto(user, [.. roles], [.. claims])));
 		}
 		else
 		{
-			return Ok(TransactionResult.Failure(TransactionError.Create(nameof(input.Password),
+			return Ok(Result.Failure(Error.Create(nameof(input.Password),
 					IdentityErrorDescriptions.PasswordMismatch)));
 		}
 	}
@@ -95,17 +95,17 @@ public class AuthController (UserManagerExtension userManager,
 		var modelState = RegisterModel.Validate(input);
 
 		if (!modelState.IsValid)
-			return BadRequest(modelState.Errors.Select(p => TransactionError.Create(p.PropertyName, p.ErrorMessage)));
+			return BadRequest(modelState.Errors.Select(p => Error.Create(p.PropertyName, p.ErrorMessage)));
 
 		var user = await userManager!.FindByEmailAsync(input.Email!);
 
 		if (user != null)
-			return Ok(TransactionResult.Failure(TransactionError.Create(nameof(input.Email), IdentityErrorDescriptions.DuplicateEmail)));
+			return Ok(Result.Failure(Error.Create(nameof(input.Email), IdentityErrorDescriptions.DuplicateEmail)));
 
 		var verifyEmail = await verificationManager.VerifyAsync(input.Email!, EmailVerificationTypes.Registration, input.Code!);
 
 		if (!verifyEmail.Succeeded)
-			return Ok(TransactionResult.Failure([.. verifyEmail.Errors.Select(p => TransactionError.Create(nameof(input.Code), p.Description))]));
+			return Ok(Result.Failure([.. verifyEmail.Errors.Select(p => Error.Create(nameof(input.Code), p.Description))]));
 
 		user = new User
 		{
@@ -129,7 +129,7 @@ public class AuthController (UserManagerExtension userManager,
 			user = await userManager.FindByEmailAsync(user.Email);
 
 			if (user == null)
-				return Ok(TransactionResult.Failure(TransactionError.Create("", "Something went wrong. Please try again later.")));
+				return Ok(Result.Failure(Error.Create("", "Something went wrong. Please try again later.")));
 
 			await userManager.AddClaimAsync(user!, new Claim(ClaimTypes.Name, user!.Email!));
 
@@ -142,28 +142,28 @@ public class AuthController (UserManagerExtension userManager,
 			var claims = await userManager.GetClaimsAsync(user);
 			var roles = await userManager.GetUserRolesAsync(user);
 
-			return Ok(TransactionResult<object>
+			return Ok(Result<object>
 				.Success(new LoginDto(user, [.. roles], [.. claims])));
 		}
 		else
 		{
-			IList<TransactionError> errors = [];
+			IList<Error> errors = [];
 
 			if (createResult.Errors.Any())
 				foreach (var error in createResult.Errors)
 				{
 					if (error.Code == nameof(userManager.ErrorDescriber.DuplicateEmail)
 						&& errors.FirstOrDefault(p => p.Code == nameof(input.Email)) == null)
-						errors.Add(new TransactionError(nameof(input.Email), IdentityErrorDescriptions.DuplicateEmail));
+						errors.Add(new Error(nameof(input.Email), IdentityErrorDescriptions.DuplicateEmail));
 
 					if (error.Code.Contains("Password")
 						&& errors.FirstOrDefault(p => p.Code == nameof(input.Password)) == null)
-						errors.Add(new TransactionError(nameof(input.Password), IdentityErrorDescriptions.PasswordWeak));
+						errors.Add(new Error(nameof(input.Password), IdentityErrorDescriptions.PasswordWeak));
 				}
 			else
-				errors.Add(new TransactionError("", "Unable to register user. Please try again."));
+				errors.Add(new Error("", "Unable to register user. Please try again."));
 
-			return Ok(TransactionResult.Failure([.. errors]));
+			return Ok(Result.Failure([.. errors]));
 		}
 	}
 
@@ -173,12 +173,12 @@ public class AuthController (UserManagerExtension userManager,
 		var validation = ResetPasswordModel.Validate(input);
 
 		if (!validation.IsValid)
-			return BadRequest(validation.Errors.Select(p => TransactionError.Create(p.PropertyName, p.ErrorMessage)));
+			return BadRequest(validation.Errors.Select(p => Error.Create(p.PropertyName, p.ErrorMessage)));
 
 		var verifyEmail = await verificationManager.VerifyAsync(input.Email!, EmailVerificationTypes.PasswordReset, input.Code!);
 
 		if (!verifyEmail.Succeeded)
-			return Ok(TransactionResult.Failure([.. verifyEmail.Errors.Select(p => TransactionError.Create(nameof(input.Code), p.Description))]));
+			return Ok(Result.Failure([.. verifyEmail.Errors.Select(p => Error.Create(nameof(input.Code), p.Description))]));
 
 		var user = await userManager!.FindByEmailAsync(input.Email!);
 
@@ -188,7 +188,7 @@ public class AuthController (UserManagerExtension userManager,
 		var result = await userManager.CheckPasswordAsync(user, input.Password!);
 
 		if (result)
-			return Ok(TransactionResult.Failure(TransactionError.Create(nameof(input.Password), "You are already using this password.")));
+			return Ok(Result.Failure(Error.Create(nameof(input.Password), "You are already using this password.")));
 
 		var resetPasswordToken = await userManager.GeneratePasswordResetTokenAsync(user);
 		var resetPasswordResult = await userManager.ResetPasswordAsync(user, resetPasswordToken, input.Password!);
@@ -196,13 +196,13 @@ public class AuthController (UserManagerExtension userManager,
 		if (resetPasswordResult.Succeeded)
 		{
 			await verificationStore.DeleteAsync(verifyEmail.Model!);
-			return Ok(TransactionResult.Success);
+			return Ok(Result.Success);
 		}
 
 		foreach (var error in resetPasswordResult.Errors)
 			logger!.LogInformation("Model Error: Code: {code} - Message: {description}", error.Code, error.Description);
 
-		return Ok(TransactionResult.Failure(TransactionError.Create(nameof(input.Password), "Password doesn't meet requirements.")));
+		return Ok(Result.Failure(Error.Create(nameof(input.Password), "Password doesn't meet requirements.")));
 	}
 
 	[HttpPost]

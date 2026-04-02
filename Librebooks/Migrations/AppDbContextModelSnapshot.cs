@@ -36,6 +36,7 @@ namespace Librebooks.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
@@ -54,7 +55,7 @@ namespace Librebooks.Migrations
                     b.Property<bool>("System")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TaxTypeId")
+                    b.Property<int>("TaxId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -63,7 +64,7 @@ namespace Librebooks.Migrations
 
                     b.HasIndex("ParentAccountId");
 
-                    b.HasIndex("TaxTypeId");
+                    b.HasIndex("TaxId");
 
                     b.HasIndex("CompanyId", "CategoryId")
                         .HasAnnotation("SqlServer:Clustered", true);
@@ -92,7 +93,7 @@ namespace Librebooks.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AccountCashFlowType");
+                    b.ToTable("AccountCashFlowTypes");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.AccountingSpace.AccountCategory", b =>
@@ -128,7 +129,7 @@ namespace Librebooks.Migrations
                     b.ToTable("AccountCategory");
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.AccountingSpace.Journal", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.AccountingSpace.JournalEntry", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -165,11 +166,11 @@ namespace Librebooks.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("TaxId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<decimal>("TaxRate")
                         .HasColumnType("decimal(5,2)");
-
-                    b.Property<int>("TaxTypeId")
-                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -177,12 +178,12 @@ namespace Librebooks.Migrations
 
                     b.HasIndex("DebitAccountId");
 
-                    b.HasIndex("TaxTypeId");
+                    b.HasIndex("TaxId");
 
                     b.HasIndex("CompanyId", "Id")
                         .HasAnnotation("SqlServer:Clustered", true);
 
-                    b.ToTable("Journal");
+                    b.ToTable("JournalEntry");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.AccountingSpace.JournalNote", b =>
@@ -190,12 +191,12 @@ namespace Librebooks.Migrations
                     b.Property<int>("NoteId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("JournalId")
+                    b.Property<int>("JournalEntryId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("NoteId");
 
-                    b.HasIndex("JournalId", "NoteId")
+                    b.HasIndex("JournalEntryId", "NoteId")
                         .HasAnnotation("SqlServer:Clustered", true);
 
                     b.ToTable("JournalNote");
@@ -334,17 +335,13 @@ namespace Librebooks.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("TradingName")
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UniqueNumber")
-                        .HasMaxLength(50)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UniversalId")
+                    b.Property<string>("SecurityId")
                         .IsRequired()
                         .HasMaxLength(155)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TradingName")
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("VATNumber")
@@ -361,7 +358,7 @@ namespace Librebooks.Migrations
                     b.ToTable("Company");
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyDefaultBankAccount", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyBankAccount", b =>
                 {
                     b.Property<int>("CompanyId")
                         .HasColumnType("INTEGER");
@@ -369,28 +366,15 @@ namespace Librebooks.Migrations
                     b.Property<int>("BankAccountId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("Default")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("CompanyId");
 
                     b.HasIndex("BankAccountId")
                         .IsUnique();
 
-                    b.ToTable("CompanyDefaultBankAccount");
-                });
-
-            modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyDefaultTaxType", b =>
-                {
-                    b.Property<int>("CompanyId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("CompanyTaxTypeId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("CompanyId");
-
-                    b.HasIndex("CompanyTaxTypeId")
-                        .IsUnique();
-
-                    b.ToTable("CompanyDefaultTaxType");
+                    b.ToTable("CompanyBankAccount");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyImage", b =>
@@ -521,9 +505,6 @@ namespace Librebooks.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("NextNumber")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("NumberFormat")
                         .HasMaxLength(12)
                         .HasColumnType("TEXT");
@@ -545,7 +526,7 @@ namespace Librebooks.Migrations
                     b.ToTable("CompanySetup");
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyTaxType", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyTax", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -554,19 +535,22 @@ namespace Librebooks.Migrations
                     b.Property<int>("CompanyId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TaxTypeId")
+                    b.Property<bool>("Default")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TaxId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TaxTypeId")
+                    b.HasIndex("TaxId")
                         .IsUnique();
 
-                    b.HasIndex("CompanyId", "TaxTypeId")
+                    b.HasIndex("CompanyId", "TaxId")
                         .IsUnique()
                         .HasAnnotation("SqlServer:Clustered", true);
 
-                    b.ToTable("CompanyTaxType");
+                    b.ToTable("CompanyTax");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyUser", b =>
@@ -893,7 +877,7 @@ namespace Librebooks.Migrations
                     b.ToTable("CustomerWriteOff");
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.DocumentSpace.DocumentCompanyInfo", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.DocumentSpace.DocumentCompanyDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -949,7 +933,7 @@ namespace Librebooks.Migrations
                     b.HasIndex("CompanyId", "Id")
                         .HasAnnotation("SqlServer:Clustered", true);
 
-                    b.ToTable("DocumentCompanyInfo");
+                    b.ToTable("DocumentCompanyDetail");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.DocumentSpace.DocumentPrintTemplate", b =>
@@ -986,15 +970,12 @@ namespace Librebooks.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CompanyId")
+                    b.Property<int?>("CompanyId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FooterMessage")
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
-
-                    b.Property<short>("LeadingZeros")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("NextNumber")
                         .HasColumnType("INTEGER");
@@ -1019,26 +1000,25 @@ namespace Librebooks.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Type")
+                    b.Property<int>("TypeId")
                         .HasMaxLength(75)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
-                    b.HasKey("Id")
-                        .HasAnnotation("SqlServer:Clustered", false);
-
-                    b.HasIndex("CompanyId")
-                        .IsUnique();
+                    b.HasKey("Id");
 
                     b.HasIndex("PrintTemplateId");
+
+                    b.HasIndex("TypeId");
 
                     b.HasIndex("CompanyId", "Id")
                         .IsUnique()
                         .HasAnnotation("SqlServer:Clustered", true);
 
-                    b.ToTable("DocumentSetup", (string)null);
+                    b.ToTable("DocumentSetup");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.DocumentSpace.DocumentStatus", b =>
@@ -1064,6 +1044,36 @@ namespace Librebooks.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DocumentStatus");
+                });
+
+            modelBuilder.Entity("Librebooks.Models.Entity.DocumentSpace.DocumentType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Group")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RowVersion")
+                        .IsConcurrencyToken()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DocumentType");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.GeneralSpace.Contact", b =>
@@ -1442,7 +1452,7 @@ namespace Librebooks.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("TaxTypeId")
+                    b.Property<int>("TaxId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("UnitOfMeasure")
@@ -1456,7 +1466,7 @@ namespace Librebooks.Migrations
                     b.HasIndex("Code")
                         .IsUnique();
 
-                    b.HasIndex("TaxTypeId");
+                    b.HasIndex("TaxId");
 
                     b.HasIndex("CompanyId", "Id")
                         .IsUnique()
@@ -1656,7 +1666,7 @@ namespace Librebooks.Migrations
                     b.ToTable("ItemSetup");
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.PurchasesSpace.DocumentSupplierInfo", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.PurchasesSpace.DocumentSupplierDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1700,7 +1710,7 @@ namespace Librebooks.Migrations
                         .IsUnique()
                         .HasAnnotation("SqlServer:Clustered", true);
 
-                    b.ToTable("DocumentSupplierInfo", (string)null);
+                    b.ToTable("DocumentSupplierDetail", (string)null);
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.PurchasesSpace.PurchaseBuyer", b =>
@@ -1930,11 +1940,11 @@ namespace Librebooks.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("TaxId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<decimal>("TaxRate")
                         .HasColumnType("decimal(5,2)");
-
-                    b.Property<int>("TaxTypeId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Unit")
                         .IsRequired()
@@ -1945,7 +1955,7 @@ namespace Librebooks.Migrations
 
                     b.HasIndex("ItemCode");
 
-                    b.HasIndex("TaxTypeId");
+                    b.HasIndex("TaxId");
 
                     b.ToTable("PurchaseLine");
                 });
@@ -2086,7 +2096,7 @@ namespace Librebooks.Migrations
                     b.ToTable("PurchaseReturn");
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.SalesSpace.DocumentCustomerInfo", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.SalesSpace.DocumentCustomerDetails", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2126,7 +2136,7 @@ namespace Librebooks.Migrations
                         .IsUnique()
                         .HasAnnotation("SqlServer:Clustered", true);
 
-                    b.ToTable("DocumentCustomerInfo");
+                    b.ToTable("DocumentCustomerDetails");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.SalesSpace.SalesCredit", b =>
@@ -2399,11 +2409,11 @@ namespace Librebooks.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("TaxId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<decimal>("TaxRate")
                         .HasColumnType("decimal(5,2)");
-
-                    b.Property<int>("TaxTypeId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Unit")
                         .HasMaxLength(20)
@@ -2415,7 +2425,7 @@ namespace Librebooks.Migrations
 
                     b.HasIndex("ItemId");
 
-                    b.HasIndex("TaxTypeId");
+                    b.HasIndex("TaxId");
 
                     b.ToTable("SalesLine");
                 });
@@ -2641,9 +2651,9 @@ namespace Librebooks.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("VendorNumber")
+                    b.Property<int?>("VendorNumber")
                         .HasMaxLength(50)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -2684,7 +2694,7 @@ namespace Librebooks.Migrations
 
             modelBuilder.Entity("Librebooks.Models.Entity.SupplierSpace.SupplierAdjustment", b =>
                 {
-                    b.Property<int>("JournalId")
+                    b.Property<int>("JournalEntryId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("CompanyId")
@@ -2693,11 +2703,11 @@ namespace Librebooks.Migrations
                     b.Property<int>("SupplierId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("JournalId");
+                    b.HasKey("JournalEntryId");
 
                     b.HasIndex("SupplierId");
 
-                    b.HasIndex("CompanyId", "SupplierId", "JournalId")
+                    b.HasIndex("CompanyId", "SupplierId", "JournalEntryId")
                         .HasAnnotation("SqlServer:Clustered", true);
 
                     b.ToTable("SupplierAdjustment");
@@ -3035,7 +3045,7 @@ namespace Librebooks.Migrations
                     b.ToTable("ShippingTerm");
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.SystemSpace.TaxType", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.SystemSpace.Tax", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -3063,10 +3073,7 @@ namespace Librebooks.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
-                        .IsUnique();
-
-                    b.ToTable("TaxType");
+                    b.ToTable("Tax");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.AccountingSpace.Account", b =>
@@ -3078,7 +3085,7 @@ namespace Librebooks.Migrations
                         .IsRequired();
 
                     b.HasOne("Librebooks.Models.Entity.CompanySpace.Company", null)
-                        .WithMany()
+                        .WithMany("ChartOfAccounts")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -3089,9 +3096,9 @@ namespace Librebooks.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTaxType", "TaxType")
+                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTax", "Tax")
                         .WithMany()
-                        .HasForeignKey("TaxTypeId")
+                        .HasForeignKey("TaxId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -3099,7 +3106,7 @@ namespace Librebooks.Migrations
 
                     b.Navigation("ParentAccount");
 
-                    b.Navigation("TaxType");
+                    b.Navigation("Tax");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.AccountingSpace.AccountCategory", b =>
@@ -3113,7 +3120,7 @@ namespace Librebooks.Migrations
                     b.Navigation("CashFlowType");
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.AccountingSpace.Journal", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.AccountingSpace.JournalEntry", b =>
                 {
                     b.HasOne("Librebooks.Models.Entity.CompanySpace.Company", "Company")
                         .WithMany()
@@ -3133,9 +3140,9 @@ namespace Librebooks.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTaxType", "TaxType")
+                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTax", "Tax")
                         .WithMany()
-                        .HasForeignKey("TaxTypeId")
+                        .HasForeignKey("TaxId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -3145,14 +3152,14 @@ namespace Librebooks.Migrations
 
                     b.Navigation("DebitAccount");
 
-                    b.Navigation("TaxType");
+                    b.Navigation("Tax");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.AccountingSpace.JournalNote", b =>
                 {
-                    b.HasOne("Librebooks.Models.Entity.AccountingSpace.Journal", null)
+                    b.HasOne("Librebooks.Models.Entity.AccountingSpace.JournalEntry", null)
                         .WithMany("Notes")
-                        .HasForeignKey("JournalId")
+                        .HasForeignKey("JournalEntryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -3203,40 +3210,23 @@ namespace Librebooks.Migrations
                     b.Navigation("BusinessSector");
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyDefaultBankAccount", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyBankAccount", b =>
                 {
                     b.HasOne("Librebooks.Models.Entity.BankingSpace.BankAccount", "BankAccount")
                         .WithOne("DefaultBankAccount")
-                        .HasForeignKey("Librebooks.Models.Entity.CompanySpace.CompanyDefaultBankAccount", "BankAccountId")
+                        .HasForeignKey("Librebooks.Models.Entity.CompanySpace.CompanyBankAccount", "BankAccountId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Librebooks.Models.Entity.CompanySpace.Company", "Company")
                         .WithOne()
-                        .HasForeignKey("Librebooks.Models.Entity.CompanySpace.CompanyDefaultBankAccount", "CompanyId")
+                        .HasForeignKey("Librebooks.Models.Entity.CompanySpace.CompanyBankAccount", "CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("BankAccount");
 
                     b.Navigation("Company");
-                });
-
-            modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyDefaultTaxType", b =>
-                {
-                    b.HasOne("Librebooks.Models.Entity.CompanySpace.Company", null)
-                        .WithOne()
-                        .HasForeignKey("Librebooks.Models.Entity.CompanySpace.CompanyDefaultTaxType", "CompanyId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTaxType", "CompanyTaxType")
-                        .WithOne("CompanyDefaultTaxType")
-                        .HasForeignKey("Librebooks.Models.Entity.CompanySpace.CompanyDefaultTaxType", "CompanyTaxTypeId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("CompanyTaxType");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyImage", b =>
@@ -3279,7 +3269,7 @@ namespace Librebooks.Migrations
             modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyRegionalSetup", b =>
                 {
                     b.HasOne("Librebooks.Models.Entity.CompanySpace.Company", "Company")
-                        .WithOne()
+                        .WithOne("RegionalSetup")
                         .HasForeignKey("Librebooks.Models.Entity.CompanySpace.CompanyRegionalSetup", "CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -3311,17 +3301,17 @@ namespace Librebooks.Migrations
                     b.Navigation("DateFormat");
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyTaxType", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyTax", b =>
                 {
                     b.HasOne("Librebooks.Models.Entity.CompanySpace.Company", null)
-                        .WithMany()
+                        .WithMany("Taxes")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Librebooks.Models.Entity.SystemSpace.TaxType", "TaxType")
+                    b.HasOne("Librebooks.Models.Entity.SystemSpace.Tax", "TaxType")
                         .WithOne()
-                        .HasForeignKey("Librebooks.Models.Entity.CompanySpace.CompanyTaxType", "TaxTypeId")
+                        .HasForeignKey("Librebooks.Models.Entity.CompanySpace.CompanyTax", "TaxId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -3331,7 +3321,7 @@ namespace Librebooks.Migrations
             modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyUser", b =>
                 {
                     b.HasOne("Librebooks.Models.Entity.CompanySpace.Company", "Company")
-                        .WithMany()
+                        .WithMany("Users")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -3427,7 +3417,7 @@ namespace Librebooks.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Librebooks.Models.Entity.SystemSpace.TaxType", "TaxType")
+                    b.HasOne("Librebooks.Models.Entity.SystemSpace.Tax", "TaxType")
                         .WithMany()
                         .HasForeignKey("TaxTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3484,22 +3474,22 @@ namespace Librebooks.Migrations
             modelBuilder.Entity("Librebooks.Models.Entity.CustomerSpace.CustomerSetup", b =>
                 {
                     b.HasOne("Librebooks.Models.Entity.CompanySpace.Company", null)
-                        .WithOne()
+                        .WithOne("CustomerSetup")
                         .HasForeignKey("Librebooks.Models.Entity.CustomerSpace.CustomerSetup", "CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.DocumentSpace.DocumentCompanyInfo", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.DocumentSpace.DocumentCompanyDetail", b =>
                 {
                     b.HasOne("Librebooks.Models.Entity.CompanySpace.Company", null)
                         .WithOne()
-                        .HasForeignKey("Librebooks.Models.Entity.DocumentSpace.DocumentCompanyInfo", "CompanyId")
+                        .HasForeignKey("Librebooks.Models.Entity.DocumentSpace.DocumentCompanyDetail", "CompanyId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Librebooks.Models.Entity.SystemSpace.Currency", "Currency")
                         .WithOne()
-                        .HasForeignKey("Librebooks.Models.Entity.DocumentSpace.DocumentCompanyInfo", "CurrencyId")
+                        .HasForeignKey("Librebooks.Models.Entity.DocumentSpace.DocumentCompanyDetail", "CurrencyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -3517,10 +3507,9 @@ namespace Librebooks.Migrations
             modelBuilder.Entity("Librebooks.Models.Entity.DocumentSpace.DocumentSetup", b =>
                 {
                     b.HasOne("Librebooks.Models.Entity.CompanySpace.Company", null)
-                        .WithOne()
-                        .HasForeignKey("Librebooks.Models.Entity.DocumentSpace.DocumentSetup", "CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("DocumentSetups")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Librebooks.Models.Entity.DocumentSpace.DocumentPrintTemplate", "PrintTemplate")
                         .WithMany()
@@ -3528,7 +3517,15 @@ namespace Librebooks.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Librebooks.Models.Entity.DocumentSpace.DocumentType", "Type")
+                        .WithMany()
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("PrintTemplate");
+
+                    b.Navigation("Type");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.GeneralSpace.Note", b =>
@@ -3617,9 +3614,9 @@ namespace Librebooks.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTaxType", "TaxType")
+                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTax", "TaxType")
                         .WithMany()
-                        .HasForeignKey("TaxTypeId")
+                        .HasForeignKey("TaxId")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Category");
@@ -3709,11 +3706,11 @@ namespace Librebooks.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.PurchasesSpace.DocumentSupplierInfo", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.PurchasesSpace.DocumentSupplierDetail", b =>
                 {
                     b.HasOne("Librebooks.Models.Entity.SupplierSpace.Supplier", null)
                         .WithOne()
-                        .HasForeignKey("Librebooks.Models.Entity.PurchasesSpace.DocumentSupplierInfo", "SupplierId")
+                        .HasForeignKey("Librebooks.Models.Entity.PurchasesSpace.DocumentSupplierDetail", "SupplierId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -3743,7 +3740,7 @@ namespace Librebooks.Migrations
 
             modelBuilder.Entity("Librebooks.Models.Entity.PurchasesSpace.PurchaseDocument", b =>
                 {
-                    b.HasOne("Librebooks.Models.Entity.DocumentSpace.DocumentCompanyInfo", "CompanyInfo")
+                    b.HasOne("Librebooks.Models.Entity.DocumentSpace.DocumentCompanyDetail", "CompanyInfo")
                         .WithMany()
                         .HasForeignKey("CompanyInfoId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -3755,7 +3752,7 @@ namespace Librebooks.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Librebooks.Models.Entity.PurchasesSpace.DocumentSupplierInfo", "SupplierInfo")
+                    b.HasOne("Librebooks.Models.Entity.PurchasesSpace.DocumentSupplierDetail", "SupplierInfo")
                         .WithMany()
                         .HasForeignKey("SupplierInfoId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -3866,12 +3863,12 @@ namespace Librebooks.Migrations
                         .HasPrincipalKey("Code")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTaxType", "TaxType")
+                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTax", "Tax")
                         .WithMany()
-                        .HasForeignKey("TaxTypeId")
+                        .HasForeignKey("TaxId")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.Navigation("TaxType");
+                    b.Navigation("Tax");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.PurchasesSpace.PurchaseOrder", b =>
@@ -3969,7 +3966,7 @@ namespace Librebooks.Migrations
                     b.Navigation("Document");
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.SalesSpace.DocumentCustomerInfo", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.SalesSpace.DocumentCustomerDetails", b =>
                 {
                     b.HasOne("Librebooks.Models.Entity.CustomerSpace.Customer", "Customer")
                         .WithMany()
@@ -4001,7 +3998,7 @@ namespace Librebooks.Migrations
 
             modelBuilder.Entity("Librebooks.Models.Entity.SalesSpace.SalesDocument", b =>
                 {
-                    b.HasOne("Librebooks.Models.Entity.DocumentSpace.DocumentCompanyInfo", "CompanyInfo")
+                    b.HasOne("Librebooks.Models.Entity.DocumentSpace.DocumentCompanyDetail", "CompanyInfo")
                         .WithMany()
                         .HasForeignKey("CompanyInfoId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -4018,7 +4015,7 @@ namespace Librebooks.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Librebooks.Models.Entity.SalesSpace.DocumentCustomerInfo", "CustomerInfo")
+                    b.HasOne("Librebooks.Models.Entity.SalesSpace.DocumentCustomerDetails", "CustomerInfo")
                         .WithMany()
                         .HasForeignKey("CustomerInfoId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -4188,14 +4185,14 @@ namespace Librebooks.Migrations
                         .WithMany()
                         .HasForeignKey("ItemId");
 
-                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTaxType", "TaxType")
+                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTax", "Tax")
                         .WithMany()
-                        .HasForeignKey("TaxTypeId")
+                        .HasForeignKey("TaxId")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Item");
 
-                    b.Navigation("TaxType");
+                    b.Navigation("Tax");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.SalesSpace.SalesOrder", b =>
@@ -4350,7 +4347,7 @@ namespace Librebooks.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTaxType", "TaxType")
+                    b.HasOne("Librebooks.Models.Entity.CompanySpace.CompanyTax", "TaxType")
                         .WithOne()
                         .HasForeignKey("Librebooks.Models.Entity.SupplierSpace.Supplier", "TaxTypeId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -4390,9 +4387,9 @@ namespace Librebooks.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Librebooks.Models.Entity.AccountingSpace.Journal", "Journal")
+                    b.HasOne("Librebooks.Models.Entity.AccountingSpace.JournalEntry", "JournalEntry")
                         .WithOne()
-                        .HasForeignKey("Librebooks.Models.Entity.SupplierSpace.SupplierAdjustment", "JournalId")
+                        .HasForeignKey("Librebooks.Models.Entity.SupplierSpace.SupplierAdjustment", "JournalEntryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -4402,7 +4399,7 @@ namespace Librebooks.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Journal");
+                    b.Navigation("JournalEntry");
 
                     b.Navigation("Supplier");
                 });
@@ -4453,7 +4450,7 @@ namespace Librebooks.Migrations
             modelBuilder.Entity("Librebooks.Models.Entity.SupplierSpace.SupplierSetup", b =>
                 {
                     b.HasOne("Librebooks.Models.Entity.CompanySpace.Company", null)
-                        .WithOne()
+                        .WithOne("SupplierSetup")
                         .HasForeignKey("Librebooks.Models.Entity.SupplierSpace.SupplierSetup", "CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -4464,7 +4461,7 @@ namespace Librebooks.Migrations
                     b.Navigation("SubAccounts");
                 });
 
-            modelBuilder.Entity("Librebooks.Models.Entity.AccountingSpace.Journal", b =>
+            modelBuilder.Entity("Librebooks.Models.Entity.AccountingSpace.JournalEntry", b =>
                 {
                     b.Navigation("Notes");
                 });
@@ -4480,12 +4477,21 @@ namespace Librebooks.Migrations
 
             modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.Company", b =>
                 {
-                    b.Navigation("Logo");
-                });
+                    b.Navigation("ChartOfAccounts");
 
-            modelBuilder.Entity("Librebooks.Models.Entity.CompanySpace.CompanyTaxType", b =>
-                {
-                    b.Navigation("CompanyDefaultTaxType");
+                    b.Navigation("CustomerSetup");
+
+                    b.Navigation("DocumentSetups");
+
+                    b.Navigation("Logo");
+
+                    b.Navigation("RegionalSetup");
+
+                    b.Navigation("SupplierSetup");
+
+                    b.Navigation("Taxes");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("Librebooks.Models.Entity.CustomerSpace.Customer", b =>

@@ -1,7 +1,9 @@
-﻿using Librebooks.Areas.Admin.Services;
-using Librebooks.Areas.Admin.Services.SubStores;
-using Librebooks.Areas.Companies.Services;
+﻿using Librebooks.Areas.Companies.Services;
 using Librebooks.Areas.Inventory.Services;
+using Librebooks.Areas.Systems.Services;
+using Librebooks.Areas.Systems.Services.Stores;
+
+
 //using Librebooks.Areas.Accounting.Services;
 //using Librebooks.Areas.Customers.Services;
 using Librebooks.Core.EFCore;
@@ -13,8 +15,8 @@ public static class AreaServices
 	public static void ConfigureAll (IServiceCollection services)
 	{
 		services.AddSingleton<DbErrorDescriber>();
-		services.AddScoped<SystemStore>();
-		services.AddScoped<ISystemManager, SystemManager>();
+		services.AddScoped<SystemsStore>();
+		services.AddScoped<ISystemsManager, SystemsManager>();
 		services.AddScoped<ItemStore>();
 		services.AddScoped<IItemManager, ItemManager>();
 		services.AddScoped<CountryStore>();

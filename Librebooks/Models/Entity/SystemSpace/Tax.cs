@@ -1,13 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Librebooks.Core.Types;
+using Librebooks.Core.Constants;
 using Librebooks.Extensions.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.SystemSpace;
 
 [Table(nameof(Tax))]
-[Index(nameof(Name), IsUnique = true)]
 public class Tax () : VersionedEntityBase()
 {
 	[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,6 +19,7 @@ public class Tax () : VersionedEntityBase()
 	public virtual decimal Rate { get; set; }
 
 	public virtual bool System { get; set; }
+
 	[Required, MaxLength(100)]
 	public virtual string? Type { get; set; }
 

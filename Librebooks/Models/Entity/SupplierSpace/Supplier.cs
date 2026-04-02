@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Librebooks.Core.Types;
+using Librebooks.Core.Constants;
 using Librebooks.Models.Entity.CompanySpace;
 
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +20,7 @@ public class Supplier
 	public virtual string? TradingName { get; set; }
 
 	[MaxLength(50)]
-	public virtual string? VendorNumber { get; set; }
+	public virtual int? VendorNumber { get; set; }
 
 	[MaxLength(10)]
 	public virtual string? VATRegNumber { get; set; }

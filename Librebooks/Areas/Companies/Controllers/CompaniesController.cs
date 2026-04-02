@@ -1,9 +1,9 @@
 ﻿using System.Text;
-using Librebooks.Areas.Admin.Services;
 using Librebooks.Areas.Companies.Data;
 using Librebooks.Areas.Companies.Models;
 using Librebooks.Areas.Companies.Services;
 using Librebooks.Areas.Identity.Services;
+using Librebooks.Areas.Systems.Services;
 using Librebooks.CoreLib.Operations;
 using Librebooks.Extensions.Mvc;
 using Librebooks.Models.Entity.CompanySpace;
@@ -16,13 +16,13 @@ namespace Librebooks.Areas.Companies.Controllers;
 [ApiController]
 [Route("[controller]")]
 public class CompaniesController
-	(ISystemManager sysManager,
+	(ISystemsManager sysManager,
 	ICompanyManager companyManager,
 	UserManagerExtension userManager,
 	ICompanyStore companyStore)
 	: SessionControllerBase(userManager)
 {
-	private readonly ISystemManager sysManager = sysManager;
+	private readonly ISystemsManager sysManager = sysManager;
 	private readonly ICompanyManager companyManager = companyManager;
 	private readonly ICompanyStore companyStore = companyStore;
 
@@ -37,7 +37,7 @@ public class CompaniesController
 
 		var company = await companyStore.FindByIdAsync(id, user.Id);
 
-		return company == null ? NotFound() : Ok(new CompanySummaryDto(company));
+		return company == null ? NotFound() : Ok(new CompanySummaryData(company));
 	}
 
 	[HttpPost]
@@ -47,13 +47,13 @@ public class CompaniesController
 		var validationResult = CompaniesModels.Validate(input);
 
 		if (!validationResult.IsValid)
-			return BadRequest(TransactionResult.Failure([.. validationResult.Errors.Select(p => TransactionError.Create(p.PropertyName, p.ErrorMessage))]));
+			return BadRequest(Result.Failure([.. validationResult.Errors.Select(p => Error.Create(p.PropertyName, p.ErrorMessage))]));
 
-		var taxTypes = await sysManager.GetTaxesAsync();
+		var taxes = await sysManager.GetTaxesAsync();
 
 		var company = new Company()
 		{
-			BusinessSectorId = input.BusinessSector,
+			BusinessSectorId = input.BusinessSectorId,
 			RegNumber = input.RegNumber,
 			FaxNumber = input.FaxNumber,
 			PhysicalAddress = input.PhysicalAddress,
@@ -62,6 +62,7 @@ public class CompaniesController
 			EmailAddress = input.Email,
 			VATNumber = input.VATNumber,
 			TradingName = input.TradingName,
+			LegalName = input.LegalName,
 			RegionalSetup = new()
 			{
 				CurrencyId = input.CurrencyId,
@@ -70,7 +71,13 @@ public class CompaniesController
 				DecimalMark = ".",
 				RoundToNearest = 2,
 				ThousandsSeperator = " "
-			}
+			},
+			Taxes = [..taxes.Select(p => new CompanyTax
+			{
+				TaxType = p,
+			})],
+
+
 		};
 
 		if (input.Logo != null)
@@ -88,17 +95,11 @@ public class CompaniesController
 
 		if (result.Succeeded)
 		{
-
 			return Created();
 		}
 		else
 		{
-			return Ok(TransactionResult.Failure([.. result.Errors.Select(p => TransactionError.Create(p.Code, p.Description))]));
+			return Ok(Result.Failure([.. result.Errors.Select(p => Error.Create(p.Code, p.Description))]));
 		}
-	}
-
-	private static void SetCompanyToSession (HttpContext context, int companyId)
-	{
-		context.Response.Cookies.Append(nameof(companyId), companyId.ToString());
 	}
 }

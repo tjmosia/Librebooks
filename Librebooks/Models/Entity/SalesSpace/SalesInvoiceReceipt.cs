@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using Librebooks.Core.Types;
+using Librebooks.Core.Constants;
 using Microsoft.EntityFrameworkCore;
 
 namespace Librebooks.Models.Entity.SalesSpace;

@@ -88,6 +88,7 @@ app.Use(async (context, next) =>
 		context.Response.Headers.Authorization = $"Bearer {token}";
 		Console.Write(token);
 	}
+
 	await next.Invoke(context);
 });
 app.UseAuthentication();

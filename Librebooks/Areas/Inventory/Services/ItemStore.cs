@@ -14,28 +14,28 @@ namespace Librebooks.Areas.Inventory.Services
         public async Task<Item?> CreateAsync (int companyId, Item item)
         {
             item.CompanyId = companyId;
-            var result = await context!.Item!.AddAsync(item);
+            var result = await context!.Items!.AddAsync(item);
             await context.SaveChangesAsync();
             return result.Entity;
         }
 
         public async Task<Item> UpdateAsync (Item item)
         {
-            var result = context!.Item!.Update(item);
+            var result = context!.Items!.Update(item);
             await context.SaveChangesAsync();
             return result.Entity;
         }
 
         public async Task<Item?> FindByIdAsync (int companyId, int itemId, CancellationToken cancellationToken = default)
         {
-            return await context!.Item!.Where(p => p.Id == itemId)
+            return await context!.Items!.Where(p => p.Id == itemId)
                 .Include(p => p.Inventory)
                 .FirstOrDefaultAsync(cancellationToken);
         }
 
         public async Task<IList<ItemAdjustment>> FindAdjustmentsByItemIdAsync (int companyId, int itemId, CancellationToken cancellationToken = default)
         {
-            return await context!.ItemAdjustment!
+            return await context!.ItemAdjustments!
                 .Where(p => p.ItemId == itemId && p.CompanyId == companyId)
                 .Include(p => p.Item)
                 .ToListAsync(cancellationToken);
@@ -43,7 +43,7 @@ namespace Librebooks.Areas.Inventory.Services
 
         public async Task<IList<ItemAdjustment>> FindAdjustmentsAsync (int companyId, CancellationToken cancellationToken = default)
         {
-            return await context!.ItemAdjustment!
+            return await context!.ItemAdjustments!
                 .Where(p => p.CompanyId == companyId)
                 .Include(p => p.Item)
                 .ToListAsync(cancellationToken);
@@ -51,7 +51,7 @@ namespace Librebooks.Areas.Inventory.Services
 
         public async Task<ItemAdjustment?> FindAdjustmentByIdAsync (int companyId, int adjustmentId, CancellationToken cancellationToken = default)
         {
-            return await context!.ItemAdjustment!
+            return await context!.ItemAdjustments!
                 .Where(p => p.Id == adjustmentId && p.CompanyId == companyId)
                 .Include(p => p.Item)
                 .FirstOrDefaultAsync(cancellationToken);
@@ -59,14 +59,14 @@ namespace Librebooks.Areas.Inventory.Services
 
         public async Task<Item?> FindByCodeAsync (int companyId, string itemCode, CancellationToken cancellationToken = default)
         {
-            return await context!.Item!
+            return await context!.Items!
                 .Where(p => p.Code == itemCode && p.CompanyId == companyId)
                 .FirstOrDefaultAsync(cancellationToken);
         }
 
         public async Task<IList<Item>> FindAllAsync (int companyId, CancellationToken cancellationToken = default)
         {
-            return await context!.Item!
+            return await context!.Items!
                 .Where(p => p.CompanyId == companyId)
                 .ToListAsync(cancellationToken);
         }
@@ -74,7 +74,7 @@ namespace Librebooks.Areas.Inventory.Services
         public async Task<ItemAdjustment?> CreateAdjustmentAsync (int companyId, ItemAdjustment adjustment)
         {
             adjustment.CompanyId = companyId;
-            var result = await context!.ItemAdjustment!.AddAsync(adjustment);
+            var result = await context!.ItemAdjustments!.AddAsync(adjustment);
             await context!.SaveChangesAsync();
             return result.Entity;
         }

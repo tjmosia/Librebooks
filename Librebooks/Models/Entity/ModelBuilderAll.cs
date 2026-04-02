@@ -43,15 +43,16 @@ namespace Librebooks.Models.Entity
 			/************************************************************************************************
              * Document Space
              ************************************************************************************************/
-			DocumentCompanyInfo.OnModelCreating(builder);
+			DocumentCompanyDetail.OnModelCreating(builder);
 			DocumentPrintTemplate.OnModelCreating(builder);
 			DocumentSetup.OnModelCreating(builder);
 			DocumentStatus.OnModelCreating(builder);
+			DocumentType.OnModelCreating(builder);
 
 			/************************************************************************************************
              * Sales Space
              ************************************************************************************************/
-			DocumentCustomerInfo.OnModelCreating(builder);
+			DocumentCustomerDetails.OnModelCreating(builder);
 			SalesCredit.OnModelCreating(builder);
 			SalesDocument.OnModelCreating(builder);
 			SalesDocumentLine.OnModelCreating(builder);
@@ -73,8 +74,7 @@ namespace Librebooks.Models.Entity
              * Company Space
              ************************************************************************************************/
 			Company.OnModelCreating(builder);
-			CompanyDefaultBankAccount.OnModelCreating(builder);
-			CompanyDefaultTaxType.OnModelCreating(builder);
+			CompanyBankAccount.OnModelCreating(builder);
 			CompanyImage.OnModelCreating(builder);
 			CompanyLogo.OnModelCreating(builder);
 			CompanyMailSetup.OnModelCreating(builder);
@@ -113,7 +113,7 @@ namespace Librebooks.Models.Entity
 			Account.OnModelCreating(builder);
 			AccountCategory.OnModelCreating(builder);
 			AccountCashFlowType.OnModelCreating(builder);
-			Journal.OnModelCreating(builder);
+			JournalEntry.OnModelCreating(builder);
 			JournalNote.OnModelCreating(builder);
 
 			/************************************************************************************************
@@ -130,7 +130,7 @@ namespace Librebooks.Models.Entity
 			/************************************************************************************************
              * Purchasing Space
              ************************************************************************************************/
-			DocumentSupplierInfo.OnModelCreating(builder);
+			DocumentSupplierDetail.OnModelCreating(builder);
 			PurchaseBuyer.OnModelCreating(builder);
 			PurchaseDocument.OnModelCreating(builder);
 			PurchaseDocumentLine.OnModelCreating(builder);

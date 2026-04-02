@@ -1,0 +1,8 @@
+1,Sales Quote,types/sales/document/quote,,Sales
+2,Sales Invoice,types/sales/document/invoice,,Sales
+3,Sales Order,types/sales/document/order,,Sales
+4,Sales Credit,types/sales/document/credit,,Sales
+5,Purchase Order,types/purchases/document/order,,Purchases
+6,Purchase Invoice,types/purchases/document/invoice,,Purchases
+7,Purchase Return,types/purchases/document/return,,Purchases
+8,Request For Quote,types/purchases/document/quote-request,,Purchases
